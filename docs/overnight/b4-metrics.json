@@ -1,0 +1,170 @@
+{
+  "label": "SYNTHETIC BENCHMARK - NOT REAL OBSERVATIONS",
+  "engine_settings": {
+    "uncertainty_c": 1.5,
+    "rain_attenuation": 0.5,
+    "wind_exponent": 0.2,
+    "pressure_hpa": 1013.25,
+    "surface_offsets": {
+      "natural_grass": 0,
+      "artificial_turf": 0,
+      "dirt": 0,
+      "indoor": 0
+    },
+    "age_escalation": false,
+    "cooling_min": 3,
+    "shorten_ratio": 0.75
+  },
+  "schedule_settings": {
+    "slot_min": 15,
+    "cleanup_min": 5,
+    "open_hour": 7,
+    "close_hour": 20,
+    "rest_by_age": {
+      "U10": 60,
+      "U12": 60,
+      "U15": 60,
+      "U18": 45,
+      "adult": 30,
+      "senior": 60
+    },
+    "heat_weight": 100,
+    "time_weight": 1,
+    "venue_penalty": 30,
+    "time_limit_sec": 10
+  },
+  "results": [
+    {
+      "scenario": "default_mock_hot",
+      "run": 1,
+      "teams": 16,
+      "days": 2,
+      "matches": 27,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "assigned": 2,
+      "postponed": 25,
+      "constraints_ok": true,
+      "elapsed_sec": 0.1772,
+      "preparation_sec": 0.1353,
+      "solver_wall_sec": 0.0415,
+      "engine_sec": 0.8084,
+      "original_common_heat": 1344,
+      "proposed_common_heat": 686,
+      "maximum_wbgt_c": 35.924
+    },
+    {
+      "scenario": "default_mock_hot",
+      "run": 2,
+      "teams": 16,
+      "days": 2,
+      "matches": 27,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "assigned": 2,
+      "postponed": 25,
+      "constraints_ok": true,
+      "elapsed_sec": 0.1579,
+      "preparation_sec": 0.1178,
+      "solver_wall_sec": 0.0397,
+      "engine_sec": 0.8084,
+      "original_common_heat": 1344,
+      "proposed_common_heat": 686,
+      "maximum_wbgt_c": 35.924
+    },
+    {
+      "scenario": "default_mock_hot",
+      "run": 3,
+      "teams": 16,
+      "days": 2,
+      "matches": 27,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "assigned": 2,
+      "postponed": 25,
+      "constraints_ok": true,
+      "elapsed_sec": 0.1561,
+      "preparation_sec": 0.1196,
+      "solver_wall_sec": 0.0361,
+      "engine_sec": 0.8084,
+      "original_common_heat": 1344,
+      "proposed_common_heat": 686,
+      "maximum_wbgt_c": 35.924
+    },
+    {
+      "scenario": "controlled_mild_mock",
+      "run": 1,
+      "teams": 16,
+      "days": 2,
+      "matches": 27,
+      "solver": "CP-SAT FEASIBLE",
+      "coverage_optimal": false,
+      "assigned": 27,
+      "postponed": 0,
+      "constraints_ok": true,
+      "elapsed_sec": 10.8718,
+      "preparation_sec": 0.4857,
+      "solver_wall_sec": 10.3795,
+      "engine_sec": 0.016,
+      "original_common_heat": 5164,
+      "proposed_common_heat": 2411,
+      "maximum_wbgt_c": 23.968
+    },
+    {
+      "scenario": "controlled_mild_mock",
+      "run": 2,
+      "teams": 16,
+      "days": 2,
+      "matches": 27,
+      "solver": "CP-SAT FEASIBLE",
+      "coverage_optimal": false,
+      "assigned": 27,
+      "postponed": 0,
+      "constraints_ok": true,
+      "elapsed_sec": 10.9032,
+      "preparation_sec": 0.509,
+      "solver_wall_sec": 10.3864,
+      "engine_sec": 0.016,
+      "original_common_heat": 5164,
+      "proposed_common_heat": 2407,
+      "maximum_wbgt_c": 23.968
+    },
+    {
+      "scenario": "controlled_mild_mock",
+      "run": 3,
+      "teams": 16,
+      "days": 2,
+      "matches": 27,
+      "solver": "CP-SAT FEASIBLE",
+      "coverage_optimal": false,
+      "assigned": 27,
+      "postponed": 0,
+      "constraints_ok": true,
+      "elapsed_sec": 10.8161,
+      "preparation_sec": 0.4529,
+      "solver_wall_sec": 10.356,
+      "engine_sec": 0.016,
+      "original_common_heat": 5164,
+      "proposed_common_heat": 2360,
+      "maximum_wbgt_c": 23.968
+    }
+  ],
+  "summary": [
+    {
+      "scenario": "controlled_mild_mock",
+      "median_elapsed_sec": 10.8718,
+      "max_elapsed_sec": 10.9032,
+      "statuses": [
+        "CP-SAT FEASIBLE"
+      ]
+    },
+    {
+      "scenario": "default_mock_hot",
+      "median_elapsed_sec": 0.1579,
+      "max_elapsed_sec": 0.1772,
+      "statuses": [
+        "CP-SAT OPTIMAL"
+      ]
+    }
+  ]
+}

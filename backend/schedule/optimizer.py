@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from datetime import datetime,timedelta
 from functools import lru_cache
+from time import perf_counter
 import pandas as pd
 from pvlib.solarposition import sun_rise_set_transit_spa
 from ortools.sat.python import cp_model
@@ -35,6 +36,9 @@ class OptimizationResult:
     postponement_penalty: int
     secondary_cost_upper_bound: int
     coverage_optimal: bool
+    elapsed_sec: float = 0.0
+    preparation_sec: float = 0.0
+    solver_wall_sec: float = 0.0
 
 
 def participants(matches):
@@ -103,6 +107,7 @@ class InfeasibleSchedule(ValueError):
 
 
 def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_greedy=False,required_match_ids=()):
+    started=perf_counter();solver_wall_sec=0.0;preparation_sec=0.0
     settings=settings or default_schedule_settings();engine=engine or EngineSettings();parts=participants(matches)
     origin=datetime.combine(tournament.date_start,datetime.min.time(),KST);minute=lambda t:int((t-origin).total_seconds()/60)
     rows={m.id:candidates_for(m,tournament,venues,risks,settings,engine) for m in matches};original=0
@@ -133,13 +138,16 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
                 model.add(present[m.id]<=present[dep]);model.add(starts[m.id]>=ends[dep]).only_enforce_if(present[m.id])
         for intervals in list(vi.values())+list(ti.values()):model.add_no_overlap(intervals)
         model.minimize(sum(objective));solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=settings.time_limit_sec
-        solver.parameters.num_search_workers=8;solver.parameters.random_seed=42;status=solver.solve(model)
+        solver.parameters.num_search_workers=8;solver.parameters.random_seed=42
+        preparation_sec=perf_counter()-started;solve_started=perf_counter();status=solver.solve(model)
+        solver_wall_sec=perf_counter()-solve_started
         if status == cp_model.INFEASIBLE:
             raise InfeasibleSchedule("INFEASIBLE: forced match assignment violates hard constraints")
         coverage_optimal = status == cp_model.OPTIMAL
         if status in (cp_model.OPTIMAL,cp_model.FEASIBLE):
             name='CP-SAT '+solver.status_name(status);chosen=[c for m in matches for c,p in zip(rows[m.id],picks[m.id]) if solver.boolean_value(p)]
     if name=='greedy-fallback':
+        if preparation_sec==0.0:preparation_sec=perf_counter()-started
         if required_match_ids:raise TimeoutError('Forced feasibility not proven within solver time limit')
         pending=list(matches)
         while pending:
@@ -162,7 +170,8 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
         try:original+=heat_score(risks,m.venue_id,m.scheduled_start,recommend(m,risks,engine).end)
         except MissingRisk:raise ValueError('Cannot compare exposure without original weather coverage')
     return OptimizationResult(chosen,postponed,name,original,sum(c.heat_score for c in chosen),not errors,
-                              sorted(ids),len(postponed),penalty,max(0,penalty-1),coverage_optimal)
+                              sorted(ids),len(postponed),penalty,max(0,penalty-1),coverage_optimal,
+                              perf_counter()-started,preparation_sec,solver_wall_sec)
 
 
 def forced_feasibility(match_id,matches,tournament,venues,risks,settings=None,engine=None):
