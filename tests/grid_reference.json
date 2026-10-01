@@ -1,0 +1,42 @@
+{
+  "source": "https://www.weather.go.kr/w/resources/js/fn.js",
+  "accessed": "2026-10-01",
+  "basis": "Outputs executed from the official convertDfsGrid function; not independently published coordinate pairs",
+  "cases": [
+    {
+      "lat": 38,
+      "lon": 126,
+      "lng": 126,
+      "x": 43,
+      "y": 136
+    },
+    {
+      "lat": 37.5665,
+      "lon": 126.978,
+      "lng": 126.978,
+      "x": 60,
+      "y": 127
+    },
+    {
+      "lat": 37.2636,
+      "lon": 127.0286,
+      "lng": 127.0286,
+      "x": 61,
+      "y": 120
+    },
+    {
+      "lat": 35.1796,
+      "lon": 129.0756,
+      "lng": 129.0756,
+      "x": 98,
+      "y": 76
+    },
+    {
+      "lat": 33.4996,
+      "lon": 126.5312,
+      "lng": 126.5312,
+      "x": 53,
+      "y": 38
+    }
+  ]
+}

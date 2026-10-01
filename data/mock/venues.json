@@ -1,0 +1,5 @@
+[
+  {"id":"mock-suwon-a","name":"수원 가상 구장 A · 가상 예시","lat":37.2636,"lon":127.0286,"surface":"natural_grass","asos_station_id":"mock-station-suwon","is_mock":true},
+  {"id":"mock-suwon-b","name":"수원 가상 구장 B · 가상 예시","lat":37.285,"lon":127.015,"surface":"artificial_turf","asos_station_id":"mock-station-suwon","is_mock":true},
+  {"id":"mock-suwon-c","name":"수원 가상 구장 C · 가상 예시","lat":37.245,"lon":127.055,"surface":"dirt","asos_station_id":"mock-station-suwon","is_mock":true}
+]

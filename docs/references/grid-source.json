@@ -1,0 +1,7 @@
+{
+  "url": "https://www.weather.go.kr/w/resources/js/fn.js",
+  "accessed": "2026-10-01",
+  "function": "convertDfsGrid",
+  "full_response_sha256": "5b0e4e161a81da54f2763c36a5028cacb2afa7258bb31d542b7de630c52c8461",
+  "note": "공식 공개 함수의 검토용 발췌. 배포 전 재사용 조건 확인 필요."
+}
