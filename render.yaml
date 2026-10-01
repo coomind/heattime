@@ -1,0 +1,13 @@
+# Prepared only. No service/account has been created by this task.
+services:
+  - type: web
+    name: heattime-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: MPLBACKEND
+        value: Agg

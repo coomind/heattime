@@ -1,0 +1,16 @@
+﻿id,round,team_a,team_b,venue_id,scheduled_start,duration_min,halves,half_break_min,depends_on
+g1-1,조별 1조,t1,t2,mock-suwon-a,2026-08-01T10:00:00+09:00,40,2,5,
+g1-2,조별 1조,t2,t3,mock-suwon-a,2026-08-01T12:00:00+09:00,40,2,5,
+g1-3,조별 1조,t1,t3,mock-suwon-a,2026-08-01T14:00:00+09:00,40,2,5,
+g2-1,조별 2조,t4,t5,mock-suwon-b,2026-08-01T10:15:00+09:00,40,2,5,
+g2-2,조별 2조,t5,t6,mock-suwon-b,2026-08-01T12:15:00+09:00,40,2,5,
+g2-3,조별 2조,t4,t6,mock-suwon-b,2026-08-01T14:15:00+09:00,40,2,5,
+g3-1,조별 3조,t7,t8,mock-suwon-c,2026-08-01T10:30:00+09:00,40,2,5,
+g3-2,조별 3조,t8,t9,mock-suwon-c,2026-08-01T12:30:00+09:00,40,2,5,
+g3-3,조별 3조,t7,t9,mock-suwon-c,2026-08-01T14:30:00+09:00,40,2,5,
+g4-1,조별 4조,t10,t11,mock-suwon-a,2026-08-01T10:45:00+09:00,40,2,5,
+g4-2,조별 4조,t11,t12,mock-suwon-a,2026-08-01T12:45:00+09:00,40,2,5,
+g4-3,조별 4조,t10,t12,mock-suwon-a,2026-08-01T14:45:00+09:00,40,2,5,
+semi1,준결승,winner:group1,winner:group2,mock-suwon-a,2026-08-01T16:00:00+09:00,40,2,5,g1-1;g1-2;g1-3;g2-1;g2-2;g2-3
+semi2,준결승,winner:group3,winner:group4,mock-suwon-b,2026-08-01T16:00:00+09:00,40,2,5,g3-1;g3-2;g3-3;g4-1;g4-2;g4-3
+final,결승,winner:semi1,winner:semi2,mock-suwon-a,2026-08-01T18:00:00+09:00,40,2,5,semi1;semi2

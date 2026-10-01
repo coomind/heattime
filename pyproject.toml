@@ -20,4 +20,4 @@ testpaths = ["tests"]
 pythonpath = ["."]
 
 [tool.setuptools.package-data]
-backend = ["config/*.yaml"]
+backend = ["config/*.yaml", "assets/fonts/*.ttf", "assets/fonts/*.txt"]

@@ -13,6 +13,7 @@ from backend.schedule.models import Tournament,Team,Match,ScheduleSettings
 from backend.schedule.demo import demo_tournament
 from backend.schedule.recommend import recommend
 from backend.schedule.optimizer import optimize,Candidate,validate,candidates_for,participants
+from backend.notifications import build_notifications
 
 class Service:
     def __init__(self,repo):
@@ -107,9 +108,6 @@ class Service:
                       'proposal_id':proposal['id'],'snapshot':{k:s[k] for k in ['tournament','venues','teams','matches','weather','risks','policy','recommendations','engine_settings','schedule_settings']},
                       'assignments':selected if action!='rejected' else [],'postponed':proposal['postponed'] if action!='rejected' else []}
             s['decision']=jsonable_encoder(decision)
-            if action!='rejected':
-                for a in selected:
-                    s['notifications'].append({'id':uuid4().hex,'match_id':a['match_id'],'sent_at':datetime.now(KST),
-                        'channel':'mock','label':'가상 예시 · 모의 발송','message':f"가상 예시: {a['match_id']} 변경 킥오프 {a['start']} / 구장 {a['venue_id']} / 쿨링브레이크 {a['cooling_times']} / 수분 보충 안내"})
+            s['notifications']=build_notifications(s)
             self.repo.put('sessions',id,s,conn);self.repo.put('decisions',uuid4().hex,s['decision'],conn)
         return self.repo.get('sessions',id)

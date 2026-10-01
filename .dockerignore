@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.git
+.venv
+**/__pycache__
+.pytest_cache
+*.egg-info
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+data/**
+!data/mock/
+!data/mock/**
+docs/presentation
