@@ -1,0 +1,15 @@
+lwbgt project-authored portions:
+Copyright 2026 Yifei Zheng. Licensed under the Apache License, Version 2.0.
+
+lwbgt contains a modified derivative of Liljegren WBGT v1.1. The derivative
+modifications are maintained by Yifei Zheng and remain subject to the
+upstream licence identified in LICENSING.md.
+
+Required acknowledgement from the upstream source licence:
+
+"This product includes software produced by UChicago Argonne, LLC
+under Contract No. DE-AC02-06CH11357 with the Department of Energy.”
+
+Neither the names of UChicago Argonne, LLC, the Department of Energy, nor the
+upstream contributors may be used to endorse or promote this project without
+specific prior written permission.

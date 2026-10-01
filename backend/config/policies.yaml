@@ -1,0 +1,18 @@
+# 명세 2.5(D)의 기준. 원문 대조 필요 표시를 유지한다.
+# 2026-10-01 아래 원문과 대조했으나 국내 대회 적용 전 전문가 검토 필요.
+general:
+  name: 일반 운동 · 일본 스포츠협회 계열
+  source_ref: https://www.wbgt.env.go.jp/en/sp/wbgt.php
+  verification: 원문 대조 필요 · 2026-10-01 경계값 대조 완료
+  boundaries: [21, 25, 28, 31]
+  labels: [거의 안전, 주의, 경계, 엄중경계, 운동 중지]
+football:
+  name: 축구 · FIFPRO 권고
+  source_ref: https://media.fifpro.org/media/ltio1czh/heat-guidelines_en-1.pdf
+  verification: 원문 대조 필요 · 2026-10-01 26℃ 초과 및 28℃ 초과 대조 완료
+  cooling_above: 26
+  postpone_above: 28
+  labels: [일반, 주의, 냉각 조치, 엄중경계, 연기 권고]
+age:
+  upper_bound_groups: [U10, U12, U15, senior]
+  note: 연령 보정은 설계 가정 · 전문가 자문 필요

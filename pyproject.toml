@@ -7,10 +7,10 @@ name = "heattime"
 version = "0.1.0"
 description = "HeatTime weather ingestion and sports operation decision support"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["pvlib==0.16.1", "lwbgt==1.0.1", "ortools==9.15.6755", "PyYAML==6.0.3", "matplotlib==3.11.2", "fastapi==0.142.2", "uvicorn==0.54.0", "reportlab==5.0.1", "httpx==0.28.1"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<9"]
+dev = ["pytest>=8,<10", "pypdf>=6,<7", "pymupdf>=1.26,<2"]
 
 [tool.setuptools.packages.find]
 include = ["backend*"]
@@ -18,3 +18,6 @@ include = ["backend*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[tool.setuptools.package-data]
+backend = ["config/*.yaml"]

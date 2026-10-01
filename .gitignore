@@ -13,3 +13,7 @@ coverage/
 *.sqlite3-*
 data/samples/*
 !data/samples/README.md
+
+data/output/
+artifacts/
+.playwright/
