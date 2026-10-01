@@ -1,0 +1,25 @@
+import {test,expect} from '@playwright/test';
+import path from 'node:path';
+test('replay to approval, notifications, PDF and readonly team view',async({page},testInfo)=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/');await expect(page.getByRole('button',{name:'재현 시뮬레이션 실행 →'})).toBeEnabled();
+ const responsePromise=page.waitForResponse(r=>r.url().endsWith('/api/replays')&&r.request().method()==='POST');
+ await page.getByRole('button',{name:'재현 시뮬레이션 실행 →'}).click();const session=await (await responsePromise).json();
+ await expect(page.getByRole('heading',{name:'구장 × 시간 위험도'})).toBeVisible();
+ await expect(page.locator('.heat-row')).toHaveCount(3);await expect(page.locator('.heat-cell')).toHaveCount(42);
+ await page.screenshot({path:path.resolve('../data/output/p4/'+testInfo.project.name+'-dashboard.png'),fullPage:true});
+ await page.locator('.match-row').first().click();await expect(page.getByText('권고 반영 종료:',{exact:false})).toBeVisible();
+ await expect(page.locator('.chart')).toBeVisible();await expect(page.locator('.range').first()).toContainText('추정');
+ await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'공통 경기의 열 노출 비교'})).toBeVisible();
+ await page.getByRole('button',{name:'제안 승인',exact:true}).click();await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
+ await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();await expect(page.locator('.notification').first()).toBeVisible();
+ await page.locator('nav').getByRole('button',{name:'운영 기록'}).click();
+ const downloadPromise=page.waitForEvent('download');await page.getByRole('link',{name:'운영 기록 PDF',exact:true}).click();
+ const download=await downloadPromise;await download.saveAs(path.resolve('../data/output/p4/'+testInfo.project.name+'-record.pdf'));expect(await download.failure()).toBeNull();
+ await page.locator('nav').getByRole('button',{name:'설정'}).click();await expect(page.getByRole('heading',{name:'구장 등록·수정'})).toBeVisible();
+ await page.screenshot({path:path.resolve('../data/output/p4/'+testInfo.project.name+'-settings.png'),fullPage:true});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+ await page.goto('/#team='+session.id);await expect(page.getByRole('heading',{name:'참가팀 읽기 전용 일정'})).toBeVisible();
+ await expect(page.getByRole('button',{name:'제안 승인',exact:true})).toHaveCount(0);expect(errors).toEqual([]);
+});
