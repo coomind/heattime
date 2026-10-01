@@ -1,11 +1,20 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {createHash} from 'node:crypto';
 export default defineConfig({
  plugins:[react(),{
   name:'snapshot-precache',
   generateBundle(options,bundle){
-   const paths=['/','/index.html','/demo-assets.json',...Object.keys(bundle).map(name=>'/'+name)];
+   const paths=['/','/index.html','/demo-assets.json','/sw.js',...Object.keys(bundle).map(name=>'/'+name)];
    this.emitFile({type:'asset',fileName:'demo-assets.json',source:JSON.stringify([...new Set(paths)])});
+  },
+  writeBundle(options,bundle){
+   const entries=Object.entries(bundle).sort(([a],[b])=>a.localeCompare(b)).map(([name,item])=>[name,item.type==='asset'?String(item.source):item.code]);
+   const version=createHash('sha256').update(JSON.stringify(entries)).digest('hex');
+   const template=readFileSync(new URL('./src/demo/service-worker.template.js',import.meta.url),'utf8');
+   writeFileSync(resolve(options.dir,'sw.js'),template.replace('__HEATTIME_BUILD_ID__',version));
   }
  }],
  build:{rollupOptions:{output:{manualChunks(id){

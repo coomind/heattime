@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {ResponsiveContainer,ComposedChart,Area,Line,XAxis,YAxis,Tooltip,CartesianGrid,ReferenceLine,Legend} from 'recharts';
+import {prepareDemoCache} from './demo/prepare-cache';
 const labels=['거의 안전','주의','경계','엄중경계','운동 중지'];const icons=['○','△','!','!!','×'];
 const names={none:'수분 보충',cooling_break:'쿨링브레이크',shorten:'시간 단축',move:'시간 이동',postpone:'연기'};
 const hh=t=>t?new Date(t).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Seoul'}):'—';
@@ -34,7 +35,8 @@ export default function App(){
    const info=await api('/snapshot-info');setReason(info.reason);setSession(null);setDetail(null);setDate('2026-08-01');setTournament('demo');
    await refreshResources();
    if(routeHash==='#snapshot-team'){setSession(await api('/team-view/'+activeSnapshot.sessionId));setTab('팀 일정');}else setTab('재현 모드');
-   if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').then(()=>navigator.serviceWorker.ready).then(()=>setCacheReady(true)).catch(()=>setCacheReady(false));
+   setCacheReady(false);
+   if('serviceWorker' in navigator)prepareDemoCache().then(()=>setCacheReady(true)).catch(()=>setCacheReady(false));
   });
   else if(readonly){perform(async()=>{setSession(await api('/team-view/'+routeHash.slice(6)));setTab('팀 일정');});}
   else {activeSnapshot?.dispose();activeSnapshot=null;perform(refreshResources);}
