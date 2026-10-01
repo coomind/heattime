@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS venues (
  id TEXT PRIMARY KEY, name TEXT NOT NULL, lat REAL NOT NULL, lon REAL NOT NULL,
  kma_nx INTEGER NOT NULL, kma_ny INTEGER NOT NULL, surface TEXT NOT NULL,
  shade TEXT NOT NULL, field_offset_c REAL NOT NULL, asos_station_id TEXT,
- is_mock INTEGER NOT NULL CHECK(is_mock IN (0,1)));
+ is_mock INTEGER NOT NULL CHECK(is_mock IN (0,1)), has_lights INTEGER NOT NULL DEFAULT 0);
 CREATE TABLE IF NOT EXISTS weather_points (
  venue_id TEXT NOT NULL REFERENCES venues(id), valid_time TEXT NOT NULL,
  source TEXT NOT NULL CHECK(source IN ('kma_fcst','asos_obs')),
@@ -34,6 +34,8 @@ class WeatherStore:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.connect() as conn:
             conn.executescript(SCHEMA)
+            if "has_lights" not in {r[1] for r in conn.execute("PRAGMA table_info(venues)")}:
+                conn.execute("ALTER TABLE venues ADD COLUMN has_lights INTEGER NOT NULL DEFAULT 0")
 
     @contextmanager
     def connect(self):

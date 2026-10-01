@@ -1,0 +1,10 @@
+# 운영 규칙의 시연 기본값. 휴식·가중치는 전문가 및 운영자 확인 필요.
+slot_min: 15
+cleanup_min: 5
+open_hour: 7
+close_hour: 20
+rest_by_age: {U10: 60, U12: 60, U15: 60, U18: 45, adult: 30, senior: 60}
+heat_weight: 100
+time_weight: 1
+venue_penalty: 30
+time_limit_sec: 10

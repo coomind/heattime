@@ -28,6 +28,7 @@ class Venue:
     field_offset_c: float = 2.5
     asos_station_id: str | None = None
     is_mock: bool = True
+    has_lights: bool = False
 
     def __post_init__(self):
         if not self.id or not self.name:
