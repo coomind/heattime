@@ -24,7 +24,7 @@ test('snapshot completes without API and survives fully offline reload',async({p
  await page.locator('nav').getByRole('button',{name:'운영 기록'}).click();
  const pending=page.waitForEvent('download');await page.getByRole('link',{name:'운영 기록 PDF',exact:true}).click();
  const download=await pending;expect(await download.failure()).toBeNull();
- await download.saveAs(path.resolve('../data/output/overnight/'+testInfo.project.name+'-snapshot.pdf'));
+ await download.saveAs(path.resolve('../data/output/overnight/'+testInfo.project.name+'-'+testInfo.repeatEachIndex+'-snapshot.pdf'));
  await page.goto('/#snapshot-team');await expect(page.getByRole('heading',{name:'참가팀 읽기 전용 일정'})).toBeVisible();
  await expect(page.getByRole('button',{name:'제안 승인',exact:true})).toHaveCount(0);
  expect(requests).toEqual([]);expect(errors).toEqual([]);
