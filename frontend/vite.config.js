@@ -8,5 +8,14 @@ export default defineConfig({
    this.emitFile({type:'asset',fileName:'demo-assets.json',source:JSON.stringify([...new Set(paths)])});
   }
  }],
+ build:{rollupOptions:{output:{manualChunks(id){
+  const normalized=id.replaceAll('\\','/');
+  if(normalized.endsWith('/snapshot-exports.json'))return 'snapshot-exports';
+  if(normalized.includes('/node_modules/')){
+   if(/\/node_modules\/(react|react-dom|scheduler|react-is)\//.test(normalized))return 'react';
+   if(/\/node_modules\/(recharts|@reduxjs|redux|immer|victory-vendor|d3-|eventemitter3|react-smooth|decimal.js-light)/.test(normalized))return 'charts';
+   return 'vendor';
+  }
+ }}}},
  envDir:false,server:{proxy:{'/api':'http://127.0.0.1:8000'}}
 });

@@ -30,6 +30,9 @@ def test_snapshot_provenance_defaults_and_constraints():
 
 def test_precomputed_pdf_has_snapshot_and_exact_notice():
     bundle = json.loads((ROOT/'frontend/src/demo/snapshot.json').read_text(encoding='utf-8'))
+    exports = json.loads((ROOT/'frontend/src/demo/snapshot-exports.json').read_text(encoding='utf-8'))
+    assert exports['input_fingerprint'] == bundle['input_fingerprint']
+    bundle.update(exports)
     reader = PdfReader(BytesIO(base64.b64decode(bundle['pdf_base64'])))
     text = ''.join(p.extract_text() for p in reader.pages)
     assert '시연 스냅샷' in text and '실제 운영 판단 기록 아님' in text

@@ -32,6 +32,9 @@ def build(output):
               'approved': approved, 'pdf_base64': base64.b64encode(records_pdf(approved)).decode(),
               'csv_utf8': records_csv(approved).decode('utf-8-sig')}
     output = Path(output); output.parent.mkdir(parents=True, exist_ok=True)
+    exports = {k: result.pop(k) for k in ['pdf_base64', 'csv_utf8']}
+    exports['input_fingerprint'] = fingerprint
+    output.with_name('snapshot-exports.json').write_text(json.dumps(exports,ensure_ascii=False,separators=(',', ':'))+'\n',encoding='utf-8')
     output.write_text(json.dumps(result, ensure_ascii=False, separators=(',', ':'))+'\n', encoding='utf-8')
     return {'path': str(output), 'assignments': len(approved['proposal']['assignments']),
             'postponed': approved['proposal']['postponed_count'], 'is_mock': True}

@@ -1,4 +1,6 @@
 import bundle from './snapshot.json';
+import exportsBundle from './snapshot-exports.json';
+if(bundle.input_fingerprint!==exportsBundle.input_fingerprint)throw new Error('스냅샷과 기록 파일 버전이 다릅니다.');
 const clone=value=>structuredClone(value);
 export function createSnapshotAPI(){
  let session=null,urls={};
@@ -9,8 +11,8 @@ export function createSnapshotAPI(){
   if(!session?.decision) return '#';
   if(!urls[format]){
    let blob;
-   if(format==='pdf')blob=new Blob([Uint8Array.from(atob(bundle.pdf_base64),c=>c.charCodeAt(0))],{type:'application/pdf'});
-   else if(format==='csv')blob=new Blob(['\ufeff'+bundle.csv_utf8],{type:'text/csv;charset=utf-8'});
+   if(format==='pdf')blob=new Blob([Uint8Array.from(atob(exportsBundle.pdf_base64),c=>c.charCodeAt(0))],{type:'application/pdf'});
+   else if(format==='csv')blob=new Blob(['\ufeff'+exportsBundle.csv_utf8],{type:'text/csv;charset=utf-8'});
    else blob=new Blob([JSON.stringify(session,null,2)],{type:'application/json'});
    urls[format]=URL.createObjectURL(blob);
   }
