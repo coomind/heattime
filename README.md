@@ -85,12 +85,34 @@ mock 웹 앱은 그대로 유지하며 수집 결과를 자동으로 실측 검�
 프로젝트 루트의 .env에서 **KMA_API_KEY에 공공데이터포털 Decoding 키**를 설정하세요.
 URL Encoding 키를 넣지 않습니다. 스크립트가 요청을 만들 때 한 번 인코딩합니다.
 키를 명령행 인자로 넘기거나 화면에 출력하지 마세요.
+`.env`는 현재 작업 폴더와 관계없이 **수집 스크립트 위치 기준의 프로젝트 루트**에서 찾습니다.
+실행 시 키 길이와 `%` 문자 포함 여부만 알려줍니다. `%` 포함은 포털의 Decoding 키와 다시 대조할 단서이며, 스크립트가 키를 임의로 디코딩해서 바꾸지는 않습니다.
 
-PowerShell에서 아래를 **본인이** 실행합니다.
+PowerShell에서 아래를 **본인이** 실행합니다. 프로젝트 가상환경의 Python과 스크립트를 절대 경로로 지정하므로 다른 작업 폴더에서도 사용할 수 있습니다.
+
+먼저 연결만 점검하려면:
 
 ```powershell
-Set-Location -LiteralPath 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
-.\.venv\Scripts\python.exe .\scripts\fetch_asos_samples.py
+$heatTimeRoot = 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
+& (Join-Path $heatTimeRoot '.venv\Scripts\python.exe') (Join-Path $heatTimeRoot 'scripts\fetch_asos_samples.py') --check
+```
+
+`--check`는 **119 수원·2026-07-01 하루·첫 페이지 10건**만 요청합니다. 페이지를 추가로 받거나 일사 보조 지점을 호출하거나 파일을 저장하지 않습니다. 24시간 전체 수집 성공을 확인하는 모드는 아닙니다.
+점검 날짜는 `--start`로 바꿉니다. 점검 중 `--station`, `--end`, `--page-size`, `--solar-station`은 사용하지 않고 수원·하루·기본10건으로 고정합니다.
+
+```powershell
+& (Join-Path $heatTimeRoot '.venv\Scripts\python.exe') (Join-Path $heatTimeRoot 'scripts\fetch_asos_samples.py') --check --start 2026-07-02
+```
+
+실패 시 **실패 단계(키 로드 / 네트워크 연결 / HTTP 응답 / 응답 파싱), HTTP 상태 코드, 본문의 resultCode·resultMsg, 예외 클래스 이름**만 진단으로 출력합니다. XML 오류 문서이면 그 문서에 실제 존재하는 코드·메시지 요소를 골라 표시합니다. 값이 없거나 HTTP 응답을 받지 못했으면 `없음`으로 표시합니다. 키가 없거나 비었으면 별도로 **키를 찾지 못함**을 알려줍니다.
+
+응답 코드·메시지 안의 키(인코딩된 형태 포함), URL, 요청 헤더는 마스킹합니다. 전체 본문·예외 원문·요청 헤더는 출력하지 않으며 진단 파일도 만들지 않습니다. XML 오류의 범용 진단은 실제 ASOS 관측 필드 어댑터를 확정하는 작업과 별개입니다.
+[진단 변경·테스트 보고](docs/kma/asos-diagnostics-report.md)를 참고하세요.
+
+기간 전체 수집은 점검 옵션 없이 실행합니다:
+
+```powershell
+& (Join-Path $heatTimeRoot '.venv\Scripts\python.exe') (Join-Path $heatTimeRoot 'scripts\fetch_asos_samples.py')
 ```
 
 기본값은 가이드 지점 표의 **119 수원**, **2026-07-01 00시~2026-08-31 23시**입니다.
@@ -98,11 +120,11 @@ Set-Location -LiteralPath 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
 지점·기간은 아래처럼 변경합니다.108 서울은 가이드에 있는 지점이며 일사 관측/거리 예시는 아닙니다.
 
 ```powershell
-.\.venv\Scripts\python.exe .\scripts\fetch_asos_samples.py --station 108 --start 2026-07-01 --end 2026-07-31
+& (Join-Path $heatTimeRoot '.venv\Scripts\python.exe') (Join-Path $heatTimeRoot 'scripts\fetch_asos_samples.py') --station 108 --start 2026-07-01 --end 2026-07-31
 ```
 
 결과는 `data/samples/asos_119_20260701_20260831.json` 같은 지점·기간별 파일입니다.
-인증키·요청 URL·원문 오류는 저장/출력하지 않습니다. 기존 같은 이름 파일을 덮어쓰지 않습니다.
+인증키·요청 URL·요청 헤더·전체 응답/예외 원문은 저장/출력하지 않습니다. 진단의 코드·메시지만 민감값을 마스킹해서 표시합니다. 기존 같은 이름 파일을 덮어쓰지 않습니다.
 페이지 중복·총건수 변경·진행 중단은 성공으로 처리하지 않습니다.
 한 달/두 달 조회가 실제 서비스에서 제한되면 원문에는 최대 기간이 없으므로 제한 값을 추측하지 않습니다.
 위 기간 인자를 줄여 별도 수집한 뒤 오류/응답의 키를 제거한 자료로 후속 확인합니다.
@@ -124,7 +146,7 @@ Set-Location -LiteralPath 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
 ```powershell
 # 아래 값은 본인이 일사 관측 여부와 가까운 위치를 확인한 가이드 표 지점번호로 바꾸세요.
 # 문자열이 아니라 실제 번호로 바꾼 뒤 실행합니다.
-.\.venv\Scripts\python.exe .\scripts\fetch_asos_samples.py --solar-station '<확인한_지점번호>'
+& (Join-Path $heatTimeRoot '.venv\Scripts\python.exe') (Join-Path $heatTimeRoot 'scripts\fetch_asos_samples.py') --solar-station '<확인한_지점번호>'
 ```
 
 임의 지점을 일사 관측소로 추천하지 않습니다. 추가 지점도 실제 응답에 일사값이 있는지는 날짜별 요약으로 확인하세요.
