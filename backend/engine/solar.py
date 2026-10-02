@@ -32,12 +32,16 @@ def estimate_solar(venue: Venue, point: WeatherPoint, rain_attenuation=0.5) -> S
     zenith, clear = geometry(venue.lat, venue.lon, point.valid_time)
     assumptions = ["고도 0m 가정"]
     clouds = {1: 0.25, 3: 0.7, 4: 0.95}
-    cloud = clouds.get(point.sky_code, 0.7)
-    if point.sky_code is None:
+    cloud = point.cloud_fraction if point.cloud_fraction is not None else clouds.get(point.sky_code, 0.7)
+    if point.cloud_fraction is not None:
+        assumptions.append('ASOS 전운량(10분위)/10 사용; 예보 SKY 코드로 변환하지 않음')
+    elif point.sky_code is None:
         assumptions.append("하늘상태 누락: 운량 0.7 가정")
     estimated = clear * (1 - 0.75 * cloud ** 3.4)
-    if point.pty_code not in (0, None):
+    if point.pty_code not in (0, None) or (point.rain_mm is not None and point.rain_mm > 0):
         estimated *= rain_attenuation
+    if point.provenance and point.provenance.get('solar_wm2_is_hour_mean'):
+        assumptions.append('관측 일사는 이전1시간 에너지/3600초의 시간평균; WBGT 정시 입력의 대표값으로 사용')
     if zenith >= 90:
         estimated = 0.0
     used = point.solar_wm2 if point.solar_wm2 is not None else estimated

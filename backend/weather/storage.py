@@ -1,6 +1,7 @@
 """SQLite persistence with provenance, timezone normalisation and atomic upserts."""
 from contextlib import contextmanager
 from dataclasses import asdict
+import json
 from datetime import datetime
 from pathlib import Path
 import sqlite3
@@ -36,6 +37,10 @@ class WeatherStore:
             conn.executescript(SCHEMA)
             if "has_lights" not in {r[1] for r in conn.execute("PRAGMA table_info(venues)")}:
                 conn.execute("ALTER TABLE venues ADD COLUMN has_lights INTEGER NOT NULL DEFAULT 0")
+            columns = {r[1] for r in conn.execute('PRAGMA table_info(weather_points)')}
+            for name, sql_type in [('cloud_fraction', 'REAL'), ('rain_mm', 'REAL'), ('provenance', 'TEXT')]:
+                if name not in columns:
+                    conn.execute(f'ALTER TABLE weather_points ADD COLUMN {name} {sql_type}')
 
     @contextmanager
     def connect(self):
@@ -70,6 +75,7 @@ class WeatherStore:
                 values = asdict(point)
                 values["valid_time"] = point.valid_time.astimezone(KST).isoformat()
                 values["fetched_at"] = point.fetched_at.astimezone(KST).isoformat()
+                values['provenance'] = json.dumps(values['provenance'],ensure_ascii=False) if values['provenance'] is not None else None
                 self._upsert(conn, "weather_points", values, ["venue_id", "valid_time", "source", "is_mock"])
 
     def load_weather(self, *, source: str, is_mock: bool, venue_id: str | None = None) -> list[WeatherPoint]:
@@ -86,6 +92,8 @@ class WeatherStore:
             for key in ["valid_time", "fetched_at"]:
                 values[key] = datetime.fromisoformat(values[key])
             values["is_mock"] = bool(values["is_mock"])
+            if values.get('provenance') is not None:
+                values['provenance'] = json.loads(values['provenance'])
             result.append(WeatherPoint(**values))
         return result
 

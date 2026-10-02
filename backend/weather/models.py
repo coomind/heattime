@@ -56,6 +56,9 @@ class WeatherPoint:
     fetched_at: datetime
     is_mock: bool
     station_id: str | None = None
+    cloud_fraction: float | None = None
+    rain_mm: float | None = None
+    provenance: dict | None = None
 
     def __post_init__(self):
         require_aware(self.valid_time)
@@ -67,6 +70,10 @@ class WeatherPoint:
         finite_range("wind", self.ws_ms, 0, 150)
         if self.solar_wm2 is not None:
             finite_range("solar irradiance", self.solar_wm2, 0, 1600)
+        if self.cloud_fraction is not None:
+            finite_range('observed cloud fraction', self.cloud_fraction, 0, 1)
+        if self.rain_mm is not None:
+            finite_range('observed precipitation', self.rain_mm, 0, 1000)
         # Code semantics must be checked against real samples before live ingestion.
         if self.sky_code is not None and self.sky_code not in {1, 3, 4}:
             raise ValueError("Invalid internal sky code")
@@ -75,7 +82,12 @@ class WeatherPoint:
 
     @property
     def data_label(self) -> str:
-        return "가상 예시 · mock 합성 기상" if self.is_mock else "기상 자료"
+        if self.is_mock:
+            return '가상 예시 · mock 합성 기상'
+        if self.source == 'asos_obs' and self.station_id:
+            name = (self.provenance or {}).get('station_name', '')
+            return f'기상청 관측 자료({name} {self.station_id}·{self.valid_time.astimezone(KST).date()})'
+        return '기상 자료'
 
 
 @dataclass(frozen=True)

@@ -27,11 +27,20 @@ class KmaForecastAdapter:
 
 
 class AsosObservationAdapter:
+    def __init__(self, sample_path=None):
+        self.sample_path = sample_path
+
     def fetch(self, venue: Venue, station_id: str, day: date) -> list[WeatherPoint]:
         if not station_id.strip():
             raise ValueError("Station id required")
-        # TODO: station availability, solar units/time interval, fields and paging.
-        raise LiveIntegrationPending("ASOS integration pending official docs and redacted response samples")
+        from .asos_samples import load_dataset
+        try:
+            dataset = load_dataset(self.sample_path)
+        except FileNotFoundError:
+            raise LiveIntegrationPending('ASOS observation sample not installed; no live request') from None
+        if station_id != dataset.station_id:
+            raise LiveIntegrationPending('No verified sample for this ASOS station; no live request')
+        return dataset.fetch(venue, station_id, day)
 
 
 def _mock_points(venue: Venue, day: date, source: str, station_id: str | None = None):
