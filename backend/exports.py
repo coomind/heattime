@@ -8,7 +8,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether
 
 DISCLAIMER = '본 자료는 의사결정 보조용 추정값'
 
@@ -98,7 +98,13 @@ def records_pdf(session):
     if s.get('proposal'):
         p = s['proposal']
         para(f"공통 {len(p['common_match_ids'])}경기 열 노출 점수 {p['original_heat_score']} → {p['proposed_heat_score']} / 연기 {p['postponed_count']}경기 별도 집계")
-    para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 비교 일사량은 합성 예시이며 실제 관측 정확도 검증은 보류입니다.')
+    if s.get('data_origin')=='kma_observed':
+        para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 기상청 관측 시간자료를 사용하며 대회·팀·구장은 가상 예시입니다. 현장 WBGT 정확도 검증은 별도입니다.')
+        para('일사: 이전1시간 에너지(MJ/m²)를 시간평균 W/m²로 변환. 결측 일사는 기존 모델로 추정하며 관측0으로 대체하지 않습니다.')
+        para(f"관측 일사 결측 {s['observation_summary']['solar_missing_hours']}시간(동일 관측소 기준, 구장 수만큼 중복 집계하지 않음)")
+        para('관측 원본 SHA256: '+s['observation_summary']['original_sample_sha256'])
+    else:
+        para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 비교 일사량은 합성 예시이며 실제 관측 정확도 검증은 보류입니다.')
     for m in s['matches']:
         story.append(PageBreak()); rec, a, p, evidence = match_context(s, m)
         para(m['round'] + ' · ' + m['id'], True)
@@ -114,14 +120,23 @@ def records_pdf(session):
         else:
             para('운영 조치: ' + ((d or {}).get('operator_action', '미결정')))
         for name, r in evidence:
+            block_start=len(story)
             inputs = r['inputs']; w = inputs['weather']; solar = inputs['solar']; venue = inputs['venue']
             para(f"{name} 근거 {r['valid_time']} / {r['venue_id']} / WBGT 추정 {r['wbgt_c']}℃ (범위 {r['wbgt_low_c']}~{r['wbgt_high_c']}℃), 단계 {r['level']}, 판정값 {r['decision_wbgt_c']}℃")
             para(f"입력 기온 {w['ta_c']}℃ / 습도 {w['rh_pct']}% / 풍속 {w['ws_ms']}m/s / 보정 풍속 {inputs['wind_2m_ms']:.3f}m/s")
             para(f"사용 일사 {solar['used_wm2']:.1f}W/m² ({solar['source']}) / 일사량 추정 {solar['estimated_wm2']:.1f}W/m² (범위 {solar['low_wm2']:.1f}~{solar['high_wm2']:.1f}W/m²)")
             para(f"자료 {w['source']} / 가상 예시 {w['is_mock']} / 수집 시각 {w['fetched_at']}")
+            if not w['is_mock'] and w.get('provenance'):
+                provenance=w['provenance']
+                para(f"기상청 관측 자료({provenance['station_name']} {w['station_id']}·{r['valid_time'][:10]})")
+                if provenance['solar_energy_mj_m2'] is None:
+                    para('일사 관측 에너지 결측 · 모델 추정 사용')
+                else:
+                    para(f"일사 관측 에너지 {provenance['solar_energy_mj_m2']}MJ/m² / 구간 {provenance['solar_interval_start']}~{provenance['solar_interval_end']}")
             para(f"구장 보정 {venue['field_offset_c']}℃ / 표면 {venue['surface']} / 그늘 {venue['shade']} / 현장 보정 {inputs['calibration']}")
             para('가정: ' + ', '.join(inputs['assumptions']))
             para('산정 방법: ' + r['method_version']); para('입력 해시: ' + r['inputs_hash'])
+            block=story[block_start:];del story[block_start:];story.append(KeepTogether(block))
         if not evidence:
             para('근거 자료 누락 · 운영자 확인 필요')
     def footer(canvas, page):

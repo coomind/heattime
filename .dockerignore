@@ -13,4 +13,6 @@ frontend/playwright-report
 data/**
 !data/mock/
 !data/mock/**
+!data/observations/
+!data/observations/**
 docs/presentation

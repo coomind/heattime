@@ -98,7 +98,7 @@ def create_app(db_path=None):
     @app.get('/api/team-view/{id}')
     def team_view(id:str):
         s=repo.get('sessions',id)
-        return {k:s[k] for k in ['label','tournament','decision','teams','venues','matches']}
+        return {k:s.get(k) for k in ['label','mode','data_origin','observation_summary','tournament','decision','teams','venues','matches']}
     @app.post('/api/manual')
     def manual(body:ManualRequest):
         repo.get('venues',body.venue_id);m=ManualMeasurement(body.venue_id,body.valid_time,body.wbgt_c,datetime.now(KST),body.is_mock)

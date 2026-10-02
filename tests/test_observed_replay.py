@@ -25,6 +25,8 @@ def test_observed_replay_metadata_and_default_settings(tmp_path):
     assert all(v['is_mock'] for v in session['venues']) and all(t['is_mock'] for t in session['teams'])
     assert session['engine_settings']==EngineSettings().model_dump()
     assert session['schedule_settings']==ScheduleSettings().model_dump()
+    team=client.get('/api/team-view/'+session['id']).json()
+    assert team['data_origin']=='kma_observed' and team['label']==session['label']
     assert client.post('/api/replays',json={'date':'2026-09-01','mode':'observed'}).status_code==422
     assert client.post('/api/replays',json={'mode':'live'}).status_code==422
     mock=client.post('/api/replays',json={'date':'2026-07-01'}).json()

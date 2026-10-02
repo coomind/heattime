@@ -12,6 +12,9 @@ COPY pyproject.toml ./
 COPY backend/ ./backend/
 COPY docs/licenses/ ./docs/licenses/
 COPY data/mock/ ./data/mock/
+COPY data/observations/ ./data/observations/
+COPY docs/kma/asos-stations.json ./docs/kma/asos-stations.json
+COPY docs/real-data/replay-results.json ./docs/real-data/replay-results.json
 RUN pip install --no-cache-dir .
 COPY --from=frontend /build/dist ./frontend/dist/
 RUN mkdir -p data

@@ -19,6 +19,7 @@ export default defineConfig({
  }],
  build:{rollupOptions:{output:{manualChunks(id){
   const normalized=id.replaceAll('\\','/');
+  if(normalized.endsWith('/observed-snapshot-exports.json'))return 'observed-snapshot-exports';
   if(normalized.endsWith('/snapshot-exports.json'))return 'snapshot-exports';
   if(normalized.includes('/node_modules/')){
    if(/\/node_modules\/(react|react-dom|scheduler|react-is)\//.test(normalized))return 'react';
