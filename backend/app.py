@@ -20,7 +20,7 @@ class ReplayRequest(BaseModel):
     date: CalendarDate = CalendarDate(2026,8,1)
     tournament_id: str = 'demo'
     region: Literal['suwon'] = 'suwon'
-    mode: Literal['mock'] = 'mock'
+    mode: Literal['mock','observed'] = 'mock'
     engine_settings: EngineSettings = Field(default_factory=EngineSettings)
     schedule_settings: ScheduleSettings = Field(default_factory=ScheduleSettings)
 class DecisionRequest(BaseModel):
@@ -51,8 +51,22 @@ def create_app(db_path=None):
     def policy():return policies()
     @app.get('/api/settings')
     def settings():return {'engine':EngineSettings(),'schedule':ScheduleSettings(),'age_note':policies()['age']['note']}
+    @app.get('/api/observations')
+    def observations():
+        from backend.weather.asos_samples import load_dataset
+        try:data=load_dataset()
+        except FileNotFoundError:return {'available':False,'dates':[]}
+        results=ROOT/'docs/real-data/replay-results.json'
+        recommended=None
+        if results.exists():
+            import json
+            saved=json.loads(results.read_text(encoding='utf-8'))
+            if saved['original_sample_sha256']==data.original_sha256:
+                recommended=saved['candidates'][0]['date']
+        return {'available':True,'station':data.station,'dates':[d.isoformat() for d in data.dates],'recommended_date':recommended,
+                'label':'기상청 관측 자료(수원 119)','solar_interval':'이전1시간 에너지 → 시간평균 W/m²'}
     @app.post('/api/replays')
-    def replay(body:ReplayRequest):return service.replay(body.date,body.tournament_id,body.engine_settings,body.schedule_settings)
+    def replay(body:ReplayRequest):return service.replay(body.date,body.tournament_id,body.engine_settings,body.schedule_settings,body.mode)
     @app.get('/api/sessions/{id}')
     def session(id:str):return repo.get('sessions',id)
     @app.get('/api/sessions/{id}/risks')

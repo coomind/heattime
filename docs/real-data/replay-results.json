@@ -1,0 +1,2832 @@
+{
+  "station": {
+    "id": "119",
+    "name": "수원",
+    "office": "수도권기상청"
+  },
+  "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
+  "days": [
+    {
+      "date": "2026-07-01",
+      "session_id": "70b817c37fba48c5a6685150298bf8c6",
+      "assigned": 14,
+      "postponed": 1,
+      "common_count": 14,
+      "original_heat": 5843,
+      "proposed_heat": 3229,
+      "heat_reduction": 2614,
+      "salvaged": 8,
+      "original_stop_count": 8,
+      "max_wbgt_c": 30.835,
+      "max_decision_wbgt_c": 32.335,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.0090721000015037,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-02",
+      "session_id": "84de321a2ba74ef3972dc651fce44a6a",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4643,
+      "proposed_heat": 3349,
+      "heat_reduction": 1294,
+      "salvaged": 3,
+      "original_stop_count": 3,
+      "max_wbgt_c": 29.779,
+      "max_decision_wbgt_c": 31.279,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.765080700002727,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-03",
+      "session_id": "3bc7f6e395cb43759920c584d97bf743",
+      "assigned": 14,
+      "postponed": 1,
+      "common_count": 14,
+      "original_heat": 5851,
+      "proposed_heat": 3436,
+      "heat_reduction": 2415,
+      "salvaged": 9,
+      "original_stop_count": 9,
+      "max_wbgt_c": 30.595,
+      "max_decision_wbgt_c": 32.095,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.0481360999983735,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-04",
+      "session_id": "920fa537e554457990c564458cf33021",
+      "assigned": 13,
+      "postponed": 2,
+      "common_count": 13,
+      "original_heat": 6135,
+      "proposed_heat": 3744,
+      "heat_reduction": 2391,
+      "salvaged": 12,
+      "original_stop_count": 12,
+      "max_wbgt_c": 30.828,
+      "max_decision_wbgt_c": 32.328,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.2077934999979334,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-05",
+      "session_id": "6fdee38b6ca941228011a98db6e15bbf",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4401,
+      "proposed_heat": 3780,
+      "heat_reduction": 621,
+      "salvaged": 3,
+      "original_stop_count": 3,
+      "max_wbgt_c": 29.503,
+      "max_decision_wbgt_c": 31.003,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.6701376999990316,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-06",
+      "session_id": "b66ea2a803ba43b4aa7ee3e4343e7c7d",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6041,
+      "proposed_heat": 4453,
+      "heat_reduction": 1588,
+      "salvaged": 9,
+      "original_stop_count": 9,
+      "max_wbgt_c": 31.121,
+      "max_decision_wbgt_c": 32.621,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.142723600001773,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-07",
+      "session_id": "88c7ee083ebb497bb37e0a923546ae40",
+      "assigned": 7,
+      "postponed": 8,
+      "common_count": 7,
+      "original_heat": 3653,
+      "proposed_heat": 1942,
+      "heat_reduction": 1711,
+      "salvaged": 7,
+      "original_stop_count": 15,
+      "max_wbgt_c": 32.942,
+      "max_decision_wbgt_c": 34.442,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.32365789999312256,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-08",
+      "session_id": "2b01ab6abcf14fcb810e43641cf56275",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4112,
+      "proposed_heat": 3905,
+      "heat_reduction": 207,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 28.075,
+      "max_decision_wbgt_c": 29.575,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 4.560790399991674,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-09",
+      "session_id": "434b058e37954f498bec67c8e03e55cf",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 3451,
+      "proposed_heat": 3139,
+      "heat_reduction": 312,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 28.656,
+      "max_decision_wbgt_c": 30.156,
+      "solver": "CP-SAT FEASIBLE",
+      "coverage_optimal": false,
+      "elapsed_sec": 10.253576599992812,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-10",
+      "session_id": "240e5f4dd3c84cd384ff49f0e434222a",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6114,
+      "proposed_heat": 4319,
+      "heat_reduction": 1795,
+      "salvaged": 10,
+      "original_stop_count": 10,
+      "max_wbgt_c": 32.043,
+      "max_decision_wbgt_c": 33.543,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.8952405999880284,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-11",
+      "session_id": "b97b92678ab548469d4ae0283bfba92d",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1755,
+      "proposed_heat": 1047,
+      "heat_reduction": 708,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 35.041,
+      "max_decision_wbgt_c": 36.541,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.08993319999717642,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-12",
+      "session_id": "758c41878e084d3a83f5d9d56dbe9bfa",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1758,
+      "proposed_heat": 1023,
+      "heat_reduction": 735,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 35.122,
+      "max_decision_wbgt_c": 36.622,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.06620400000247173,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-13",
+      "session_id": "a31c406d590642c2a297c85b427b37de",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1739,
+      "proposed_heat": 954,
+      "heat_reduction": 785,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 34.023,
+      "max_decision_wbgt_c": 35.523,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.07447130000218749,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-14",
+      "session_id": "c2b57a558be646a59f2cf27c7cef3c91",
+      "assigned": 11,
+      "postponed": 4,
+      "common_count": 11,
+      "original_heat": 5619,
+      "proposed_heat": 3351,
+      "heat_reduction": 2268,
+      "salvaged": 11,
+      "original_stop_count": 14,
+      "max_wbgt_c": 31.478,
+      "max_decision_wbgt_c": 32.978,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.6339683999976842,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-15",
+      "session_id": "f18d0f039fb246308e413af45dcde15a",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4362,
+      "proposed_heat": 3847,
+      "heat_reduction": 515,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 29.439,
+      "max_decision_wbgt_c": 30.939,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 4.379032199998619,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-16",
+      "session_id": "54f4edcccc974b65aede2620ad53966f",
+      "assigned": 13,
+      "postponed": 2,
+      "common_count": 13,
+      "original_heat": 6918,
+      "proposed_heat": 3480,
+      "heat_reduction": 3438,
+      "salvaged": 12,
+      "original_stop_count": 12,
+      "max_wbgt_c": 33.342,
+      "max_decision_wbgt_c": 34.842,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.333338200012804,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-17",
+      "session_id": "19b82a6c72e54a6899502c97b076a7b7",
+      "assigned": 7,
+      "postponed": 8,
+      "common_count": 7,
+      "original_heat": 4158,
+      "proposed_heat": 2050,
+      "heat_reduction": 2108,
+      "salvaged": 7,
+      "original_stop_count": 14,
+      "max_wbgt_c": 33.703,
+      "max_decision_wbgt_c": 35.203,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.20783379999920726,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-18",
+      "session_id": "eb76e921bbf244a598474174cc6656a3",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6665,
+      "proposed_heat": 4295,
+      "heat_reduction": 2370,
+      "salvaged": 9,
+      "original_stop_count": 9,
+      "max_wbgt_c": 32.591,
+      "max_decision_wbgt_c": 34.091,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.4054609000013443,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-19",
+      "session_id": "ae4121ea7f3342dfa10969e9918c7fb1",
+      "assigned": 12,
+      "postponed": 3,
+      "common_count": 12,
+      "original_heat": 5365,
+      "proposed_heat": 3084,
+      "heat_reduction": 2281,
+      "salvaged": 11,
+      "original_stop_count": 13,
+      "max_wbgt_c": 31.663,
+      "max_decision_wbgt_c": 33.163,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.7673276999994414,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-20",
+      "session_id": "0955936db021430d8671aec4df94b9f7",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4448,
+      "proposed_heat": 3944,
+      "heat_reduction": 504,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 29.961,
+      "max_decision_wbgt_c": 31.461,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 4.201090500006103,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-21",
+      "session_id": "8d491a1574dc44bcbc25e027e3245e83",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4080,
+      "proposed_heat": 3964,
+      "heat_reduction": 116,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 28.305,
+      "max_decision_wbgt_c": 29.805,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 5.443127699996694,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-22",
+      "session_id": "2ffb23c5d1e844bfaad03cf89bf19f8d",
+      "assigned": 11,
+      "postponed": 4,
+      "common_count": 11,
+      "original_heat": 5254,
+      "proposed_heat": 3039,
+      "heat_reduction": 2215,
+      "salvaged": 10,
+      "original_stop_count": 14,
+      "max_wbgt_c": 32.22,
+      "max_decision_wbgt_c": 33.72,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.5804230999929132,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-23",
+      "session_id": "19f27caf36c347abaa4bfac582c6c4b7",
+      "assigned": 7,
+      "postponed": 8,
+      "common_count": 7,
+      "original_heat": 3779,
+      "proposed_heat": 2155,
+      "heat_reduction": 1624,
+      "salvaged": 7,
+      "original_stop_count": 15,
+      "max_wbgt_c": 32.731,
+      "max_decision_wbgt_c": 34.231,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.19538699999975506,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-24",
+      "session_id": "44490c10052b4225bfba704f13d05ccb",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2119,
+      "proposed_heat": 1107,
+      "heat_reduction": 1012,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 33.57,
+      "max_decision_wbgt_c": 35.07,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.17340600000170525,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-25",
+      "session_id": "a62bd4b1e06642b6987436d72bdc73b0",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1622,
+      "proposed_heat": 930,
+      "heat_reduction": 692,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 32.964,
+      "max_decision_wbgt_c": 34.464,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.08208409999497235,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-26",
+      "session_id": "3035d138411b4328b4ba66ec370f650d",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1798,
+      "proposed_heat": 927,
+      "heat_reduction": 871,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 35.092,
+      "max_decision_wbgt_c": 36.592,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.08805249999568332,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-27",
+      "session_id": "7fa80bab556f4509bfd514ab8591b8a8",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2106,
+      "proposed_heat": 1310,
+      "heat_reduction": 796,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 32.991,
+      "max_decision_wbgt_c": 34.491,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.15054230000532698,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-28",
+      "session_id": "2830e1309d0548e3be75747dd7c138af",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1671,
+      "proposed_heat": 906,
+      "heat_reduction": 765,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 34.062,
+      "max_decision_wbgt_c": 35.562,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.10044160000688862,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-29",
+      "session_id": "d50acb74c8934bc4a47da45585e12ae9",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2315,
+      "proposed_heat": 1212,
+      "heat_reduction": 1103,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 33.432,
+      "max_decision_wbgt_c": 34.932,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.15258660000108648,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-30",
+      "session_id": "5afaa4b0c6264be0987bc5e324dc2f3e",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2158,
+      "proposed_heat": 1120,
+      "heat_reduction": 1038,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 33.356,
+      "max_decision_wbgt_c": 34.856,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.15328620000218507,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-31",
+      "session_id": "cce213d79e124180b71d49f4a7af9449",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1805,
+      "proposed_heat": 852,
+      "heat_reduction": 953,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 34.855,
+      "max_decision_wbgt_c": 36.355,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.09515320000355132,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-01",
+      "session_id": "831c50881cbf4cfeb1f6c4428b7c8812",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1711,
+      "proposed_heat": 996,
+      "heat_reduction": 715,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 34.967,
+      "max_decision_wbgt_c": 36.467,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.08518680000270251,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-02",
+      "session_id": "06daffb4d53e4c3683af3a7a50b1eeb8",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 2229,
+      "proposed_heat": 1002,
+      "heat_reduction": 1227,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 36.06,
+      "max_decision_wbgt_c": 37.56,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.0889339999994263,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-03",
+      "session_id": "4bdaf71a0dcc41c1acde8f8ca833acc4",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 2085,
+      "proposed_heat": 885,
+      "heat_reduction": 1200,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 37.194,
+      "max_decision_wbgt_c": 38.694,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.07950479999999516,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-04",
+      "session_id": "f1675aa6a2aa4847954e06dd339f6a9d",
+      "assigned": 0,
+      "postponed": 15,
+      "common_count": 0,
+      "original_heat": 0,
+      "proposed_heat": 0,
+      "heat_reduction": 0,
+      "salvaged": 0,
+      "original_stop_count": 15,
+      "max_wbgt_c": 37.034,
+      "max_decision_wbgt_c": 38.534,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.06186320001143031,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-05",
+      "session_id": "66e7a151ef4a4065992a32e162338f71",
+      "assigned": 0,
+      "postponed": 15,
+      "common_count": 0,
+      "original_heat": 0,
+      "proposed_heat": 0,
+      "heat_reduction": 0,
+      "salvaged": 0,
+      "original_stop_count": 15,
+      "max_wbgt_c": 37.604,
+      "max_decision_wbgt_c": 39.104,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.06160559999989346,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-06",
+      "session_id": "62953555bae443209fbdbf5c5432591a",
+      "assigned": 0,
+      "postponed": 15,
+      "common_count": 0,
+      "original_heat": 0,
+      "proposed_heat": 0,
+      "heat_reduction": 0,
+      "salvaged": 0,
+      "original_stop_count": 15,
+      "max_wbgt_c": 38.062,
+      "max_decision_wbgt_c": 39.562,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.06229509999684524,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-07",
+      "session_id": "00788a91b94c4816a7cf8b8620dc0056",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 2073,
+      "proposed_heat": 972,
+      "heat_reduction": 1101,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 36.966,
+      "max_decision_wbgt_c": 38.466,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.0853408999973908,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-08",
+      "session_id": "e63b615d65bb4653ba654433bef690a6",
+      "assigned": 10,
+      "postponed": 5,
+      "common_count": 10,
+      "original_heat": 6665,
+      "proposed_heat": 3252,
+      "heat_reduction": 3413,
+      "salvaged": 10,
+      "original_stop_count": 14,
+      "max_wbgt_c": 35.1,
+      "max_decision_wbgt_c": 36.6,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.5616214000037871,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-09",
+      "session_id": "519a5931d89748deaef90ec941c77ec3",
+      "assigned": 10,
+      "postponed": 5,
+      "common_count": 10,
+      "original_heat": 4850,
+      "proposed_heat": 2751,
+      "heat_reduction": 2099,
+      "salvaged": 9,
+      "original_stop_count": 14,
+      "max_wbgt_c": 32.253,
+      "max_decision_wbgt_c": 33.753,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.6444578999944497,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-10",
+      "session_id": "8bb4e6bef52b46728898f4a25c26e38a",
+      "assigned": 11,
+      "postponed": 4,
+      "common_count": 11,
+      "original_heat": 5478,
+      "proposed_heat": 3088,
+      "heat_reduction": 2390,
+      "salvaged": 11,
+      "original_stop_count": 14,
+      "max_wbgt_c": 31.494,
+      "max_decision_wbgt_c": 32.994,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.605617599998368,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-11",
+      "session_id": "8858856fe24343c384bc0e666f77bd66",
+      "assigned": 10,
+      "postponed": 5,
+      "common_count": 10,
+      "original_heat": 4854,
+      "proposed_heat": 2690,
+      "heat_reduction": 2164,
+      "salvaged": 9,
+      "original_stop_count": 14,
+      "max_wbgt_c": 32.192,
+      "max_decision_wbgt_c": 33.692,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.5902874999883352,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-12",
+      "session_id": "9df36277fc34476785b0a069b0a095d1",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 5581,
+      "proposed_heat": 3586,
+      "heat_reduction": 1995,
+      "salvaged": 7,
+      "original_stop_count": 7,
+      "max_wbgt_c": 30.325,
+      "max_decision_wbgt_c": 31.825,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.9886146000062581,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-13",
+      "session_id": "605dc44e9f994ac78e49076b57ed1061",
+      "assigned": 11,
+      "postponed": 4,
+      "common_count": 11,
+      "original_heat": 5039,
+      "proposed_heat": 3274,
+      "heat_reduction": 1765,
+      "salvaged": 7,
+      "original_stop_count": 11,
+      "max_wbgt_c": 31.751,
+      "max_decision_wbgt_c": 33.251,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.9679173999902559,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-14",
+      "session_id": "537c465501134fc790891d50290bf2d5",
+      "assigned": 10,
+      "postponed": 5,
+      "common_count": 10,
+      "original_heat": 4589,
+      "proposed_heat": 2747,
+      "heat_reduction": 1842,
+      "salvaged": 6,
+      "original_stop_count": 11,
+      "max_wbgt_c": 33.798,
+      "max_decision_wbgt_c": 35.298,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.36063659998762887,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-15",
+      "session_id": "b797a0759b3b4608accf3772a80c9525",
+      "assigned": 14,
+      "postponed": 1,
+      "common_count": 14,
+      "original_heat": 6220,
+      "proposed_heat": 4012,
+      "heat_reduction": 2208,
+      "salvaged": 10,
+      "original_stop_count": 10,
+      "max_wbgt_c": 31.191,
+      "max_decision_wbgt_c": 32.691,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.9160478999983752,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-16",
+      "session_id": "b5fae43bbf084614ae7a754dff18ce07",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4405,
+      "proposed_heat": 3925,
+      "heat_reduction": 480,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 28.587,
+      "max_decision_wbgt_c": 30.087,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 4.498434200009797,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-17",
+      "session_id": "e1e61913c17d457f86dc265ae8438902",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 5305,
+      "proposed_heat": 4083,
+      "heat_reduction": 1222,
+      "salvaged": 4,
+      "original_stop_count": 4,
+      "max_wbgt_c": 31.595,
+      "max_decision_wbgt_c": 33.095,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.704369900005986,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-18",
+      "session_id": "cea61e47a5ee44af9cd0cb9aebdf825f",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2204,
+      "proposed_heat": 983,
+      "heat_reduction": 1221,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 33.113,
+      "max_decision_wbgt_c": 34.613,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.13949019998835865,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-19",
+      "session_id": "f4adc01d817a4b15afc661b707090eec",
+      "assigned": 11,
+      "postponed": 4,
+      "common_count": 11,
+      "original_heat": 6451,
+      "proposed_heat": 3249,
+      "heat_reduction": 3202,
+      "salvaged": 11,
+      "original_stop_count": 14,
+      "max_wbgt_c": 37.332,
+      "max_decision_wbgt_c": 38.832,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.49139419999846723,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-20",
+      "session_id": "9b65c559d266470db23358d61b5338f9",
+      "assigned": 14,
+      "postponed": 1,
+      "common_count": 14,
+      "original_heat": 5540,
+      "proposed_heat": 4057,
+      "heat_reduction": 1483,
+      "salvaged": 6,
+      "original_stop_count": 6,
+      "max_wbgt_c": 32.14,
+      "max_decision_wbgt_c": 33.64,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.2727006999921286,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-21",
+      "session_id": "c4eb763c88d648e1881ac5e9b99f4996",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 5124,
+      "proposed_heat": 4049,
+      "heat_reduction": 1075,
+      "salvaged": 5,
+      "original_stop_count": 5,
+      "max_wbgt_c": 30.263,
+      "max_decision_wbgt_c": 31.763,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.8368952000018908,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-22",
+      "session_id": "5a712250b5434aa5b43fed0b6855ae62",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6055,
+      "proposed_heat": 4103,
+      "heat_reduction": 1952,
+      "salvaged": 7,
+      "original_stop_count": 7,
+      "max_wbgt_c": 32.965,
+      "max_decision_wbgt_c": 34.465,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.6670058999879984,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-23",
+      "session_id": "b2a05d700d3e433d81b6dab838116de4",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2383,
+      "proposed_heat": 961,
+      "heat_reduction": 1422,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 35.235,
+      "max_decision_wbgt_c": 36.735,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.1536024999950314,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-24",
+      "session_id": "1edae4828c01490d982f3dbeca96c35a",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1977,
+      "proposed_heat": 813,
+      "heat_reduction": 1164,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 34.569,
+      "max_decision_wbgt_c": 36.069,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.08312860000296496,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-25",
+      "session_id": "409797f0960c436795eaf4a50d32aa9d",
+      "assigned": 4,
+      "postponed": 11,
+      "common_count": 4,
+      "original_heat": 2292,
+      "proposed_heat": 1024,
+      "heat_reduction": 1268,
+      "salvaged": 4,
+      "original_stop_count": 15,
+      "max_wbgt_c": 33.791,
+      "max_decision_wbgt_c": 35.291,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.14991019999433775,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-26",
+      "session_id": "65b0d43bcb5f447d9deaa29b605cb69c",
+      "assigned": 3,
+      "postponed": 12,
+      "common_count": 3,
+      "original_heat": 1853,
+      "proposed_heat": 867,
+      "heat_reduction": 986,
+      "salvaged": 3,
+      "original_stop_count": 15,
+      "max_wbgt_c": 34.175,
+      "max_decision_wbgt_c": 35.675,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.08114030001161154,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-27",
+      "session_id": "4472898f7845493a84742c1088381256",
+      "assigned": 7,
+      "postponed": 8,
+      "common_count": 7,
+      "original_heat": 3793,
+      "proposed_heat": 1916,
+      "heat_reduction": 1877,
+      "salvaged": 7,
+      "original_stop_count": 15,
+      "max_wbgt_c": 33.899,
+      "max_decision_wbgt_c": 35.399,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.42319729999871925,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g1-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g2-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g3-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "g4-3",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-28",
+      "session_id": "93472e5ddab147f1a2eec67c3bd3d562",
+      "assigned": 14,
+      "postponed": 1,
+      "common_count": 14,
+      "original_heat": 7195,
+      "proposed_heat": 4056,
+      "heat_reduction": 3139,
+      "salvaged": 12,
+      "original_stop_count": 12,
+      "max_wbgt_c": 32.621,
+      "max_decision_wbgt_c": 34.121,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.3644503000105033,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-08-29",
+      "session_id": "7a4fedc2cec242559d480eaa6f94626f",
+      "assigned": 11,
+      "postponed": 4,
+      "common_count": 11,
+      "original_heat": 6187,
+      "proposed_heat": 3365,
+      "heat_reduction": 2822,
+      "salvaged": 11,
+      "original_stop_count": 14,
+      "max_wbgt_c": 33.02,
+      "max_decision_wbgt_c": 34.52,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.586862199997995,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "g4-2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi1",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "선행 경기 연기"
+        }
+      ],
+      "missing_solar_hours": 10
+    },
+    {
+      "date": "2026-08-30",
+      "session_id": "dfa0a19d4c1f458b95372ab1fabaca3e",
+      "assigned": 13,
+      "postponed": 2,
+      "common_count": 13,
+      "original_heat": 5696,
+      "proposed_heat": 3686,
+      "heat_reduction": 2010,
+      "salvaged": 9,
+      "original_stop_count": 10,
+      "max_wbgt_c": 30.946,
+      "max_decision_wbgt_c": 32.446,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.7038351000082912,
+      "constraints_ok": true,
+      "postponement_reasons": [
+        {
+          "match_id": "final",
+          "reason": "선행 경기 연기"
+        },
+        {
+          "match_id": "semi2",
+          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+        }
+      ],
+      "missing_solar_hours": 10
+    },
+    {
+      "date": "2026-08-31",
+      "session_id": "0219853db77e4ed0b7fe916d7b025ee8",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 4292,
+      "proposed_heat": 3793,
+      "heat_reduction": 499,
+      "salvaged": 0,
+      "original_stop_count": 0,
+      "max_wbgt_c": 28.385,
+      "max_decision_wbgt_c": 29.885,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 4.247089600001345,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 10
+    }
+  ],
+  "candidates": [
+    {
+      "date": "2026-07-10",
+      "session_id": "240e5f4dd3c84cd384ff49f0e434222a",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6114,
+      "proposed_heat": 4319,
+      "heat_reduction": 1795,
+      "salvaged": 10,
+      "original_stop_count": 10,
+      "max_wbgt_c": 32.043,
+      "max_decision_wbgt_c": 33.543,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 0.8952405999880284,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-18",
+      "session_id": "eb76e921bbf244a598474174cc6656a3",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6665,
+      "proposed_heat": 4295,
+      "heat_reduction": 2370,
+      "salvaged": 9,
+      "original_stop_count": 9,
+      "max_wbgt_c": 32.591,
+      "max_decision_wbgt_c": 34.091,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 1.4054609000013443,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    },
+    {
+      "date": "2026-07-06",
+      "session_id": "b66ea2a803ba43b4aa7ee3e4343e7c7d",
+      "assigned": 15,
+      "postponed": 0,
+      "common_count": 15,
+      "original_heat": 6041,
+      "proposed_heat": 4453,
+      "heat_reduction": 1588,
+      "salvaged": 9,
+      "original_stop_count": 9,
+      "max_wbgt_c": 31.121,
+      "max_decision_wbgt_c": 32.621,
+      "solver": "CP-SAT OPTIMAL",
+      "coverage_optimal": true,
+      "elapsed_sec": 2.142723600001773,
+      "constraints_ok": true,
+      "postponement_reasons": [],
+      "missing_solar_hours": 9
+    }
+  ],
+  "selection_rule": "postponed ascending, salvaged descending, common heat reduction descending, date ascending",
+  "note": "Salvaged = originally level4 but assigned after rescheduling; maximum WBGT across 24h and all virtual venues"
+}

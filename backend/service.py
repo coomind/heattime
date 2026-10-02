@@ -1,10 +1,11 @@
-from dataclasses import asdict
+from dataclasses import asdict,replace
 from datetime import date,datetime,timedelta
 from uuid import uuid4
 from fastapi.encoders import jsonable_encoder
 from backend.weather.cli import ROOT
 from backend.weather.models import Venue,ManualMeasurement,WeatherPoint,KST
-from backend.weather.adapters import MockAsosAdapter
+from backend.weather.adapters import MockAsosAdapter,AsosObservationAdapter
+from backend.weather.asos_samples import load_dataset
 from backend.weather.storage import WeatherStore
 from backend.engine.settings import EngineSettings
 from backend.engine.wbgt import estimate_series,RiskEstimate
@@ -43,7 +44,8 @@ class Service:
                 ms=[Match(**m) for m in self.repo.list('matches') if m['tournament_id']==item.tournament_id and m['id']!=item.id]+[item]
                 participants(ms)
         return jsonable_encoder(item)
-    def replay(self,day,tournament_id='demo',engine=None,schedule=None):
+    def replay(self,day,tournament_id='demo',engine=None,schedule=None,mode='mock'):
+        if mode not in ('mock','observed'):raise ValueError('Unknown replay mode')
         engine=engine or EngineSettings();schedule=schedule or ScheduleSettings()
         t=Tournament(**self.repo.get('tournaments',tournament_id))
         delta=day-t.date_start
@@ -52,6 +54,9 @@ class Service:
         if not matches:raise ValueError('Tournament has no matches')
         ids={m.venue_id for m in matches}
         venues=[Venue(**v) for v in self.repo.list('venues') if v['id'] in ids]
+        dataset=load_dataset() if mode=='observed' else None
+        if dataset:
+            venues=[replace(v,asos_station_id=dataset.station_id) for v in venues]
         teams=[Team(**team) for team in self.repo.list('teams') if team['tournament_id']==t.id]
         all_points=[];risks=[];self.weather.save_venues(venues)
         manual=[]
@@ -61,13 +66,21 @@ class Service:
         for v in venues:
             points=[];current=t.date_start
             while current<=t.date_end:
-                points+=MockAsosAdapter().fetch(v,v.asos_station_id or 'mock-station',current)
+                adapter=AsosObservationAdapter() if dataset else MockAsosAdapter()
+                points+=adapter.fetch(v,v.asos_station_id or 'mock-station',current)
                 current+=timedelta(days=1)
             all_points+=points
             risks+=estimate_series(v,points,t.age_group,t.policy_id,engine,manual)
         self.weather.save_weather(all_points)
-        session={'id':uuid4().hex,'created_at':datetime.now(KST),'label':'가상 예시 · mock 합성 기상 재현 (실제 관측 아님)',
-                 'mode':'mock','tournament':t,'teams':teams,'venues':venues,'matches':matches,'weather':all_points,'risks':risks,
+        label=('기상청 관측 자료('+dataset.station['name']+' '+dataset.station_id+'·'+day.isoformat()+
+               (('~'+t.date_end.isoformat()) if t.date_end!=day else '')+') · 가상 대회·팀·구장' if dataset else
+               '가상 예시 · mock 합성 기상 재현 (실제 관측 아님)')
+        session={'id':uuid4().hex,'created_at':datetime.now(KST),'label':label,
+                 'mode':mode,'data_origin':'kma_observed' if dataset else 'synthetic',
+                 'observation_summary':{'station':dataset.station,'original_sample_sha256':dataset.original_sha256,
+                     'solar_missing_hours':sum(p.solar_wm2 is None for p in all_points)//len(venues),
+                     'note':'동일 수원 지점 자료를 가상 구장에 공유; 현장 WBGT 실측이 아님'} if dataset else None,
+                 'tournament':t,'teams':teams,'venues':venues,'matches':matches,'weather':all_points,'risks':risks,
                  'engine_settings':engine,'schedule_settings':schedule,'policy':policies()[t.policy_id],
                  'recommendations':[recommend(m,risks,engine) for m in matches],'proposal':None,'decision':None,'notifications':[]}
         return self.repo.put('sessions',session['id'],session)
@@ -105,7 +118,7 @@ class Service:
             errors=validate(candidates,matches,t,venues,risks,settings)
             if errors:raise ValueError('Invalid proposal: '+','.join(errors))
             decision={'timestamp':datetime.now(KST),'operator_action':action,'operator_name':operator,'reason':reason,
-                      'proposal_id':proposal['id'],'snapshot':{k:s[k] for k in ['tournament','venues','teams','matches','weather','risks','policy','recommendations','engine_settings','schedule_settings']},
+                      'proposal_id':proposal['id'],'snapshot':{k:s[k] for k in ['label','mode','data_origin','observation_summary','tournament','venues','teams','matches','weather','risks','policy','recommendations','engine_settings','schedule_settings']},
                       'assignments':selected if action!='rejected' else [],'postponed':proposal['postponed'] if action!='rejected' else []}
             s['decision']=jsonable_encoder(decision)
             s['notifications']=build_notifications(s)
