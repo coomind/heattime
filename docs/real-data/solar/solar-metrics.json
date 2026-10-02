@@ -1,0 +1,28 @@
+{
+  "label": "KMA ASOS Suwon 119 - OBSERVED hourly solar comparison",
+  "is_mock": false,
+  "count": 927,
+  "missing_count": 561,
+  "total_count": 1488,
+  "mae_wm2": 62.671369637774475,
+  "bias_wm2": 6.739887461943429,
+  "rmse_wm2": 93.95681641441308,
+  "max_absolute_error_wm2": 460.07137710583856,
+  "positive_observation_count": 881,
+  "positive_observation_mae_wm2": 65.91291299996075,
+  "interval": "preceding one hour ending at tm (KST)",
+  "observation_unit": "MJ/m2 -> hour-mean W/m2",
+  "integration_step_seconds": 60,
+  "cloud_missing_hours": 2,
+  "venue_geometry": {
+    "lat": 37.2636,
+    "lon": 127.0286,
+    "altitude_assumed_m": 0
+  },
+  "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
+  "limitations": [
+    "Hourly cloud/rain held constant within the preceding hour",
+    "Existing virtual venue coordinates; station coordinates not inferred",
+    "Solar comparison only; field WBGT accuracy is not validated"
+  ]
+}
