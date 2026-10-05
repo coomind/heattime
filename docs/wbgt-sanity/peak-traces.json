@@ -1,0 +1,561 @@
+{
+  "library_version": "1.0.1",
+  "upstream_commit": "e4b1298fcee27faa459f2eab0c2ef766ce2f34d7",
+  "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
+  "source_sha256": "15eb8bd2e584c68938d83f4958517ca14820bdec3dc2d8f30cdb73d86e345125",
+  "all_62_day_maxima_verified": true,
+  "rows": [
+    {
+      "date": "2026-08-06",
+      "time_kst": "2026-08-06T16:00:00+09:00",
+      "venue_id": "mock-suwon-b",
+      "input": {
+        "year": 2026,
+        "month": 8,
+        "day": 6,
+        "hour": 16,
+        "minute": 0,
+        "gmt_offset_hours": 9,
+        "averaging_minutes": 0,
+        "urban": 1,
+        "latitude_deg_north": 37.285,
+        "longitude_deg_east": 127.015,
+        "solar_w_m2": 413.8888888888889,
+        "pressure_hpa": 1013.25,
+        "air_temperature_c": 35.6,
+        "relative_humidity_percent": 47.0,
+        "wind_speed_m_s": 0.21743389910330865,
+        "wind_height_m": 2.0,
+        "vertical_temperature_difference_c": 1.0
+      },
+      "pressure_observed": {
+        "tm": "2026-08-06 16:00",
+        "pa": "999.3",
+        "paQcflg": "",
+        "ps": "1003.7",
+        "psQcflg": ""
+      },
+      "solar_raw_mj_m2": 1.49,
+      "solar_source": "관측 일사량",
+      "wind_observed_ms": 0.3,
+      "wind_height_factor": 0.7247796636776955,
+      "wind_adjusted_ms": 0.21743389910330865,
+      "native_solar": {
+        "effective_ghi_wm2": 413.8888854980469,
+        "cos_zenith": 0.6584826707839966,
+        "direct_fraction": 0.3257158100605011,
+        "zenith_deg": 48.815744944909355,
+        "direct_horizontal_wm2": 134.81015361503432,
+        "diffuse_horizontal_wm2": 279.07873188301255,
+        "direct_normal_wm2": 204.72847592864957
+      },
+      "result": {
+        "status": 0,
+        "estimated_wind_speed_m_s": 0.217433899641037,
+        "globe_temperature_c": 52.34648895263672,
+        "natural_wet_bulb_c": 30.760339736938477,
+        "psychrometric_wet_bulb_c": 25.752344131469727,
+        "wbgt_c": 35.5615348815918
+      },
+      "source_output_max_abs_diff_c": 0.0,
+      "field_offset_c": 2.5,
+      "central_c": 38.062,
+      "low_c": 36.562,
+      "upper_c": 39.562,
+      "stull_wet_c": 26.502366451296396,
+      "shade_proxy_c": 29.231656515907474,
+      "difference_components_c": {
+        "natural_wet_radiation": 3.505596923828125,
+        "wet_formula": -0.5250156238786686,
+        "globe_vs_air": 3.3492977905273436,
+        "field_offset": 2.5
+      },
+      "counterfactuals": {
+        "observed_station_pressure": {
+          "wbgt_station_c": 35.55207824707031,
+          "delta_station_c": -0.009456634521484375,
+          "tnw_c": 30.7316837310791,
+          "tg_c": 52.399497985839844
+        },
+        "solar_interval_60min": {
+          "wbgt_station_c": 35.65904235839844,
+          "delta_station_c": 0.09750747680664062,
+          "tnw_c": 30.88604164123535,
+          "tg_c": 52.394065856933594
+        },
+        "unadjusted_10m_wind_as_2m": {
+          "wbgt_station_c": 34.791507720947266,
+          "delta_station_c": -0.7700271606445312,
+          "tnw_c": 30.01311683654785,
+          "tg_c": 51.11162567138672
+        },
+        "no_shortwave": {
+          "wbgt_station_c": 28.86610984802246,
+          "delta_station_c": -6.695425033569336,
+          "tnw_c": 26.3598575592041,
+          "tg_c": 34.27104949951172
+        }
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "time_kst": "2026-08-05T14:00:00+09:00",
+      "venue_id": "mock-suwon-a",
+      "input": {
+        "year": 2026,
+        "month": 8,
+        "day": 5,
+        "hour": 14,
+        "minute": 0,
+        "gmt_offset_hours": 9,
+        "averaging_minutes": 0,
+        "urban": 1,
+        "latitude_deg_north": 37.2636,
+        "longitude_deg_east": 127.0286,
+        "solar_w_m2": 858.3333333333334,
+        "pressure_hpa": 1013.25,
+        "air_temperature_c": 35.7,
+        "relative_humidity_percent": 52.0,
+        "wind_speed_m_s": 1.0871694955165432,
+        "wind_height_m": 2.0,
+        "vertical_temperature_difference_c": 1.0
+      },
+      "pressure_observed": {
+        "tm": "2026-08-05 14:00",
+        "pa": "1002.5",
+        "paQcflg": "",
+        "ps": "1006.9",
+        "psQcflg": ""
+      },
+      "solar_raw_mj_m2": 3.09,
+      "solar_source": "관측 일사량",
+      "wind_observed_ms": 1.5,
+      "wind_height_factor": 0.7247796636776955,
+      "wind_adjusted_ms": 1.0871694955165432,
+      "native_solar": {
+        "effective_ghi_wm2": 858.3333129882812,
+        "cos_zenith": 0.8896657824516296,
+        "direct_fraction": 0.7827697992324829,
+        "zenith_deg": 27.16872073567954,
+        "direct_horizontal_wm2": 671.8773950823888,
+        "diffuse_horizontal_wm2": 186.45591790589242,
+        "direct_normal_wm2": 755.2020189322255
+      },
+      "result": {
+        "status": 0,
+        "estimated_wind_speed_m_s": 1.0871695280075073,
+        "globe_temperature_c": 54.051170349121094,
+        "natural_wet_bulb_c": 29.605310440063477,
+        "psychrometric_wet_bulb_c": 26.945886611938477,
+        "wbgt_c": 35.10395050048828
+      },
+      "source_output_max_abs_diff_c": 0.0,
+      "field_offset_c": 2.5,
+      "central_c": 37.604,
+      "low_c": 36.104,
+      "upper_c": 39.104,
+      "stull_wet_c": 27.594334177163905,
+      "shade_proxy_c": 30.026033924014733,
+      "difference_components_c": {
+        "natural_wet_radiation": 1.8615966796874999,
+        "wet_formula": -0.45391329565779975,
+        "globe_vs_air": 3.670234069824218,
+        "field_offset": 2.5
+      },
+      "counterfactuals": {
+        "observed_station_pressure": {
+          "wbgt_station_c": 35.09822463989258,
+          "delta_station_c": -0.005725860595703125,
+          "tnw_c": 29.58013343811035,
+          "tg_c": 54.11064910888672
+        },
+        "solar_interval_60min": {
+          "wbgt_station_c": 35.12266159057617,
+          "delta_station_c": 0.018711090087890625,
+          "tnw_c": 29.6262149810791,
+          "tg_c": 54.071556091308594
+        },
+        "unadjusted_10m_wind_as_2m": {
+          "wbgt_station_c": 34.427433013916016,
+          "delta_station_c": -0.6765174865722656,
+          "tnw_c": 29.1744327545166,
+          "tg_c": 52.176658630371094
+        },
+        "no_shortwave": {
+          "wbgt_station_c": 29.587158203125,
+          "delta_station_c": -5.516792297363281,
+          "tnw_c": 27.16228675842285,
+          "tg_c": 35.017784118652344
+        }
+      }
+    },
+    {
+      "date": "2026-08-19",
+      "time_kst": "2026-08-19T11:00:00+09:00",
+      "venue_id": "mock-suwon-a",
+      "input": {
+        "year": 2026,
+        "month": 8,
+        "day": 19,
+        "hour": 11,
+        "minute": 0,
+        "gmt_offset_hours": 9,
+        "averaging_minutes": 0,
+        "urban": 1,
+        "latitude_deg_north": 37.2636,
+        "longitude_deg_east": 127.0286,
+        "solar_w_m2": 480.55555555555554,
+        "pressure_hpa": 1013.25,
+        "air_temperature_c": 29.5,
+        "relative_humidity_percent": 64.0,
+        "wind_speed_m_s": 0.1449559327355391,
+        "wind_height_m": 2.0,
+        "vertical_temperature_difference_c": 1.0
+      },
+      "pressure_observed": {
+        "tm": "2026-08-19 11:00",
+        "pa": "1009.3",
+        "paQcflg": "",
+        "ps": "1013.8",
+        "psQcflg": ""
+      },
+      "solar_raw_mj_m2": 1.73,
+      "solar_source": "관측 일사량",
+      "wind_observed_ms": 0.2,
+      "wind_height_factor": 0.7247796636776955,
+      "wind_adjusted_ms": 0.1449559327355391,
+      "native_solar": {
+        "effective_ghi_wm2": 480.5555419921875,
+        "cos_zenith": 0.8438010215759277,
+        "direct_fraction": 0.23742102086544037,
+        "zenith_deg": 32.45629808577228,
+        "direct_horizontal_wm2": 114.09398736233015,
+        "diffuse_horizontal_wm2": 366.46155462985735,
+        "direct_normal_wm2": 135.21432712802616
+      },
+      "result": {
+        "status": 0,
+        "estimated_wind_speed_m_s": 0.14495593309402466,
+        "globe_temperature_c": 51.104148864746094,
+        "natural_wet_bulb_c": 30.9440860748291,
+        "psychrometric_wet_bulb_c": 23.932947158813477,
+        "wbgt_c": 34.83169174194336
+      },
+      "source_output_max_abs_diff_c": 0.0,
+      "field_offset_c": 2.5,
+      "central_c": 37.332,
+      "low_c": 35.832,
+      "upper_c": 38.832,
+      "stull_wet_c": 24.189102797307996,
+      "shade_proxy_c": 25.782371958115597,
+      "difference_components_c": {
+        "natural_wet_radiation": 4.907797241210937,
+        "wet_formula": -0.1793089469461634,
+        "globe_vs_air": 4.320829772949219,
+        "field_offset": 2.5
+      },
+      "counterfactuals": {
+        "observed_station_pressure": {
+          "wbgt_station_c": 34.828800201416016,
+          "delta_station_c": -0.00289154052734375,
+          "tnw_c": 30.935022354125977,
+          "tg_c": 51.121421813964844
+        },
+        "solar_interval_60min": {
+          "wbgt_station_c": 34.719478607177734,
+          "delta_station_c": -0.112213134765625,
+          "tnw_c": 30.826807022094727,
+          "tg_c": 50.953575134277344
+        },
+        "unadjusted_10m_wind_as_2m": {
+          "wbgt_station_c": 33.843013763427734,
+          "delta_station_c": -0.988677978515625,
+          "tnw_c": 29.94414710998535,
+          "tg_c": 49.660545349121094
+        },
+        "no_shortwave": {
+          "wbgt_station_c": 25.50263786315918,
+          "delta_station_c": -9.32905387878418,
+          "tnw_c": 24.2098331451416,
+          "tg_c": 28.028772354125977
+        }
+      }
+    },
+    {
+      "date": "2026-08-03",
+      "time_kst": "2026-08-03T13:00:00+09:00",
+      "venue_id": "mock-suwon-a",
+      "input": {
+        "year": 2026,
+        "month": 8,
+        "day": 3,
+        "hour": 13,
+        "minute": 0,
+        "gmt_offset_hours": 9,
+        "averaging_minutes": 0,
+        "urban": 1,
+        "latitude_deg_north": 37.2636,
+        "longitude_deg_east": 127.0286,
+        "solar_w_m2": 794.4444444444445,
+        "pressure_hpa": 1013.25,
+        "air_temperature_c": 34.8,
+        "relative_humidity_percent": 53.0,
+        "wind_speed_m_s": 0.9422135627810042,
+        "wind_height_m": 2.0,
+        "vertical_temperature_difference_c": 1.0
+      },
+      "pressure_observed": {
+        "tm": "2026-08-03 13:00",
+        "pa": "1005.4",
+        "paQcflg": "",
+        "ps": "1009.8",
+        "psQcflg": ""
+      },
+      "solar_raw_mj_m2": 2.86,
+      "solar_source": "관측 일사량",
+      "wind_observed_ms": 1.3,
+      "wind_height_factor": 0.7247796636776955,
+      "wind_adjusted_ms": 0.9422135627810042,
+      "native_solar": {
+        "effective_ghi_wm2": 794.4444580078125,
+        "cos_zenith": 0.937706470489502,
+        "direct_fraction": 0.6436706185340881,
+        "zenith_deg": 20.33011222163101,
+        "direct_horizontal_wm2": 511.3605556768671,
+        "diffuse_horizontal_wm2": 283.0839023309454,
+        "direct_normal_wm2": 545.3311582780552
+      },
+      "result": {
+        "status": 0,
+        "estimated_wind_speed_m_s": 0.9422135353088379,
+        "globe_temperature_c": 53.26354217529297,
+        "natural_wet_bulb_c": 29.372949600219727,
+        "psychrometric_wet_bulb_c": 26.4062442779541,
+        "wbgt_c": 34.69377136230469
+      },
+      "source_output_max_abs_diff_c": 0.0,
+      "field_offset_c": 2.5,
+      "central_c": 37.194,
+      "low_c": 35.694,
+      "upper_c": 38.694,
+      "stull_wet_c": 27.00534126960418,
+      "shade_proxy_c": 29.343738888722925,
+      "difference_components_c": {
+        "natural_wet_radiation": 2.0766937255859372,
+        "wet_formula": -0.41936789415505515,
+        "globe_vs_air": 3.6927084350585946,
+        "field_offset": 2.5
+      },
+      "counterfactuals": {
+        "observed_station_pressure": {
+          "wbgt_station_c": 34.690059661865234,
+          "delta_station_c": -0.003711700439453125,
+          "tnw_c": 29.35454750061035,
+          "tg_c": 53.30937957763672
+        },
+        "solar_interval_60min": {
+          "wbgt_station_c": 34.69781494140625,
+          "delta_station_c": 0.0040435791015625,
+          "tnw_c": 29.376062393188477,
+          "tg_c": 53.272850036621094
+        },
+        "unadjusted_10m_wind_as_2m": {
+          "wbgt_station_c": 33.984283447265625,
+          "delta_station_c": -0.7094879150390625,
+          "tnw_c": 28.88714027404785,
+          "tg_c": 51.41643524169922
+        },
+        "no_shortwave": {
+          "wbgt_station_c": 28.92671012878418,
+          "delta_station_c": -5.767061233520508,
+          "tnw_c": 26.6246280670166,
+          "tg_c": 34.04735565185547
+        }
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "time_kst": "2026-08-04T14:00:00+09:00",
+      "venue_id": "mock-suwon-a",
+      "input": {
+        "year": 2026,
+        "month": 8,
+        "day": 4,
+        "hour": 14,
+        "minute": 0,
+        "gmt_offset_hours": 9,
+        "averaging_minutes": 0,
+        "urban": 1,
+        "latitude_deg_north": 37.2636,
+        "longitude_deg_east": 127.0286,
+        "solar_w_m2": 452.77777777777777,
+        "pressure_hpa": 1013.25,
+        "air_temperature_c": 35.5,
+        "relative_humidity_percent": 55.0,
+        "wind_speed_m_s": 0.7247796636776955,
+        "wind_height_m": 2.0,
+        "vertical_temperature_difference_c": 1.0
+      },
+      "pressure_observed": {
+        "tm": "2026-08-04 14:00",
+        "pa": "1004.8",
+        "paQcflg": "",
+        "ps": "1009.2",
+        "psQcflg": ""
+      },
+      "solar_raw_mj_m2": 1.63,
+      "solar_source": "관측 일사량",
+      "wind_observed_ms": 1.0,
+      "wind_height_factor": 0.7247796636776955,
+      "wind_adjusted_ms": 0.7247796636776955,
+      "native_solar": {
+        "effective_ghi_wm2": 452.77777099609375,
+        "cos_zenith": 0.8914604783058167,
+        "direct_fraction": 0.16100607812404633,
+        "zenith_deg": 26.942652476287137,
+        "direct_horizontal_wm2": 72.89997316982863,
+        "diffuse_horizontal_wm2": 379.8777978262651,
+        "direct_normal_wm2": 81.77588905385012
+      },
+      "result": {
+        "status": 0,
+        "estimated_wind_speed_m_s": 0.7247796654701233,
+        "globe_temperature_c": 49.15868377685547,
+        "natural_wet_bulb_c": 30.21685218811035,
+        "psychrometric_wet_bulb_c": 27.4175968170166,
+        "wbgt_c": 34.53353500366211
+      },
+      "source_output_max_abs_diff_c": 0.0,
+      "field_offset_c": 2.5,
+      "central_c": 37.034,
+      "low_c": 35.534,
+      "upper_c": 38.534,
+      "stull_wet_c": 28.0009509866516,
+      "shade_proxy_c": 30.25066569065612,
+      "difference_components_c": {
+        "natural_wet_radiation": 1.959478759765625,
+        "wet_formula": -0.4083479187444983,
+        "globe_vs_air": 2.731736755371094,
+        "field_offset": 2.5
+      },
+      "counterfactuals": {
+        "observed_station_pressure": {
+          "wbgt_station_c": 34.52779769897461,
+          "delta_station_c": -0.0057373046875,
+          "tnw_c": 30.1986026763916,
+          "tg_c": 49.193870544433594
+        },
+        "solar_interval_60min": {
+          "wbgt_station_c": 34.559513092041016,
+          "delta_station_c": 0.02597808837890625,
+          "tnw_c": 30.237451553344727,
+          "tg_c": 49.21648406982422
+        },
+        "unadjusted_10m_wind_as_2m": {
+          "wbgt_station_c": 33.955284118652344,
+          "delta_station_c": -0.5782508850097656,
+          "tnw_c": 29.766992568969727,
+          "tg_c": 47.841941833496094
+        },
+        "no_shortwave": {
+          "wbgt_station_c": 29.88172721862793,
+          "delta_station_c": -4.65180778503418,
+          "tnw_c": 27.67449378967285,
+          "tg_c": 34.79790496826172
+        }
+      }
+    },
+    {
+      "date": "2026-07-10",
+      "time_kst": "2026-07-10T15:00:00+09:00",
+      "venue_id": "mock-suwon-a",
+      "input": {
+        "year": 2026,
+        "month": 7,
+        "day": 10,
+        "hour": 15,
+        "minute": 0,
+        "gmt_offset_hours": 9,
+        "averaging_minutes": 0,
+        "urban": 1,
+        "latitude_deg_north": 37.2636,
+        "longitude_deg_east": 127.0286,
+        "solar_w_m2": 408.3333333333333,
+        "pressure_hpa": 1013.25,
+        "air_temperature_c": 27.7,
+        "relative_humidity_percent": 79.0,
+        "wind_speed_m_s": 0.9422135627810042,
+        "wind_height_m": 2.0,
+        "vertical_temperature_difference_c": 1.0
+      },
+      "pressure_observed": {
+        "tm": "2026-07-10 15:00",
+        "pa": "1005.9",
+        "paQcflg": "",
+        "ps": "1010.4",
+        "psQcflg": ""
+      },
+      "solar_raw_mj_m2": 1.47,
+      "solar_source": "관측 일사량",
+      "wind_observed_ms": 1.3,
+      "wind_height_factor": 0.7247796636776955,
+      "wind_adjusted_ms": 0.9422135627810042,
+      "native_solar": {
+        "effective_ghi_wm2": 408.3333435058594,
+        "cos_zenith": 0.8275219798088074,
+        "direct_fraction": 0.14624473452568054,
+        "zenith_deg": 34.15497944461252,
+        "direct_horizontal_wm2": 59.716601418997925,
+        "diffuse_horizontal_wm2": 348.61674208686145,
+        "direct_normal_wm2": 72.16316046710322
+      },
+      "result": {
+        "status": 0,
+        "estimated_wind_speed_m_s": 0.9422135353088379,
+        "globe_temperature_c": 39.306175231933594,
+        "natural_wet_bulb_c": 27.016138076782227,
+        "psychrometric_wet_bulb_c": 24.717676162719727,
+        "wbgt_c": 29.542531967163086
+      },
+      "source_output_max_abs_diff_c": 0.0,
+      "field_offset_c": 2.5,
+      "central_c": 32.043,
+      "low_c": 30.543,
+      "upper_c": 33.543,
+      "stull_wet_c": 24.776650274220703,
+      "shade_proxy_c": 25.65365519195449,
+      "difference_components_c": {
+        "natural_wet_radiation": 1.60892333984375,
+        "wet_formula": -0.04128187805068357,
+        "globe_vs_air": 2.321235046386719,
+        "field_offset": 2.5
+      },
+      "counterfactuals": {
+        "observed_station_pressure": {
+          "wbgt_station_c": 29.54230308532715,
+          "delta_station_c": -0.0002288818359375,
+          "tnw_c": 27.00774574279785,
+          "tg_c": 39.33440399169922
+        },
+        "solar_interval_60min": {
+          "wbgt_station_c": 29.578828811645508,
+          "delta_station_c": 0.036296844482421875,
+          "tnw_c": 27.046899795532227,
+          "tg_c": 39.37999725341797
+        },
+        "unadjusted_10m_wind_as_2m": {
+          "wbgt_station_c": 29.0389461517334,
+          "delta_station_c": -0.5035858154296875,
+          "tnw_c": 26.6409854888916,
+          "tg_c": 38.101280212402344
+        },
+        "no_shortwave": {
+          "wbgt_station_c": 25.479827880859375,
+          "delta_station_c": -4.062704086303711,
+          "tnw_c": 24.7303409576416,
+          "tg_c": 26.992944717407227
+        }
+      }
+    }
+  ]
+}
