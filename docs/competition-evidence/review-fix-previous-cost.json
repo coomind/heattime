@@ -1,0 +1,445 @@
+{
+  "summary": {
+    "cases": 62,
+    "regressed": [],
+    "improved_cost_days": 0,
+    "old_cost_sum": 15500095,
+    "new_cost_sum": 15500095
+  },
+  "days": [
+    {
+      "date": "2026-07-01",
+      "old_assigned": 14,
+      "new_assigned": 14,
+      "old_cost": 325300,
+      "new_cost": 325300
+    },
+    {
+      "date": "2026-07-02",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 336850,
+      "new_cost": 336850
+    },
+    {
+      "date": "2026-07-03",
+      "old_assigned": 14,
+      "new_assigned": 14,
+      "old_cost": 345805,
+      "new_cost": 345805
+    },
+    {
+      "date": "2026-07-04",
+      "old_assigned": 13,
+      "new_assigned": 13,
+      "old_cost": 377145,
+      "new_cost": 377145
+    },
+    {
+      "date": "2026-07-05",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 380415,
+      "new_cost": 380415
+    },
+    {
+      "date": "2026-07-06",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 447175,
+      "new_cost": 447175
+    },
+    {
+      "date": "2026-07-07",
+      "old_assigned": 7,
+      "new_assigned": 7,
+      "old_cost": 195535,
+      "new_cost": 195535
+    },
+    {
+      "date": "2026-07-08",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 391835,
+      "new_cost": 391835
+    },
+    {
+      "date": "2026-07-09",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 314830,
+      "new_cost": 314830
+    },
+    {
+      "date": "2026-07-10",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 434030,
+      "new_cost": 434030
+    },
+    {
+      "date": "2026-07-11",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 105285,
+      "new_cost": 105285
+    },
+    {
+      "date": "2026-07-12",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 102885,
+      "new_cost": 102885
+    },
+    {
+      "date": "2026-07-13",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 95985,
+      "new_cost": 95985
+    },
+    {
+      "date": "2026-07-14",
+      "old_assigned": 11,
+      "new_assigned": 11,
+      "old_cost": 337815,
+      "new_cost": 337815
+    },
+    {
+      "date": "2026-07-15",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 386320,
+      "new_cost": 386320
+    },
+    {
+      "date": "2026-07-16",
+      "old_assigned": 13,
+      "new_assigned": 13,
+      "old_cost": 350550,
+      "new_cost": 350550
+    },
+    {
+      "date": "2026-07-17",
+      "old_assigned": 7,
+      "new_assigned": 7,
+      "old_cost": 206680,
+      "new_cost": 206680
+    },
+    {
+      "date": "2026-07-18",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 432215,
+      "new_cost": 432215
+    },
+    {
+      "date": "2026-07-19",
+      "old_assigned": 12,
+      "new_assigned": 12,
+      "old_cost": 310695,
+      "new_cost": 310695
+    },
+    {
+      "date": "2026-07-20",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 396440,
+      "new_cost": 396440
+    },
+    {
+      "date": "2026-07-21",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 397285,
+      "new_cost": 397285
+    },
+    {
+      "date": "2026-07-22",
+      "old_assigned": 11,
+      "new_assigned": 11,
+      "old_cost": 306150,
+      "new_cost": 306150
+    },
+    {
+      "date": "2026-07-23",
+      "old_assigned": 7,
+      "new_assigned": 7,
+      "old_cost": 217045,
+      "new_cost": 217045
+    },
+    {
+      "date": "2026-07-24",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 111435,
+      "new_cost": 111435
+    },
+    {
+      "date": "2026-07-25",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 93585,
+      "new_cost": 93585
+    },
+    {
+      "date": "2026-07-26",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 93285,
+      "new_cost": 93285
+    },
+    {
+      "date": "2026-07-27",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 131735,
+      "new_cost": 131735
+    },
+    {
+      "date": "2026-07-28",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 91185,
+      "new_cost": 91185
+    },
+    {
+      "date": "2026-07-29",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 121935,
+      "new_cost": 121935
+    },
+    {
+      "date": "2026-07-30",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 112735,
+      "new_cost": 112735
+    },
+    {
+      "date": "2026-07-31",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 85785,
+      "new_cost": 85785
+    },
+    {
+      "date": "2026-08-01",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 100185,
+      "new_cost": 100185
+    },
+    {
+      "date": "2026-08-02",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 100785,
+      "new_cost": 100785
+    },
+    {
+      "date": "2026-08-03",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 89085,
+      "new_cost": 89085
+    },
+    {
+      "date": "2026-08-04",
+      "old_assigned": 0,
+      "new_assigned": 0,
+      "old_cost": 0,
+      "new_cost": 0
+    },
+    {
+      "date": "2026-08-05",
+      "old_assigned": 0,
+      "new_assigned": 0,
+      "old_cost": 0,
+      "new_cost": 0
+    },
+    {
+      "date": "2026-08-06",
+      "old_assigned": 0,
+      "new_assigned": 0,
+      "old_cost": 0,
+      "new_cost": 0
+    },
+    {
+      "date": "2026-08-07",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 97785,
+      "new_cost": 97785
+    },
+    {
+      "date": "2026-08-08",
+      "old_assigned": 10,
+      "new_assigned": 10,
+      "old_cost": 327735,
+      "new_cost": 327735
+    },
+    {
+      "date": "2026-08-09",
+      "old_assigned": 10,
+      "new_assigned": 10,
+      "old_cost": 277080,
+      "new_cost": 277080
+    },
+    {
+      "date": "2026-08-10",
+      "old_assigned": 11,
+      "new_assigned": 11,
+      "old_cost": 311155,
+      "new_cost": 311155
+    },
+    {
+      "date": "2026-08-11",
+      "old_assigned": 10,
+      "new_assigned": 10,
+      "old_cost": 270980,
+      "new_cost": 270980
+    },
+    {
+      "date": "2026-08-12",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 360985,
+      "new_cost": 360985
+    },
+    {
+      "date": "2026-08-13",
+      "old_assigned": 11,
+      "new_assigned": 11,
+      "old_cost": 329410,
+      "new_cost": 329410
+    },
+    {
+      "date": "2026-08-14",
+      "old_assigned": 10,
+      "new_assigned": 10,
+      "old_cost": 276170,
+      "new_cost": 276170
+    },
+    {
+      "date": "2026-08-15",
+      "old_assigned": 14,
+      "new_assigned": 14,
+      "old_cost": 403810,
+      "new_cost": 403810
+    },
+    {
+      "date": "2026-08-16",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 393685,
+      "new_cost": 393685
+    },
+    {
+      "date": "2026-08-17",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 410490,
+      "new_cost": 410490
+    },
+    {
+      "date": "2026-08-18",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 99005,
+      "new_cost": 99005
+    },
+    {
+      "date": "2026-08-19",
+      "old_assigned": 11,
+      "new_assigned": 11,
+      "old_cost": 326985,
+      "new_cost": 326985
+    },
+    {
+      "date": "2026-08-20",
+      "old_assigned": 14,
+      "new_assigned": 14,
+      "old_cost": 408205,
+      "new_cost": 408205
+    },
+    {
+      "date": "2026-08-21",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 407615,
+      "new_cost": 407615
+    },
+    {
+      "date": "2026-08-22",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 411740,
+      "new_cost": 411740
+    },
+    {
+      "date": "2026-08-23",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 96805,
+      "new_cost": 96805
+    },
+    {
+      "date": "2026-08-24",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 81885,
+      "new_cost": 81885
+    },
+    {
+      "date": "2026-08-25",
+      "old_assigned": 4,
+      "new_assigned": 4,
+      "old_cost": 103015,
+      "new_cost": 103015
+    },
+    {
+      "date": "2026-08-26",
+      "old_assigned": 3,
+      "new_assigned": 3,
+      "old_cost": 87285,
+      "new_cost": 87285
+    },
+    {
+      "date": "2026-08-27",
+      "old_assigned": 7,
+      "new_assigned": 7,
+      "old_cost": 192995,
+      "new_cost": 192995
+    },
+    {
+      "date": "2026-08-28",
+      "old_assigned": 14,
+      "new_assigned": 14,
+      "old_cost": 408060,
+      "new_cost": 408060
+    },
+    {
+      "date": "2026-08-29",
+      "old_assigned": 11,
+      "new_assigned": 11,
+      "old_cost": 339005,
+      "new_cost": 339005
+    },
+    {
+      "date": "2026-08-30",
+      "old_assigned": 13,
+      "new_assigned": 13,
+      "old_cost": 370595,
+      "new_cost": 370595
+    },
+    {
+      "date": "2026-08-31",
+      "old_assigned": 15,
+      "new_assigned": 15,
+      "old_cost": 381610,
+      "new_cost": 381610
+    }
+  ]
+}

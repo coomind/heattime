@@ -1,0 +1,84 @@
+{
+  "scope": "Offline software validation only; no field accuracy, user efficacy or award certification. All .env files remain unopened. No real API calls, deployment, login, messages or collection.",
+  "tested_application_commit": "e428b0b50d4640e90b022ddeb6828807c08693ae",
+  "source_fingerprint": "59eb446ed58001d106c17e63907ba2faed6b574de15780ddf1ec7564ebfde468",
+  "receipts": {
+    "python": {
+      "passed": 900,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 275.234,
+      "receipt_sha256": "2f95534b7a0c8f39fa47fbf0726030c3067a3ba60a8525601c546b4f55709ae2"
+    },
+    "node": {
+      "passed": 28,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.214,
+      "receipt_sha256": "35a8764cbe741b71cdd9e998c090e2a6af67eaf829198bf1050aaf271f2777ec"
+    },
+    "browser": {
+      "passed": 144,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "duration_seconds": 180.809,
+      "receipt_sha256": "4b6c2c1279443edbd3bd9bd259074d3ea7beb7cf306cbb9f033e5701d186011e"
+    },
+    "clone_python": {
+      "passed": 900,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 310.731,
+      "receipt_sha256": "034133b510ee3f3d25fcd62dcf38d18f31a75c4e2a97848553410fd6cee5875f"
+    },
+    "clone_final_packaging": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 5.853,
+      "receipt_sha256": "1897aaa6cd0a6a48149082dc72331e71c39d5b7b182c8bfd6c567be780b28ba7"
+    },
+    "zip_python": {
+      "passed": 900,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 289.134,
+      "receipt_sha256": "729b406b89f27cde9aa9509067d7628e1334f5edc8fe879a622fb27d9c646ac8"
+    }
+  },
+  "clone_full_test_commit": "074d2002de4840810ee6a9d473900b53ecc2ad98",
+  "clone_final_packaging_commit": "e428b0b50d4640e90b022ddeb6828807c08693ae",
+  "zip_full_test_commit": "e428b0b50d4640e90b022ddeb6828807c08693ae",
+  "zip_test_manifest_files": 285,
+  "zip_test_file_hashes_match": true,
+  "protected_files_unchanged": [
+    "backend/config/schedule.yaml",
+    "backend/config/policies.yaml",
+    "backend/engine/wbgt.py",
+    "backend/engine/settings.py",
+    "backend/engine/policy.py"
+  ],
+  "clone_health": {
+    "health_status": 200,
+    "page_status": 200,
+    "local_only": true
+  },
+  "zip_health": {
+    "health_status": 200,
+    "page_status": 200,
+    "local_only": true
+  },
+  "build_seconds": {
+    "workspace": 1.98,
+    "clone": 2.8,
+    "zip": 2.61
+  },
+  "pdf": {
+    "pages": 26,
+    "all_pages_rendered": true,
+    "visual_review": "first three pages and contact sheet of all pages",
+    "text_bounds_and_original_notice": true
+  },
+  "note": "Final report-only commit and final archive hash are recorded in Git and the external archive manifest; final source fingerprint must equal the tested source."
+}
