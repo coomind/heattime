@@ -50,6 +50,21 @@ def create_app(db_path=None):
     app.state.repo=repo;app.state.service=service
     from backend.weather.aws_live import LiveProvider
     app.state.live_provider=LiveProvider(repo)
+    from backend.validation import WorkEvidence,FieldEvidence,save_work,save_field,evidence_summary,evidence_csv
+    @app.get('/api/validation/summary')
+    def validation_summary():return evidence_summary(repo)
+    @app.post('/api/validation/work',status_code=201)
+    def validation_work(body:WorkEvidence):return save_work(repo,body)
+    @app.post('/api/validation/field',status_code=201)
+    def validation_field(body:FieldEvidence):return save_field(repo,body)
+    @app.api_route('/api/validation/{kind}',methods=['PUT','PATCH','DELETE'])
+    def validation_readonly(kind:str):raise HTTPException(405,'검증 기록은 추가 저장만 지원합니다.')
+    @app.get('/api/validation/export/{format}')
+    def validation_export(format:str):
+        summary=evidence_summary(repo)
+        if format=='json':return summary
+        if format!='csv':raise HTTPException(404,'Unknown export format')
+        return Response(evidence_csv(summary),media_type='text/csv; charset=utf-8',headers={'Content-Disposition':'attachment; filename="heattime-validation.csv"'})
     @app.post('/api/live-observations')
     def live_observations(body:LiveRequest):
         from dataclasses import asdict
