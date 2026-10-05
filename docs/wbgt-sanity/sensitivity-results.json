@@ -1,0 +1,6272 @@
+{
+  "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
+  "analysis_only": true,
+  "settings": {
+    "slot_min": 15,
+    "cleanup_min": 5,
+    "open_hour": 7,
+    "close_hour": 20,
+    "rest_by_age": {
+      "U10": 60,
+      "U12": 60,
+      "U15": 60,
+      "U18": 45,
+      "adult": 30,
+      "senior": 60
+    },
+    "heat_weight": 100,
+    "time_weight": 1,
+    "venue_penalty": 30,
+    "time_limit_sec": 10
+  },
+  "scenarios": [
+    {
+      "name": "baseline",
+      "field_offset_c": 2.5,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {},
+      "summary": {
+        "complete_days": 16,
+        "incomplete_days": 46,
+        "zero_assignment_days": 3,
+        "assigned_total": 562,
+        "postponed_total": 368,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true
+        }
+      ]
+    },
+    {
+      "name": "offset_0",
+      "field_offset_c": 0.0,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {},
+      "summary": {
+        "complete_days": 32,
+        "incomplete_days": 30,
+        "zero_assignment_days": 0,
+        "assigned_total": 776,
+        "postponed_total": 154,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.365238999999974,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.765172199999938,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.807476899999983,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.705047300000047,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.552267799999981,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.7754055999998855,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.890239999999949,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.308729700000185,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.32043849999991,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.2999059000001125,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.48065989999986414,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11544709999998304,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.22967690000018592,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.571880400000055,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.945238000000018,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3848362000001089,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3179135000000315,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.262338600000021,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.381941500000039,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.283506100000068,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.309881799999857,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.426391100000046,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.6166748000000553,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3042405999999573,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3784531000001152,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.22584840000013173,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.766706299999896,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7245375999998487,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.0962495999999646,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.6953622999999425,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3341080000000147,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3666182000001754,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3603058000001056,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.20691219999980603,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1656471999999667,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.19823790000009467,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08831190000000788,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.17264699999986988,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.027687799999967,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.30005210000013,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.640925200000083,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.621382699999913,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.458933699999989,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.808492200000046,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.1620369999998275,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.48195950000013,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.753226499999982,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.769637699999976,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.199954299999945,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.210277299999916,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.269479100000126,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.808654100000012,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.5094612000000325,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4341896999999335,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.43247229999997217,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6460475999999744,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9512677000000167,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.423445099999981,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.974000700000033,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.700510900000154,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.192505600000004,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.938549299999977,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "offset_1.25",
+      "field_offset_c": 1.25,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {},
+      "summary": {
+        "complete_days": 25,
+        "incomplete_days": 37,
+        "zero_assignment_days": 0,
+        "assigned_total": 676,
+        "postponed_total": 254,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.9999184999999216,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.29281149999997,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.324581700000181,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.3835644000000684,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.677708400000029,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.400855999999976,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.8234415999997964,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.52220380000017,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.35744469999986,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.066178400000126,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.19405730000016774,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11510049999992589,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.16781639999999243,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.7998029000000315,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.209044900000208,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.0951426999999967,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5210813999999573,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.988697000000002,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.5944904000000406,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.765127399999983,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.037333799999942,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5664919999999256,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.1371867000000293,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.37064439999994647,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.40070140000011634,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13202750000004926,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.18440559999999095,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.18393609999998262,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5161352000000079,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.39780160000009346,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13295970000012858,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13557700000001205,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05879470000013498,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07513079999989714,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07535630000006677,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07632610000018758,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.058193800000026386,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.12216030000013234,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5455322999998771,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.6437889000001178,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.2711911999999757,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.4427093000001605,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.767737499999839,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.1958870000000843,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.4093860000000404,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.5257904999998573,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.816358199999968,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.8629832999999962,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5894849000001159,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.2027130999999827,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.235650100000157,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.063481999999794,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.2250634999998056,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.44162040000014713,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.19286769999985154,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2149805000001379,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.27361759999985225,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6565752000001339,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9755508999999165,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.47295580000013615,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.9114807999999357,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.222096599999986,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "offset_3.75",
+      "field_offset_c": 3.75,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {},
+      "summary": {
+        "complete_days": 11,
+        "incomplete_days": 51,
+        "zero_assignment_days": 12,
+        "assigned_total": 419,
+        "postponed_total": 511,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.9250730000001113,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.386744599999929,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5868705000000318,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.205507500000067,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.963186299999961,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5234213000001091,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.26896899999997004,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.345947499999966,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.40073469999993,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.18913869999983035,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06614409999997406,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06071689999998853,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05998500000009699,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11034829999994145,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.3263710999999603,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5128414999999222,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08461549999992712,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.586316700000225,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6960105999999087,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.307034299999941,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.7989313000000493,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.46350090000009914,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11204060000000027,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05738189999988208,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.057174900000063644,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.059353500000042914,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05582009999989168,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07557669999982863,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07410889999982828,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07410429999981716,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07668269999999211,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0574360999999044,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05988989999991645,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07688000000007378,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05726350000009006,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05916469999988294,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05939429999989443,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.059267000000090775,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0757704999998623,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.31274870000015653,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13431969999987814,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2958572000000004,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.6884176999999454,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13422490000016296,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2784105000000636,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.761735999999928,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.6821036999999706,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.7159683000002133,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.14913539999997738,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1519141999999647,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.388879599999882,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.0530467000000954,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.0433995999999297,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06229180000013912,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10537909999993644,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.155274400000053,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07020059999990735,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1570475000000897,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7209195000000364,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.14357649999988098,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5317866999998841,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.6696937000001526,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "central_only",
+      "field_offset_c": 2.5,
+      "decision_uses_upper": false,
+      "hypothetical_site_shift_c": {},
+      "summary": {
+        "complete_days": 28,
+        "incomplete_days": 34,
+        "zero_assignment_days": 0,
+        "assigned_total": 696,
+        "postponed_total": 234,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.940492600000198,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.298930100000007,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.171174300000075,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.357971399999997,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.510135400000081,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.920818699999927,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.862297000000126,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.1005019999997785,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.406484200000023,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.221154200000001,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.17124499999999898,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07078200000000834,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1537892000001193,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.6373232000000826,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.23138589999985,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8701433999999608,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7966311000000132,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.330869699999994,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.7649125000000367,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.196946200000184,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.212211300000035,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.398498600000039,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.496339700000135,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5572783999998592,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.36650239999994483,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1471979000000374,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.43415669999990314,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2090686999999889,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4165922000001956,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2886685999999372,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1500017000000753,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15146370000002207,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07428550000008727,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13767400000006091,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07195440000009512,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07619329999988622,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07515409999996336,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15095159999987118,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6506082999999308,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8770439999998416,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.41769290000002,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.881906699999945,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.702701400000024,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.500873500000125,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.244498799999974,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.173118700000032,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.372099299999945,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.0626446000001124,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5997356000000309,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.9329440999999861,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.932595499999934,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.428761999999779,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9662235999999211,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6653897999999572,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.21399659999997311,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.43441130000019257,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.42125399999986257,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5208079999999882,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8360095999998975,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.110903700000108,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.602672399999847,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.503691099999969,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "offset_0_central",
+      "field_offset_c": 0.0,
+      "decision_uses_upper": false,
+      "hypothetical_site_shift_c": {},
+      "summary": {
+        "complete_days": 47,
+        "incomplete_days": 15,
+        "zero_assignment_days": 0,
+        "assigned_total": 871,
+        "postponed_total": 59,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.420987400000058,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.083554900000081,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.174799199999825,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.268102400000089,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.189887899999803,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.799628499999926,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.250996799999939,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.503950799999984,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.493937599999981,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.8517991999999595,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.4189920999999686,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.5232852999999977,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.206075800000008,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.957875400000148,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.782818899999938,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.750373699999955,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.2177475999999388,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.396544400000039,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.13303709999991,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.297273399999995,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.354415199999949,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.162168199999996,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.162524399999938,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.216535299999805,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.37457100000006,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.343681800000013,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.990599500000144,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.0016725000000406,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.193298500000083,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.156060300000036,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.104408800000101,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.782379500000161,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3731531000000814,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.12373800000000301,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.29246199999988676,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3320993999998336,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.31844999999998436,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2634590999998636,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.9069125000000895,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.811734999999999,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.04294630000004,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.3411171999998714,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.344169700000066,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.302892100000008,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.300887500000044,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.560869199999843,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.153513400000065,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.838926899999933,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.800273000000061,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.948689300000069,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.068367499999795,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.999499500000184,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.583505800000012,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.347958300000073,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.299658700000009,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.90424639999992,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.3522325000001274,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9584787000001143,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.051652599999898,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.206309899999951,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.779709299999922,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.034802099999979,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "site_lower_1",
+      "field_offset_c": 2.5,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {
+        "*": -1.0
+      },
+      "summary": {
+        "complete_days": 22,
+        "incomplete_days": 40,
+        "zero_assignment_days": 0,
+        "assigned_total": 645,
+        "postponed_total": 285,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.3007015000000592,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.8572635999998965,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.4110011000000213,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.3853836000000683,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.269940500000075,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.268874500000038,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7752236999999695,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.039806799999951,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.620161899999857,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.0103793999999198,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.12644460000001345,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05724529999997685,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.12314599999990605,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.2852590999998483,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.5138140999999905,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.1470844000000398,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5865650000000642,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8197597999999289,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.1499301999999716,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.713959799999884,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.726749400000017,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.6588113999998768,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7596117999999024,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2907284000000345,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11725729999989198,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1356901999999991,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15158320000000458,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2140510000001541,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15257910000013908,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.29118180000000393,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15170430000011947,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07204719999981535,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07430890000000545,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07132709999996223,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07511569999996937,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07454430000007051,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07517660000007709,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13748369999984789,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7879614000000856,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.8716821999998956,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5142570999998952,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3964034000000538,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.5669919000001755,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.248306300000195,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.8353689999999006,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.197491499999842,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.623731599999928,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.588082600000007,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5601913999998942,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.49646740000002865,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.118273900000077,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.900377699999808,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9828997999998137,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13415770000005978,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07346259999985705,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.18677230000002965,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1523802000001524,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5020269999999982,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5996615000001384,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.423774099999946,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.415736299999935,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.471319400000084,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "site_upper_1",
+      "field_offset_c": 2.5,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {
+        "*": 1.0
+      },
+      "summary": {
+        "complete_days": 11,
+        "incomplete_days": 51,
+        "zero_assignment_days": 10,
+        "assigned_total": 445,
+        "postponed_total": 485,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.3290760999998383,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.16414020000002,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5097441000000345,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.338292200000069,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.3129578000000492,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5408373000000211,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.41515509999999267,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.323152200000095,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.288957199999913,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.38989070000025094,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05294709999998304,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05929880000030607,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05753870000035022,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.09338220000017827,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.2330197999999655,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.8943451000000096,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0658491000003778,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7931452000002537,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6152560000000449,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.662430299999869,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.935651900000266,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6232190000000628,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15729929999997694,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07161949999999706,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07700969999996232,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08402840000007927,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06242670000028738,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07877759999973932,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.071748899999875,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07458019999967291,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07634879999977784,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0571777000000111,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06047110000008615,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07606750000013562,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05702119999978095,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05900739999970028,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05947280000009414,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 0,
+          "postponed": 15,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05764450000015131,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15604769999981727,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.553715099999863,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2702030000000377,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.32543470000018715,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.275211799999852,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13763620000008814,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2907749999999396,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6823746999998548,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.7721314999998867,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.6975382999999056,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13528330000008282,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.12357449999990422,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.41892339999958494,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.6113492000004044,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9498490000000857,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1284246999998686,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07200069999998959,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15363429999979417,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0723614000003181,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.13602080000009664,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6105093000001034,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.1278178000002299,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4082098000003498,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.2204053999998905,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "site_heterogeneous_1",
+      "field_offset_c": 2.5,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {
+        "mock-suwon-a": -1.0,
+        "mock-suwon-b": 0.0,
+        "mock-suwon-c": 1.0
+      },
+      "summary": {
+        "complete_days": 21,
+        "incomplete_days": 41,
+        "zero_assignment_days": 0,
+        "assigned_total": 600,
+        "postponed_total": 330,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.6206624999999804,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.813264400000207,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.945911199999955,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.9650682000001325,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.8178609999999935,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.241344200000185,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6480578999999125,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.370196700000179,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.916379700000107,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.172501399999874,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08925559999988764,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 2,
+          "postponed": 13,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0733089000000291,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08976899999970556,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.9647675999999592,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.658685599999899,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.8962903000001461,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.32433169999967504,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.7652604999998402,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8428925000002891,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.989878200000021,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.599560600000132,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.2309480000003532,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5077065999998922,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2278556999999637,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10310460000027888,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10562279999976454,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10331290000021909,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10638719999997193,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.15206569999963904,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.213895699999739,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10314659999994547,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 2,
+          "postponed": 13,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05784080000012182,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 2,
+          "postponed": 13,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07506080000030124,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07516590000022916,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 1,
+          "postponed": 14,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06152689999998984,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 1,
+          "postponed": 14,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05955180000000837,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 1,
+          "postponed": 14,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.058872400000382186,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.09318990000019767,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5097682000000532,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.9101132999999209,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6565177999996195,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5025317999998151,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.080901100000119,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.2976527000000715,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5398690000001807,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.049055599999974,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.197155199999997,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.7885121999997864,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3454743000002054,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3790673999997125,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.9176032000000305,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.052704000000176,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.285963300000276,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11946800000032454,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.0739064999997936,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.20121940000035465,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08228300000018862,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 8,
+          "postponed": 7,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5699689000002763,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.5283057999999983,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4796060000003308,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.2858043999999609,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.020415899999989,
+          "constraints_ok": true
+        }
+      ]
+    },
+    {
+      "name": "site_heterogeneous_reverse_1",
+      "field_offset_c": 2.5,
+      "decision_uses_upper": true,
+      "hypothetical_site_shift_c": {
+        "mock-suwon-a": 1.0,
+        "mock-suwon-b": 0.0,
+        "mock-suwon-c": -1.0
+      },
+      "summary": {
+        "complete_days": 20,
+        "incomplete_days": 42,
+        "zero_assignment_days": 0,
+        "assigned_total": 592,
+        "postponed_total": 338,
+        "unproven_incomplete_days": []
+      },
+      "days": [
+        {
+          "date": "2026-07-01",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8450124999999389,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-02",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.985350599999947,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-03",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 3.3485061000001224,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-04",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.6180582000001777,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-05",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.156400100000155,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-06",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.472858599999654,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-07",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6431167999999161,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-08",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 8.163421400000061,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-09",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.096565199999986,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-10",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.785132099999828,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-11",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10174140000026455,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-12",
+          "assigned": 2,
+          "postponed": 13,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07331979999980831,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-13",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.09023479999996198,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-14",
+          "assigned": 13,
+          "postponed": 2,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.8329186999999365,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-15",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.456892300000163,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-16",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.094267899999977,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-17",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.3010982000000695,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-18",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.18089080000027,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-19",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.7598502000000735,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 9.91626980000001,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 7.19100490000028,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-22",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.1839178000000175,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-23",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4568882999997186,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-24",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2249360999999226,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.08564099999966857,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.09254280000004655,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-27",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10588900000038848,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-28",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.09082300000000032,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-29",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.11959139999999024,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-30",
+          "assigned": 5,
+          "postponed": 10,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.21347030000015366,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-07-31",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10228980000010779,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-01",
+          "assigned": 2,
+          "postponed": 13,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07565900000008696,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-02",
+          "assigned": 2,
+          "postponed": 13,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05940089999967313,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-03",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06046680000008564,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-04",
+          "assigned": 1,
+          "postponed": 14,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.05927109999993263,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-05",
+          "assigned": 1,
+          "postponed": 14,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.06046969999988505,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-06",
+          "assigned": 1,
+          "postponed": 14,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.058197800000016287,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-07",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.09253010000020367,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-08",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4979960000000574,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-09",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.7987463999997999,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-10",
+          "assigned": 12,
+          "postponed": 3,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.6638664000001882,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-11",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.521345200000269,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-12",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.235683199999585,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-13",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.1075661999998374,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-14",
+          "assigned": 11,
+          "postponed": 4,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.5883369000002858,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-15",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.8987443000000894,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-16",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 5.98353730000008,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-17",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.468485299999884,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-18",
+          "assigned": 6,
+          "postponed": 9,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.2936664999997447,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-19",
+          "assigned": 10,
+          "postponed": 5,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.44822130000011384,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-20",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 4.021452400000271,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-21",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT FEASIBLE",
+          "coverage_optimal": false,
+          "full_coverage_proven": true,
+          "elapsed_sec": 10.151772300000175,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-22",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 2.0403126999999586,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-23",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.140368099999705,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-24",
+          "assigned": 3,
+          "postponed": 12,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.07117310000012367,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-25",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.14010270000017044,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-26",
+          "assigned": 4,
+          "postponed": 11,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.10264209999968443,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-27",
+          "assigned": 7,
+          "postponed": 8,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.489930700000059,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-28",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.160924399999658,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-29",
+          "assigned": 9,
+          "postponed": 6,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 0.4879817999999432,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-30",
+          "assigned": 14,
+          "postponed": 1,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 1.2113610999999764,
+          "constraints_ok": true
+        },
+        {
+          "date": "2026-08-31",
+          "assigned": 15,
+          "postponed": 0,
+          "solver": "CP-SAT OPTIMAL",
+          "coverage_optimal": true,
+          "full_coverage_proven": true,
+          "elapsed_sec": 6.250716900000043,
+          "constraints_ok": true
+        }
+      ]
+    }
+  ]
+}

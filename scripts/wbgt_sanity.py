@@ -9,6 +9,7 @@ from dataclasses import asdict, replace
 from datetime import datetime
 import hashlib
 from importlib.metadata import version
+from functools import lru_cache
 import json
 import math
 from pathlib import Path
@@ -81,6 +82,7 @@ def build_probe(source):
     commit = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
     if commit != UPSTREAM_COMMIT:
         raise ValueError('Unverified upstream source commit')
+    subprocess.run(['git','-C',str(source),'diff','--quiet','HEAD','--','src/wbgt.c'],check=True)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     library = OUTPUT/'solar-probe.dll'
     subprocess.run(['gcc', '-shared', '-O2', '-std=gnu89', '-fno-fast-math',
@@ -159,7 +161,7 @@ def fresh_sessions():
     return sessions
 
 
-def peak_traces(sessions, probe, pressure):
+def peak_traces(sessions, probe, pressure, source=None):
     peaks = []
     for s in sessions:
         risks = Service.context(s)[3]
@@ -213,7 +215,7 @@ def peak_traces(sessions, probe, pressure):
         rows.append(row)
     result = {'library_version':version('lwbgt'), 'upstream_commit':UPSTREAM_COMMIT,
               'original_sample_sha256':load_dataset().original_sha256,
-              'source_sha256':hashlib.sha256((OUTPUT/'lwbgt-source/src/wbgt.c').read_bytes()).hexdigest(),
+              'source_sha256':hashlib.sha256((Path(source or OUTPUT/'lwbgt-source')/'src/wbgt.c').read_bytes()).hexdigest(),
               'all_62_day_maxima_verified':True, 'rows':rows}
     write_json(PUBLIC/'peak-traces.json', result)
     return result
@@ -296,13 +298,26 @@ def variant_context(session, offset, upper, shifts):
     if unknown: raise ValueError(f'Unknown hypothetical venue ids: {sorted(unknown)}')
     changed = []
     for r in risks:
-        delta = offset-r.inputs['venue']['field_offset_c'] + shifts.get(r.venue_id,shifts.get('*',0.))
-        central, low, high = (round(x+delta,3) for x in (r.wbgt_c,r.wbgt_low_c,r.wbgt_high_c))
+        if r.inputs['calibration'] is not None:
+            raise ValueError('This sensitivity protocol requires uncalibrated observations')
+        native = unrounded_native_wbgt(engine_input(r))
+        central = native + offset + shifts.get(r.venue_id,shifts.get('*',0.))
+        central += engine.surface_offsets[r.inputs['venue']['surface']]
+        low, high = central-engine.uncertainty_c, central+engine.uncertainty_c
         decision = high if upper else central
-        changed.append(replace(r,wbgt_c=central,wbgt_low_c=low,wbgt_high_c=high,
-                               level=classify(decision,t.policy_id),decision_wbgt_c=decision))
+        # Match production: classify full precision, then round displayed numbers.
+        changed.append(replace(r,wbgt_c=round(central,3),wbgt_low_c=round(low,3),wbgt_high_c=round(high,3),
+                               level=classify(decision,t.policy_id),decision_wbgt_c=round(decision,3)))
     # Venue offset is descriptive; rescheduling uses the changed risks. No engine re-estimation.
     return t,m,[replace(x,field_offset_c=offset) for x in v],changed,settings,engine
+
+
+@lru_cache(maxsize=8192)
+def unrounded_native_wbgt(item):
+    output=calculate(item)
+    if output.status or not math.isfinite(output.wbgt_c):
+        raise ValueError('Sensitivity requires successful primary-engine outputs')
+    return output.wbgt_c
 
 
 def sensitivity(sessions):
@@ -355,7 +370,7 @@ if __name__ == '__main__':
     args=parser.parse_args()
     if args.mode == 'traces':
         probe=Probe(build_probe(args.source))
-        result=peak_traces(fresh_sessions(),probe,pressure_evidence())
+        result=peak_traces(fresh_sessions(),probe,pressure_evidence(),args.source)
         peak_tables(result)
         for row in result['rows']:
             print(json.dumps(row,ensure_ascii=False),flush=True)
