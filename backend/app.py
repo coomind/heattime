@@ -30,6 +30,7 @@ class DecisionRequest(BaseModel):
     assignments: list[dict] | None = None
 class CsvRequest(BaseModel):
     csv_text: str = Field(max_length=1000000)
+    expected_revision: str | None = Field(default=None,min_length=64,max_length=64)
 class ManualRequest(BaseModel):
     venue_id: str
     valid_time: datetime
@@ -116,40 +117,28 @@ def create_app(db_path=None):
     def input_detail(id:str,venue_id:str,valid_time:str,view:Literal['original','proposed','approved']='original'):
         from backend.input_evidence import input_evidence
         return input_evidence(repo.get('sessions',id),venue_id,valid_time,view)
+    @app.post('/api/tournaments/{id}/matches/csv-preview')
+    def csv_preview(id:str,body:CsvRequest):
+        from backend.csv_import import prepare_csv
+        with repo.connect() as conn:
+            conn.execute('BEGIN')
+            return prepare_csv(repo,id,body.csv_text,conn)
+    @app.get('/api/tournaments/{id}/matches/csv-template')
+    def csv_template(id:str):
+        from backend.csv_import import template_csv
+        return Response(template_csv(repo,id),media_type='text/csv; charset=utf-8',headers={'Content-Disposition':'attachment; filename="heattime-matches-template.csv"'})
     @app.post('/api/tournaments/{id}/matches/csv')
     def upload(id:str,body:CsvRequest):
-        t=repo.get('tournaments',id);rows=[]
-        reader=csv.DictReader(io.StringIO(body.csv_text.lstrip('\ufeff')),strict=True)
-        try:
-            if reader.fieldnames and len(reader.fieldnames)!=len(set(reader.fieldnames)):
-                raise ValueError('CSV 열 이름이 중복되었습니다.')
-            for row in reader:
-                if None in row or any(value is None for value in row.values()):
-                    raise ValueError(f'CSV {reader.line_num}행의 열 수가 헤더와 다릅니다.')
-                row['tournament_id']=id;row['depends_on']=[d.strip() for d in row.get('depends_on','').split(';') if d.strip()]
-                for k in ['duration_min','halves','half_break_min']:
-                    if not row.get(k):row.pop(k,None)
-                rows.append(Match.model_validate(row))
-        except csv.Error as exc:
-            raise ValueError(f'CSV {reader.line_num}행의 형식이 올바르지 않습니다. 따옴표를 확인하세요.') from exc
-        if not rows or len({r.id for r in rows})!=len(rows):raise ValueError('Empty CSV or duplicate ids')
-        existing=[Match(**m) for m in repo.list('matches') if m['tournament_id']==id and m['id'] not in {r.id for r in rows}]
-        participants(existing+rows)
-        for m in rows:
-            repo.get('venues',m.venue_id)
-            if not CalendarDate.fromisoformat(t['date_start'])<=m.scheduled_start.astimezone(KST).date()<=CalendarDate.fromisoformat(t['date_end']):raise ValueError('CSV match outside dates')
-            for tid in [m.team_a,m.team_b]:
-                if not tid.startswith('winner:') and repo.get('teams',tid)['tournament_id']!=id:raise ValueError('Invalid CSV team')
+        from backend.csv_import import prepare_csv
         with repo.connect() as conn:
-            # Check global ids under the write lock before importing any row.
             conn.execute('BEGIN IMMEDIATE')
-            for m in rows:
-                try:stored=repo.get('matches',m.id,conn)
-                except KeyError:continue
-                if stored['tournament_id']!=id:
-                    raise HTTPException(409,f'경기 ID {m.id}는 다른 대회에서 사용 중입니다.')
-            for m in rows:repo.put('matches',m.id,m,conn)
-        return {'imported':len(rows)}
+            checked=prepare_csv(repo,id,body.csv_text,conn)
+            if checked['errors']:
+                raise HTTPException(checked['errors'][0]['status'],detail={'errors':checked['errors']})
+            if body.expected_revision and body.expected_revision!=checked['revision']:
+                raise HTTPException(409,'확인 후 등록 자료가 변경되었습니다. CSV를 다시 확인하세요.')
+            for row in checked['rows']:repo.put('matches',row['match']['id'],row['match'],conn)
+        return {'imported':len(checked['rows'])}
     kinds={'venues','tournaments','teams','matches'}
     @app.get('/api/{kind}')
     def list_resources(kind:str):
