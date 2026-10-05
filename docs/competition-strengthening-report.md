@@ -49,6 +49,7 @@
 | 기존 발표 정합성 |16개 통과,원고2162자·구간별 예산 유지 |
 | 기존 제출 정합성 |10개 통과,로컬 링크39개 모두 존재 |
 | 새 비교 문서 정합성 |8개 통과, QA13 길이·원본·별도 부록·링크 대조 |
+| 새 Git 복제본의 증거 재현 |62일 입력·제약·숫자 동일, 화면 검사15개·문서8개 통과; 설치된 런타임 재사용 |
 
 기존 발표·제출 검사 스크립트와 기존 테스트는 수정하지 않았다. 초기 분석의 쿨링 시각 파싱 누락, 새 브라우저 검사에 잘못 적은 라운드명은 각각 실제 원인에 맞춰 수정했고 후속 검사로 통과했다. 수치·제약·안전 검사 강도는 유지했다. TestClient 사용 중단 예정 경고1개와 브라우저 색상 변수 경고는 남는다.
 
@@ -69,7 +70,8 @@
 
 1. `4f1412f` — `analysis: compare frozen schedules against equal-constraint greedy baseline`.
 2. `4f3177d` — `feat: expose full-period evidence and match-level schedule changes`.
-3. 이 보고서를 포함한 작업3 — `docs: add quantitative competition evidence and judge brief`. 실제 해시는 `git log -3 --oneline`으로 확인.
+3. `7f09500` — `docs: add quantitative competition evidence and judge brief`.
+4. 이 보고서 갱신과 [새 복제본 검증 보고](competition-reproducibility-report.md)를 포함한 마무리 커밋 — `docs: record clean-clone competition evidence verification`. 실제 해시는 `git log -4 --oneline`으로 확인.
 
 ## 내가 직접 확인할 항목
 
