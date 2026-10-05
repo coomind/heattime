@@ -1,8 +1,9 @@
 import React from 'react';
+import DecisionBreakdown from './DecisionBreakdown.jsx';
 const states={unapproved:'아직 승인하지 않은 자동 제안',accepted_proposal:'승인된 자동 제안',superseded_proposal:'수정 전 자동 제안 · 실제 적용 일정과 다릅니다',rejected_proposal:'거절된 자동 제안 · 적용되지 않았습니다',approved:'승인 시점의 적용 일정',rejected:'제안 거절 · 적용 일정 없음'};
 const time=v=>v?new Date(v).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}):'없음';
 const value=v=>v===null||v===undefined?'자료 없음':Number(v).toFixed(3);
-export default function MatchEvidence({evidence,onInput}){
+export default function MatchEvidence({evidence,onInput,policy}){
  const e=evidence,c=e.constraints,r=e.recommendation;
  return <section className="card match-evidence"><h2>{e.match.round} · {e.match.id} · 일정 근거</h2>
   <p className="evidence-assumptions">{states[e.state]} · 가상 예시 대회 · {e.label}</p>
@@ -17,7 +18,7 @@ export default function MatchEvidence({evidence,onInput}){
     {c.dependencies.map(row=><tr key={'dep-'+row.match_id}><td>선행 경기</td><td>{row.match_id}</td><td>종료 {time(row.end)}</td><td>{row.ok?'충족':'미충족'}</td></tr>)}
    </tbody></table></div>
    <p>{c.schedule_errors.length?'제약 확인: '+c.schedule_errors.join(', '):'이 일정의 기존 하드 제약 검사 통과'} · {e.solver}{!e.coverage_optimal&&' · 최적성/최소 연기 증명 미확정'}</p>
-   <details><summary>제안 구장의 시간별 WBGT 추정과 범위</summary><div className="table-scroll"><table aria-label="제안 구장 시간자료"><thead><tr><th>KST 시각</th><th>중앙값 / 범위 ℃</th><th>판정값 / 단계</th></tr></thead><tbody>{e.risks.map(risk=><tr key={risk.valid_time}><td>{time(risk.valid_time)}</td><td>추정 {value(risk.wbgt_c)} / {value(risk.wbgt_low_c)}~{value(risk.wbgt_high_c)}</td><td>{value(risk.decision_wbgt_c)} / {risk.level}{onInput&&<button className="chip" onClick={()=>onInput(risk.venue_id,risk.valid_time,e.view)}>입력 근거</button>}</td></tr>)}</tbody></table></div></details>
+   <DecisionBreakdown risks={e.risks} policy={policy}/><details><summary>제안 구장의 시간별 WBGT 추정과 범위</summary><div className="table-scroll"><table aria-label="제안 구장 시간자료"><thead><tr><th>KST 시각</th><th>중앙값 / 범위 ℃</th><th>판정값 / 단계</th></tr></thead><tbody>{e.risks.map(risk=><tr key={risk.valid_time}><td>{time(risk.valid_time)}</td><td>추정 {value(risk.wbgt_c)} / {value(risk.wbgt_low_c)}~{value(risk.wbgt_high_c)}</td><td>{value(risk.decision_wbgt_c)} / {risk.level}{onInput&&<button className="chip" onClick={()=>onInput(risk.venue_id,risk.valid_time,e.view)}>입력 근거</button>}</td></tr>)}</tbody></table></div></details>
   </>}
   <p>제약 충족은 안전 보장이 아닙니다. 이 표는 특정 제약이 연기의 유일한 원인임을 증명하지 않습니다. 최종 판단은 운영자가 합니다.</p>
  </section>;

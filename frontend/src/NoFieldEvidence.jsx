@@ -6,7 +6,7 @@ export default function NoFieldEvidence(){
  const best=data?.summary.baselines.best_of_four;
  return <details className="card no-field-evidence" onToggle={load}><summary>실측 없이 확인한 기술 근거 · 더 강한 비교와 조건 변화</summary>
  {error&&<p role="alert">검증 자료를 불러오지 못했습니다.</p>}
- {data&&<><p>{data.label} · 모든62일 동일 기본값·하드 제약 · 현재 선택한 설정을 새로 계산한 결과가 아닙니다.</p><h3>유리하게 선택한 단순 방식과도 비교</h3><p>{data.baseline_rule} 사람·경쟁 제품·고객 업무 시간과의 비교가 아닙니다.</p>
+ {data&&<><p>이 자료는 수정 전 고정 해의 역사적 비교입니다. 현재 선택 단계의 검증 수치와 별도로 읽으세요.</p><p>{data.label} · 모든62일 동일 기본값·하드 제약 · 현재 선택한 설정을 새로 계산한 결과가 아닙니다.</p><h3>유리하게 선택한 단순 방식과도 비교</h3><p>{data.baseline_rule} 사람·경쟁 제품·고객 업무 시간과의 비교가 아닙니다.</p>
  <p>강한 단순 기준 대비 배정 {best.assigned} → {data.summary.cp_assigned}건, 완전 배정 {best.complete_days} → {data.days.filter(d=>d.cp.postponed===0).length}일. 공통 경기 열 노출 점수 {best.baseline_common_heat.toLocaleString()} → {best.cp_common_heat.toLocaleString()} ({((best.baseline_common_heat-best.cp_common_heat)/best.baseline_common_heat*100).toFixed(2)}% 감소). 건강 효과나 실제 살린 경기 수가 아닙니다.</p>
  <div className="table-scroll"><table aria-label="단순 방식4종 전체 비교"><thead><tr><th>단순 방식</th><th>배정/연기 합계</th><th>15경기 전부 배정</th><th>같은 배정 수에서 CP-SAT 비용 승/패 일수</th></tr></thead><tbody>{Object.entries(data.summary.baselines).map(([k,r])=><tr key={k}><td>{names[k]}</td><td>{r.assigned} / {r.postponed}</td><td>{r.complete_days}일</td><td>{r.equal_coverage_secondary_win_days} / {r.equal_coverage_secondary_loss_days}일</td></tr>)}</tbody></table></div>
  <p>같은 배정 수의 비교는 열·시간 이동·구장 이동의 기존 가중 비용을 사용합니다. 공통 열 노출은 날짜마다 두 방식의 교집합이며 기존 원래 일정→제안 점수와 다른 비교입니다. CP-SAT는 고정 제안61일 OPTIMAL·1일 FEASIBLE 그대로입니다.</p>

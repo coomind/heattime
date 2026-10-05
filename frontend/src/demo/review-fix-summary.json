@@ -1,0 +1,55 @@
+{
+  "scope": "2026-10-06 selection fix; all previous input fingerprints and dates; one run per case; no policy/operating/time-limit change",
+  "source_sha256": "dc651e80fff9277926335a361716a33496db5116c62352b852ca70074dda0085",
+  "summary": {
+    "12": {
+      "cases": 62,
+      "previous_assigned": 562,
+      "selected_assigned": 562,
+      "baseline_assigned": 558,
+      "selected_complete": 16,
+      "statuses": {
+        "OPTIMAL": 62
+      },
+      "selected_methods": {
+        "cp_sat": 62
+      },
+      "baseline_common_heat": 155095,
+      "selected_common_heat": 147096
+    },
+    "16": {
+      "cases": 31,
+      "previous_assigned": 596,
+      "selected_assigned": 608,
+      "baseline_assigned": 598,
+      "selected_complete": 16,
+      "statuses": {
+        "FEASIBLE": 19,
+        "OPTIMAL": 12
+      },
+      "selected_methods": {
+        "cp_sat": 31
+      },
+      "baseline_common_heat": 151756,
+      "selected_common_heat": 142974
+    }
+  },
+  "regressions": [
+    {
+      "start": "2026-07-09",
+      "end": "2026-07-10",
+      "previous_assigned": 16,
+      "selected_method": "cp_sat",
+      "cp_sat_status": "FEASIBLE",
+      "selected": 27
+    },
+    {
+      "start": "2026-08-16",
+      "end": "2026-08-17",
+      "previous_assigned": 26,
+      "selected_method": "cp_sat",
+      "cp_sat_status": "FEASIBLE",
+      "selected": 27
+    }
+  ]
+}

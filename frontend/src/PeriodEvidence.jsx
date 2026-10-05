@@ -20,7 +20,7 @@ export default function PeriodEvidence(){
     <summary>62일 전체 재현 결과와 알고리즘 비교</summary>
     {loading&&<p role="status">저장된 검증 자료를 불러오고 있습니다…</p>}
     {error&&<p role="alert">검증 자료를 불러오지 못했습니다. 연결된 상태에서 시연 자료를 저장하고 다시 펼쳐주세요.</p>}
-    {data&&<>
+    {data&&<><p>이 표는 수정 전 고정 분석입니다. 현재 후보 선택 수정 결과와 혼동하지 마세요. 최신93조건 검증은 위 수정 후 결과에 따로 표시합니다.</p>
       <p className="evidence-label">기상청 관측 자료(수원 {data.station.id}·2026-07-01~2026-08-31) · 가상 U12 12팀·3구장·15경기 · 사전 계산</p>
       <p>기본값을 고정한 별도 분석입니다. 현재 선택한 대회·날짜·변경 설정의 새 계산 결과와 다릅니다. 현장 WBGT 실측이나 실제 대회 성과가 아닙니다.</p>
       <p className="evidence-assumptions">가정: {data.assumptions}. 추정 범위는 현장 검증된 신뢰구간이 아닙니다.</p>

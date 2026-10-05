@@ -9,6 +9,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether
+from backend.decision_breakdown import explanation,breakdown
 
 DISCLAIMER = '본 자료는 의사결정 보조용 추정값'
 
@@ -74,6 +75,12 @@ def records_pdf(session):
     font = 'HeatTimeNanum'
     if font not in pdfmetrics.getRegisteredFontNames():
         pdfmetrics.registerFont(TTFont(font, str(Path(__file__).parent / 'assets/fonts/NanumGothic-Regular.ttf')))
+    # NanumGothic lacks U+2103: otherwise Celsius silently becomes .notdef/NUL.
+    # Matplotlib's bundled DejaVu Sans provides the unit glyph (its own license).
+    unit_font='HeatTimeUnits'
+    if unit_font not in pdfmetrics.getRegisteredFontNames():
+        from matplotlib import get_data_path
+        pdfmetrics.registerFont(TTFont(unit_font,str(Path(get_data_path())/'fonts/ttf/DejaVuSans.ttf')))
     buf = BytesIO()
     doc = SimpleDocTemplate(buf, pagesize=A4, rightMargin=38, leftMargin=38, topMargin=36, bottomMargin=44,
                             title='HeatTime 운영 판단 기록', author='HeatTime')
@@ -81,7 +88,8 @@ def records_pdf(session):
     title = ParagraphStyle('title', parent=style, fontSize=17, leading=24, spaceAfter=12)
     story = []
     def para(text, heading=False):
-        story.extend([Paragraph(escape(str(text)), title if heading else style), Spacer(1, 4)])
+        safe=escape(str(text)).replace('℃',f'<font name="{unit_font}">℃</font>')
+        story.extend([Paragraph(safe, title if heading else style), Spacer(1, 4)])
     para('히트타임 · 경기 운영 판단 기록', True)
     para(s['tournament']['name']); para(s['label']); para('세션: ' + s['id'])
     para(f"대회 일자 {s['tournament']['date_start']}~{s['tournament']['date_end']} / 연령 {s['tournament']['age_group']}")
@@ -98,6 +106,7 @@ def records_pdf(session):
     if s.get('proposal'):
         p = s['proposal']
         para(f"공통 {len(p['common_match_ids'])}경기 열 노출 점수 {p['original_heat_score']} → {p['proposed_heat_score']} / 연기 {p['postponed_count']}경기 별도 집계")
+        para(f"선택 방법 {p.get('selected_method','과거 고정 제안')} / CP-SAT 상태 {p.get('cp_sat_status',p['solver'])} / 최소 연기 증명 {'확인' if p['coverage_optimal'] else '미확정 · 불가능 증명 아님'}")
     if s.get('data_origin')=='kma_observed':
         para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 기상청 관측 시간자료를 사용하며 대회·팀·구장은 가상 예시입니다. 현장 WBGT 정확도 검증은 별도입니다.')
         para('일사: 이전1시간 에너지(MJ/m²)를 시간평균 W/m²로 변환. 결측 일사는 기존 모델로 추정하며 관측0으로 대체하지 않습니다.')
@@ -123,6 +132,9 @@ def records_pdf(session):
             block_start=len(story)
             inputs = r['inputs']; w = inputs['weather']; solar = inputs['solar']; venue = inputs['venue']
             para(f"{name} 근거 {r['valid_time']} / {r['venue_id']} / WBGT 추정 {r['wbgt_c']}℃ (범위 {r['wbgt_low_c']}~{r['wbgt_high_c']}℃), 단계 {r['level']}, 판정값 {r['decision_wbgt_c']}℃")
+            para(explanation(r))
+            comparison=breakdown(r)
+            para(f"분석용 보정0℃·중앙값: {comparison['counterfactual_c']:.3f}℃ / 단계 {comparison['counterfactual_level']}. 설정/승인 변경 없음.")
             para(f"입력 기온 {w['ta_c']}℃ / 습도 {w['rh_pct']}% / 풍속 {w['ws_ms']}m/s / 보정 풍속 {inputs['wind_2m_ms']:.3f}m/s")
             para(f"사용 일사 {solar['used_wm2']:.1f}W/m² ({solar['source']}) / 일사량 추정 {solar['estimated_wm2']:.1f}W/m² (범위 {solar['low_wm2']:.1f}~{solar['high_wm2']:.1f}W/m²)")
             para(f"자료 {w['source']} / 가상 예시 {w['is_mock']} / 수집 시각 {w['fetched_at']}")
