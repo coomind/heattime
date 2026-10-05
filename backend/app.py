@@ -37,11 +37,39 @@ class ManualRequest(BaseModel):
     wbgt_c: float
     is_mock: bool = True
 
+class LiveRequest(BaseModel):
+    mode: Literal['mock','api'] = 'mock'
+    station_id: int = Field(default=119,ge=1,le=9999)
+    tournament_id: str = 'demo'
+    engine_settings: EngineSettings = Field(default_factory=EngineSettings)
+
 
 def create_app(db_path=None):
     app=FastAPI(title='HeatTime · 의사결정 보조',version='0.4.0')
     repo=Repository(db_path or ROOT/'data/heattime.sqlite3');service=Service(repo)
     app.state.repo=repo;app.state.service=service
+    from backend.weather.aws_live import LiveProvider
+    app.state.live_provider=LiveProvider(repo)
+    @app.post('/api/live-observations')
+    def live_observations(body:LiveRequest):
+        from dataclasses import asdict
+        from backend.weather.aws_live import AwsObservation
+        from backend.engine.wbgt import estimate
+        tour=repo.get('tournaments',body.tournament_id)
+        result=app.state.live_provider.get(body.station_id,body.mode)
+        observation=result['observation']
+        result['risks']=[]
+        result['tournament_name']=tour['name']
+        result['age_group']=tour['age_group']
+        result['policy_id']=tour['policy_id']
+        if observation:
+            point=AwsObservation(**observation)
+            for raw in repo.list('venues'):
+                venue=Venue(**raw)
+                risk=estimate(venue,point.point(venue.id),tour['age_group'],tour['policy_id'],body.engine_settings)
+                result['risks'].append({'venue_name':venue.name,**asdict(risk)})
+        # This endpoint does not update replay/approved records or optimize future games.
+        return result
     @app.exception_handler(KeyError)
     async def missing(request,exc):return Response('Resource not found',status_code=404)
     @app.exception_handler(ValueError)

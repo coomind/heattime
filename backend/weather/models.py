@@ -46,7 +46,7 @@ class Venue:
 class WeatherPoint:
     venue_id: str
     valid_time: datetime
-    source: Literal["kma_fcst", "asos_obs"]
+    source: Literal["kma_fcst", "asos_obs", "aws_obs"]
     ta_c: float
     rh_pct: float
     ws_ms: float
@@ -63,7 +63,7 @@ class WeatherPoint:
     def __post_init__(self):
         require_aware(self.valid_time)
         require_aware(self.fetched_at)
-        if not self.venue_id or self.source not in {"kma_fcst", "asos_obs"}:
+        if not self.venue_id or self.source not in {"kma_fcst", "asos_obs", "aws_obs"}:
             raise ValueError("Invalid venue/source")
         finite_range("temperature", self.ta_c, -90, 65)
         finite_range("humidity", self.rh_pct, 0, 100)
@@ -84,7 +84,7 @@ class WeatherPoint:
     def data_label(self) -> str:
         if self.is_mock:
             return '가상 예시 · mock 합성 기상'
-        if self.source == 'asos_obs' and self.station_id:
+        if self.source in {'asos_obs', 'aws_obs'} and self.station_id:
             name = (self.provenance or {}).get('station_name', '')
             return f'기상청 관측 자료({name} {self.station_id}·{self.valid_time.astimezone(KST).date()})'
         return '기상 자료'
