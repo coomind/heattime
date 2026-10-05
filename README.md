@@ -50,7 +50,10 @@ CSV 예시는 [data/mock/matches.csv](data/mock/matches.csv). 시간은 +09:00�
 
 ## 실제 테스트
 
+기존 민감도 분석의 상세 회귀 자료는 인증값 없는 가상 분석 fixture ZIP으로 보존했습니다. 새 Git 복제본과 AI 리뷰 ZIP에서는 아래 복원 명령을 먼저 실행합니다. 새 풀이·API 호출은 하지 않으며 기존 로컬 자료를 덮어쓰지 않습니다. 복원 없이 실행하면 해당 상세 검사9개가 건너뛰어지므로 전체 실행으로 보고하지 않습니다.
+
 ```powershell
+.\.venv\Scripts\python.exe scripts/prepare_regression_evidence.py
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe scripts/check_presentation.py
 .\.venv\Scripts\python.exe scripts/check_submission.py
@@ -323,3 +326,9 @@ npm run build
 ```
 
 재실행 시 FEASIBLE의 해와 실행 시간은 달라질 수 있습니다. 좋은 결과만 고르지 말고 실행본과 상태를 함께 보관하세요. 기존12팀 원본/관측 스냅샷/기본 정책은 바꾸지 않습니다. [인계 작업 보고](docs/ai-review-handoff-report.md)에 최종 검증과 범위를 기록합니다.
+
+## 독립 평가 수정 이후 검증
+
+최신 [수정 보고](docs/review-fix-report.md)와 [93조건 원자료](docs/competition-evidence/review-fix-results.json)를 읽습니다.16팀31구간은596→608배정(단순598),12팀62일은562배정을 유지했습니다. 기존62일/강한 기준/규모 표는 수정 전 고정 해의 역사적 결과로 보존하며 화면에도 구분합니다. 관측 시연 스냅샷의15/0·6114→4319는 기존 고정 예시이고 계산 결과를 바꾸지 않았습니다. 판정값 분해와PDF 단위 표시만 새로 갱신했습니다.
+
+리뷰ZIP을 풀었을 때에도 위 Windows 설치 절차와 `scripts/prepare_regression_evidence.py` 복원 후 전체 검사를 실행할 수 있습니다. Git 메타데이터가 없어도 내부 파일 목록을 사용합니다. 키/원 수집 응답/개인 운영 기록은 포함하지 않습니다. 대표일은 최고28.4℃·운영시간 습도75~90%(24시간75~93%)입니다. 연기 수 최소→원래 중지였다가 배정된 경기 수 최대→공통 점수 감소→날짜 순으로 선택한 가상 예시이며 평균 효과나 건강 효과가 아닙니다. 원래 일정은 구장 정리 간격을 어겨 제약을 통과한 기준과 구분합니다.

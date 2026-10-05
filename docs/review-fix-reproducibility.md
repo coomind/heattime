@@ -1,4 +1,4 @@
-# 独립 평가 수정: 복제와 리뷰ZIP
+# 독립 평가 수정: 복제와 리뷰ZIP
 
 2026-10-06. `git ls-files data/mock`에서 venues.json과 matches.csv 모두 추적됨을 확인했다. Dockerfile의 모든 로컬 COPY 입력도 Git 추적/존재 검사를 통과했다. Git 저장소 누락이 아니라 리뷰ZIP 생성기의 data 허용 목록에서 mock 두 파일을 빠뜨린 결함이었다. 이전 ZIP의 파일별 무결성 확인으로 실행 가능성까지 확인했다고 판단한 것은 잘못이었다.
 

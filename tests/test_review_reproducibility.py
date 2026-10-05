@@ -23,7 +23,7 @@ def test_review_bundle_includes_runtime_mock_fixtures_and_can_bootstrap_service(
 
 def test_all_local_docker_copy_inputs_are_tracked():
     root=Path(__file__).resolve().parents[1]
-    tracked=set(subprocess.check_output(['git','ls-files','-z'],cwd=root).decode().split('\0'))
+    tracked=set(builder.inventory(root)[0])
     for line in (root/'Dockerfile').read_text(encoding='utf-8').splitlines():
         if not line.startswith('COPY ') or '--from=' in line:continue
         for source in shlex.split(line)[1:-1]:

@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def allowed(name):
     path=Path(name)
+    if path.is_absolute() or '..' in path.parts:return False
     if any(part.lower().startswith('.env') for part in path.parts):return False
     if path.suffix.lower() in {'.sqlite3','.db','.pyc','.docx','.pdf','.pptx'}:return False
     if any(part in {'.git','.venv','node_modules','dist','__pycache__'} for part in path.parts):return False
@@ -20,14 +21,23 @@ def allowed(name):
         return name in {'data/observations/asos_119_20260701_20260831.json',
                         'data/mock/venues.json','data/mock/matches.csv'}
     if name.startswith('docs/'):
-        return path.suffix.lower() in {'.md','.json','.png','.txt'}
+        return path.suffix.lower() in {'.md','.json','.png','.txt'} or name=='docs/wbgt-sanity/regression-fixtures.zip'
     if name.startswith(('backend/','frontend/','scripts/','tests/')):return True
     return name in {'README.md','AGENTS.md','pyproject.toml','requirements.txt','.gitignore','Dockerfile','render.yaml','vercel.json','docker-compose.yml'}
 
+def inventory(root=None):
+    root=Path(root or ROOT)
+    # An extracted review ZIP has no Git metadata; its committed file manifest
+    # supplies the same explicit inventory so its tests/build remain runnable.
+    if (root/'REVIEW-MANIFEST.json').is_file() and not (root/'.git').exists():
+        manifest=json.loads((root/'REVIEW-MANIFEST.json').read_text(encoding='utf-8'))
+        return [entry['path'] for entry in manifest['files']],manifest['repository_commit']
+    return (subprocess.check_output(['git','ls-files','-z'],cwd=root).decode('utf-8').split('\0'),
+            subprocess.check_output(['git','rev-parse','HEAD'],cwd=root).decode().strip())
+
 def build():
-    tracked=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode('utf-8').split('\0')
+    tracked,revision=inventory()
     names=sorted(name for name in tracked if name and allowed(name))
-    revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip()
     target=ROOT/'data/output/ai-review/HeatTime-AI-review.zip';target.parent.mkdir(parents=True,exist_ok=True)
     entries=[]
     with zipfile.ZipFile(target,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
