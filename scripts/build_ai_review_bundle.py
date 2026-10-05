@@ -17,7 +17,8 @@ def allowed(name):
     if path.suffix.lower() in {'.sqlite3','.db','.pyc','.docx','.pdf','.pptx'}:return False
     if any(part in {'.git','.venv','node_modules','dist','__pycache__'} for part in path.parts):return False
     if name.startswith('data/'):
-        return name=='data/observations/asos_119_20260701_20260831.json'
+        return name in {'data/observations/asos_119_20260701_20260831.json',
+                        'data/mock/venues.json','data/mock/matches.csv'}
     if name.startswith('docs/'):
         return path.suffix.lower() in {'.md','.json','.png','.txt'}
     if name.startswith(('backend/','frontend/','scripts/','tests/')):return True
