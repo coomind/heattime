@@ -80,6 +80,29 @@ class FieldEvidence(EvidenceBase):
         return value
 
 
+class ExclusionRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    reason: str = Field(min_length=1, max_length=1000)
+
+    @field_validator('reason')
+    @classmethod
+    def nonempty(cls, value):
+        if not value.strip(): raise ValueError('제외 사유를 기록하세요.')
+        return value.strip()
+
+
+def exclude_record(repo, kind, id, body):
+    if kind not in {'work', 'field'}: raise KeyError(kind)
+    with repo.connect() as conn:
+        conn.execute('BEGIN IMMEDIATE')
+        repo.get('validation_' + kind, id, conn)
+        code = kind + '_' + id
+        if conn.execute("SELECT 1 FROM resources WHERE kind='validation_exclusions' AND id=?", (code,)).fetchone():
+            raise HTTPException(409, '이미 제외한 기록입니다. 원자료와 제외 사유는 그대로 보존됩니다.')
+        return repo.put('validation_exclusions', code, {'kind': kind, 'record_id': id,
+                        'reason': body.reason, 'saved_at': datetime.now(KST).isoformat()}, conn)
+
+
 def fingerprint(value):
     data = json.dumps(jsonable_encoder(value), ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
     return hashlib.sha256(data.encode()).hexdigest()
@@ -142,12 +165,12 @@ def _store(repo, kind, row, conn):
     return repo.put('validation_' + kind, row['id'], row, conn)
 
 
-def work_stats(rows):
-    good = [r for r in rows if r['eligible']]
+def work_stats(rows, excluded=()):
+    good = [r for r in rows if r['eligible'] and r['id'] not in excluded]
     differences = [r['current_total_min'] - r['heattime_total_min'] for r in good]
     return {'records': len(rows), 'actual_records': sum(r['mode'] == 'actual' for r in rows),
             'mock_records': sum(r['mode'] == 'mock' for r in rows), 'included_pairs': len(good),
-            'excluded_actual': sum(r['mode'] == 'actual' and not r['eligible'] for r in rows),
+            'excluded_actual': sum(r['mode'] == 'actual' and (not r['eligible'] or r['id'] in excluded) for r in rows),
             'participants': len({r['participant_code'] for r in good}),
             'median_saved_min': median(differences) if differences else None,
             'min_saved_min': min(differences) if differences else None,
@@ -155,12 +178,12 @@ def work_stats(rows):
             'order_counts': {order: sum(r['order'] == order for r in good) for order in ('current_first', 'heattime_first')}}
 
 
-def field_stats(rows):
-    good = [r for r in rows if r['eligible']]
+def field_stats(rows, excluded=()):
+    good = [r for r in rows if r['eligible'] and r['id'] not in excluded]
     def avg(values): return sum(values) / len(values) if values else None
     return {'records': len(rows), 'actual_records': sum(r['mode'] == 'actual' for r in rows),
             'mock_records': sum(r['mode'] == 'mock' for r in rows), 'included_pairs': len(good),
-            'excluded_actual': sum(r['mode'] == 'actual' and not r['eligible'] for r in rows),
+            'excluded_actual': sum(r['mode'] == 'actual' and (not r['eligible'] or r['id'] in excluded) for r in rows),
             'mae_c': avg([abs(r['error_c']) for r in good]), 'bias_c': avg([r['error_c'] for r in good]),
             'base_mae_c': avg([abs(r['base_error_c']) for r in good]),
             'base_bias_c': avg([r['base_error_c'] for r in good]),
@@ -169,9 +192,11 @@ def field_stats(rows):
 
 def evidence_summary(repo):
     work = repo.list('validation_work'); field = repo.list('validation_field')
-    return {'work': work_stats(work), 'field': field_stats(field), 'work_records': work, 'field_records': field,
-            'work_cases': {case: work_stats([r for r in work if r['case_code'] == case]) for case in sorted({r['case_code'] for r in work})},
-            'field_sites': {site: field_stats([r for r in field if r['venue_id'] == site]) for site in sorted({r['venue_id'] for r in field})},
+    exclusions = repo.list('validation_exclusions'); excluded = {r['record_id'] for r in exclusions}
+    return {'work': work_stats(work, excluded), 'field': field_stats(field, excluded), 'work_records': work, 'field_records': field,
+            'exclusions': exclusions,
+            'work_cases': {case: work_stats([r for r in work if r['case_code'] == case], excluded) for case in sorted({r['case_code'] for r in work})},
+            'field_sites': {site: field_stats([r for r in field if r['venue_id'] == site], excluded) for site in sorted({r['venue_id'] for r in field})},
             'limitations': ['입력자의 수행 기록입니다. 제3자 확인이나 수상 가능성의 입증은 아닙니다.',
                             '준비·변경·기록을 모두 포함합니다. 음수 절감 시간도 그대로 표시합니다.',
                             '사례별·구장별 결과를 확인하세요. 반복 기록 수와 참여자 수는 다릅니다.',
@@ -182,9 +207,11 @@ def evidence_summary(repo):
 def evidence_csv(summary):
     output = io.StringIO(newline='')
     writer = csv.writer(output)
-    writer.writerow(['kind', 'id', 'mode', 'source_ref', 'eligible', 'excluded_reasons', 'record_fingerprint', 'record_json'])
+    exclusions = {r['record_id']: r for r in summary['exclusions']}
+    writer.writerow(['kind', 'id', 'mode', 'source_ref', 'eligible', 'excluded_reasons', 'review_exclusion_json', 'record_fingerprint', 'record_json'])
     for row in summary['work_records'] + summary['field_records']:
-        values = [row['kind'], row['id'], row['mode'], row['source_ref'], row['eligible'],
-                  '; '.join(row['excluded_reasons']), row['record_fingerprint'], json.dumps(row, ensure_ascii=False, allow_nan=False)]
+        values = [row['kind'], row['id'], row['mode'], row['source_ref'], row['eligible'] and row['id'] not in exclusions,
+                  '; '.join(row['excluded_reasons']), json.dumps(exclusions.get(row['id']), ensure_ascii=False),
+                  row['record_fingerprint'], json.dumps(row, ensure_ascii=False, allow_nan=False)]
         writer.writerow([csv_safe(value) for value in values])
     return ('\ufeff' + output.getvalue()).encode('utf-8')

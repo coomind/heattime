@@ -50,13 +50,15 @@ def create_app(db_path=None):
     app.state.repo=repo;app.state.service=service
     from backend.weather.aws_live import LiveProvider
     app.state.live_provider=LiveProvider(repo)
-    from backend.validation import WorkEvidence,FieldEvidence,save_work,save_field,evidence_summary,evidence_csv
+    from backend.validation import WorkEvidence,FieldEvidence,ExclusionRequest,save_work,save_field,exclude_record,evidence_summary,evidence_csv
     @app.get('/api/validation/summary')
     def validation_summary():return evidence_summary(repo)
     @app.post('/api/validation/work',status_code=201)
     def validation_work(body:WorkEvidence):return save_work(repo,body)
     @app.post('/api/validation/field',status_code=201)
     def validation_field(body:FieldEvidence):return save_field(repo,body)
+    @app.post('/api/validation/{kind}/{id}/exclude',status_code=201)
+    def validation_exclude(kind:str,id:str,body:ExclusionRequest):return exclude_record(repo,kind,id,body)
     @app.api_route('/api/validation/{kind}',methods=['PUT','PATCH','DELETE'])
     def validation_readonly(kind:str):raise HTTPException(405,'검증 기록은 추가 저장만 지원합니다.')
     @app.get('/api/validation/export/{format}')

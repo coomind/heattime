@@ -26,6 +26,14 @@ test('mock work evidence cannot manufacture actual outcomes and retains unfavour
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('link',{name:'검증 원자료 CSV'}).click()]);
  expect(download.suggestedFilename()).toBe('heattime-validation.csv');
+ const original=data.work_records.find(r=>r.source_ref===code);
+ await page.getByLabel('제외할 기록').selectOption(original.id);
+ await page.getByLabel('검토 제외 사유').fill('가상 테스트 기록의 시각 오기입');
+ await page.getByRole('button',{name:'사유를 남기고 집계 제외'}).click();
+ await expect(row).toContainText('검토 제외: 가상 테스트 기록의 시각 오기입');
+ const revised=await (await page.request.get('/api/validation/summary')).json();
+ expect(revised.work_records.find(r=>r.id===original.id)).toEqual(original);
+ expect(revised.exclusions.find(r=>r.record_id===original.id).reason).toBe('가상 테스트 기록의 시각 오기입');
 });
 
 test('snapshot validation remains readonly and makes no API request',async({page})=>{

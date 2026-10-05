@@ -185,3 +185,26 @@ def test_does_not_load_key_or_apply_manual_calibration(client, monkeypatch):
 def test_nonfinite_raw_json_rejected(client, value):
     raw = json.dumps(field()).replace('"measured_wbgt_c": 30', '"measured_wbgt_c": '+value)
     assert client.post('/api/validation/field', content=raw, headers={'Content-Type': 'application/json'}).status_code == 422
+
+
+@pytest.mark.parametrize('kind,factory', [('work', work), ('field', field)])
+def test_exclusion_audited_without_changing_original(client, kind, factory):
+    original = client.post('/api/validation/'+kind, json=factory()).json()
+    assert summary(client)[kind]['included_pairs'] == 1
+    url = '/api/validation/'+kind+'/'+original['id']+'/exclude'
+    assert client.post(url, json={'reason': '원자료 시각 오기입 확인'}).status_code == 201
+    s = summary(client)
+    assert s[kind]['included_pairs'] == 0 and s[kind]['excluded_actual'] == 1
+    assert s[kind+'_records'][0] == original
+    assert s['exclusions'][0]['reason'] == '원자료 시각 오기입 확인'
+    assert client.post(url, json={'reason': '유리한 수치로 덮어쓰기'}).status_code == 409
+    rows = list(csv.DictReader(io.StringIO(client.get('/api/validation/export/csv').content.decode('utf-8-sig'))))
+    assert rows[0]['eligible'] == 'False'
+    assert json.loads(rows[0]['record_json']) == original
+    assert json.loads(rows[0]['review_exclusion_json'])['record_id'] == original['id']
+
+
+@pytest.mark.parametrize('path,reason,status', [('work/missing', '오기입', 404), ('unknown/missing', '오기입', 404), ('work/missing', '  ', 422)])
+def test_invalid_exclusion_does_not_create_audit(client, path, reason, status):
+    assert client.post('/api/validation/'+path+'/exclude', json={'reason': reason}).status_code == status
+    assert summary(client)['exclusions'] == []
