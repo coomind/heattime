@@ -296,7 +296,7 @@ Set-Location ..
 
 **재편성 비교 → 재편성 실행 → 조건 변화 검토**에서 자동 제안과 승인된 일정을 따로 선택합니다. 킥오프·구장을 고정하고 WBGT 전체 −1/0/+1/+2℃ 또는 주의 구장·시간1개 누락 시 기존 권고와 휴식·선행·일몰 등을 검사합니다. 경기별 원래 추정 중앙값·범위·중지 기준과 판정값 차이를 읽을 수 있습니다. 변화량은 실제 오차 범위/확률이 아니고 재검토 일수는 재최적화 후 개최 불가 일수가 아닙니다. 제안·승인·설정은 변경되지 않습니다. 두 스냅샷에서도 캐시 준비 후 오프라인으로 동작합니다.
 
-오프라인 분석 재생성(제공된 원 ASOS 관측 샘플 필요; 수집·키 로드·솔버 재탐색 없음). 원 샘플은 Git에서 제외되어 있으며, 샘플 없이도 커밋된 분석과 두 시연 스냅샷을 읽을 수 있습니다:
+오프라인 분석 재생성(커밋된 data/observations/의 정규화 ASOS 자료 사용; 수집·키 로드·솔버 재탐색 없음). data/samples/의 원 API 수집 응답은 이 분석 실행에 필요하지 않습니다:
 
 ```powershell
 Set-Location 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
@@ -308,3 +308,18 @@ npm run build
 ```
 
 전체 날짜를 새로 재현하되 기존 CP-SAT 해·원본 스냅샷·정책·운영값은 바꾸지 않습니다. 데이터 갱신 뒤 위의 전체 검사·주장 대장 생성 절차도 실행하세요. [분석 보고](docs/no-field-analysis-report.md), [검토 기능](docs/plan-review-report.md), [경쟁력 근거와 한계](docs/no-field-competitiveness-report.md).
+
+
+## 다른 AI의 평가와 추가 대진 규모 검사
+
+[평가 인계 문서](docs/ai-review-pack.md)는 제품·공모전·검증 수치·미검증 항목·코드 검토 위치·평가 요청문을 모았습니다. 새 [16팀·2일 검증](docs/tournament-scale-report.md)에서는31개 관측 구간의 배정 합계가 단순598건/엔진596건이었고 두 구간에서 뒤졌습니다.12팀 결과를 모든 대진의 우위로 확대하지 않습니다. 실측 자료 없이 확인한 결과 선택 품질이 구체적 다음 개선 대상입니다.
+
+추가 규모 분석은 기존 엔진을 조건별 한 번씩 새로 실행하므로 몇 분이 걸립니다.10초 탐색 제한·정책·운영값은 바꾸지 않습니다. 단순 방법 비교와 출력/검사를 포함한 전체 시간은 더 깁니다. 키나 네트워크는 필요하지 않습니다.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/analyze_tournament_scale.py
+.\.venv\Scripts\python.exe -m pytest tests/test_tournament_scale.py -q
+.\.venv\Scripts\python.exe scripts/check_tournament_scale.py
+```
+
+재실행 시 FEASIBLE의 해와 실행 시간은 달라질 수 있습니다. 좋은 결과만 고르지 말고 실행본과 상태를 함께 보관하세요. 기존12팀 원본/관측 스냅샷/기본 정책은 바꾸지 않습니다. [인계 작업 보고](docs/ai-review-handoff-report.md)에 최종 검증과 범위를 기록합니다.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T01:30:20.013342+09:00",
+  "generated_at": "2026-10-06T02:06:00.982979+09:00",
   "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
   "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
   "source_sha256": {
@@ -13,15 +13,16 @@
     "frontend/src/demo/no-field-analysis.json": "5dafe6ebf6c8a267afdbfe11a22efb4b23932d417348e6dc43f471e89ca7740a",
     "frontend/src/demo/snapshot-plan-review.json": "9e27bdebbfc156adba793211974488bb2046d78c24cab4969987c86d26b1b7d0",
     "frontend/src/demo/observed-snapshot-plan-review.json": "13d06420d0102be34065c170e85d392dea2727d46f41b2a59c6b30cfcac19855",
+    "docs/competition-evidence/tournament-scale-analysis.json": "3b616ea69201430ed028e3f0e343583692d7023aee50efdbaf05ab02e55631cd",
     "backend/validation.py": "952c432fc020bc673e2ffaae48755d6c7d7be974c1e20b0cae5569ebc66bbb54",
     "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
-    "data/output/award-validation-pytest.xml": "7b030454f7636e31795ee7b4d437f322d43f00ffc6976806ba6b8cc0a512e876",
-    "data/output/award-validation-node.xml": "5c06021242c475184c32b2874464ea3b80674520eaed6802a148bc1e79e040f6",
-    "data/output/award-validation-playwright.json": "c2bd459b52c40a6b848697dc9d96488da57fb821c032b46ba385cb2bc884193f"
+    "data/output/award-validation-pytest.xml": "db8da5d9174429d764f084d2afa706d7db872c8f64d33baa31bb7390e09ae5f9",
+    "data/output/award-validation-node.xml": "938b7e7a8eb510960cd091e6fe8c37f7bebb4d64056a9c0d400567478250e2b7",
+    "data/output/award-validation-playwright.json": "e07bb717300b1fc4b37c319068c3857b1c31ef1786b5a8be8b95099746c7c4c1"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "tested_source_fingerprint": "61e4f8dabdbe570eb3d610b9df667eb5c49d4bd460852b1ae24b12825ec401f1",
-  "test_run_started_at": "2026-10-06T01:25:43.421541+09:00",
+  "tested_source_fingerprint": "eaf0f7d4f6b37d52561c7dec3b08c4e86e8ff6abba9b2c46349711438b69d0c9",
+  "test_run_started_at": "2026-10-06T01:57:46.244944+09:00",
   "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
   "observation_hours": 1488,
   "checks": {
@@ -40,27 +41,31 @@
     "no_field": {
       "passed": true,
       "count": 4
+    },
+    "scale": {
+      "passed": true,
+      "count": 4
     }
   },
   "test_receipts": {
     "python": {
-      "passed": 760,
+      "passed": 793,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 173.248
+      "duration_seconds": 232.153
     },
     "node": {
       "passed": 25,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 0.25
+      "duration_seconds": 0.229
     },
     "browser": {
       "passed": 126,
       "failed": 0,
       "skipped": 0,
       "flaky": 0,
-      "duration_seconds": 197.927
+      "duration_seconds": 196.754
     }
   },
   "demo": {
@@ -202,6 +207,28 @@
         "missing_matches": 65
       }
     }
+  },
+  "tournament_scale": {
+    "cases": 31,
+    "matches_per_case": 27,
+    "engine_assigned": 596,
+    "baseline_assigned": 598,
+    "engine_complete_cases": 14,
+    "baseline_complete_cases": 13,
+    "engine_more_cases": 6,
+    "equal_cases": 23,
+    "engine_fewer_cases": 2,
+    "engine_common_heat": 144293,
+    "baseline_common_heat": 148791,
+    "common_heat_reduction_pct": 3.023,
+    "no_common_cases": 1,
+    "statuses": {
+      "CP-SAT FEASIBLE": 18,
+      "CP-SAT OPTIMAL": 12,
+      "greedy-fallback": 1
+    },
+    "median_optimize_sec": 10.637,
+    "max_optimize_sec": 11.2187
   },
   "incomplete_days": 46,
   "zero_assignment_dates": [

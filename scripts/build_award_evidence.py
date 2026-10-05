@@ -17,6 +17,7 @@ from check_presentation import run as check_presentation, ASSUMPTIONS
 from backend.weather.asos_samples import load_dataset
 from backend.weather.models import KST
 from check_no_field_evidence import run as check_no_field
+from check_tournament_scale import run as check_scale
 
 
 def junit_receipt(path):
@@ -58,18 +59,19 @@ def collect():
     receipt_paths = [ROOT/'data/output'/name for name in ('award-validation-pytest.xml', 'award-validation-node.xml', 'award-validation-playwright.json')]
     if any(p.stat().st_mtime_ns < stamp_path.stat().st_mtime_ns for p in receipt_paths):
         raise ValueError('검사 시작보다 오래된 영수증입니다. 전체 검사를 다시 실행하세요.')
-    checked = {'presentation': check_presentation(write_timing=False), 'submission': check_submission(), 'competition': check_competition(), 'no_field':check_no_field()}
+    checked = {'presentation': check_presentation(write_timing=False), 'submission': check_submission(), 'competition': check_competition(), 'no_field':check_no_field(), 'scale':check_scale()}
     if any(not value['passed'] for value in checked.values()):
         raise ValueError('기존 원고·수치 정합성 검사에 실패했습니다. 증거 자료를 갱신하지 않습니다.')
     receipts = {'python': junit_receipt(ROOT/'data/output/award-validation-pytest.xml'),
                 'node': junit_receipt(ROOT/'data/output/award-validation-node.xml'),
                 'browser': browser_receipt(ROOT/'data/output/award-validation-playwright.json')}
-    if any(receipts[k]['passed'] < minimum for k, minimum in [('python', 760), ('node', 25), ('browser', 126)]):
+    if any(receipts[k]['passed'] < minimum for k, minimum in [('python', 793), ('node', 25), ('browser', 126)]):
         raise ValueError('기존 검사 수보다 적은 영수증입니다. 전체 검사를 실행하세요.')
     def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
     replay = read('docs/real-data/replay-results.json')
     comparison = read('docs/competition-evidence/method-comparison.json')['summary']
     no_field = read('docs/competition-evidence/no-field-analysis.json')['summary']
+    scale = read('docs/competition-evidence/tournament-scale-analysis.json')['summary']
     live = read('docs/kma/live-connection-verification.json')
     sample = load_dataset()
     if sample.original_sha256 != replay['original_sample_sha256']:
@@ -79,6 +81,7 @@ def collect():
              'frontend/src/demo/observed-snapshot.json', 'frontend/src/demo/snapshot.json',
              'docs/competition-evidence/no-field-analysis.json', 'frontend/src/demo/no-field-analysis.json',
              'frontend/src/demo/snapshot-plan-review.json','frontend/src/demo/observed-snapshot-plan-review.json',
+             'docs/competition-evidence/tournament-scale-analysis.json',
              'backend/validation.py', 'tests/test_validation.py',
              'data/output/award-validation-pytest.xml', 'data/output/award-validation-node.xml',
              'data/output/award-validation-playwright.json']
@@ -89,7 +92,7 @@ def collect():
             'tested_source_fingerprint': stamp['source_fingerprint'], 'test_run_started_at': stamp['started_at'],
             'assumptions': ASSUMPTIONS, 'observation_hours': len(sample.rows),
             'checks': {k: {'passed': v['passed'], 'count': len(v['checks'])} for k, v in checked.items()},
-            'test_receipts': receipts, 'demo': replay['candidates'][0], 'method_comparison': comparison,'no_field_analysis':no_field,
+            'test_receipts': receipts, 'demo': replay['candidates'][0], 'method_comparison': comparison,'no_field_analysis':no_field,'tournament_scale':scale,
             'incomplete_days': sum(r['assigned'] < 15 for r in replay['days']),
             'zero_assignment_dates': [r['date'] for r in replay['days'] if r['assigned'] == 0],
             'live': {k: live[k] for k in ('verified_at', 'status', 'upstream_http_status', 'diagnostic_timeout_seconds')},
@@ -103,6 +106,8 @@ def markdown(data):
     cost = (comp['cp_common_heat']/comp['greedy_common_heat']-1)*100
     stronger=data['no_field_analysis']['baselines']['best_of_four']
     reduction=(1-stronger['cp_common_heat']/stronger['baseline_common_heat'])*100
+    scale=data.get('tournament_scale')
+    scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건으로 배정 합계가 더 적었다. 두 구간의 열세와18개 FEASIBLE·1개 폴백을 공개한다.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
     return f'''# 심사자가 확인할 기술 증거 묶음
 
 생성: {data['generated_at']}. 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
@@ -122,6 +127,8 @@ def markdown(data):
 가정: {data['assumptions']}. 날짜별 같은15경기의 반복 배정 건수이며 실제 살린 경기 수가 아니다. 각 비교의 공통 경기 집합이 다르므로 다른 행의 점수를 합쳐 주장하지 않는다. 관측 시연의 추정 중앙 최고32.043℃와 범위30.543~33.543℃는 현장 WBGT 실측이 아니다.
 
 {data['user_confirmation']}
+
+{scale_note}
 
 고정 일정의 조건 변화 검토도 공개한다. 원래 추정59일은 모두 제약 통과, +1℃41일·+2℃57일은 권고·제약 재검토 대상, 배정 구장·시간1개 누락은59일 전부 재검토 대상이었다. 배정0인3일은 제외한다. 재최적화 후 개최 불가 일수가 아니고 실제 오차·확률도 아니다. −1℃에도 단축 해제 등으로 종료 시각이 늘어날 수 있다. 제안/승인 입력을 바꾸지 않는 [검토 기능](../plan-review-report.md)으로 같은 조건을 재확인한다.
 

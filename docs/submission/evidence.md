@@ -10,6 +10,7 @@
 |---|---|---|
 | 날짜별 유리한 단순4종 대비558→562건·완전 배정14→16일·공통 열 노출5.15% 감소 | [모든62일 원자료](../competition-evidence/no-field-analysis.json), [검사와 해석](../no-field-analysis-report.md) | 사람·경쟁사·건강 효과 우위, 모든 단순 방법 대비 우위 |
 | 고정 제안/승인 일정의 추정 이동·자료 누락 검토 | [읽기 전용 기능](../plan-review-report.md), backend/plan_review.py, tests/test_no_field.py | 실제 오차 범위·발생 확률·재최적화 후 개최 불가 일수 |
+|16팀·2일31구간에 확대하여 한계를 확인 | [전체 결과와 두 열세 사례](../tournament-scale-report.md), [원자료](../competition-evidence/tournament-scale-analysis.json) | 대진 일반의 배정 우위; 단순598건 대비 엔진596건, FEASIBLE/폴백 연기의 불가피성 |
 | 폭염 판정·대진 제약·승인·기록이 한 흐름으로 동작 | [P3](../p3-report.md), [P4](../p4-report.md), frontend/e2e의 기존 전체 흐름 검사 | 실제 운영자가 사용했다는 주장 |
 | 관측 입력의 가상 대회 재현 | [관측 필드·단위·지문](../kma/asos-observation-evidence.md), [62일 원본](../real-data/replay-results.json) | 구장3곳을 각각 관측했다는 주장 |
 | 7월10일 15배정/0연기·중지10경기 재배정 | 같은 원본의 candidates[0], [스냅샷 보고](../real-data/a5-snapshot.md) | 실제10경기를 살렸다거나 안전을 보장했다는 주장 |
