@@ -18,6 +18,7 @@
 | 공모전 제출물·일정 | [공식 공모요강](https://ggsports.spectory.net/innovation/contest?bno=60730) | 시연 포함7분 발표, 서비스 링크/활용 영상 등. 접수 전 변경 여부 재확인 |
 | 대진·기록 기능 비교 | [스파인더 공식 FAQ](https://www.sfinder.co.kr/faq/list) | 대진 자동화·기록 관리가 기존 기능임을 확인. 다른 기능의 부재나 동일 조건 성능 비교는 주장하지 않음 |
 | 진행 순서 기능 비교 | [스포츠프리즘 공식 소개](https://www.sportsprism.net/about/company-intro) | 순서 최적화가 기존 공개 기능임을 확인. 업체 홍보 성능 수치는 검증하지 않아 인용하지 않음 |
+| 동일 제약 알고리즘 비교 | [전체 결과·해석](../competition-evidence/method-comparison.md), [원본](../competition-evidence/method-comparison.json) | 62개 가상 대회에서 탐욕 대비 배정 합계+56건·완전 배정0→16일, 공통 점수1.39% 증가도 공개. 수작업/경쟁 제품/건강 효과 비교 아님; 별도 부록 |
 
 프로젝트 구현과 실제 실행 근거: ../p2-report.md, ../p3-report.md, ../p4-report.md, ../p5-report.md.
 라이선스 원문: ../licenses/, ../../backend/assets/fonts/OFL.txt.

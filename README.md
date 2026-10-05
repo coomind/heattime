@@ -7,6 +7,7 @@
 대회·팀·구장은 가상 예시이며 WBGT는 현장 실측이 아닌 추정값입니다.
 
 공모전 준비: [공식 요강과 프로젝트 비교](docs/submission/competition-fit.md), [소개·제안서 원고](docs/submission/proposal.md), [운영자 검증 계획](docs/submission/validation-plan.md), [제출 확인 목록](docs/submission/submission-checklist.md).
+[심사 자료 한 장 요약](docs/competition-evidence/judge-brief.md)에서 실제 화면·같은 제약 비교·미검증 사항을 함께 확인할 수 있습니다.
 현장 도입·고객·가격은 미검증이며 발표 파일·영상·외부 배포는 아직 준비 완료가 아닙니다.
 
 ## 설치 및 실행 (Windows PowerShell)
@@ -49,6 +50,7 @@ CSV 예시는 [data/mock/matches.csv](data/mock/matches.csv). 시간은 +09:00�
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe scripts/check_presentation.py
 .\.venv\Scripts\python.exe scripts/check_submission.py
+.\.venv\Scripts\python.exe scripts/check_competition_evidence.py
 .\.venv\Scripts\python.exe -m backend.engine.validate_solar
 Push-Location frontend
 npx playwright install chromium

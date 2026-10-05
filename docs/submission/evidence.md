@@ -13,6 +13,8 @@
 | 사전 계산 관측 시연은 오프라인에서도 동작 | frontend/e2e/observed.spec.js 및 outcome.spec.js의 API 요청0·오프라인 재로딩 검사 | 최초 방문도 서버가 전혀 필요 없다는 주장 |
 | 대진·기록 자동화만으로는 신규성 주장 부족 | [공식 기능 조사](competition-fit.md) | 경쟁사에 폭염 기능이 없다는 단정, 동일 성능 비교 |
 | 인터뷰·가격·현장 검증이 다음 단계 | [계획](validation-plan.md) | 계획을 완료 실적으로 표현 |
+| 같은 제약 탐욕 대비 배정 합계56건 증가·완전 배정0→16일 | [전체 비교](../competition-evidence/method-comparison.json), [고정 제안](../competition-evidence/frozen-solutions.json), [해석](../competition-evidence/method-comparison.md) | 사람·경쟁 제품 대비 우위, 현장에서 살린 경기 수; 공통 점수1.39% 증가도 공개 |
+| 모든62일 결과·경기별 변경 내역을 오프라인으로 읽을 수 있음 | frontend/e2e/evidence.spec.js와 새 단위 검사 | 현재 선택한 설정을 다시 계산한 전체기간 결과라는 주장 |
 
 소프트웨어의 새 결과 요약은 기존 proposal·recommendations만 읽는다. 계산 엔진·설정·정책·스냅샷의 원본 수치를 바꾸지 않는다. 승인 전·승인됨·수정안 승인·거절을 구분하며 수정안 승인 시 자동 제안 수치와 수정된 승인 기록을 구분해 표시한다.
 
