@@ -23,7 +23,7 @@ def allowed(name):
     if name.startswith('docs/'):
         return path.suffix.lower() in {'.md','.json','.png','.txt'} or name=='docs/wbgt-sanity/regression-fixtures.zip'
     if name.startswith(('backend/','frontend/','scripts/','tests/')):return True
-    return name in {'README.md','AGENTS.md','pyproject.toml','requirements.txt','.gitignore','Dockerfile','render.yaml','vercel.json','docker-compose.yml'}
+    return name in {'README.md','AGENTS.md','pyproject.toml','requirements.txt','.gitignore','.dockerignore','Dockerfile','render.yaml','vercel.json','docker-compose.yml'}
 
 def inventory(root=None):
     root=Path(root or ROOT)
