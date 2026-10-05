@@ -12,6 +12,9 @@ def test_review_bundle_includes_runtime_mock_fixtures_and_can_bootstrap_service(
     with zipfile.ZipFile(archive) as z:
         assert {'data/mock/venues.json','data/mock/matches.csv','.dockerignore','Dockerfile','render.yaml'} <= set(z.namelist())
         assert '.env' in z.read('.dockerignore').decode('utf-8')
+        assert builder.ASOS_GUIDE in z.namelist()
+        import hashlib
+        assert hashlib.sha256(z.read(builder.ASOS_GUIDE)).hexdigest()==builder.ASOS_GUIDE_SHA256
         assert json.loads(z.read('data/mock/venues.json'))
         z.extractall(tmp_path)
     result=subprocess.run([__import__('sys').executable,'-c',

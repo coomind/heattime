@@ -10,11 +10,14 @@ import subprocess
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
+ASOS_GUIDE='docs/kma/기상청01_지상(종관,ASOS)시간자료_조회서비스_오픈API활용가이드.docx'
+ASOS_GUIDE_SHA256='c4484c0ae95e63eee5b2b8c3fd4e49fff4401321dbb792eae6055288b606c318'
 
 def allowed(name):
     path=Path(name)
     if path.is_absolute() or '..' in path.parts:return False
     if any(part.lower().startswith('.env') for part in path.parts):return False
+    if name==ASOS_GUIDE:return True
     if path.suffix.lower() in {'.sqlite3','.db','.pyc','.docx','.pdf','.pptx'}:return False
     if any(part in {'.git','.venv','node_modules','dist','__pycache__'} for part in path.parts):return False
     if name.startswith('data/'):
@@ -43,10 +46,12 @@ def build():
     with zipfile.ZipFile(target,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
         for name in names:
             payload=(ROOT/name).read_bytes()
+            if name==ASOS_GUIDE and hashlib.sha256(payload).hexdigest()!=ASOS_GUIDE_SHA256:
+                raise ValueError('Provided public ASOS guide fingerprint changed')
             entries.append({'path':name,'bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest()})
             archive.writestr(name,payload)
         manifest={'repository_commit':revision,'purpose':'Local independent AI review; not uploaded or independently certified.',
-                  'excluded':'All .env files, raw API samples, local databases/runtime records, untracked files, provided DOCX and generated PDF/PPTX.',
+                  'excluded':'All .env files, raw API samples, local databases/runtime records, untracked files, other DOCX and generated PDF/PPTX. Only the fingerprint-verified provided public ASOS guide is included for offline contract tests.',
                   'observation_scope':'Committed normalized public Suwon ASOS fields; observed inputs are not field WBGT.',
                   'files':entries}
         archive.writestr('REVIEW-MANIFEST.json',json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
