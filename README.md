@@ -10,6 +10,8 @@
 [심사 자료 한 장 요약](docs/competition-evidence/judge-brief.md)에서 실제 화면·같은 제약 비교·미검증 사항을 함께 확인할 수 있습니다.
 현장 도입·고객·가격은 미검증이며 발표 파일·영상·외부 배포는 아직 준비 완료가 아닙니다.
 
+추가 검증: [심사자가 확인할 기술 증거 묶음](docs/competition-evidence/proof-pack.md), [근거 강화 종합 보고](docs/award-evidence-report.md). **검증 기록** 메뉴에서 실제 운영자 업무 비교와 현장 WBGT 대조를 따로 기록합니다. 아직 실제 사용·현장 측정 결과는 없습니다.
+
 ## 설치 및 실행 (Windows PowerShell)
 
 새 Windows 복제본 검증 환경은 Python 3.13.9와 Node.js 24.19.0입니다. 프로젝트 폴더에서 실행합니다.
@@ -66,7 +68,7 @@ Playwright는 데스크톱과 휴대폰 크기로 재현→승인→알림→PDF
 테스트는 별도 포트8127과 실행마다 새 SQLite를 사용하고 기존 서버를 재사용하지 않습니다. 포트8127이 사용 중이면 먼저 충돌을 해결하세요.
 테스트 출력·이미지·PDF는 data/output/ 아래에 저장되며 git에서 제외됩니다.
 `npm run test:unit`는 제안 요약·경기별 변경·전체기간 증거의 관측 수치·공통 경기·연기 별도·점수 증가·0분모·원본 지문을 검사하고 두 스냅샷의 일정 상세·입력 근거 지문을 검사합니다(21개).
-`npm run test:e2e:repeat`는 먼저 빌드하고 데스크톱/모바일의 합성/관측 일반·오프라인 흐름, 스냅샷 버전 교체, 승인 전/후 결과 요약, 전체기간 증거·경기 변경·입력 근거·CSV·최신 관측 표시를 각각3번 실행합니다(총90개). 최신 관측 API 화면 검사는 가짜 응답을 주입하므로 실제 키를 읽거나 기상청에 호출하지 않습니다.
+`npm run test:e2e:repeat`는 먼저 빌드하고 데스크톱/모바일의 합성/관측 일반·오프라인 흐름, 스냅샷 버전 교체, 승인 전/후 결과 요약, 전체기간 증거·경기 변경·입력 근거·CSV·최신 관측 표시를 각각3번 실행합니다(검증 기록·최신 추정 보관 포함 총114개). 최신 관측 API 화면 검사는 가짜 응답을 주입하므로 실제 키를 읽거나 기상청에 호출하지 않습니다.
 
 재현 모드의 **62일 전체 재현 결과와 알고리즘 비교**를 펼치면 유리한 날짜만 추리지 않은 전체 결과를 확인할 수 있습니다. 기본값의 별도 가상 대회 분석이며 현재 선택한 대회·설정을 다시 계산한 결과가 아닙니다. 같은 제약의 탐욕 비교는 그 안의 별도 표입니다. 배정 합계506→562건과 공통 점수1.39% 증가를 함께 표시하며 사람의 업무 효과나 건강 효과로 해석하지 않습니다.
 
@@ -219,7 +221,7 @@ $heatTimeRoot = 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
 
 ## 라이선스·근거
 
-lwbgt 공개 구현의 Apache-2.0 및 Argonne WBGT1.1 원문·NOTICE는 [docs/licenses](docs/licenses)에 보존합니다.
+lwbgt 공개 구현의 [Apache-2.0](docs/licenses/lwbgt-Apache-2.0.txt), [Argonne WBGT1.1 원문](docs/licenses/Liljegren-WBGT-1.1.txt), [NOTICE](docs/licenses/lwbgt-NOTICE.txt)를 보존합니다.
 “This product includes software produced by UChicago Argonne, LLC under Contract No. DE-AC02-06CH11357 with the Department of Energy.”
 한글 PDF는 NanumGothic 글꼴을 포함하고 SIL Open Font License 원문을 backend/assets/fonts/OFL.txt에 보존합니다.
 [기술 선택·출처](docs/engine-sources.md), [최종 보고](docs/final-report.md), [발표 자료](docs/presentation/slides.md)를 참조하세요.
@@ -256,3 +258,34 @@ Pop-Location
 ```
 
 진단용 `--diagnostic-timeout 30`은 해당 검증 실행에만 다른 타임아웃을 사용합니다. 앱 기본 10초·최소 60초 호출 간격·솔버 제한·대회 운영 설정은 바꾸지 않습니다. 결과의 application_http_status는 로컬 앱 상태, upstream_http_status는 기상청 상태입니다. 앱 200 응답이라도 status:error이면 관측 조회 성공이 아닙니다. 안전한 결과는 data/output/live-connection-verification.json에, 숫자로 재구성한 샘플은 성공 시에만 data/output/aws-live-response-canonical.txt에 저장됩니다. 진단 성공은 장기 가용성이나 현장 WBGT 정확도의 증거가 아닙니다.
+
+## 실제 효용·현장 검증 기록
+
+일반 실행에서 **검증 기록**을 선택합니다. 기본은 가상 예시이며 실제 성과에 포함되지 않습니다. 기록이 없으면 시간 절감·측정 오차는 **미측정**입니다.
+
+운영자 비교는 원자료 코드·참여자 코드·기록 동의·진행 순서·동일 조건·하드 제약 확인과 두 방식의 준비/변경/안내 시간을 기록합니다. 준비 시간을 빼지 않고, HeatTime이 더 오래 걸린 결과·중단·거절 의견도 남깁니다. 전체 집계 외에 사례별 결과와 실제 참여자 수를 확인하세요. 입력자의 기록이며 수행 사실을 자동 인증하거나 계약·매출을 생성하는 기능은 아닙니다.
+
+현장 대조는 일반 재현값 또는 **최신 관측 갱신 → 현장 대조용 추정 보관 → 검증 기록 열기**로 보관한 추정값을 선택합니다. 보관은 추가 기상청 호출 없이 로컬 사본을 남기며 최신20개 자료가 선택 목록에 표시됩니다. 구장 등록의 **가상 예시 구장**을 해제하려면 실제 좌표·표면·위치 근거를 먼저 준비하세요. 기본 예시 구장을 실제 현장처럼 사용하지 않습니다. 관측소 입력을 공유하는 공간 가정은 별도로 남습니다.
+
+측정기·교정 근거·프로토콜·측정 위치·높이·WBGT와 시각을 입력합니다. 실제 구장·실제 입력·동일 시각·동일 위치·교정 근거가 확인되고 실측 보정되지 않은 추정만 실제 대조 집계에 포함됩니다. 시각을 맞추려고 측정기 기록을 고쳐 쓰거나 임의 보간하지 마세요. 오차/편향/범위 포함 비율은 표본 내 결과이며 안전성·사고 감소·검증된 신뢰구간이 아닙니다. 이 기록은 엔진 보정에 전달하지 않습니다.
+
+원자료 JSON/CSV에는 제외 기록도 남습니다. 오기입은 **사유를 남기고 집계 제외**로 처리하고 원본을 유지합니다. 실명·연락처·키·요청 URL 대신 익명 코드만 쓰고, 실제 원자료와 내보낸 파일은 공개 저장소에 올리지 마세요. 제출 전 익명화와 공개 동의 범위를 직접 확인하세요.
+
+## 전체 검사와 심사 근거 묶음 재생성
+
+아래는 외부 API 호출 없이 테스트 영수증과 고정 분석의 주장 대장을 만듭니다. 실제 운영자·현장 측정 기록을 공개 문서에 자동 복사하지 않습니다. 검사 시작 코드 지문, 실패/중단 여부, 기존 검사 수, 관측 원자료 지문, 기존 원고 정합성을 대조합니다. 키를 불러오거나 ASOS 수집 스크립트를 실행하지 않습니다.
+
+```powershell
+Set-Location 'C:\Users\coomi\OneDrive\바탕 화면\Heattime'
+.\.venv\Scripts\python.exe scripts/build_award_evidence.py --stamp
+.\.venv\Scripts\python.exe -m pytest -q --junitxml=data/output/award-validation-pytest.xml
+Set-Location frontend
+npm run build
+node --test --test-reporter=junit tests/*.test.js > ../data/output/award-validation-node.xml
+$env:PLAYWRIGHT_JSON_OUTPUT_FILE='../data/output/award-validation-playwright.json'
+npx playwright test --repeat-each=3 --reporter=line,json
+Set-Location ..
+.\.venv\Scripts\python.exe scripts/build_award_evidence.py
+```
+
+검사가 실패하면 중단하고 실패를 해결한 뒤 전체 절차를 다시 실행합니다. 시작 이후 코드를 바꾼 경우나 오래된 영수증으로는 대장을 갱신하지 않습니다. [생성 JSON](docs/competition-evidence/verified-claims.json)은 원자료·검사 영수증의 지문을 연결하며, 수상 확률이나 제3자 인증이 아닙니다. 기존62일 분석을 새로 계산하는 절차와는 구분합니다.

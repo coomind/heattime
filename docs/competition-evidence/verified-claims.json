@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-10-06T00:43:40.918883+09:00",
+  "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
+  "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
+  "source_sha256": {
+    "docs/real-data/replay-results.json": "15e8bfdebab901bca0a43f323cdac5f485dc59e6394eba606fc2258e5459666a",
+    "docs/competition-evidence/method-comparison.json": "f71981d4cd5d89f91d0f6760e22c6b85de38e3a7db25716d79261414d6d64769",
+    "docs/competition-evidence/frozen-solutions.json": "19aa4949492b0495e3d0af6f01ad4d73bcbcbd0e892b569b3460eb1388c4f4e1",
+    "docs/kma/live-connection-verification.json": "4503a9a6e8b2445b3eac013125f29b81a1fca2b9a91f55e9f1cde666aea0f873",
+    "frontend/src/demo/observed-snapshot.json": "ca53a00f619582ec3b79e0412b71afd77feb52174427fcd9a4411a42f31366db",
+    "frontend/src/demo/snapshot.json": "14fb8ad5a9763da7d058b0e17fd6ed9b8b1d349dac2178c5cb815bd7d62c5d74",
+    "backend/validation.py": "952c432fc020bc673e2ffaae48755d6c7d7be974c1e20b0cae5569ebc66bbb54",
+    "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
+    "data/output/award-validation-pytest.xml": "76cef520536f62f9394f598f777962abde699e725fb10664af139f1b1b23dc5d",
+    "data/output/award-validation-node.xml": "7885a144ed19e5f53c3b557225b109fe5c171baf38cd5fe6ff8c1780eb4815f7",
+    "data/output/award-validation-playwright.json": "44bb8e76e5004c672385f8a18adb23d5746586fdf84ec903d6ba05591efeaea8"
+  },
+  "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
+  "tested_source_fingerprint": "3734bba192e5f9ae6207495fc3d73ef44e5cea45e6e9e8499d41b5b55d61864a",
+  "test_run_started_at": "2026-10-06T00:40:27.315607+09:00",
+  "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
+  "observation_hours": 1488,
+  "checks": {
+    "presentation": {
+      "passed": true,
+      "count": 16
+    },
+    "submission": {
+      "passed": true,
+      "count": 10
+    },
+    "competition": {
+      "passed": true,
+      "count": 8
+    }
+  },
+  "test_receipts": {
+    "python": {
+      "passed": 661,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 125.16
+    },
+    "node": {
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.18
+    },
+    "browser": {
+      "passed": 114,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "duration_seconds": 177.96
+    }
+  },
+  "demo": {
+    "date": "2026-07-10",
+    "session_id": "240e5f4dd3c84cd384ff49f0e434222a",
+    "assigned": 15,
+    "postponed": 0,
+    "common_count": 15,
+    "original_heat": 6114,
+    "proposed_heat": 4319,
+    "heat_reduction": 1795,
+    "salvaged": 10,
+    "original_stop_count": 10,
+    "max_wbgt_c": 32.043,
+    "max_decision_wbgt_c": 33.543,
+    "solver": "CP-SAT OPTIMAL",
+    "coverage_optimal": true,
+    "elapsed_sec": 0.8952405999880284,
+    "constraints_ok": true,
+    "postponement_reasons": [],
+    "missing_solar_hours": 9
+  },
+  "method_comparison": {
+    "days": 62,
+    "cp_assigned": 562,
+    "greedy_assigned": 506,
+    "assignment_gain": 56,
+    "more_assigned_days": 25,
+    "same_assigned_days": 37,
+    "fewer_assigned_days": 0,
+    "cp_complete_days": 16,
+    "greedy_complete_days": 0,
+    "common_heat_lower_days": 11,
+    "common_heat_equal_days": 26,
+    "common_heat_higher_days": 22,
+    "no_common_days": 3,
+    "cp_common_heat": 132430,
+    "greedy_common_heat": 130617
+  },
+  "incomplete_days": 46,
+  "zero_assignment_dates": [
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06"
+  ],
+  "live": {
+    "verified_at": "2026-10-05T23:38:09.661271+09:00",
+    "status": "ready",
+    "upstream_http_status": 200,
+    "diagnostic_timeout_seconds": 30
+  },
+  "unsupported_claims": [
+    "수상권·수상 확률",
+    "실제 운영자 업무 절감·구매 수요",
+    "국내 구장 현장 정확도·사고 감소",
+    "기본10초 최신 조회 안정성",
+    "사람·경쟁 제품 대비 성능 우위"
+  ],
+  "user_confirmation": "2026-10-06 사용자 확인: 실제 운영자·현장 측정 기록 아직 없음. 새 검증 기능은 수행 실적이 아님."
+}
