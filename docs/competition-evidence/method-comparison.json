@@ -194,15 +194,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -373,15 +376,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -549,15 +555,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -728,15 +737,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -907,15 +919,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1104,11 +1119,13 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1237,35 +1254,43 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1442,15 +1467,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1618,15 +1646,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1806,11 +1837,13 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1870,51 +1903,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -1974,51 +2019,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -2078,51 +2135,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -2277,19 +2346,23 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -2457,15 +2530,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -2633,15 +2709,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -2745,35 +2824,43 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -2953,11 +3040,13 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3128,15 +3217,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3319,15 +3411,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3519,7 +3614,8 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3674,19 +3770,23 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3791,35 +3891,43 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3891,47 +3999,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -3991,51 +4110,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4095,51 +4226,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4211,47 +4354,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4311,51 +4465,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4427,47 +4593,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4539,47 +4716,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4639,51 +4827,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4743,51 +4943,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4847,51 +5059,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -4951,51 +5175,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5017,63 +5253,78 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5095,63 +5346,78 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5173,63 +5439,78 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5289,51 +5570,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5451,31 +5744,38 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5627,23 +5927,28 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5798,19 +6103,23 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -5956,23 +6265,28 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -6143,15 +6457,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -6274,31 +6591,38 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -6440,23 +6764,28 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -6624,15 +6953,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -6809,15 +7141,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7006,11 +7341,13 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7082,47 +7419,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7277,19 +7625,23 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7481,7 +7833,8 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7661,11 +8014,13 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7872,11 +8227,13 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -7948,47 +8305,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8048,51 +8416,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8164,47 +8544,58 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8264,51 +8655,63 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8416,35 +8819,43 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g1-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g2-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g3-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8612,15 +9023,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8775,19 +9189,23 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "g4-3",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -8955,15 +9373,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     },
@@ -9131,15 +9552,18 @@
       "greedy_postponed_reasons": [
         {
           "match_id": "final",
-          "reason": "선행 경기 연기"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi1",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         },
         {
           "match_id": "semi2",
-          "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가"
+          "reason": "제한 시간 내 배정하지 못함 · 불가능 증명 아님",
+          "coverage_proven": false
         }
       ]
     }

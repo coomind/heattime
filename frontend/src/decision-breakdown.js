@@ -12,3 +12,7 @@ export function counterLevel(value,policy,policyId) {
  return policyId==='football'?(value>policy.postpone_above?4:value>policy.cooling_above?2:0)
   :policy.boundaries.filter(b=>value>=b).length;
 }
+export function capturedRiskRows(projected,captured) {
+ return projected.map(row=>captured.find(r=>r.venue_id===row.venue_id&&r.valid_time===row.valid_time))
+  .filter(row=>row?.inputs);
+}
