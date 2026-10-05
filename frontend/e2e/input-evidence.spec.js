@@ -1,0 +1,38 @@
+import {test,expect} from '@playwright/test';
+test('observed source panel exposes conversions and assumptions entirely offline',async({page,context})=>{
+ let calls=0;page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/api/'))calls++;});
+ await page.route('**/api/**',r=>r.abort());await page.goto('/#snapshot-observed');
+ await expect(page.getByText('시연 자료 저장됨 · 연결 없이 새로고침 가능',{exact:true})).toBeVisible();
+ await context.setOffline(true);await page.reload();
+ await page.getByRole('button',{name:'스냅샷 재현 실행 →',exact:true}).click();
+ await page.getByRole('button',{name:/.*수원.* 12시 입력 근거/}).first().click();
+ const panel=page.locator('.input-evidence');
+ await expect(panel).toContainText('관측 기상 입력 · 현장 WBGT 실측 아님');
+ await expect(panel).toContainText('0.180MJ/m²');await expect(panel).toContainText('50.000W/m²');
+ await expect(panel).toContainText('9시간 · 동일 관측소 기준');
+ await expect(panel).toContainText('현장 검증된 신뢰구간이 아닙니다');
+ await expect(panel).toContainText('수동 입력 이력이 보존되지 않았습니다');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await panel.getByRole('button',{name:'근거 닫기'}).click();await expect(panel).toHaveCount(0);
+ await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
+ await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
+ await page.getByRole('button',{name:'제안 승인',exact:true}).click();
+ await page.getByRole('button',{name:'g1-1 승인 일정 근거',exact:true}).click();
+ await page.getByText('제안 구장의 시간별 WBGT 추정과 범위',{exact:true}).click();
+ await page.locator('.match-evidence').getByRole('button',{name:'입력 근거',exact:true}).first().click();
+ await expect(panel).toContainText('승인 시점 고정 근거');expect(calls).toBe(0);await context.setOffline(false);
+});
+test('manual measurement history is captured by new replay and visibly applied at matching times',async({page})=>{
+ await page.goto('/');
+ const post=await page.request.post('/api/manual',{data:{venue_id:'mock-suwon-a',valid_time:'2026-08-01T12:00:00+09:00',wbgt_c:30,is_mock:true}});
+ expect(post.status()).toBe(200);
+ await page.getByRole('button',{name:'재현 시뮬레이션 실행 →',exact:true}).click();
+ await page.getByRole('button',{name:/.*수원.* 12시 입력 근거/}).first().click();
+ const panel=page.locator('.input-evidence');
+ await expect(panel).toContainText('현재 시각 추정에 적용');
+ await expect(panel).toContainText('가상 예시 · 모의 입력');
+ await expect(panel).toContainText('30.000℃');
+ await panel.getByRole('button',{name:'근거 닫기'}).click();
+ await page.getByRole('button',{name:/.*수원.* 11시 입력 근거/}).first().click();
+ await expect(panel).toContainText('입력 시각 이전 · 미적용');
+});

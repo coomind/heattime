@@ -64,10 +64,12 @@ class Service:
             venues=[replace(v,asos_station_id=dataset.station_id) for v in venues]
         teams=[Team(**team) for team in self.repo.list('teams') if team['tournament_id']==t.id]
         all_points=[];risks=[];self.weather.save_venues(venues)
-        manual=[]
+        manual=[];manual_history=[]
         with self.weather.connect() as conn:
-            for row in conn.execute('SELECT venue_id,valid_time,wbgt_c,entered_at,is_mock FROM manual_measurements'):
+            for row in conn.execute('SELECT id,venue_id,valid_time,wbgt_c,entered_at,is_mock FROM manual_measurements'):
                 manual.append(ManualMeasurement(row['venue_id'],datetime.fromisoformat(row['valid_time']),row['wbgt_c'],datetime.fromisoformat(row['entered_at']),bool(row['is_mock'])))
+                if row['venue_id'] in ids:
+                    manual_history.append({**dict(row),'is_mock':bool(row['is_mock'])})
         for v in venues:
             points=[];current=t.date_start
             while current<=t.date_end:
@@ -86,7 +88,7 @@ class Service:
                      'solar_missing_hours':sum(p.solar_wm2 is None for p in all_points)//len(venues),
                      'note':'동일 수원 지점 자료를 가상 구장에 공유; 현장 WBGT 실측이 아님'} if dataset else None,
                  'tournament':t,'teams':teams,'venues':venues,'matches':matches,'weather':all_points,'risks':risks,
-                 'engine_settings':engine,'schedule_settings':schedule,'policy':policies()[t.policy_id],
+                 'engine_settings':engine,'schedule_settings':schedule,'policy':policies()[t.policy_id],'manual_history':manual_history,
                  'recommendations':[recommend(m,risks,engine) for m in matches],'proposal':None,'decision':None,'notifications':[]}
         return self.repo.put('sessions',session['id'],session)
     @staticmethod
@@ -125,6 +127,7 @@ class Service:
             decision={'timestamp':datetime.now(KST),'operator_action':action,'operator_name':operator,'reason':reason,
                       'proposal_id':proposal['id'],'snapshot':{k:s[k] for k in ['label','mode','data_origin','observation_summary','tournament','venues','teams','matches','weather','risks','policy','recommendations','engine_settings','schedule_settings']},
                       'assignments':selected if action!='rejected' else [],'postponed':proposal['postponed'] if action!='rejected' else []}
+            decision['snapshot']['manual_history']=s.get('manual_history')
             s['decision']=jsonable_encoder(decision)
             s['notifications']=build_notifications(s)
             self.repo.put('sessions',id,s,conn);self.repo.put('decisions',uuid4().hex,s['decision'],conn)

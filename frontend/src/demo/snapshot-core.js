@@ -1,7 +1,8 @@
 const clone=value=>structuredClone(value);
-export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null){
+export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBundle=null){
  if(bundle.input_fingerprint!==exportsBundle.input_fingerprint)throw new Error('스냅샷과 기록 파일 버전이 다릅니다.');
  if(evidenceBundle&&(bundle.input_fingerprint!==evidenceBundle.input_fingerprint||bundle.approved.id!==evidenceBundle.session_id))throw new Error('스냅샷과 상세 근거 버전이 다릅니다.');
+ if(inputBundle&&(bundle.input_fingerprint!==inputBundle.input_fingerprint||bundle.approved.id!==inputBundle.session_id))throw new Error('스냅샷과 입력 근거 버전이 다릅니다.');
  let session=null,urls={};
  const accepted=bundle.approved;
  const resources={venues:accepted.venues,tournaments:[accepted.tournament],teams:accepted.teams,matches:accepted.matches};
@@ -31,6 +32,14 @@ export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null){
   if(path==='/team-view/'+accepted.id)return clone(session?.decision?session:accepted);
   if(!session)throw new Error('시연 스냅샷을 먼저 실행하세요.');
   const prefix='/sessions/'+session.id;
+  if(path.startsWith(prefix+'/input-evidence?')){
+   const params=new URLSearchParams(path.split('?')[1]);const view=params.get('view')||'original';
+   if(!['original','proposed','approved'].includes(view))throw new Error('알 수 없는 근거 보기입니다.');
+   if(view==='approved'&&!session.decision)throw new Error('아직 승인한 일정이 없습니다.');
+   const item=inputBundle?.inputs[params.get('venue_id')+'|'+params.get('valid_time')];
+   if(!item)throw new Error('입력 근거를 찾지 못했습니다.');
+   return {...clone(item),view};
+  }
   if(path===prefix+'/optimize'){
    if(session.decision)throw new Error('스냅샷 재현을 새로 실행하세요.');
    session.proposal=clone(accepted.proposal);return clone(session.proposal);

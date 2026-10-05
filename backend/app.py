@@ -13,7 +13,7 @@ from backend.engine.settings import EngineSettings
 from backend.engine.policy import policies
 from backend.schedule.models import ScheduleSettings,Match
 from backend.schedule.optimizer import participants
-from backend.weather.models import ManualMeasurement,KST
+from backend.weather.models import ManualMeasurement,Venue,KST
 
 ROOT=Path(__file__).resolve().parents[1]
 class ReplayRequest(BaseModel):
@@ -105,8 +105,17 @@ def create_app(db_path=None):
         return {k:s.get(k) for k in ['label','mode','data_origin','observation_summary','tournament','decision','teams','venues','matches']}
     @app.post('/api/manual')
     def manual(body:ManualRequest):
-        repo.get('venues',body.venue_id);m=ManualMeasurement(body.venue_id,body.valid_time,body.wbgt_c,datetime.now(KST),body.is_mock)
+        venue=repo.get('venues',body.venue_id);m=ManualMeasurement(body.venue_id,body.valid_time,body.wbgt_c,datetime.now(KST),body.is_mock)
+        service.weather.save_venues([Venue(**venue)])
         return {'id':service.weather.save_manual(m),'label':'현장 WBGT 실측 입력','next':'새 재현 실행에서 보정 반영'}
+    @app.get('/api/manual')
+    def manual_history():
+        with service.weather.connect() as conn:
+            return [{**dict(row),'is_mock':bool(row['is_mock'])} for row in conn.execute('SELECT id,venue_id,valid_time,wbgt_c,entered_at,is_mock FROM manual_measurements ORDER BY valid_time,id')]
+    @app.get('/api/sessions/{id}/input-evidence')
+    def input_detail(id:str,venue_id:str,valid_time:str,view:Literal['original','proposed','approved']='original'):
+        from backend.input_evidence import input_evidence
+        return input_evidence(repo.get('sessions',id),venue_id,valid_time,view)
     @app.post('/api/tournaments/{id}/matches/csv')
     def upload(id:str,body:CsvRequest):
         t=repo.get('tournaments',id);rows=[]

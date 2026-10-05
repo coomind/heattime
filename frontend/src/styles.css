@@ -7,3 +7,5 @@
 .schedule-changes .table-scroll{max-height:420px}.schedule-changes th{position:sticky;top:0;z-index:1}
 
 .evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.match-evidence p{overflow-wrap:anywhere;font-size:13px}.match-evidence td{white-space:normal;min-width:130px;vertical-align:top}.match-evidence .table-scroll{max-height:420px}.match-evidence th{position:sticky;top:0}.evidence-grid>div{padding:15px;background:#f5f7f0;border-radius:8px}@media(max-width:760px){.evidence-grid{grid-template-columns:1fr}}
+
+.evidence-trigger{background:transparent;border:none;padding:1px;min-height:20px;font-size:9px;color:inherit;text-decoration:underline}.input-evidence p,.input-evidence td{overflow-wrap:anywhere;white-space:normal;font-size:13px}.input-evidence td{min-width:160px}.input-evidence th{white-space:normal;min-width:130px}.input-evidence .table-scroll{max-height:420px}.fingerprint{font-size:11px!important;word-break:break-all}
