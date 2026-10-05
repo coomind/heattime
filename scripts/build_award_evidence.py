@@ -65,7 +65,7 @@ def collect():
     receipts = {'python': junit_receipt(ROOT/'data/output/award-validation-pytest.xml'),
                 'node': junit_receipt(ROOT/'data/output/award-validation-node.xml'),
                 'browser': browser_receipt(ROOT/'data/output/award-validation-playwright.json')}
-    if any(receipts[k]['passed'] < minimum for k, minimum in [('python', 793), ('node', 25), ('browser', 126)]):
+    if any(receipts[k]['passed'] < minimum for k, minimum in [('python', 900), ('node', 27), ('browser', 138)]):
         raise ValueError('기존 검사 수보다 적은 영수증입니다. 전체 검사를 실행하세요.')
     def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
     replay = read('docs/real-data/replay-results.json')
@@ -81,6 +81,7 @@ def collect():
              'frontend/src/demo/observed-snapshot.json', 'frontend/src/demo/snapshot.json',
              'docs/competition-evidence/no-field-analysis.json', 'frontend/src/demo/no-field-analysis.json',
              'frontend/src/demo/snapshot-plan-review.json','frontend/src/demo/observed-snapshot-plan-review.json',
+             'docs/competition-evidence/review-fix-results.json','frontend/src/demo/review-fix-summary.json',
              'docs/competition-evidence/tournament-scale-analysis.json',
              'backend/validation.py', 'tests/test_validation.py',
              'data/output/award-validation-pytest.xml', 'data/output/award-validation-node.xml',
@@ -92,7 +93,7 @@ def collect():
             'tested_source_fingerprint': stamp['source_fingerprint'], 'test_run_started_at': stamp['started_at'],
             'assumptions': ASSUMPTIONS, 'observation_hours': len(sample.rows),
             'checks': {k: {'passed': v['passed'], 'count': len(v['checks'])} for k, v in checked.items()},
-            'test_receipts': receipts, 'demo': replay['candidates'][0], 'method_comparison': comparison,'no_field_analysis':no_field,'tournament_scale':scale,
+            'test_receipts': receipts, 'demo': replay['candidates'][0], 'method_comparison': comparison,'no_field_analysis':no_field,'tournament_scale':scale,'selection_fix':read('docs/competition-evidence/review-fix-results.json')['summary'],
             'incomplete_days': sum(r['assigned'] < 15 for r in replay['days']),
             'zero_assignment_dates': [r['date'] for r in replay['days'] if r['assigned'] == 0],
             'live': {k: live[k] for k in ('verified_at', 'status', 'upstream_http_status', 'diagnostic_timeout_seconds')},
@@ -110,7 +111,7 @@ def markdown(data):
     scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건으로 배정 합계가 더 적었다. 두 구간의 열세와18개 FEASIBLE·1개 폴백을 공개한다.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
     return f'''# 심사자가 확인할 기술 증거 묶음
 
-생성: {data['generated_at']}. 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
+생성: {data['generated_at']}. 아래 기존 비교 표는 수정 전 고정 해의 역사적 분석이다. 현재 선택 수정 검증은 [수정 보고](../review-fix-report.md)와 [93조건 새 결과](review-fix-results.json)를 읽는다. 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
 
 | 확인 가능한 주장 | 수치와 조건 | 근거 |
 |---|---|---|
