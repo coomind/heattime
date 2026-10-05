@@ -106,11 +106,19 @@ def create_app(db_path=None):
     @app.post('/api/tournaments/{id}/matches/csv')
     def upload(id:str,body:CsvRequest):
         t=repo.get('tournaments',id);rows=[]
-        for row in csv.DictReader(io.StringIO(body.csv_text.lstrip('\ufeff'))):
-            row['tournament_id']=id;row['depends_on']=[d.strip() for d in row.get('depends_on','').split(';') if d.strip()]
-            for k in ['duration_min','halves','half_break_min']:
-                if not row.get(k):row.pop(k,None)
-            rows.append(Match.model_validate(row))
+        reader=csv.DictReader(io.StringIO(body.csv_text.lstrip('\ufeff')),strict=True)
+        try:
+            if reader.fieldnames and len(reader.fieldnames)!=len(set(reader.fieldnames)):
+                raise ValueError('CSV 열 이름이 중복되었습니다.')
+            for row in reader:
+                if None in row or any(value is None for value in row.values()):
+                    raise ValueError(f'CSV {reader.line_num}행의 열 수가 헤더와 다릅니다.')
+                row['tournament_id']=id;row['depends_on']=[d.strip() for d in row.get('depends_on','').split(';') if d.strip()]
+                for k in ['duration_min','halves','half_break_min']:
+                    if not row.get(k):row.pop(k,None)
+                rows.append(Match.model_validate(row))
+        except csv.Error as exc:
+            raise ValueError(f'CSV {reader.line_num}행의 형식이 올바르지 않습니다. 따옴표를 확인하세요.') from exc
         if not rows or len({r.id for r in rows})!=len(rows):raise ValueError('Empty CSV or duplicate ids')
         existing=[Match(**m) for m in repo.list('matches') if m['tournament_id']==id and m['id'] not in {r.id for r in rows}]
         participants(existing+rows)
@@ -120,6 +128,13 @@ def create_app(db_path=None):
             for tid in [m.team_a,m.team_b]:
                 if not tid.startswith('winner:') and repo.get('teams',tid)['tournament_id']!=id:raise ValueError('Invalid CSV team')
         with repo.connect() as conn:
+            # Check global ids under the write lock before importing any row.
+            conn.execute('BEGIN IMMEDIATE')
+            for m in rows:
+                try:stored=repo.get('matches',m.id,conn)
+                except KeyError:continue
+                if stored['tournament_id']!=id:
+                    raise HTTPException(409,f'경기 ID {m.id}는 다른 대회에서 사용 중입니다.')
             for m in rows:repo.put('matches',m.id,m,conn)
         return {'imported':len(rows)}
     kinds={'venues','tournaments','teams','matches'}

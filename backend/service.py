@@ -33,6 +33,11 @@ class Service:
             latlon_to_grid(item.lat,item.lon)
         if kind in {'teams','matches'}:
             t=Tournament(**self.repo.get('tournaments',item.tournament_id))
+            if kind=='teams' and any(
+                item.id in (m['team_a'],m['team_b']) and m['tournament_id']!=item.tournament_id
+                for m in self.repo.list('matches')
+            ):
+                raise ValueError('경기에 연결된 팀은 다른 대회로 이동할 수 없습니다.')
             if kind=='matches':
                 self.repo.get('venues',item.venue_id)
                 if not t.date_start<=item.scheduled_start.astimezone(KST).date()<=t.date_end:raise ValueError('Match date outside tournament')
