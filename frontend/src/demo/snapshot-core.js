@@ -1,6 +1,7 @@
 const clone=value=>structuredClone(value);
-export function createBundleAPI(bundle,exportsBundle){
+export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null){
  if(bundle.input_fingerprint!==exportsBundle.input_fingerprint)throw new Error('스냅샷과 기록 파일 버전이 다릅니다.');
+ if(evidenceBundle&&(bundle.input_fingerprint!==evidenceBundle.input_fingerprint||bundle.approved.id!==evidenceBundle.session_id))throw new Error('스냅샷과 상세 근거 버전이 다릅니다.');
  let session=null,urls={};
  const accepted=bundle.approved;
  const resources={venues:accepted.venues,tournaments:[accepted.tournament],teams:accepted.teams,matches:accepted.matches};
@@ -39,7 +40,16 @@ export function createBundleAPI(bundle,exportsBundle){
    if(body.action!=='accepted'||body.reason!==accepted.decision.reason)throw new Error('스냅샷은 사전 계산된 승인만 시연합니다.');
    session.decision=clone(accepted.decision);session.notifications=clone(accepted.notifications);return clone(session);
   }
-  const matchId=path.startsWith(prefix+'/matches/')?path.slice((prefix+'/matches/').length):null;
+  if(path.startsWith(prefix+'/matches/')&&path.includes('/evidence')){
+   const matchId=decodeURIComponent(path.slice((prefix+'/matches/').length).split('/')[0]);
+   const view=new URLSearchParams(path.split('?')[1]||'').get('view')||'proposed';
+   if(!['proposed','approved'].includes(view))throw new Error('알 수 없는 일정 보기입니다.');
+   if(view==='approved'&&!session.decision)throw new Error('아직 승인한 일정이 없습니다.');
+   if(view==='proposed'&&!session.proposal)throw new Error('자동 제안을 먼저 생성하세요.');
+   const item=evidenceBundle?.matches[matchId];if(!item)throw new Error('경기 상세 근거를 찾지 못했습니다.');
+   return {...clone(item),view,state:view==='approved'?'approved':session.decision?'accepted_proposal':'unapproved'};
+  }
+  const matchId=path.startsWith(prefix+'/matches/')?decodeURIComponent(path.slice((prefix+'/matches/').length)):null;
   if(matchId){
    const match=session.matches.find(m=>m.id===matchId);if(!match)throw new Error('경기를 찾지 못했습니다.');
    return clone({match,risks:session.risks.filter(r=>r.venue_id===match.venue_id),recommendation:session.recommendations.find(r=>r.match_id===matchId),policy:session.policy});

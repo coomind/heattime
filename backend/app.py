@@ -81,6 +81,10 @@ def create_app(db_path=None):
                 'recommendation':next(r for r in s['recommendations'] if r['match_id']==match_id),'policy':s['policy']}
     @app.post('/api/sessions/{id}/optimize')
     def optimize(id:str):return service.optimize(id)
+    @app.get('/api/sessions/{id}/matches/{match_id}/evidence')
+    def evidence(id:str,match_id:str,view:Literal['proposed','approved']='proposed'):
+        from backend.evidence import schedule_evidence
+        return schedule_evidence(repo.get('sessions',id),match_id,view)
     @app.post('/api/sessions/{id}/decision')
     def decision(id:str,body:DecisionRequest):return service.decide(id,body.action,body.operator_name,body.reason,body.assignments)
     @app.get('/api/sessions/{id}/notifications')
