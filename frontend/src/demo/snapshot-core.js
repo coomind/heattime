@@ -1,8 +1,9 @@
 const clone=value=>structuredClone(value);
-export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBundle=null){
+export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBundle=null,reviewBundle=null){
  if(bundle.input_fingerprint!==exportsBundle.input_fingerprint)throw new Error('스냅샷과 기록 파일 버전이 다릅니다.');
  if(evidenceBundle&&(bundle.input_fingerprint!==evidenceBundle.input_fingerprint||bundle.approved.id!==evidenceBundle.session_id))throw new Error('스냅샷과 상세 근거 버전이 다릅니다.');
  if(inputBundle&&(bundle.input_fingerprint!==inputBundle.input_fingerprint||bundle.approved.id!==inputBundle.session_id))throw new Error('스냅샷과 입력 근거 버전이 다릅니다.');
+ if(reviewBundle&&(bundle.input_fingerprint!==reviewBundle.input_fingerprint||bundle.approved.id!==reviewBundle.session_id))throw new Error('스냅샷과 조건 검토 버전이 다릅니다.');
  let session=null,urls={};
  const accepted=bundle.approved;
  const resources={venues:accepted.venues,tournaments:[accepted.tournament],teams:accepted.teams,matches:accepted.matches};
@@ -32,6 +33,14 @@ export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBu
   if(path==='/team-view/'+accepted.id)return clone(session?.decision?session:accepted);
   if(!session)throw new Error('시연 스냅샷을 먼저 실행하세요.');
   const prefix='/sessions/'+session.id;
+  if(path.startsWith(prefix+'/plan-review')){
+   const view=new URLSearchParams(path.split('?')[1]||'').get('view')||'proposed';
+   if(!['proposed','approved'].includes(view))throw new Error('알 수 없는 일정 보기입니다.');
+   if(view==='approved'&&!session.decision)throw new Error('아직 승인한 일정이 없습니다.');
+   if(view==='proposed'&&!session.proposal)throw new Error('자동 제안을 먼저 생성하세요.');
+   if(!reviewBundle)throw new Error('조건 검토 자료가 없습니다.');
+   return clone(reviewBundle[view]);
+  }
   if(path.startsWith(prefix+'/input-evidence?')){
    const params=new URLSearchParams(path.split('?')[1]);const view=params.get('view')||'original';
    if(!['original','proposed','approved'].includes(view))throw new Error('알 수 없는 근거 보기입니다.');
