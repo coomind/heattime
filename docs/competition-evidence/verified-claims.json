@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T00:43:40.918883+09:00",
+  "generated_at": "2026-10-06T01:30:20.013342+09:00",
   "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
   "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
   "source_sha256": {
@@ -9,15 +9,19 @@
     "docs/kma/live-connection-verification.json": "4503a9a6e8b2445b3eac013125f29b81a1fca2b9a91f55e9f1cde666aea0f873",
     "frontend/src/demo/observed-snapshot.json": "ca53a00f619582ec3b79e0412b71afd77feb52174427fcd9a4411a42f31366db",
     "frontend/src/demo/snapshot.json": "14fb8ad5a9763da7d058b0e17fd6ed9b8b1d349dac2178c5cb815bd7d62c5d74",
+    "docs/competition-evidence/no-field-analysis.json": "dbad63e801a548497fc8a28f42dd59e4e9fdea17a9476def76a96c1da57529cd",
+    "frontend/src/demo/no-field-analysis.json": "5dafe6ebf6c8a267afdbfe11a22efb4b23932d417348e6dc43f471e89ca7740a",
+    "frontend/src/demo/snapshot-plan-review.json": "9e27bdebbfc156adba793211974488bb2046d78c24cab4969987c86d26b1b7d0",
+    "frontend/src/demo/observed-snapshot-plan-review.json": "13d06420d0102be34065c170e85d392dea2727d46f41b2a59c6b30cfcac19855",
     "backend/validation.py": "952c432fc020bc673e2ffaae48755d6c7d7be974c1e20b0cae5569ebc66bbb54",
     "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
-    "data/output/award-validation-pytest.xml": "76cef520536f62f9394f598f777962abde699e725fb10664af139f1b1b23dc5d",
-    "data/output/award-validation-node.xml": "7885a144ed19e5f53c3b557225b109fe5c171baf38cd5fe6ff8c1780eb4815f7",
-    "data/output/award-validation-playwright.json": "44bb8e76e5004c672385f8a18adb23d5746586fdf84ec903d6ba05591efeaea8"
+    "data/output/award-validation-pytest.xml": "7b030454f7636e31795ee7b4d437f322d43f00ffc6976806ba6b8cc0a512e876",
+    "data/output/award-validation-node.xml": "5c06021242c475184c32b2874464ea3b80674520eaed6802a148bc1e79e040f6",
+    "data/output/award-validation-playwright.json": "c2bd459b52c40a6b848697dc9d96488da57fb821c032b46ba385cb2bc884193f"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "tested_source_fingerprint": "3734bba192e5f9ae6207495fc3d73ef44e5cea45e6e9e8499d41b5b55d61864a",
-  "test_run_started_at": "2026-10-06T00:40:27.315607+09:00",
+  "tested_source_fingerprint": "61e4f8dabdbe570eb3d610b9df667eb5c49d4bd460852b1ae24b12825ec401f1",
+  "test_run_started_at": "2026-10-06T01:25:43.421541+09:00",
   "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
   "observation_hours": 1488,
   "checks": {
@@ -32,27 +36,31 @@
     "competition": {
       "passed": true,
       "count": 8
+    },
+    "no_field": {
+      "passed": true,
+      "count": 4
     }
   },
   "test_receipts": {
     "python": {
-      "passed": 661,
+      "passed": 760,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 125.16
+      "duration_seconds": 173.248
     },
     "node": {
-      "passed": 21,
+      "passed": 25,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 0.18
+      "duration_seconds": 0.25
     },
     "browser": {
-      "passed": 114,
+      "passed": 126,
       "failed": 0,
       "skipped": 0,
       "flaky": 0,
-      "duration_seconds": 177.96
+      "duration_seconds": 197.927
     }
   },
   "demo": {
@@ -92,6 +100,109 @@
     "cp_common_heat": 132430,
     "greedy_common_heat": 130617
   },
+  "no_field_analysis": {
+    "days": 62,
+    "cp_assigned": 562,
+    "baselines": {
+      "existing_heat_first": {
+        "assigned": 506,
+        "postponed": 424,
+        "complete_days": 0,
+        "cp_more_days": 25,
+        "cp_equal_days": 37,
+        "cp_fewer_days": 0,
+        "baseline_common_heat": 130617,
+        "cp_common_heat": 132430,
+        "equal_coverage_secondary_win_days": 17,
+        "equal_coverage_secondary_loss_days": 0
+      },
+      "earliest_input": {
+        "assigned": 558,
+        "postponed": 372,
+        "complete_days": 14,
+        "cp_more_days": 4,
+        "cp_equal_days": 58,
+        "cp_fewer_days": 0,
+        "baseline_common_heat": 157875,
+        "cp_common_heat": 147101,
+        "equal_coverage_secondary_win_days": 40,
+        "equal_coverage_secondary_loss_days": 0
+      },
+      "earliest_reverse": {
+        "assigned": 558,
+        "postponed": 372,
+        "complete_days": 14,
+        "cp_more_days": 4,
+        "cp_equal_days": 58,
+        "cp_fewer_days": 0,
+        "baseline_common_heat": 133697,
+        "cp_common_heat": 124296,
+        "equal_coverage_secondary_win_days": 55,
+        "equal_coverage_secondary_loss_days": 0
+      },
+      "weighted_critical": {
+        "assigned": 505,
+        "postponed": 425,
+        "complete_days": 0,
+        "cp_more_days": 26,
+        "cp_equal_days": 36,
+        "cp_fewer_days": 0,
+        "baseline_common_heat": 130652,
+        "cp_common_heat": 132016,
+        "equal_coverage_secondary_win_days": 16,
+        "equal_coverage_secondary_loss_days": 0
+      },
+      "best_of_four": {
+        "assigned": 558,
+        "postponed": 372,
+        "complete_days": 14,
+        "cp_more_days": 4,
+        "cp_equal_days": 58,
+        "cp_fewer_days": 0,
+        "baseline_common_heat": 155095,
+        "cp_common_heat": 147101,
+        "equal_coverage_secondary_win_days": 37,
+        "equal_coverage_secondary_loss_days": 0
+      }
+    },
+    "scenarios": {
+      "wbgt_-1": {
+        "applicable_days": 59,
+        "same_choices_valid_days": 30,
+        "needs_review_days": 40,
+        "heat_blocked_matches": 0,
+        "missing_matches": 0
+      },
+      "wbgt_+0": {
+        "applicable_days": 59,
+        "same_choices_valid_days": 59,
+        "needs_review_days": 0,
+        "heat_blocked_matches": 0,
+        "missing_matches": 0
+      },
+      "wbgt_+1": {
+        "applicable_days": 59,
+        "same_choices_valid_days": 20,
+        "needs_review_days": 41,
+        "heat_blocked_matches": 155,
+        "missing_matches": 0
+      },
+      "wbgt_+2": {
+        "applicable_days": 59,
+        "same_choices_valid_days": 5,
+        "needs_review_days": 57,
+        "heat_blocked_matches": 325,
+        "missing_matches": 0
+      },
+      "missing_critical_hour": {
+        "applicable_days": 59,
+        "same_choices_valid_days": 0,
+        "needs_review_days": 59,
+        "heat_blocked_matches": 0,
+        "missing_matches": 65
+      }
+    }
+  },
   "incomplete_days": 46,
   "zero_assignment_dates": [
     "2026-08-04",
@@ -111,5 +222,5 @@
     "기본10초 최신 조회 안정성",
     "사람·경쟁 제품 대비 성능 우위"
   ],
-  "user_confirmation": "2026-10-06 사용자 확인: 실제 운영자·현장 측정 기록 아직 없음. 새 검증 기능은 수행 실적이 아님."
+  "user_confirmation": "2026-10-06 사용자 확인: 실제 측정 자료 확보 불가. 실제 운영자·현장 측정 기록 없음. 오프라인 기술 검증과 조건 변화 검토를 제출 근거로 삼고 현장 정확도·효용은 미검증으로 둔다."
 }

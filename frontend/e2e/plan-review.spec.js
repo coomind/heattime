@@ -21,6 +21,7 @@ for(const mode of ['snapshot','snapshot-observed'])test(mode+' stronger proof an
  const review=page.locator('.plan-review');
  await expect(review.getByRole('table',{name:'고정 일정 조건 변화'}).locator('tbody tr')).toHaveCount(5);
  await expect(review).toContainText('승인 전 자동 제안');await expect(review).toContainText('오차 범위');
+ await expect(review.getByRole('table',{name:'고정 일정 조건 변화'})).toContainText('기상 자료 누락');
  await review.getByText('경기별 중지 기준과 판정값의 차이',{exact:true}).click();
  await expect(review.getByRole('table',{name:'경기별 중지 기준 차이'}).locator('tbody tr')).toHaveCount(mode==='snapshot'?1:15);
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();
