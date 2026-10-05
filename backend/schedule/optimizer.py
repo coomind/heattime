@@ -39,6 +39,9 @@ class OptimizationResult:
     elapsed_sec: float = 0.0
     preparation_sec: float = 0.0
     solver_wall_sec: float = 0.0
+    selected_method: str = 'legacy'
+    cp_sat_status: str = 'NOT_RUN'
+    selection_candidates: list | None = None
 
 
 def participants(matches):
@@ -115,8 +118,12 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
         try:original+=heat_score(risks,m.venue_id,m.scheduled_start,recommend(m,risks,engine).end)
         except MissingRisk:pass
     chosen=[];name='greedy-fallback';penalty=0;coverage_optimal=False
+    cp_status='NOT_RUN';selected_method='existing_heat_first';selection_records=[]
     unknown=set(required_match_ids)-{m.id for m in matches}
     if unknown:raise ValueError('Unknown forced match ids')
+    from .alternatives import METHODS,greedy,choose_validated
+    alternatives=[] if force_greedy or required_match_ids else [
+        (method,greedy(matches,tournament,venues,risks,settings,rows,method)) for method in METHODS]
     if not force_greedy:
         model=cp_model.CpModel();vi={v.id:[] for v in venues};ti={t:[] for ts in parts.values() for t in ts}
         picks={};present={};starts={};ends={};objective=[];horizon=(tournament.date_end-tournament.date_start).days*1440+1440
@@ -137,31 +144,41 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
             for dep in m.depends_on:
                 model.add(present[m.id]<=present[dep]);model.add(starts[m.id]>=ends[dep]).only_enforce_if(present[m.id])
         for intervals in list(vi.values())+list(ti.values()):model.add_no_overlap(intervals)
+        if alternatives:
+            _,hint,_=choose_validated(alternatives,matches,tournament,venues,risks,settings)
+            hint_by={c.match_id:c for c in hint}
+            for m in matches:
+                candidate=hint_by.get(m.id)
+                model.add_hint(present[m.id],int(candidate is not None))
+                model.add_hint(starts[m.id],minute(candidate.start) if candidate else 0)
+                model.add_hint(ends[m.id],minute(candidate.end) if candidate else 0)
+                for c,pick in zip(rows[m.id],picks[m.id]):model.add_hint(pick,int(c==candidate))
         model.minimize(sum(objective));solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=settings.time_limit_sec
         solver.parameters.num_search_workers=8;solver.parameters.random_seed=42
         preparation_sec=perf_counter()-started;solve_started=perf_counter();status=solver.solve(model)
         solver_wall_sec=perf_counter()-solve_started
+        cp_status=solver.status_name(status)
         if status == cp_model.INFEASIBLE:
             raise InfeasibleSchedule("INFEASIBLE: forced match assignment violates hard constraints")
         coverage_optimal = status == cp_model.OPTIMAL
         if status in (cp_model.OPTIMAL,cp_model.FEASIBLE):
             name='CP-SAT '+solver.status_name(status);chosen=[c for m in matches for c,p in zip(rows[m.id],picks[m.id]) if solver.boolean_value(p)]
+            selected_method='cp_sat'
     if name=='greedy-fallback':
         if preparation_sec==0.0:preparation_sec=perf_counter()-started
         if required_match_ids:raise TimeoutError('Forced feasibility not proven within solver time limit')
-        pending=list(matches)
-        while pending:
-            ids={m.id for m in pending};ready=[m for m in pending if all(d not in ids for d in m.depends_on)]
-            if not ready:raise ValueError('Cyclic dependencies')
-            for m in ready:
-                for c in sorted(rows[m.id],key=lambda c:(c.heat_score,c.start,c.venue_id)):
-                    if not validate(chosen+[c],matches,tournament,venues,risks,settings):chosen.append(c);break
-                pending.remove(m)
+        chosen=greedy(matches,tournament,venues,risks,settings,rows,'existing_heat_first')
+    if alternatives:
+        plans=alternatives+([('cp_sat',chosen)] if selected_method=='cp_sat' else [])
+        selected_method,chosen,selection_records=choose_validated(plans,matches,tournament,venues,risks,settings)
+        if selected_method!='cp_sat':name='validated-greedy · CP-SAT '+cp_status
     errors=validate(chosen,matches,tournament,venues,risks,settings)
     if errors:raise RuntimeError('Invalid output: '+','.join(errors))
     ids={c.match_id for c in chosen};postponed=[]
     for m in matches:
-        if m.id not in ids:postponed.append({'match_id':m.id,'reason':'선행 경기 연기' if any(d not in ids for d in m.depends_on) else '자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가'})
+        if m.id not in ids:
+            reason=('선행 경기 연기' if any(d not in ids for d in m.depends_on) else '자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가') if coverage_optimal else '제한 시간 내 배정하지 못함 · 불가능 증명 아님'
+            postponed.append({'match_id':m.id,'reason':reason,'coverage_proven':coverage_optimal})
     # Both metrics use exactly the assigned/common match ids; postponements separate.
     original=0
     by_id={m.id:m for m in matches}
@@ -171,7 +188,7 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
         except MissingRisk:raise ValueError('Cannot compare exposure without original weather coverage')
     return OptimizationResult(chosen,postponed,name,original,sum(c.heat_score for c in chosen),not errors,
                               sorted(ids),len(postponed),penalty,max(0,penalty-1),coverage_optimal,
-                              perf_counter()-started,preparation_sec,solver_wall_sec)
+                              perf_counter()-started,preparation_sec,solver_wall_sec,selected_method,cp_status,selection_records)
 
 
 def forced_feasibility(match_id,matches,tournament,venues,risks,settings=None,engine=None):
