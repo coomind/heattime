@@ -71,7 +71,10 @@ def request_bytes(key, station):
     except LiveFailure:
         raise
     except Exception as exc:
-        raise LiveFailure('네트워크 연결', '기상청에 연결하지 못했습니다.', exception_class=type(exc).__name__) from None
+        timed_out=isinstance(exc,TimeoutError) or isinstance(getattr(exc,'reason',None),TimeoutError)
+        message=('요청 시간이 초과되었습니다. 호출 간격 후 다시 갱신하거나 시연 스냅샷을 사용하세요.'
+                 if timed_out else '기상청에 연결하지 못했습니다.')
+        raise LiveFailure('네트워크 연결',message,exception_class=type(exc).__name__) from None
 
 
 @dataclass(frozen=True)
@@ -178,6 +181,7 @@ class LiveProvider:
             day = now.date().isoformat()
             error = None
             retry = 0
+            attempted_at = None
             try:
                 # Checking the key never reserves a network call.
                 key = self.key_loader()
@@ -196,6 +200,7 @@ class LiveProvider:
                     # Reserve the entire bounded response; failures keep this
                     # conservative charge, successful reads replace it by size.
                     conn.execute('INSERT INTO live_usage VALUES(?,?,?,?) ON CONFLICT(day) DO UPDATE SET calls=excluded.calls,bytes=excluded.bytes,last_attempt=excluded.last_attempt', (day,calls+1,size+MAX_RESPONSE_BYTES,now.timestamp()))
+                attempted_at=now.timestamp()
                 body = self.transport(key, station)
                 # Never persist the body or key. Count the response before parsing.
                 with self.repo.connect() as conn:
@@ -211,7 +216,10 @@ class LiveProvider:
             except Exception as exc:
                 error = {'stage':'네트워크 연결', 'message':'관측 갱신에 실패했습니다.', 'http_status':None,'exception_class':type(exc).__name__}
             self.last_errors[station]=error
-            return self.result('error' if error else 'ready', cached, self.clock().astimezone(KST), error=error, retry_after=retry)
+            checked=self.clock().astimezone(KST)
+            if attempted_at is not None:
+                retry=max(0,math.ceil(INTERVAL_SECONDS-(checked.timestamp()-attempted_at)))
+            return self.result('error' if error else 'ready',cached,checked,error=error,retry_after=retry)
 
     def result(self, status, observation, now, error=None, retry_after=0):
         return {'status':status, 'observation':asdict(observation) if observation else None,

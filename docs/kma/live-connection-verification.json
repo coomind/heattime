@@ -1,0 +1,103 @@
+{
+  "verified_at": "2026-10-05T23:38:09.661271+09:00",
+  "status": "ready",
+  "elapsed_seconds": 0.74,
+  "application_http_status": 200,
+  "upstream_http_status": 200,
+  "error": null,
+  "retry_after_seconds": 0,
+  "observation": {
+    "station_id": 119,
+    "valid_time": "2026-10-05T23:35:00+09:00",
+    "fetched_at": "2026-10-05T23:38:09.608632+09:00",
+    "ta_c": 11.9,
+    "rh_pct": 58.3,
+    "ws_ms": 0.2,
+    "station_pressure_hpa": 1011.3,
+    "sea_level_pressure_hpa": 1016.1,
+    "rain_60m_mm": 0.0,
+    "is_mock": false
+  },
+  "upstream_shape": {
+    "utf8": true,
+    "response_bytes": 412,
+    "headers": [
+      {
+        "columns": 18,
+        "matches_documented": true,
+        "documented_columns": [
+          "YYMMDDHHMI",
+          "STN",
+          "WD1",
+          "WS1",
+          "WDS",
+          "WSS",
+          "WD10",
+          "WS10",
+          "TA",
+          "RE",
+          "RN-15m",
+          "RN-60m",
+          "RN-12H",
+          "RN-DAY",
+          "HM",
+          "PA",
+          "PS",
+          "TD"
+        ]
+      }
+    ],
+    "data_row_count": 1,
+    "data_column_counts": [
+      18
+    ]
+  },
+  "usage": {
+    "calls": 5,
+    "bytes": 3146552,
+    "daily_call_limit": 20000,
+    "daily_byte_limit": 5000000000,
+    "scope": "이 앱의 저장소 기준 · 계정 전체 사용량은 API허브에서 확인"
+  },
+  "risks": [
+    {
+      "venue_id": "mock-suwon-a",
+      "venue_name": "수원 가상 구장 A · 가상 예시",
+      "wbgt_c": 10.401,
+      "wbgt_low_c": 8.901,
+      "wbgt_high_c": 11.901,
+      "level": 0,
+      "method_version": "liljegren-lwbgt-1.0.1",
+      "is_mock": false,
+      "solar_source": "일사량 추정",
+      "pressure_hpa": 1013.25
+    },
+    {
+      "venue_id": "mock-suwon-b",
+      "venue_name": "수원 가상 구장 B · 가상 예시",
+      "wbgt_c": 10.401,
+      "wbgt_low_c": 8.901,
+      "wbgt_high_c": 11.901,
+      "level": 0,
+      "method_version": "liljegren-lwbgt-1.0.1",
+      "is_mock": false,
+      "solar_source": "일사량 추정",
+      "pressure_hpa": 1013.25
+    },
+    {
+      "venue_id": "mock-suwon-c",
+      "venue_name": "수원 가상 구장 C · 가상 예시",
+      "wbgt_c": 10.401,
+      "wbgt_low_c": 8.901,
+      "wbgt_high_c": 11.901,
+      "level": 0,
+      "method_version": "liljegren-lwbgt-1.0.1",
+      "is_mock": false,
+      "solar_source": "일사량 추정",
+      "pressure_hpa": 1013.25
+    }
+  ],
+  "verification_scope": "Actual authorized API request and application endpoint. Not field WBGT validation.",
+  "diagnostic_timeout_seconds": 30,
+  "diagnostic_observation_time": null
+}

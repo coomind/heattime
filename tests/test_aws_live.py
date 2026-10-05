@@ -168,7 +168,18 @@ def test_transport_timeout_is_sanitized(monkeypatch):
     with pytest.raises(LiveFailure) as error:request_bytes('secret',119)
     assert error.value.details['stage']=='네트워크 연결'
     assert error.value.details['exception_class']=='TimeoutError'
+    assert '시간이 초과' in error.value.details['message']
     assert 'secret' not in json.dumps(error.value.details)
+
+def test_failed_request_reports_actual_remaining_cooldown(tmp_path):
+    p=provider(tmp_path)
+    ticks=iter([NOW,NOW+timedelta(seconds=10)])
+    p.clock=lambda:next(ticks)
+    def failure(*args):raise LiveFailure('네트워크 연결','시간 초과',exception_class='TimeoutError')
+    p.transport=failure
+    result=p.get(119,'api')
+    assert result['status']=='error' and result['retry_after_seconds']==50
+    assert result['usage']['calls']==1
 
 def test_api_uses_existing_engine_shares_one_request_and_preserves_replay(tmp_path):
     app=create_app(tmp_path/'app.sqlite3');p=provider(tmp_path)

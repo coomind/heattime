@@ -18,6 +18,7 @@ export default function LiveWeather({api,tournamentId,engine,snapshotMode}){
  {error&&<div className="error" role="alert">{error}</div>}
  {data&&<><p role="status">{data.status==='mock'?'합성 입력 · 가상 예시':data.status==='ready'?'기상청 AWS 관측 자료':data.status==='cached'?'저장된 관측 재사용':data.status==='waiting'?'호출 간격 대기':'갱신 실패 · 이전 관측이 있으면 아래에 표시'}{data.retry_after_seconds>0&&' · '+data.retry_after_seconds+'초 후 다시 갱신 가능'}</p>
  {data.error&&<div className="error" role="alert">{data.error.stage} · {data.error.message}{data.error.http_status&&' · HTTP '+data.error.http_status}{data.error.exception_class&&' · '+data.error.exception_class}</div>}
+ {data.status==='error'&&<p>연결 실패는 키 오류로 단정하지 않습니다. 이전 관측의 시각을 확인하세요. 시연은 <a href="#snapshot-observed">관측 시연 스냅샷으로 이동</a>하여 계속할 수 있습니다.</p>}
  {obs&&<><p>{obs.is_mock?'합성 입력':'기상청 관측 자료'}({obs.station_id===119?'수원 ':''}{obs.station_id}) · 관측 시각 {time(obs.valid_time)} KST · 가져온 시각 {time(obs.fetched_at)} KST · 화면 확인 기준 {age}분 전 관측</p>
  <p>관측 지연·결측이 있을 수 있습니다. 이전 자료를 현재 실측으로 해석하지 마세요. 같은 관측소 1곳의 입력을 아래 구장에 공유하며 공간 차이는 미측정입니다.</p>
  <div className="table-scroll"><table aria-label="최신 기상 입력"><thead><tr><th>기온 · ℃</th><th>습도 · %</th><th>WS10 · m/s</th><th>현지기압 · hPa</th><th>해면기압 · hPa</th><th>60분 강수 · mm</th></tr></thead><tbody><tr><td>{fmt(obs.ta_c)}</td><td>{fmt(obs.rh_pct)}</td><td>{fmt(obs.ws_ms)}</td><td>{fmt(obs.station_pressure_hpa)}</td><td>{fmt(obs.sea_level_pressure_hpa)}</td><td>{fmt(obs.rain_60m_mm)}</td></tr></tbody></table></div>

@@ -1,6 +1,6 @@
 # API허브 AWS 매분자료 1.1 연결 근거
 
-2026-10-05 확인. 기존 제공 ASOS DOCX 요약을 바꾸지 않는다. 이 연결은 별도 공식 [AWS 서비스 페이지](https://apihub.kma.go.kr/apiList.do?seqApi=2&seqApiSub=239), 페이지가 연결한 [AWS매분자료조회 API명세서](https://apihub.kma.go.kr/getAttachFile.do?fileName=AWS%EB%A7%A4%EB%B6%84%EC%9E%90%EB%A3%8C%EC%A1%B0%ED%9A%8C_API%EB%AA%85%EC%84%B8%EC%84%9C.pdf) 1~3쪽, [이용 안내](https://apihub.kma.go.kr/apiInfo.do)를 근거로 한다. 실제 관측 API는 에이전트가 호출하지 않았다.
+2026-10-05 확인. 기존 제공 ASOS DOCX 요약을 바꾸지 않는다. 이 연결은 별도 공식 [AWS 서비스 페이지](https://apihub.kma.go.kr/apiList.do?seqApi=2&seqApiSub=239), 페이지가 연결한 [AWS매분자료조회 API명세서](https://apihub.kma.go.kr/getAttachFile.do?fileName=AWS%EB%A7%A4%EB%B6%84%EC%9E%90%EB%A3%8C%EC%A1%B0%ED%9A%8C_API%EB%AA%85%EC%84%B8%EC%84%9C.pdf) 1~3쪽, [이용 안내](https://apihub.kma.go.kr/apiInfo.do)를 근거로 한다. 초기 구현 때는 실제 관측 API를 호출하지 않았다. 후속 실제 검증 지시에 따른 [실제 연결 결과](../live-connection-report.md)는 별도로 기록한다. 문서 계약·운영 설정은 유지했다.
 
 ## 문서 계약
 
