@@ -65,7 +65,7 @@ def collect():
     receipts = {'python': junit_receipt(ROOT/'data/output/award-validation-pytest.xml'),
                 'node': junit_receipt(ROOT/'data/output/award-validation-node.xml'),
                 'browser': browser_receipt(ROOT/'data/output/award-validation-playwright.json')}
-    if any(receipts[k]['passed'] < minimum for k, minimum in [('python', 900), ('node', 28), ('browser', 138)]):
+    if any(receipts[k]['passed'] < minimum for k, minimum in [('python', 900), ('node', 28), ('browser', 144)]):
         raise ValueError('기존 검사 수보다 적은 영수증입니다. 전체 검사를 실행하세요.')
     def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
     replay = read('docs/real-data/replay-results.json')
