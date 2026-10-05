@@ -208,3 +208,63 @@ def test_exclusion_audited_without_changing_original(client, kind, factory):
 def test_invalid_exclusion_does_not_create_audit(client, path, reason, status):
     assert client.post('/api/validation/'+path+'/exclude', json={'reason': reason}).status_code == status
     assert summary(client)['exclusions'] == []
+
+
+def test_live_reference_requires_explicit_save_without_extra_weather_call(client, monkeypatch):
+    def forbidden(*args, **kwargs): raise AssertionError('credentials or network forbidden')
+    provider=client.app.state.live_provider
+    provider.key_loader=forbidden;provider.transport=forbidden
+    response=client.post('/api/live-observations', json={'mode':'mock'}).json()
+    assert response['status']=='mock' and len(response['reference_token'])==64
+    assert client.get('/api/validation/references').json()==[]
+    before=client.app.state.repo.list('sessions')
+    saved=client.post('/api/validation/live-reference', json={'token':response['reference_token']})
+    assert saved.status_code==201
+    ref=saved.json();assert ref['risks']==response['risks']
+    assert client.app.state.repo.list('sessions')==before
+    assert client.get('/api/validation/references').json()==[ref]
+    risk=ref['risks'][0]
+    record=client.post('/api/validation/field',json=field(mode='mock',session_id=ref['id'],venue_id=risk['venue_id'],reference_time=risk['valid_time']))
+    assert record.status_code==201
+    assert '합성 기상 입력' in record.json()['excluded_reasons']
+    assert record.json()['frozen_risk']==risk
+
+
+@pytest.mark.parametrize('token,status', [('a'*64,409), ('x',422)])
+def test_invalid_or_stale_live_reference_cannot_inject_risk(client, token, status):
+    assert client.post('/api/validation/live-reference',json={'token':token}).status_code==status
+    assert client.get('/api/validation/references').json()==[]
+
+
+def test_cached_reference_cannot_be_overwritten_by_new_live_calc(client):
+    result=client.post('/api/live-observations',json={'mode':'mock'}).json()
+    old=client.post('/api/validation/live-reference',json={'token':result['reference_token']}).json()
+    newer=client.post('/api/live-observations',json={'mode':'mock','engine_settings':{'uncertainty_c':2}}).json()
+    assert newer['reference_token']!=result['reference_token']
+    assert client.post('/api/validation/live-reference',json={'token':result['reference_token']}).status_code==409
+    assert client.get('/api/validation/references').json()==[old]
+
+
+def test_injected_observed_live_reference_supports_actual_site_comparison(client):
+    from pathlib import Path
+    from backend.weather.aws_live import LiveProvider
+    from backend.weather.models import KST
+    calls=[]
+    def transport(*args):
+        calls.append(1)
+        return (Path(__file__).parent/'fixtures/aws-119-20261005-2335.txt').read_bytes()
+    venue=client.app.state.repo.list('venues')[0]
+    client.app.state.repo.put('venues','real-field-test',{**venue,'id':'real-field-test','name':'시험용 실제 구장 선언','is_mock':False})
+    client.app.state.live_provider=LiveProvider(client.app.state.repo,key_loader=lambda:'fake-key',transport=transport,
+                                               clock=lambda:datetime(2026,10,5,23,38,tzinfo=KST))
+    live=client.post('/api/live-observations',json={'mode':'api'}).json()
+    assert live['status']=='ready'
+    ref=client.post('/api/validation/live-reference',json={'token':live['reference_token']}).json()
+    risk=next(r for r in ref['risks'] if r['venue_id']=='real-field-test')
+    record=client.post('/api/validation/field',json=field(session_id=ref['id'],venue_id=risk['venue_id'],
+                                                       reference_time=risk['valid_time'],observed_at=risk['valid_time']))
+    assert record.status_code==201 and record.json()['eligible']
+    assert record.json()['frozen_risk']==risk
+    assert len(calls)==1
+    assert summary(client)['field']['included_pairs']==1
+    assert summary(client)['field']['bias_c']==pytest.approx(risk['wbgt_c']-30)

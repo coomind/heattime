@@ -2,9 +2,11 @@ import React,{useEffect,useRef,useState} from 'react';
 const fmt=(value,digits=1)=>value===null||value===undefined?'결측':Number(value).toFixed(digits);
 const time=value=>value?new Date(value).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',hour12:false}):'자료 없음';
 const stages=['거의 안전','주의','경계','엄중경계','운동 중지'];
-export default function LiveWeather({api,tournamentId,engine,snapshotMode}){
+export default function LiveWeather({api,tournamentId,engine,snapshotMode,onValidation}){
  const [mode,setMode]=useState('mock'),[station,setStation]=useState('119'),[data,setData]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState(''),[seconds,setSeconds]=useState(0);
  const pending=useRef(0);
+ const [referenceNotice,setReferenceNotice]=useState('');
+ async function preserveReference(){setBusy(true);setReferenceNotice('');try{await api('/validation/live-reference',{token:data.reference_token});setReferenceNotice('추정값을 보관했습니다. 현장 측정 시각·위치와 일치하는지 검증 기록에서 확인하세요.');}catch{setReferenceNotice('추정 보관에 실패했습니다. 다른 최신 계산이 있으면 다시 갱신 후 보관하세요.');}finally{setBusy(false);}}
  useEffect(()=>{pending.current++;setData(null);setError('');setBusy(false);setMode('mock');},[tournamentId,snapshotMode]);
  useEffect(()=>{if(!busy)return;const timer=setInterval(()=>setSeconds(n=>n+1),1000);return()=>clearInterval(timer);},[busy]);
  async function update(){const token=++pending.current;setBusy(true);setSeconds(0);setError('');try{const result=await api('/live-observations',{mode,station_id:Number(station),tournament_id:tournamentId,engine_settings:engine});if(token===pending.current)setData(result);}catch{if(token===pending.current)setError('최신 관측 요청에 실패했습니다. 로컬 서버 연결을 확인하세요.');}finally{if(token===pending.current)setBusy(false);}}
@@ -25,6 +27,7 @@ export default function LiveWeather({api,tournamentId,engine,snapshotMode}){
  <p>일사·운량은 이 응답에 없습니다. 기존 일사 추정(운량 0.7 가정)을 사용합니다. 기압 관측값은 참고 표시이며 계산에는 기존 스크리닝 기압을 유지합니다. WS10은 10분 평균이며 풍속 입력 높이는 기존 10m 가정입니다. 현장 수동값 보정은 이 최신 관측 계산에 적용하지 않습니다.</p>
  <div className="table-scroll"><table aria-label="최신 WBGT 추정"><thead><tr><th>구장</th><th>WBGT 추정 · 범위</th><th>판정값 · 단계</th><th>일사 추정 · 범위</th><th>구장 보정 · 계산 기압</th></tr></thead><tbody>{data.risks.map(r=><tr key={r.venue_id}><td>{r.venue_name}</td><td>{fmt(r.wbgt_c,3)}℃ · {fmt(r.wbgt_low_c,3)}~{fmt(r.wbgt_high_c,3)}℃</td><td>{fmt(r.decision_wbgt_c,3)}℃ · {stages[r.level]}</td><td>{fmt(r.inputs.solar.used_wm2)} W/m² · {fmt(r.inputs.solar.low_wm2)}~{fmt(r.inputs.solar.high_wm2)} W/m²</td><td>{fmt(r.inputs.venue.field_offset_c)}℃ · {fmt(r.inputs.settings.pressure_hpa,2)}hPa</td></tr>)}</tbody></table></div>
  <p>{data.tournament_name} · {data.age_group} · 현재 선택 설정. 범위는 검증된 신뢰구간이 아니며 최종 판단은 운영자가 합니다.</p>
+ {data.reference_token&&<div className="buttons"><button disabled={busy||snapshotMode} onClick={preserveReference}>현장 대조용 추정 보관</button><button disabled={busy||snapshotMode} onClick={onValidation}>검증 기록 열기</button></div>}{referenceNotice&&<p role="status">{referenceNotice}</p>}
  <details><summary>최신 계산의 근거·가정</summary>{data.risks.map(r=><div key={r.venue_id}><p>{r.venue_name} · {r.method_version} · 높이 보정 후 풍속 {fmt(r.inputs.wind_2m_ms,3)}m/s</p><p>{r.inputs.assumptions.join(' / ')}</p><code className="evidence-hash">{r.inputs_hash}</code></div>)}</details></>}
  <p>이 앱 사용량: {data.usage.calls}회 / {data.usage.daily_call_limit.toLocaleString()}회 · {data.usage.bytes.toLocaleString()}바이트 / {data.usage.daily_byte_limit.toLocaleString()}바이트. {data.usage.scope}</p>
  </>}

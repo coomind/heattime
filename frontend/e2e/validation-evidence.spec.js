@@ -65,3 +65,17 @@ test('mock measurement keeps frozen range and explicit field exclusions',async({
  expect(data.field.included_pairs).toBe(0);expect(data.field.mae_c).toBeNull();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+
+test('latest estimate can be frozen for later field comparison with no API credentials',async({page})=>{
+ await page.goto('/');const live=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
+ await live.getByRole('button',{name:'최신 관측 갱신',exact:true}).click();
+ await expect(live).toContainText('합성 입력 · 가상 예시');
+ const observedRequests=[];page.on('request',r=>{if(new URL(r.url()).pathname==='/api/live-observations')observedRequests.push(r);});
+ await live.getByRole('button',{name:'현장 대조용 추정 보관'}).click();
+ await expect(live).toContainText('추정값을 보관했습니다');
+ await live.getByRole('button',{name:'검증 기록 열기'}).click();
+ await expect(page.getByLabel('대조할 자료')).toBeVisible();
+ await expect(page.getByLabel('대조할 자료')).toContainText('가상 예시 · 합성 최신 입력');
+ await expect(page.getByLabel('대조할 추정 기록')).toContainText('추정');
+ expect(observedRequests.length).toBe(0);
+});

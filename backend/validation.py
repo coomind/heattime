@@ -131,7 +131,7 @@ def save_work(repo, body):
 def save_field(repo, body):
     with repo.connect() as conn:
         conn.execute('BEGIN IMMEDIATE')
-        session = repo.get('sessions', body.session_id, conn)
+        session = repo.get('validation_references' if body.session_id.startswith('live-') else 'sessions', body.session_id, conn)
         risk = next((r for r in session['risks'] if r['venue_id'] == body.venue_id
                      and datetime.fromisoformat(r['valid_time']) == body.reference_time), None)
         if risk is None: raise KeyError('대조할 추정 기록')

@@ -42,6 +42,8 @@ class LiveRequest(BaseModel):
     station_id: int = Field(default=119,ge=1,le=9999)
     tournament_id: str = 'demo'
     engine_settings: EngineSettings = Field(default_factory=EngineSettings)
+class LiveReferenceRequest(BaseModel):
+    token:str = Field(pattern=r'^[a-f0-9]{64}$')
 
 
 def create_app(db_path=None):
@@ -50,7 +52,18 @@ def create_app(db_path=None):
     app.state.repo=repo;app.state.service=service
     from backend.weather.aws_live import LiveProvider
     app.state.live_provider=LiveProvider(repo)
-    from backend.validation import WorkEvidence,FieldEvidence,ExclusionRequest,save_work,save_field,exclude_record,evidence_summary,evidence_csv
+    from threading import Lock
+    reference_lock=Lock();app.state.last_live_reference=None
+    from backend.validation import WorkEvidence,FieldEvidence,ExclusionRequest,save_work,save_field,exclude_record,evidence_summary,evidence_csv,fingerprint
+    @app.get('/api/validation/references')
+    def validation_references():
+        return sorted(repo.list('validation_references'),key=lambda r:r['risks'][0]['valid_time'],reverse=True)[:20]
+    @app.post('/api/validation/live-reference',status_code=201)
+    def validation_live_reference(body:LiveReferenceRequest):
+        with reference_lock:
+            ref=app.state.last_live_reference
+            if not ref or ref['token']!=body.token:raise HTTPException(409,'최신 계산이 변경되었습니다. 갱신 후 다시 보관하세요.')
+            return repo.put('validation_references',ref['id'],ref)
     @app.get('/api/validation/summary')
     def validation_summary():return evidence_summary(repo)
     @app.post('/api/validation/work',status_code=201)
@@ -76,6 +89,7 @@ def create_app(db_path=None):
         result=app.state.live_provider.get(body.station_id,body.mode)
         observation=result['observation']
         result['risks']=[]
+        result['reference_token']=None
         result['tournament_name']=tour['name']
         result['age_group']=tour['age_group']
         result['policy_id']=tour['policy_id']
@@ -85,6 +99,14 @@ def create_app(db_path=None):
                 venue=Venue(**raw)
                 risk=estimate(venue,point.point(venue.id),tour['age_group'],tour['policy_id'],body.engine_settings)
                 result['risks'].append({'venue_name':venue.name,**asdict(risk)})
+            if result['risks'] and result['status'] in {'ready','cached','mock'}:
+                from fastapi.encoders import jsonable_encoder
+                token=fingerprint({'risks':result['risks'],'tournament_id':body.tournament_id})
+                ref=jsonable_encoder({'id':'live-'+token,'token':token,'risks':result['risks'],
+                                      'label':('가상 예시 · 합성 최신 입력' if point.is_mock else f'기상청 AWS 관측 입력({point.station_id}·{point.valid_time}) · WBGT 추정'),
+                                      'saved_source':'user-triggered live estimate','tournament_name':tour['name']})
+                with reference_lock:app.state.last_live_reference=ref
+                result['reference_token']=token
         # This endpoint does not update replay/approved records or optimize future games.
         return result
     @app.exception_handler(KeyError)
