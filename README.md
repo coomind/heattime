@@ -6,6 +6,9 @@
 기본 모드는 합성 예시이며, **기상청 관측 자료**를 선택하면 수원119의2026년7~8월 시간자료로 재현합니다.
 대회·팀·구장은 가상 예시이며 WBGT는 현장 실측이 아닌 추정값입니다.
 
+공모전 준비: [공식 요강과 프로젝트 비교](docs/submission/competition-fit.md), [소개·제안서 원고](docs/submission/proposal.md), [운영자 검증 계획](docs/submission/validation-plan.md), [제출 확인 목록](docs/submission/submission-checklist.md).
+현장 도입·고객·가격은 미검증이며 발표 파일·영상·외부 배포는 아직 준비 완료가 아닙니다.
+
 ## 설치 및 실행 (Windows PowerShell)
 
 새 Windows 복제본 검증 환경은 Python 3.13.9와 Node.js 24.19.0입니다. 프로젝트 폴더에서 실행합니다.
@@ -43,6 +46,8 @@ CSV 예시는 [data/mock/matches.csv](data/mock/matches.csv). 시간은 +09:00�
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe scripts/check_presentation.py
+.\.venv\Scripts\python.exe scripts/check_submission.py
 .\.venv\Scripts\python.exe -m backend.engine.validate_solar
 Push-Location frontend
 npx playwright install chromium
