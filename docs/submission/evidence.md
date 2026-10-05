@@ -15,6 +15,8 @@
 | 인터뷰·가격·현장 검증이 다음 단계 | [계획](validation-plan.md) | 계획을 완료 실적으로 표현 |
 | 같은 제약 탐욕 대비 배정 합계56건 증가·완전 배정0→16일 | [전체 비교](../competition-evidence/method-comparison.json), [고정 제안](../competition-evidence/frozen-solutions.json), [해석](../competition-evidence/method-comparison.md) | 사람·경쟁 제품 대비 우위, 현장에서 살린 경기 수; 공통 점수1.39% 증가도 공개 |
 | 모든62일 결과·경기별 변경 내역을 오프라인으로 읽을 수 있음 | frontend/e2e/evidence.spec.js와 새 단위 검사 | 현재 선택한 설정을 다시 계산한 전체기간 결과라는 주장 |
+| 제안/승인 제약 근거·입력/보정 이력·CSV 미리보기 | [세 개선 기능 검증](../feature-implementation-report.md), 관련 단위/데스크톱/모바일 검사 | 실제 운영자의 이해도·업무 절감 실측 |
+| 실제 AWS 119 자료 수신·공식 필드·기존 계산 확인 | [실제 연결 검증](../live-connection-report.md), [성공 기록](../kma/live-connection-verification.json) | 기본 10초 안정성 확보(4회 시간 초과), 현장 WBGT 측정·미래 예보·주간 폭염 정확도 |
 
 소프트웨어의 새 결과 요약은 기존 proposal·recommendations만 읽는다. 계산 엔진·설정·정책·스냅샷의 원본 수치를 바꾸지 않는다. 승인 전·승인됨·수정안 승인·거절을 구분하며 수정안 승인 시 자동 제안 수치와 수정된 승인 기록을 구분해 표시한다.
 

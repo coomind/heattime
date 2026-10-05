@@ -23,3 +23,10 @@ README대로 실행한 뒤 `http://127.0.0.1:8000/#snapshot-observed`를 연다.
 첫 사용자 가설은 유소년 대회 시간표 변경 담당자, 구매자 가설은 반복 대회를 여는 체육회·협회 예산 담당자다. 지정 CSV와 과거 대진으로 준비·변경·기록 작업과 구매 결정을 확인할 [계획](../submission/validation-plan.md)을 작성했다. 아직 인터뷰·유료 고객·현장 시범·국내 WBGT 대조·전문가 자문은 수행하지 않았다.
 
 [제안서](../submission/proposal.md) · [7분 원고](../presentation/slides.md) · [질의응답](../presentation/qa.md) · [증거 목록](../submission/evidence.md) · [준비 상태](../submission/submission-checklist.md).
+
+
+## 후속 구현과 실제 연결 확인
+
+제안/승인 일정의 운영 제약, 기상 단위·일사 변환·보정 이력, CSV 저장 전 미리보기를 확인할 수 있다. [구현 보고](../feature-implementation-report.md). 실제 AWS 자료 수신·응답·기존 계산은 확인했으나 기본 10초 호출은 네 차례 시간 초과여서 최신 조회의 운영 안정성은 미검증이다. [실제 기록](../live-connection-report.md). 최신 기상 입력은 현장 WBGT 측정이나 미래 예보가 아니며 기존 7월10일 시연 수치를 바꾸지 않는다.
+
+[경쟁력 재검증](../competition-validation-report.md)은 기술 시제품의 구체성은 강화됐지만 운영자 효용·국내 구장 정확도·구매 의사와 제출 영상/외부 증빙이 아직 부족하다고 평가한다. 공식 채점이나 수상권 판정이 아니다.
