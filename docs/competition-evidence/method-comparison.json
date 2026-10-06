@@ -6,7 +6,7 @@
     "office": "수도권기상청"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "frozen_solutions_sha256": "9c0a5fbca167274b89f8989819baa4dce99e00cf1d799896efd65fba9f730256",
+  "frozen_solutions_sha256": "5d68429f14240651cd12c46669cd49afb2f07f1bf1364edca1cb01069edb2c6f",
   "method": "Frozen CP-SAT vs existing greedy fallback, identical observed inputs/default policy/constraints; common matches only for heat.",
   "limitation": "Internal algorithm comparison, not human operators, competitor products, health outcomes or field WBGT validation.",
   "summary": {
@@ -9567,5 +9567,6 @@
         }
       ]
     }
-  ]
+  ],
+  "input_digest_schema": "comparison-input-v2-float6-derived-input-hash"
 }

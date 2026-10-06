@@ -11,6 +11,7 @@ from dataclasses import asdict
 from datetime import datetime
 import hashlib
 import json
+import math
 from pathlib import Path
 import sys
 from uuid import uuid4
@@ -28,14 +29,38 @@ from backend.weather.asos_samples import load_dataset
 EVIDENCE = ROOT / "docs/competition-evidence"
 LEDGER = EVIDENCE / "frozen-solutions.json"
 INPUT_FIELDS = ("tournament", "matches", "venues", "weather", "risks", "policy", "engine_settings", "schedule_settings")
+INPUT_DIGEST_SCHEMA = "comparison-input-v2-float6-derived-input-hash"
 
 
 def digest(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
 
 
+def canonical_input(value):
+    """Comparison precision only; never round the engine or stored evidence."""
+    if isinstance(value, float):
+        if not math.isfinite(value):
+            raise ValueError("Non-finite comparison input")
+        result = round(value, 6)
+        return 0.0 if result == 0 else result
+    if isinstance(value, dict):
+        return {key: canonical_input(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [canonical_input(item) for item in value]
+    return value
+
+
 def input_digest(session):
-    return digest({key: session[key] for key in INPUT_FIELDS})
+    inputs = canonical_input({key: session[key] for key in INPUT_FIELDS})
+    # The engine's audit hash derives from unrounded inputs and can also differ
+    # across platforms. Re-derive its redundant comparison representation from
+    # the full canonical inputs; retain every physical input and risk value.
+    # Captured audit hashes / byte-level artifact hashes remain unchanged.
+    for risk in inputs["risks"]:
+        if "inputs_hash" not in risk or "inputs" not in risk:
+            raise ValueError("Missing risk input provenance")
+        risk["inputs_hash"] = digest(risk["inputs"])
+    return digest({"schema": INPUT_DIGEST_SCHEMA, "inputs": inputs})
 
 
 def candidates(rows):

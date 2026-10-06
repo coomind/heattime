@@ -5,7 +5,7 @@
   "days": [
     {
       "date": "2026-07-01",
-      "input_sha256": "4a2f8081609060e4a6c4b32f9bc3520a9eca8b0a2b7913447b7d3ee0bab331a6",
+      "input_sha256": "4008f07b6a06d415807223dafcb4ae99e6ed430870194695d4ec9466922210a3",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -176,7 +176,7 @@
     },
     {
       "date": "2026-07-02",
-      "input_sha256": "15e9bd9234367fd808032310e04ba5bdd016b48524f16b8ebda2238e78fb35ac",
+      "input_sha256": "451f0b376e76b31c8137b0c6d1fdcfe8475794bd3cb32b1fd426670ab62e1e39",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -353,7 +353,7 @@
     },
     {
       "date": "2026-07-03",
-      "input_sha256": "ce49198537e4038b5a2407d5a1e084c9c5317d50b28c7a9ef57b7c7b4cc6fc39",
+      "input_sha256": "e3b7d1ec46485ce5bbde711a5257af46754f1303a2475f448ff61e06500bc6b4",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -521,7 +521,7 @@
     },
     {
       "date": "2026-07-04",
-      "input_sha256": "4d792d9bf3eb5bed93aaeec8cbbd11f4bfffb16322ed14767c95688293fa6fb6",
+      "input_sha256": "3ff3c2ce7faa9f82b170003f8c518ffb9d3cf0e247a99a8288c58c73d46ac324",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -688,7 +688,7 @@
     },
     {
       "date": "2026-07-05",
-      "input_sha256": "63d75cd926fc8b50e636b8d789931e9d5f1977f400686413e22ecb6236db9f3b",
+      "input_sha256": "c1ad18aeea541fff946ff257375bb44e24a6e7b5fccdf003e3273da396f3cfb8",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -874,7 +874,7 @@
     },
     {
       "date": "2026-07-06",
-      "input_sha256": "ef792794ae196251a73ce0075432d68df584ff898c83ce17becdfd032e000def",
+      "input_sha256": "ceb1ae6c26f8838959c1ac2cc27d5eddaa7215e3054fc6cd325428991a54ea16",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -1057,7 +1057,7 @@
     },
     {
       "date": "2026-07-07",
-      "input_sha256": "29059f30108ce633b4594d49de7287bb048a0038cff4cb7b1b3c3184414adbb0",
+      "input_sha256": "a7972040836534d0dc9b016890ffe9900db8986bfb8dfbac8c516032a81c852e",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -1197,7 +1197,7 @@
     },
     {
       "date": "2026-07-08",
-      "input_sha256": "1cdfb87228ec5ab0356498397916b7be58e5d26a154e7278c92533b89904b80a",
+      "input_sha256": "c6d870abf13a9272d04158a0eaaf6cb9169306ee020b6a6395fb2656370007b6",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -1380,7 +1380,7 @@
     },
     {
       "date": "2026-07-09",
-      "input_sha256": "2041ba2fe265a0e5625a580bb7e8c4412845770d572b503b61d98aeb7cf99180",
+      "input_sha256": "5b4935be1bdf06baa7588d0d1e966a7de715cb1b5904bc30d0f48fa731ccf526",
       "solver": "CP-SAT FEASIBLE",
       "coverage_optimal": false,
       "assignments": [
@@ -1554,7 +1554,7 @@
     },
     {
       "date": "2026-07-10",
-      "input_sha256": "54b33e93c1401187d96323001712dfbd31dce1e5171c2e2bfa068494d9f1a582",
+      "input_sha256": "2d90a650d1c12ee2ceaef576e0859a2beabdf13c6506a8b007ae68d0129e1ac6",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -1728,7 +1728,7 @@
     },
     {
       "date": "2026-07-11",
-      "input_sha256": "f94c2a6faf12bf84a03ea5b63fa949555620ab43a39e0d7462bbb03b5fa1523e",
+      "input_sha256": "da26d22810d1f37a6e7cdebb8f6864810aa45e98150bc6247d938f681109fcdd",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -1819,7 +1819,7 @@
     },
     {
       "date": "2026-07-12",
-      "input_sha256": "1b35935cae0cb1b0e6700ddd2db07f83d2f00b24c4c494021271c114cd21970f",
+      "input_sha256": "d439cfccbf1275c1d9842f610163f0ec0c58a9bf895ea13428bad50279a97853",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -1910,7 +1910,7 @@
     },
     {
       "date": "2026-07-13",
-      "input_sha256": "4788f034fc5f0cb0ff0526af59ff62a79f9592c146b42de11d36245b1076de2b",
+      "input_sha256": "d6b4b3b52263c31d8e49f03e08649935760798787b9eb0bec348eca16d9e1374",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2001,7 +2001,7 @@
     },
     {
       "date": "2026-07-14",
-      "input_sha256": "a96a0181715cd17d84298b3b48890c97e14264caccbbf6f60606119258413c1e",
+      "input_sha256": "f77eb15df233a4649ef121b7d2b1c1110c52b2454e4a89dd85b54e7ad2e8822a",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2148,7 +2148,7 @@
     },
     {
       "date": "2026-07-15",
-      "input_sha256": "c8777bdf2d22880f02722ff732b5d53ec4c352faf3b94ffdeaea599147c5e2ca",
+      "input_sha256": "aa4881bfbf362150e8d5c29801d2c8e9b528ff66321cb7586ac606bd0f6e0b1a",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2322,7 +2322,7 @@
     },
     {
       "date": "2026-07-16",
-      "input_sha256": "281bb5c31d44a7723361111142fc6690698cf02c15c8b5a454024299e24cc61a",
+      "input_sha256": "2ac0894373f4e1c1ce8a87febed919735a018536ff2efbddb2fd6f544fe6ba1d",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2483,7 +2483,7 @@
     },
     {
       "date": "2026-07-17",
-      "input_sha256": "4ffb1eba2e565946ca772d9ca45cd154fc2adf18cea566a9ec02890b651f5cb3",
+      "input_sha256": "aa0920f7357afd485f9536fbd75c827c644d4081d4f2e09f687bbfb189b12b83",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2602,7 +2602,7 @@
     },
     {
       "date": "2026-07-18",
-      "input_sha256": "5a0025f5dd727bac024fd031dc5d5eff246a551d43fb5a945a00d5e3e1d3824e",
+      "input_sha256": "14291c611e774a916e0952b1883e4ef91edb8833fb197029247e6ab52533152f",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2776,7 +2776,7 @@
     },
     {
       "date": "2026-07-19",
-      "input_sha256": "29c3e21ba77c8bcd0dd8c8ed4808e1c2f53f3e3abf7c9319fc8572dcbe45c189",
+      "input_sha256": "56b0874b2954edfa81d4a6874f147767f776fb85a8f3fbab346f1238dc7ea72a",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -2933,7 +2933,7 @@
     },
     {
       "date": "2026-07-20",
-      "input_sha256": "991eefc72e774d0454482e071691874e0817dd72c1d8880aa39e7fd8bface20d",
+      "input_sha256": "ff69092ebe25c551981d136a01f3cc63c72703708e6194c43eba476026a40afc",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3143,7 +3143,7 @@
     },
     {
       "date": "2026-07-21",
-      "input_sha256": "c7b849cf476aa8535201194f02e149d49d121afc99a607e14d052f00b973510d",
+      "input_sha256": "faecb980607db43cf9c83e72e09547df9e4c69ef4dbb2c74921be0838d47b8e0",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3317,7 +3317,7 @@
     },
     {
       "date": "2026-07-22",
-      "input_sha256": "3704981caf82593d44cfe1c6c41e05032616b5f7bdd41069733a2608b11f9ab1",
+      "input_sha256": "6559a9b0437660b795e084e74c5735220adb0574178bbcee093a5cdf7fb8f02e",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3464,7 +3464,7 @@
     },
     {
       "date": "2026-07-23",
-      "input_sha256": "dfe8173f220058c353be3dc3ec452333f1b51d6f7f488ec3a640fd726d6eecf5",
+      "input_sha256": "e8b308770a53118b3d3a1c1d9ae1fdc5a7664872211cd66f7314d9a66e6c2fc2",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3583,7 +3583,7 @@
     },
     {
       "date": "2026-07-24",
-      "input_sha256": "b108772a2574ac1b6dca4802619f79d148b109f954ac898758ff722669f0bcab",
+      "input_sha256": "434c659d073f5b9815c39b0c16512c992383e4d9d004c4f14d46176b1223ed3f",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3681,7 +3681,7 @@
     },
     {
       "date": "2026-07-25",
-      "input_sha256": "a32b7a001fbe4e4f7a60fb97538e05135d825f584cf6457a8bcc134363ffe8b5",
+      "input_sha256": "6f334861cc2c661b98f299a1130a04c9d94f9803a57a6e06a40af20c91676238",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3772,7 +3772,7 @@
     },
     {
       "date": "2026-07-26",
-      "input_sha256": "fbfe60999536d2e5fdb9c23d4f5a3a87de9dbe6c49013409b04ca655fc132032",
+      "input_sha256": "e2372d0a39e713b39475eda78736d91f5f60eaf3a689ff5c9d9f8d5857d1afd0",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3863,7 +3863,7 @@
     },
     {
       "date": "2026-07-27",
-      "input_sha256": "002d823d6c8ba96a5220f6c0ec1e4a3d97e6321d124b5b1c2864183f2d080cf3",
+      "input_sha256": "17a585a0ae0ff8f95c0f1993c7e9787c31607ac22469a40d1d564f7471f778b9",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -3961,7 +3961,7 @@
     },
     {
       "date": "2026-07-28",
-      "input_sha256": "2683d1df444a7accda8fce2216bdc218a04bb15d9056f2aefce69c4c25416ae5",
+      "input_sha256": "6efd6ca4f6ba9d203da9d5a855342cd3b5aef7b44d62080ae19d8a2786bec728",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4052,7 +4052,7 @@
     },
     {
       "date": "2026-07-29",
-      "input_sha256": "d4d7b082a7a886487e21ac716f564d642dee1611bb056ec32259330c05798ba4",
+      "input_sha256": "bf76ad7aa181f3af5d691c063bd35fa32b461ad0e3c2319b28a164a9ac5aecf6",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4150,7 +4150,7 @@
     },
     {
       "date": "2026-07-30",
-      "input_sha256": "b6f79df45d0b3a7e38228c6834dcca4a7dc4d94c8d3b868ae58ef8be307c53e8",
+      "input_sha256": "ffbdacd777f0653a25295eaf371f1a78cb2cd527a9e745b1304125a078a75e42",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4248,7 +4248,7 @@
     },
     {
       "date": "2026-07-31",
-      "input_sha256": "eb80461bd61cd229504617f109855cb9f2a6ee97acb2e1f0fcd17d52de7eb041",
+      "input_sha256": "8d1b6aa0521f339cfede479aa89e83e8115e43ca41c5d2c1065a67bf237645f6",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4339,7 +4339,7 @@
     },
     {
       "date": "2026-08-01",
-      "input_sha256": "adf911038bdc498d32a29c550ace08d31664176965611e1b73b97dd4e31fa961",
+      "input_sha256": "17990f912398d7dc3e09b5f26a5779028ffa7d93b4d5f376b3c71e8874a8a087",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4430,7 +4430,7 @@
     },
     {
       "date": "2026-08-02",
-      "input_sha256": "f8d5ec69d7b893bb6f73c422b7ff623f381bbe9095cf5d112bba2d112b9c206a",
+      "input_sha256": "e503ca88a483e9d1ce5028033c734a10d3fcf918374db67c520a94e4d0b48be8",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4521,7 +4521,7 @@
     },
     {
       "date": "2026-08-03",
-      "input_sha256": "ec26f029186b189b4c114b766614e89c40c8355a54c82bf7b2fc5f7911c67c2c",
+      "input_sha256": "369f56d052c33f95af7751eaff43feb8141d94674dd65e7945660e49f810df52",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4612,7 +4612,7 @@
     },
     {
       "date": "2026-08-04",
-      "input_sha256": "499466c1a1a14301684d4d276e7d25a3e19ab806e353f96dee98fb765f0983d8",
+      "input_sha256": "23f90b7e337a34e17e0f530ed625bf022f6e415ba6c0b563814acede41facc1d",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [],
@@ -4681,7 +4681,7 @@
     },
     {
       "date": "2026-08-05",
-      "input_sha256": "3c62a46d2c135cdde867cfd51bb8f04f0e59ceab2a276214e9b7b318f16b20a2",
+      "input_sha256": "030c471c43ccd4c8b16978529665c649d5626298863e34f3841a0d50345bdb36",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [],
@@ -4750,7 +4750,7 @@
     },
     {
       "date": "2026-08-06",
-      "input_sha256": "8e744313c96ffc6a90556bed85b98d5747f05845e2287e636429424b98fa2e0e",
+      "input_sha256": "f15bce630b422fb8a9b7148865d1ddd17108ceee864ebdffe1c2c330ea6d4293",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [],
@@ -4819,7 +4819,7 @@
     },
     {
       "date": "2026-08-07",
-      "input_sha256": "a154a773ee20bd2826c2203b1f237ecf60be5d6b64a23c751e173af768c94803",
+      "input_sha256": "f6f5c4dc104e3b8b9a9ba1a83a79a160b36422d33ca278d4847b7467a7c661e3",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -4910,7 +4910,7 @@
     },
     {
       "date": "2026-08-08",
-      "input_sha256": "16638fda0d8ad08f51a2b84d23c6dc16620f9950bbf4f59d13573d5742116cc3",
+      "input_sha256": "74d73350f4c093764f9b5da83a0ee506de675ad5f1073e8da1519c958c7a723e",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5050,7 +5050,7 @@
     },
     {
       "date": "2026-08-09",
-      "input_sha256": "547134c4de39476b7b9064f412971f20a7e9e7a2aa81ba93e7a294aae3a162e3",
+      "input_sha256": "e39157331b52be2e3c08e84d6c7662636af29cbcf33b7a1eb2f955c7f941598b",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5199,7 +5199,7 @@
     },
     {
       "date": "2026-08-10",
-      "input_sha256": "83c74fe7ad1c46443359a13ce40c4009c837cbd8fad158c17cc0019f3183103e",
+      "input_sha256": "4f55112bbbdd30f36ba04c1f8ee5c6ca42999b0cd439ee24d5c29e1414a9cfb7",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5346,7 +5346,7 @@
     },
     {
       "date": "2026-08-11",
-      "input_sha256": "35a33317d5fb5ef119f1e52aea3d197899047492cf5a83a9db625e631a10cffa",
+      "input_sha256": "66f890bf436d754e072d754b32ecc2bfb64ffb5a8159638bb501469ac0738f0e",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5495,7 +5495,7 @@
     },
     {
       "date": "2026-08-12",
-      "input_sha256": "9d7c84190049726bdcf170c0384e6e71d6d78bed6ae588e44a3a76d026eb6496",
+      "input_sha256": "c1e7960b96148b06410ca80e3332f634d42adb37d5cac5afb75913da1066f515",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5672,7 +5672,7 @@
     },
     {
       "date": "2026-08-13",
-      "input_sha256": "749e2968af0236994e91634125daafd1a1757d3931952762d78fc7c7cf7dbccf",
+      "input_sha256": "ee2562e53425b36b372a90e80586f29fecf2352d333e3aebeef0a847a7ca4f6c",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5828,7 +5828,7 @@
     },
     {
       "date": "2026-08-14",
-      "input_sha256": "14a20c5e25eaa1797fe402b27b22126c11fe31022301ea2f6c4d681b8b98b239",
+      "input_sha256": "782fe202f8ca3e3c0700377fe944a21d981229faa59f0ddca26900c9f6973a41",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -5968,7 +5968,7 @@
     },
     {
       "date": "2026-08-15",
-      "input_sha256": "3a3bc8c8abcbd8357fc90eae1f196bd0d2f56ac1cfeb3fc4e2f3c998076f8145",
+      "input_sha256": "c98a33856634f3d3215295babd7cb12e0da477cc620235a6598b356c94da6145",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -6136,7 +6136,7 @@
     },
     {
       "date": "2026-08-16",
-      "input_sha256": "bc109938102f288fda528b5dae9d91ac76171faa0eda79e8446299968619e1db",
+      "input_sha256": "9619966506cd6934fb5821d202a6c4af37589d035d7e5b4d22877658d1a87bbf",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -6319,7 +6319,7 @@
     },
     {
       "date": "2026-08-17",
-      "input_sha256": "00081a607902520d8b8697f9a360678a65bd8f1b2f9d6b6b9e7e8ad339579433",
+      "input_sha256": "ef8cc63014f3ebe539d636a8fb7b51d03ca80f2af9edf178605dcf0608ad4718",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -6502,7 +6502,7 @@
     },
     {
       "date": "2026-08-18",
-      "input_sha256": "3bc440358a19a5dc022d0414a9e55f6478684bfa3d67d0c940d7bead3f96bee2",
+      "input_sha256": "a8b9d73724b44ab21a8f4879bbc3fd5e48c828f926611ff2da52be47a02f694d",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -6600,7 +6600,7 @@
     },
     {
       "date": "2026-08-19",
-      "input_sha256": "801ba7835d2d80d451a99f6f888b006c69c9e4c9783de0d42aad3673d654487d",
+      "input_sha256": "376e10eb535992e7649b615c0ff8acc216bea2f7a20626a648980d7ba0b793af",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -6747,7 +6747,7 @@
     },
     {
       "date": "2026-08-20",
-      "input_sha256": "08141899b3b303bea4184c2a13e692f44817a0996c7ef0e6952efdfbb95ae130",
+      "input_sha256": "79264fe330626490f6b96950075732a28f51bb0ac27547856a9e82b443e1b9b6",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -6915,7 +6915,7 @@
     },
     {
       "date": "2026-08-21",
-      "input_sha256": "575a6c88aeebb28c9b72689ff5e49997c521a88ebbdafed0f38cd0bdc913cf3f",
+      "input_sha256": "59d0539b645b30714e4b248d1d2ab2eca2536f74fe9e6cd8f5c7daf9dd946f61",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7089,7 +7089,7 @@
     },
     {
       "date": "2026-08-22",
-      "input_sha256": "ebc631975c6a230cc9cf68903c7696fcbaff1148fdcd4221ddbb5d26bf15c39d",
+      "input_sha256": "e69579043f601a38ba0ae5885e086050181a7a1fd6ffb31620d7d59311b8ecdd",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7287,7 +7287,7 @@
     },
     {
       "date": "2026-08-23",
-      "input_sha256": "09d2a30766c20b40b0165a9952c4055ed30da962832f4bded8138df58a43d7ab",
+      "input_sha256": "9eabac9c2bf4e0c184c64e5022a7d61696cacc2513094b3e54f56f5fa2e32c99",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7385,7 +7385,7 @@
     },
     {
       "date": "2026-08-24",
-      "input_sha256": "f91ac90d57ea6f6c602b17e9026dc162d212d8d03419be0a7e8ecabbc2fe6d5d",
+      "input_sha256": "0fd476fec0ce78458eb3aa6bbd19e72d3e7f57b04d730ccf7ff67dab8d78b100",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7476,7 +7476,7 @@
     },
     {
       "date": "2026-08-25",
-      "input_sha256": "64f2c01b0f249e81d638fa7133a8da79e41f20a374c568cf106c85401399421a",
+      "input_sha256": "0d8845967e85a1cb3dc466dde168d9c0378d4b4d0bedb9a55de751fc9b0bfd68",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7574,7 +7574,7 @@
     },
     {
       "date": "2026-08-26",
-      "input_sha256": "b02571aeddea4ffa39390d0508a4c9e3d99dbf9f2a91029ad3558c6ce85a5191",
+      "input_sha256": "77a980a47ae8f6e2f6e1d8c179a6106e413d92d0f8ae0ce0e360ceb407e7e7f5",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7665,7 +7665,7 @@
     },
     {
       "date": "2026-08-27",
-      "input_sha256": "9e92b6b544390971a0e91efd6cfc2ed7dbe5e50f4fb9c136dde3616e277b7f06",
+      "input_sha256": "bc02388f2250155ea9c51223f43ff4d742ee552dccc24cad97f9aa801e3233a9",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7784,7 +7784,7 @@
     },
     {
       "date": "2026-08-28",
-      "input_sha256": "07f549d20911379ab87564aa737f7c17c33fdb0b37d1e879dd759cc6ade239ae",
+      "input_sha256": "963681c556b200743e5fc51cb8fccd48cfb7595ddc7824306174ce3b01ada448",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -7952,7 +7952,7 @@
     },
     {
       "date": "2026-08-29",
-      "input_sha256": "9308a311e696136c873d16eab61653c30baef1d6f5f57d952c33412ec41fcaf8",
+      "input_sha256": "68c5ebd97f88416c379531e871c81fa8aeb56deff9979f98b85f4ff4e63e53ed",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -8099,7 +8099,7 @@
     },
     {
       "date": "2026-08-30",
-      "input_sha256": "792a1e1c60a3cad8df6eabdaaab3ef05945e405dd642a09f1f11354a6e2bce07",
+      "input_sha256": "885dcf86e79b10cfb8b30e0113d3c49c1b659306e6a81204654564a442a2c6c3",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -8260,7 +8260,7 @@
     },
     {
       "date": "2026-08-31",
-      "input_sha256": "186e74e74dff8678b47415f06b842150879eb3109d76fa7deb668ed34643047e",
+      "input_sha256": "6358951532b59516d7165baf10525602d1dd41bf3691fb9b6f3b61717d081110",
       "solver": "CP-SAT OPTIMAL",
       "coverage_optimal": true,
       "assignments": [
@@ -8432,5 +8432,6 @@
       ],
       "postponed": []
     }
-  ]
+  ],
+  "input_digest_schema": "comparison-input-v2-float6-derived-input-hash"
 }

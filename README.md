@@ -70,8 +70,34 @@ Pop-Location
 Playwright는 데스크톱과 휴대폰 크기로 재현→승인→알림→PDF→읽기 전용 흐름을 실행합니다.
 테스트는 별도 포트8127과 실행마다 새 SQLite를 사용하고 기존 서버를 재사용하지 않습니다. 포트8127이 사용 중이면 먼저 충돌을 해결하세요.
 테스트 출력·이미지·PDF는 data/output/ 아래에 저장되며 git에서 제외됩니다.
-`npm run test:unit`는 제안 요약·경기별 변경·전체기간 증거의 관측 수치·공통 경기·연기 별도·점수 증가·0분모·원본 지문을 검사하고 두 스냅샷의 일정 상세·입력 근거·조건 변화 검토를 검사합니다(25개).
-`npm run test:e2e:repeat`는 먼저 빌드하고 데스크톱/모바일의 합성/관측 일반·오프라인 흐름, 스냅샷 버전 교체, 승인 전/후 결과 요약, 전체기간 증거·경기 변경·입력 근거·CSV·최신 관측 표시를 각각3번 실행합니다(검증 기록·최신 추정 보관·조건 변화 검토 포함 총126개). 최신 관측 API 화면 검사는 가짜 응답을 주입하므로 실제 키를 읽거나 기상청에 호출하지 않습니다.
+
+### 외부 환경과 1코어 검증
+
+기존 전체 검증 영수증과 62일/31구간의 솔버 상태·응답 시간은 Windows 개발 PC에서 얻은 값입니다. CPU 코어 수·부하·운영체제가 다르면 같은10초 탐색 제한에서도 OPTIMAL/FEASIBLE/폴백 표시가 달라질 수 있습니다. OPTIMAL을 모든 환경에서 보장하지 않습니다. 발표 영상은 **관측 시연 스냅샷 모드**로 촬영하고, 라이브 재편성의 최적성 미확정 표시와 구분하세요.
+
+비교용 입력 지문v2는 해시 직전에 실수를 소수6자리로 반올림하고, 중첩된 원시 입력 해시는 같은 정규화 입력으로 재산출합니다. 앱의 계산·감사용 입력 해시·저장된 위험 값은 바꾸지 않습니다. 이 지문은 해당 정밀도의 입력 비교이며 파일 바이트 일치는 ZIP 매니페스트의SHA-256으로 확인합니다. 모든 입력·정책·설정·위험 값을 계속 포함합니다. [재발급 범위와 결과 불변 확인](docs/competition-evidence/portability-migration.json).
+
+아래 도구는 **테스트 프로세스와 자식만** 사용 가능한CPU 하나로 제한합니다. 앱의 솔버 워커 수와10초 설정을 바꾸지 않습니다. 출력의platform과allowed_cpu_count를 확인하세요. Windows1코어 검사와Linux1코어 검사는 서로 대체하지 않습니다. 이번 실제 수행 범위는 [이식성 보고](docs/portability-report.md)에 기록합니다.
+
+Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/prepare_regression_evidence.py
+.\.venv\Scripts\python.exe scripts/run_single_core_tests.py -- -q --junitxml=data/output/portability-windows-one-core.xml
+```
+
+Linux (Python3.11 이상):
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -e '.[dev]'
+.venv/bin/python scripts/prepare_regression_evidence.py
+.venv/bin/python scripts/run_single_core_tests.py -- -q --junitxml=data/output/portability-linux-one-core.xml
+```
+
+기존 결과의 지문을 다시 발급할 때만 `scripts/migrate_comparison_fingerprints.py --write`를 실행합니다. 원래 입력과의 대조 및 결과 본문 불변 검사를 모두 통과해야 쓰며 재최적화하지 않습니다. 단순 재현 테스트를 위해 지문을 새로 발급할 필요는 없습니다.
+`npm run test:unit`는 제안 요약·경기별 변경·전체기간 증거의 관측 수치·공통 경기·연기 별도·점수 증가·0분모·원본 지문을 검사하고 두 스냅샷의 일정 상세·입력 근거·조건 변화 검토를 검사합니다(28개).
+`npm run test:e2e:repeat`는 먼저 빌드하고 데스크톱/모바일의 합성/관측 일반·오프라인 흐름, 스냅샷 버전 교체, 승인 전/후 결과 요약, 전체기간 증거·경기 변경·입력 근거·CSV·최신 관측 표시를 각각3번 실행합니다(검증 기록·최신 추정 보관·조건 변화 검토 포함 총144개). 최신 관측 API 화면 검사는 가짜 응답을 주입하므로 실제 키를 읽거나 기상청에 호출하지 않습니다.
 
 재현 모드의 **62일 전체 재현 결과와 알고리즘 비교**를 펼치면 유리한 날짜만 추리지 않은 전체 결과를 확인할 수 있습니다. 기본값의 별도 가상 대회 분석이며 현재 선택한 대회·설정을 다시 계산한 결과가 아닙니다. 같은 제약의 탐욕 비교는 그 안의 별도 표입니다. 배정 합계506→562건과 공통 점수1.39% 증가를 함께 표시하며 사람의 업무 효과나 건강 효과로 해석하지 않습니다.
 
