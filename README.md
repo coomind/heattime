@@ -95,6 +95,14 @@ python3 -m venv .venv
 .venv/bin/python scripts/run_single_core_tests.py -- -q --junitxml=data/output/portability-linux-one-core.xml
 ```
 
+호출당300초 제한이 있는 평가 환경에서는 같은 도구로 검사 파일을 각각 별도 호출하세요. 예를 들어 지적된 검사와 새 회귀는 아래처럼 나눕니다. 전체 검증을 주장하려면 나머지tests/test_*.py도 파일별로 모두 실행하고 중복·실패·건너뜀 없이 전체917개인지 확인해야 합니다. 아래 세 호출만으로 전체 통과를 주장하지 않습니다.
+
+```sh
+.venv/bin/python scripts/run_single_core_tests.py -- tests/test_portability.py tests/test_schedule.py -q --junitxml=data/output/linux-core-basic.xml
+.venv/bin/python scripts/run_single_core_tests.py -- tests/test_selection_quality.py -q --junitxml=data/output/linux-core-selection.xml
+.venv/bin/python scripts/run_single_core_tests.py -- tests/test_competition_comparison.py -q --junitxml=data/output/linux-core-comparison.xml
+```
+
 기존 결과의 지문을 다시 발급할 때만 `scripts/migrate_comparison_fingerprints.py --write`를 실행합니다. 원래 입력과의 대조 및 결과 본문 불변 검사를 모두 통과해야 쓰며 재최적화하지 않습니다. 단순 재현 테스트를 위해 지문을 새로 발급할 필요는 없습니다.
 `npm run test:unit`는 제안 요약·경기별 변경·전체기간 증거의 관측 수치·공통 경기·연기 별도·점수 증가·0분모·원본 지문을 검사하고 두 스냅샷의 일정 상세·입력 근거·조건 변화 검토를 검사합니다(28개).
 `npm run test:e2e:repeat`는 먼저 빌드하고 데스크톱/모바일의 합성/관측 일반·오프라인 흐름, 스냅샷 버전 교체, 승인 전/후 결과 요약, 전체기간 증거·경기 변경·입력 근거·CSV·최신 관측 표시를 각각3번 실행합니다(검증 기록·최신 추정 보관·조건 변화 검토 포함 총144개). 최신 관측 API 화면 검사는 가짜 응답을 주입하므로 실제 키를 읽거나 기상청에 호출하지 않습니다.

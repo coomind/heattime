@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-06",
+  "test_commit": "b5f53e8e2637c29735d25d2e24068ad3405a8df7",
+  "source_fingerprint": "e05276933c57a44dd095c4b3fdab436284ff730bc73b7cb7be6c38e32652bea8",
+  "input_digest_schema": "comparison-input-v2-float6-derived-input-hash",
+  "windows_host_logical_cpus": 12,
+  "windows_one_core_affinity": {
+    "platform": "win32",
+    "allowed_cpu_ids": [
+      0
+    ],
+    "allowed_cpu_count": 1
+  },
+  "linux_one_core": {
+    "performed": false,
+    "acceptance": "NOT_EXECUTED",
+    "reason": "No installed WSL, Docker, Podman, QEMU or supplied Linux host. No host OS/virtualization installation or account login performed."
+  },
+  "receipts": {
+    "windows_default": {
+      "passed": 917,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 326.095,
+      "sha256": "c48062f383f839c35a947fac3e8a4df02e2747f723f22a3451e2d83712f4a9f0"
+    },
+    "windows_one_core": {
+      "passed": 917,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 374.913,
+      "sha256": "c07f3ff534773bcde348a9f0c96ff11c04e8331ba0570d883bc1d0fe3f8b5089"
+    },
+    "node": {
+      "passed": 28,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 0.288,
+      "sha256": "c00b616bed1f77c85968f277890d79b08cd90cd1910cd85b8271018d4df70549"
+    },
+    "browser": {
+      "passed": 144,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "duration_seconds": 188.247,
+      "sha256": "362ec450843cdcd2ae22b5c8f60e7c49b36b17c793708498f77ffa8c87e51a4b"
+    }
+  },
+  "unchanged_git_blobs": {
+    "backend/config/policies.yaml": true,
+    "backend/config/schedule.yaml": true,
+    "backend/engine/wbgt.py": true,
+    "backend/engine/policy.py": true,
+    "backend/engine/settings.py": true,
+    "backend/schedule/optimizer.py": true,
+    "backend/schedule/recommend.py": true,
+    "backend/schedule/models.py": true,
+    "frontend/src/demo/observed-snapshot.json": true,
+    "frontend/src/demo/snapshot.json": true,
+    "data/observations/asos_119_20260701_20260831.json": true
+  },
+  "engine_workers": 8,
+  "engine_time_limit_sec": 10,
+  "result_receipt": "portability-migration.json",
+  "scope": "No re-solving of published 93-case evidence. Live solver status/timing receipts remain Windows-specific. One-core Windows does not substitute for Linux."
+}

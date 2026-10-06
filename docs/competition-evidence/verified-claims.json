@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-10-06T03:35:59.711020+09:00",
+  "generated_at": "2026-10-06T11:03:34.736135+09:00",
   "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
   "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
   "source_sha256": {
     "docs/real-data/replay-results.json": "15e8bfdebab901bca0a43f323cdac5f485dc59e6394eba606fc2258e5459666a",
-    "docs/competition-evidence/method-comparison.json": "00bf2df6a9df3af1f6e054ed70930ee3c9b05689786417ed11c5b123be717fc5",
-    "docs/competition-evidence/frozen-solutions.json": "19aa4949492b0495e3d0af6f01ad4d73bcbcbd0e892b569b3460eb1388c4f4e1",
+    "docs/competition-evidence/method-comparison.json": "3263dd22b6c3181ec2bf8d099cd0bfdb2287717460daba59308bfea5ae848b6d",
+    "docs/competition-evidence/frozen-solutions.json": "6452329d551acaca92c3882290532686755bba1b63be63af97bc3c9ed3a2ff6d",
     "docs/kma/live-connection-verification.json": "4503a9a6e8b2445b3eac013125f29b81a1fca2b9a91f55e9f1cde666aea0f873",
     "frontend/src/demo/observed-snapshot.json": "37463f06baedd3762f8607ff640bfe33887e1fc0e7f107e0cf5afce4d01f6bec",
     "frontend/src/demo/snapshot.json": "0112179380f0db2194a97f80f66b5cce68b6706ac233437cc0e41eef415c9e62",
-    "docs/competition-evidence/no-field-analysis.json": "dbad63e801a548497fc8a28f42dd59e4e9fdea17a9476def76a96c1da57529cd",
-    "frontend/src/demo/no-field-analysis.json": "5dafe6ebf6c8a267afdbfe11a22efb4b23932d417348e6dc43f471e89ca7740a",
+    "docs/competition-evidence/no-field-analysis.json": "1470ae97241bedbcaf669f3fd030f754f3e6b9510781cc4a6f22d717113f66af",
+    "frontend/src/demo/no-field-analysis.json": "073629ff730426d297400aaca01c35a0327ebba78d0e865ac210ed4bf72ac0fa",
     "frontend/src/demo/snapshot-plan-review.json": "9e27bdebbfc156adba793211974488bb2046d78c24cab4969987c86d26b1b7d0",
     "frontend/src/demo/observed-snapshot-plan-review.json": "13d06420d0102be34065c170e85d392dea2727d46f41b2a59c6b30cfcac19855",
-    "docs/competition-evidence/review-fix-results.json": "dc651e80fff9277926335a361716a33496db5116c62352b852ca70074dda0085",
+    "docs/competition-evidence/review-fix-results.json": "23ce914c80d4ed81d88c00d90e8728a00265b46aa267638ab1d8470d4d28ac5a",
     "frontend/src/demo/review-fix-summary.json": "bc59116f2f40289ace32efe134f0369755c8749ad48011a098180324e43ecf5a",
-    "docs/competition-evidence/tournament-scale-analysis.json": "3b616ea69201430ed028e3f0e343583692d7023aee50efdbaf05ab02e55631cd",
+    "docs/competition-evidence/tournament-scale-analysis.json": "c2fe091d94af36af2abcd8841328deab912d136e5abb9c6605967b0e09405fbd",
     "backend/validation.py": "952c432fc020bc673e2ffaae48755d6c7d7be974c1e20b0cae5569ebc66bbb54",
     "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
-    "data/output/award-validation-pytest.xml": "2f95534b7a0c8f39fa47fbf0726030c3067a3ba60a8525601c546b4f55709ae2",
-    "data/output/award-validation-node.xml": "35a8764cbe741b71cdd9e998c090e2a6af67eaf829198bf1050aaf271f2777ec",
-    "data/output/award-validation-playwright.json": "7c52677ac2eaceb580613b4eef83c30159c6e1f7dd44b4b1f60838d04a13c0a6"
+    "data/output/award-validation-pytest.xml": "c48062f383f839c35a947fac3e8a4df02e2747f723f22a3451e2d83712f4a9f0",
+    "data/output/award-validation-node.xml": "c00b616bed1f77c85968f277890d79b08cd90cd1910cd85b8271018d4df70549",
+    "data/output/award-validation-playwright.json": "12eb7c1a8ff735447f25ea875d96f8ea8b9add7d1dc71350d855e9480e5d5eaf"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "tested_source_fingerprint": "59eb446ed58001d106c17e63907ba2faed6b574de15780ddf1ec7564ebfde468",
-  "test_run_started_at": "2026-10-06T03:30:36.758608+09:00",
+  "tested_source_fingerprint": "e05276933c57a44dd095c4b3fdab436284ff730bc73b7cb7be6c38e32652bea8",
+  "test_run_started_at": "2026-10-06T10:55:51.926430+09:00",
   "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
   "observation_hours": 1488,
   "checks": {
@@ -51,23 +51,23 @@
   },
   "test_receipts": {
     "python": {
-      "passed": 900,
+      "passed": 917,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 275.234
+      "duration_seconds": 326.095
     },
     "node": {
       "passed": 28,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 0.214
+      "duration_seconds": 0.288
     },
     "browser": {
       "passed": 144,
       "failed": 0,
       "skipped": 0,
       "flaky": 0,
-      "duration_seconds": 180.809
+      "duration_seconds": 188.247
     }
   },
   "demo": {
