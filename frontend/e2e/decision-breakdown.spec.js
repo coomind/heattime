@@ -12,6 +12,9 @@ for(const snapshot of [false,true])test(`decision assumptions are visible withou
  const table=page.getByRole('table',{name:'판정값 분해와 분석용 비교'});
  await expect(table).toBeVisible();await expect(table.locator('tbody tr')).toHaveCount(24);
  await expect(table).toContainText('2.500');await expect(table).toContainText('1.500');
+ // E-1: every WBGT column is labelled as an estimate and the counterfactual shows a range.
+ await expect(table.locator('thead')).toContainText('판정값(추정)');await expect(table.locator('thead')).toContainText('보정0℃·중앙값 WBGT 추정 ℃ (범위)');
+ await expect(table.locator('tbody tr').first().locator('td').nth(7)).toContainText('~');
  await expect(page.getByText('설정·일정·운영자 승인을 바꾸지 않습니다.',{exact:false})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

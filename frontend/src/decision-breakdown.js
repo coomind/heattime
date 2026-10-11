@@ -11,7 +11,7 @@ export function breakdown(r) {
  const upper=UPPER_BOUND_GROUPS.includes(i.age_group)?round(r.wbgt_high_c-r.wbgt_c):0;
  return {model:round(r.wbgt_c-field-surface-calibration),field,surface,calibration,
   upper,unrounded:round(r.wbgt_c+upper),decision:r.decision_wbgt_c,counter,
-  counterDecision:Number(round1(counter)),policyId};
+  counterDecision:Number(round1(counter)),width:s.uncertainty_c,policyId};
 }
 // Stage of the displayed 0.1℃ value (same rule as backend round_decision + classify).
 export function counterLevel(value,policy,policyId) {
