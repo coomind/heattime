@@ -57,7 +57,12 @@ export default function App(){
  useEffect(()=>{const update=()=>setRouteHash(location.hash);window.addEventListener('hashchange',update);return()=>window.removeEventListener('hashchange',update);},[]);
  async function perform(fn,message='처리하고 있습니다…'){setBusyMessage(message);setBusy(true);setError('');setNotice('');try{await fn();}catch(e){setError(e.message);}finally{setBusy(false);}}
  async function refreshResources(){const [venues,tournaments,teams,matches]=await Promise.all(['venues','tournaments','teams','matches'].map(k=>api('/'+k)));setResources({venues,tournaments,teams,matches});}
+ const routeKind=useRef(null);
  useEffect(()=>{
+  // B-9: switching between normal / snapshot / team-view routes without a reload must not keep the previous route's session or tab.
+  const kind=readonly?'team':routeHash.startsWith('#snapshot')?'snapshot':'normal';
+  if(routeKind.current!==null&&routeKind.current!==kind){setSession(null);setDetail(null);setMatchEvidence(null);setInputEvidence(null);setModified(null);setError('');setNotice('');setTab(kind==='team'?'팀 일정':'재현 모드');}
+  routeKind.current=kind;
   if(routeHash.startsWith('#snapshot'))perform(async()=>{
    activeSnapshot?.dispose();const {createSnapshotAPI}=await (routeHash.startsWith('#snapshot-observed')?import('./demo/observed-snapshot-api.js'):import('./demo/snapshot-api.js'));activeSnapshot=await createSnapshotAPI();
    const info=await api('/snapshot-info');setReason(info.reason);setSession(null);setDetail(null);setMatchEvidence(null);setInputEvidence(null);setDate(info.date);setDataMode(info.data_origin==='kma_observed'?'observed':'mock');setTournament('demo');
