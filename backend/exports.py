@@ -20,6 +20,14 @@ SHADES = {'none': '없음', 'partial': '부분', 'full': '전체'}
 SOURCES = {'asos_obs': '기상청 ASOS 관측', 'kma_fcst': '단기예보 형식', 'aws_obs': '기상청 AWS 관측'}
 
 
+def verification_text(raw):
+    """W-3: '원문 대조 필요 · 2026-10-01 … 대조 완료' read as a contradiction; state both facts explicitly."""
+    head = '원문 대조 필요 · '
+    if raw.startswith(head):
+        return f"원문 대조: {raw[len(head):]} · 원문 개정 시 다시 대조 필요 · 국내 대회 적용 전 전문가 검토 필요"
+    return raw
+
+
 def display_label(label):
     return '통상 운영' if label == '거의 안전' else label
 
@@ -125,7 +133,7 @@ def records_pdf(session):
     para('히트타임 · 경기 운영 판단 기록', True)
     para(s['tournament']['name']); para(s['label']); para('세션: ' + s['id'])
     para(f"대회 일자 {s['tournament']['date_start']}~{s['tournament']['date_end']} / 연령 {s['tournament']['age_group']}")
-    para('정책: ' + s['policy']['name']); para('출처: ' + s['policy']['source_ref']); para(s['policy']['verification'])
+    para('정책: ' + s['policy']['name']); para('출처: ' + s['policy']['source_ref']); para(verification_text(s['policy']['verification']))
     source_labels = s['policy'].get('labels')
     if source_labels:
         # W-1: stage 0 is shown as '통상 운영'; the guideline's own label stays visible with its source.

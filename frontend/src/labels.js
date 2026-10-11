@@ -4,3 +4,5 @@ export function kstText(value){if(!value)return '—';const t=String(value);retu
 export function teamLabel(session,id){if(id.startsWith('winner:'))return id.slice(7)+' 승자';return session.teams?.find(t=>t.id===id)?.name||id;}
 export function venueLabel(session,id){return session.venues?.find(v=>v.id===id)?.name||id;}
 export function matchLabel(session,id){const m=session.matches?.find(x=>x.id===id);return m?`${m.round} · ${id} · ${teamLabel(session,m.team_a)} vs ${teamLabel(session,m.team_b)}`:id;}
+// W-3: same wording as backend/exports.verification_text.
+export function verificationText(raw){const head='원문 대조 필요 · ';return raw?.startsWith(head)?`원문 대조: ${raw.slice(head.length)} · 원문 개정 시 다시 대조 필요 · 국내 대회 적용 전 전문가 검토 필요`:raw;}

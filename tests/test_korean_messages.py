@@ -122,3 +122,18 @@ def test_stage_zero_is_shown_as_routine_operation_with_source_label():
     assert "const labels=['통상 운영'" in app and "'통상 운영':name" in app
     assert "['통상 운영'" in (root/'frontend/src/LiveWeather.jsx').read_text(encoding='utf-8')
     assert '0 통상 운영 (원 지침 표기: 거의 안전)' in (root/'docs/spec.md').read_text(encoding='utf-8')
+
+
+def test_policy_verification_is_not_self_contradictory_in_pdf():
+    """W-3: PDF says when the boundaries were checked and what review remains; config keeps its marker."""
+    import json
+    from io import BytesIO
+    from pathlib import Path
+    from pypdf import PdfReader
+    from backend.engine.policy import policies
+    from backend.exports import records_pdf
+    assert policies()['general']['verification'].startswith('원문 대조 필요')
+    s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
+    first = PdfReader(BytesIO(records_pdf(s))).pages[0].extract_text().replace('\n', '')
+    assert '원문 대조: 2026-10-01 경계값 대조 완료 · 원문 개정 시 다시 대조 필요 · 국내 대회 적용 전 전문가 검토 필요' in first
+    assert '원문 대조 필요 · 2026-10-01' not in first

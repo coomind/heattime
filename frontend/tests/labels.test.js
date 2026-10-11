@@ -10,3 +10,9 @@ test('operator-facing labels replace internal ids and enums',()=>{
  assert.equal(teamLabel(s,'winner:semi1'),'semi1 승자');
  for(const a of s.decision.assignments){const text=matchLabel(s,a.match_id);assert.ok(!/(^|[^a-z])t[0-9]+([^0-9]|$)/.test(text),text);assert.ok(text.includes(a.match_id));}
 });
+import {verificationText} from '../src/labels.js';
+test('policy verification wording states the check date and the remaining review without contradiction',()=>{
+ const text=verificationText(s.policy.verification);
+ assert.ok(text.startsWith('원문 대조: 2026-10-01'),text);assert.ok(!text.includes('원문 대조 필요 ·'));
+ assert.ok(text.includes('원문 개정 시 다시 대조 필요')&&text.includes('전문가 검토 필요'));
+});
