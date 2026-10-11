@@ -52,7 +52,11 @@ def test_missing_hour_is_explicit_in_pdf_evidence(approved):
 
 def test_real_snapshot_matches_ranked_replay_and_preserves_defaults():
     bundle=json.loads((ROOT/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'));s=bundle['approved']
-    results=json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'));best=results['candidates'][0]
+    results=json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'))
+    # 2026-10-11 recalculation: the demo date stays 2026-07-10 (user decision pending); it must still be one of the
+    # selection rule's three candidates, now ranked [2026-07-03, 2026-08-20, 2026-07-10].
+    assert [c['date'] for c in results['candidates']]==['2026-07-03','2026-08-20','2026-07-10']
+    best=next(c for c in results['candidates'] if c['date']=='2026-07-10')
     assert s['mode']=='snapshot-observed' and s['data_origin']=='kma_observed'
     assert s['tournament']['date_start']==best['date'] and s['id']==best['session_id']
     assert '관측 시연 스냅샷' in s['label'] and '기상청 관측 자료(수원 119·2026-07-10)' in s['label']

@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-10-06T11:03:34.736135+09:00",
+  "generated_at": "2026-10-11T20:30:39.711562+09:00",
   "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
   "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
   "source_sha256": {
-    "docs/real-data/replay-results.json": "15e8bfdebab901bca0a43f323cdac5f485dc59e6394eba606fc2258e5459666a",
-    "docs/competition-evidence/method-comparison.json": "3263dd22b6c3181ec2bf8d099cd0bfdb2287717460daba59308bfea5ae848b6d",
-    "docs/competition-evidence/frozen-solutions.json": "6452329d551acaca92c3882290532686755bba1b63be63af97bc3c9ed3a2ff6d",
+    "docs/real-data/replay-results.json": "913c34560cdb00879c2fbea053ea6bfe7edb37917c061044e33a9e51728629bd",
+    "docs/competition-evidence/method-comparison.json": "1ccc064b3cac5573020f21abfb41c3f1cea92a4753f013c09ece37dd2836999a",
+    "docs/competition-evidence/frozen-solutions.json": "7f1261fbcd3917f50078d579ea19356e6d6362468d24a269f0986c4afddade52",
     "docs/kma/live-connection-verification.json": "4503a9a6e8b2445b3eac013125f29b81a1fca2b9a91f55e9f1cde666aea0f873",
-    "frontend/src/demo/observed-snapshot.json": "37463f06baedd3762f8607ff640bfe33887e1fc0e7f107e0cf5afce4d01f6bec",
-    "frontend/src/demo/snapshot.json": "0112179380f0db2194a97f80f66b5cce68b6706ac233437cc0e41eef415c9e62",
-    "docs/competition-evidence/no-field-analysis.json": "1470ae97241bedbcaf669f3fd030f754f3e6b9510781cc4a6f22d717113f66af",
-    "frontend/src/demo/no-field-analysis.json": "073629ff730426d297400aaca01c35a0327ebba78d0e865ac210ed4bf72ac0fa",
-    "frontend/src/demo/snapshot-plan-review.json": "9e27bdebbfc156adba793211974488bb2046d78c24cab4969987c86d26b1b7d0",
-    "frontend/src/demo/observed-snapshot-plan-review.json": "13d06420d0102be34065c170e85d392dea2727d46f41b2a59c6b30cfcac19855",
-    "docs/competition-evidence/review-fix-results.json": "23ce914c80d4ed81d88c00d90e8728a00265b46aa267638ab1d8470d4d28ac5a",
-    "frontend/src/demo/review-fix-summary.json": "bc59116f2f40289ace32efe134f0369755c8749ad48011a098180324e43ecf5a",
-    "docs/competition-evidence/tournament-scale-analysis.json": "c2fe091d94af36af2abcd8841328deab912d136e5abb9c6605967b0e09405fbd",
+    "frontend/src/demo/observed-snapshot.json": "aa825b31afac3877ee42289c458b28648ea3977b87f18b8f3ce761bc4ea412c7",
+    "frontend/src/demo/snapshot.json": "f8ac28e23ae66ad11dd34eaa6b83301747b7fb2c6cea5594bcaae70c576b651f",
+    "docs/competition-evidence/no-field-analysis.json": "dfc8ca67cce255e987d12233c4fab750749429e4c254b5e33ef18241cbef70de",
+    "frontend/src/demo/no-field-analysis.json": "f747146eef4f7b4817f33712299ca4e556aa3f04b4e09fb53dd70aa733d8bc3a",
+    "frontend/src/demo/snapshot-plan-review.json": "a7c05a366f9f24082926e759227c07900c88d755e3b5968aeb848cf8bb23dfd2",
+    "frontend/src/demo/observed-snapshot-plan-review.json": "de242b6f89da597bcb8b8e545dcd81876be4962cae1307ea8c403db16dbfbe51",
+    "docs/competition-evidence/review-fix-results.json": "913e934d3338410648ae5fccb5fe75aef6cddffff721616f6fa46fa158cdb65d",
+    "frontend/src/demo/review-fix-summary.json": "f1f3c65cd0e9a954ae4bbd2ae74c3927c2f3bb10578de05dc9db877cdeef55d3",
+    "docs/competition-evidence/tournament-scale-analysis.json": "cade5f22e988cffa828a7a3c00af0962f42a802c91f9b6dd99cdb2227d73f47d",
     "backend/validation.py": "952c432fc020bc673e2ffaae48755d6c7d7be974c1e20b0cae5569ebc66bbb54",
     "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
-    "data/output/award-validation-pytest.xml": "c48062f383f839c35a947fac3e8a4df02e2747f723f22a3451e2d83712f4a9f0",
-    "data/output/award-validation-node.xml": "c00b616bed1f77c85968f277890d79b08cd90cd1910cd85b8271018d4df70549",
-    "data/output/award-validation-playwright.json": "12eb7c1a8ff735447f25ea875d96f8ea8b9add7d1dc71350d855e9480e5d5eaf"
+    "data/output/award-validation-pytest.xml": "794ef1172e4c57d6f20963fedb6148506c390d030ee917ea94ea0a76bad73b11",
+    "data/output/award-validation-node.xml": "49e7624e57f53d88c1a8b014e1c5a2feb52618a2e1f0507a1875a177b467335b",
+    "data/output/award-validation-playwright.json": "2d2d73659f90244d9c74a26be818164fe0602b1619bbfd7c736fcf45912c7f07"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "tested_source_fingerprint": "e05276933c57a44dd095c4b3fdab436284ff730bc73b7cb7be6c38e32652bea8",
-  "test_run_started_at": "2026-10-06T10:55:51.926430+09:00",
+  "tested_source_fingerprint": "a759ca44bd61c0196654c5c509064207c23a1b708192a4be1b6637a46c1c3e9c",
+  "test_run_started_at": "2026-10-11T20:21:35.298111+09:00",
   "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
   "observation_hours": 1488,
   "checks": {
@@ -42,234 +42,248 @@
     },
     "no_field": {
       "passed": true,
-      "count": 4
+      "count": 5
     },
     "scale": {
       "passed": true,
-      "count": 4
+      "count": 6
     }
   },
   "test_receipts": {
     "python": {
-      "passed": 917,
+      "passed": 932,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 326.095
+      "duration_seconds": 353.619
     },
     "node": {
-      "passed": 28,
+      "passed": 29,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 0.288
+      "duration_seconds": 0.196
     },
     "browser": {
       "passed": 144,
       "failed": 0,
       "skipped": 0,
       "flaky": 0,
-      "duration_seconds": 188.247
+      "duration_seconds": 179.349
     }
   },
   "demo": {
     "date": "2026-07-10",
-    "session_id": "240e5f4dd3c84cd384ff49f0e434222a",
+    "session_id": "b2a20044c459480a83e3cf6b09dbce0f",
     "assigned": 15,
     "postponed": 0,
     "common_count": 15,
-    "original_heat": 6114,
-    "proposed_heat": 4319,
-    "heat_reduction": 1795,
-    "salvaged": 10,
-    "original_stop_count": 10,
-    "max_wbgt_c": 32.043,
-    "max_decision_wbgt_c": 33.543,
+    "original_heat": 6051,
+    "proposed_heat": 4469,
+    "heat_reduction": 1582,
+    "salvaged": 9,
+    "original_stop_count": 9,
+    "max_ta_c": 28.4,
+    "max_wbgt_c": 30.848,
+    "max_decision_wbgt_c": 32.3,
     "solver": "CP-SAT OPTIMAL",
     "coverage_optimal": true,
-    "elapsed_sec": 0.8952405999880284,
+    "elapsed_sec": 2.1027803999604657,
     "constraints_ok": true,
     "postponement_reasons": [],
     "missing_solar_hours": 9
   },
+  "candidate_dates": [
+    "2026-07-03",
+    "2026-08-20",
+    "2026-07-10"
+  ],
+  "recalculation": "2026-10-11 재계산: 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정 후 전 수치 재생성",
   "method_comparison": {
     "days": 62,
-    "cp_assigned": 562,
-    "greedy_assigned": 506,
-    "assignment_gain": 56,
-    "more_assigned_days": 25,
-    "same_assigned_days": 37,
+    "cp_assigned": 555,
+    "greedy_assigned": 489,
+    "assignment_gain": 66,
+    "more_assigned_days": 28,
+    "same_assigned_days": 34,
     "fewer_assigned_days": 0,
-    "cp_complete_days": 16,
+    "cp_complete_days": 15,
     "greedy_complete_days": 0,
-    "common_heat_lower_days": 11,
-    "common_heat_equal_days": 26,
-    "common_heat_higher_days": 22,
-    "no_common_days": 3,
-    "cp_common_heat": 132430,
-    "greedy_common_heat": 130617
+    "common_heat_lower_days": 9,
+    "common_heat_equal_days": 7,
+    "common_heat_higher_days": 29,
+    "no_common_days": 17,
+    "cp_common_heat": 120224,
+    "greedy_common_heat": 116836
   },
   "no_field_analysis": {
     "days": 62,
-    "cp_assigned": 562,
+    "cp_assigned": 555,
     "baselines": {
       "existing_heat_first": {
-        "assigned": 506,
-        "postponed": 424,
+        "assigned": 489,
+        "postponed": 441,
         "complete_days": 0,
-        "cp_more_days": 25,
-        "cp_equal_days": 37,
+        "cp_more_days": 28,
+        "cp_equal_days": 34,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 130617,
-        "cp_common_heat": 132430,
-        "equal_coverage_secondary_win_days": 17,
+        "baseline_common_heat": 116836,
+        "cp_common_heat": 120224,
+        "equal_coverage_secondary_win_days": 24,
         "equal_coverage_secondary_loss_days": 0
       },
       "earliest_input": {
-        "assigned": 558,
-        "postponed": 372,
-        "complete_days": 14,
-        "cp_more_days": 4,
-        "cp_equal_days": 58,
+        "assigned": 552,
+        "postponed": 378,
+        "complete_days": 15,
+        "cp_more_days": 3,
+        "cp_equal_days": 59,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 157875,
-        "cp_common_heat": 147101,
-        "equal_coverage_secondary_win_days": 40,
+        "baseline_common_heat": 145326,
+        "cp_common_heat": 137233,
+        "equal_coverage_secondary_win_days": 49,
         "equal_coverage_secondary_loss_days": 0
       },
       "earliest_reverse": {
-        "assigned": 558,
-        "postponed": 372,
-        "complete_days": 14,
-        "cp_more_days": 4,
-        "cp_equal_days": 58,
+        "assigned": 552,
+        "postponed": 378,
+        "complete_days": 15,
+        "cp_more_days": 3,
+        "cp_equal_days": 59,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 133697,
-        "cp_common_heat": 124296,
-        "equal_coverage_secondary_win_days": 55,
+        "baseline_common_heat": 149393,
+        "cp_common_heat": 141375,
+        "equal_coverage_secondary_win_days": 49,
         "equal_coverage_secondary_loss_days": 0
       },
       "weighted_critical": {
-        "assigned": 505,
-        "postponed": 425,
+        "assigned": 488,
+        "postponed": 442,
         "complete_days": 0,
-        "cp_more_days": 26,
-        "cp_equal_days": 36,
+        "cp_more_days": 28,
+        "cp_equal_days": 34,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 130652,
-        "cp_common_heat": 132016,
-        "equal_coverage_secondary_win_days": 16,
+        "baseline_common_heat": 116972,
+        "cp_common_heat": 119914,
+        "equal_coverage_secondary_win_days": 24,
         "equal_coverage_secondary_loss_days": 0
       },
       "best_of_four": {
-        "assigned": 558,
-        "postponed": 372,
-        "complete_days": 14,
-        "cp_more_days": 4,
-        "cp_equal_days": 58,
+        "assigned": 552,
+        "postponed": 378,
+        "complete_days": 15,
+        "cp_more_days": 3,
+        "cp_equal_days": 59,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 155095,
-        "cp_common_heat": 147101,
-        "equal_coverage_secondary_win_days": 37,
+        "baseline_common_heat": 148856,
+        "cp_common_heat": 142674,
+        "equal_coverage_secondary_win_days": 49,
         "equal_coverage_secondary_loss_days": 0
       }
     },
     "scenarios": {
       "wbgt_-1": {
-        "applicable_days": 59,
-        "same_choices_valid_days": 30,
-        "needs_review_days": 40,
+        "applicable_days": 52,
+        "same_choices_valid_days": 19,
+        "needs_review_days": 36,
         "heat_blocked_matches": 0,
         "missing_matches": 0
       },
       "wbgt_+0": {
-        "applicable_days": 59,
-        "same_choices_valid_days": 59,
+        "applicable_days": 52,
+        "same_choices_valid_days": 52,
         "needs_review_days": 0,
         "heat_blocked_matches": 0,
         "missing_matches": 0
       },
       "wbgt_+1": {
-        "applicable_days": 59,
-        "same_choices_valid_days": 20,
-        "needs_review_days": 41,
-        "heat_blocked_matches": 155,
+        "applicable_days": 52,
+        "same_choices_valid_days": 14,
+        "needs_review_days": 38,
+        "heat_blocked_matches": 168,
         "missing_matches": 0
       },
       "wbgt_+2": {
-        "applicable_days": 59,
-        "same_choices_valid_days": 5,
-        "needs_review_days": 57,
-        "heat_blocked_matches": 325,
+        "applicable_days": 52,
+        "same_choices_valid_days": 1,
+        "needs_review_days": 52,
+        "heat_blocked_matches": 335,
         "missing_matches": 0
       },
       "missing_critical_hour": {
-        "applicable_days": 59,
+        "applicable_days": 52,
         "same_choices_valid_days": 0,
-        "needs_review_days": 59,
+        "needs_review_days": 52,
         "heat_blocked_matches": 0,
-        "missing_matches": 65
+        "missing_matches": 53
       }
     }
   },
   "tournament_scale": {
     "cases": 31,
     "matches_per_case": 27,
-    "engine_assigned": 596,
-    "baseline_assigned": 598,
-    "engine_complete_cases": 14,
+    "engine_assigned": 593,
+    "baseline_assigned": 583,
+    "engine_complete_cases": 17,
     "baseline_complete_cases": 13,
-    "engine_more_cases": 6,
-    "equal_cases": 23,
-    "engine_fewer_cases": 2,
-    "engine_common_heat": 144293,
-    "baseline_common_heat": 148791,
-    "common_heat_reduction_pct": 3.023,
-    "no_common_cases": 1,
+    "engine_more_cases": 7,
+    "equal_cases": 24,
+    "engine_fewer_cases": 0,
+    "engine_common_heat": 149324,
+    "baseline_common_heat": 160106,
+    "common_heat_reduction_pct": 6.7343,
+    "no_common_cases": 4,
     "statuses": {
       "CP-SAT FEASIBLE": 18,
-      "CP-SAT OPTIMAL": 12,
-      "greedy-fallback": 1
+      "CP-SAT OPTIMAL": 13
     },
-    "median_optimize_sec": 10.637,
-    "max_optimize_sec": 11.2187
+    "median_optimize_sec": 12.479,
+    "max_optimize_sec": 13.6246
   },
   "selection_fix": {
     "12": {
       "cases": 62,
-      "previous_assigned": 562,
-      "selected_assigned": 562,
-      "baseline_assigned": 558,
-      "selected_complete": 16,
+      "previous_assigned": 555,
+      "selected_assigned": 555,
+      "baseline_assigned": 552,
+      "selected_complete": 15,
       "statuses": {
-        "OPTIMAL": 62
+        "OPTIMAL": 61,
+        "FEASIBLE": 1
       },
       "selected_methods": {
         "cp_sat": 62
       },
-      "baseline_common_heat": 155095,
-      "selected_common_heat": 147096
+      "baseline_common_heat": 148856,
+      "selected_common_heat": 142674
     },
     "16": {
       "cases": 31,
-      "previous_assigned": 596,
-      "selected_assigned": 608,
-      "baseline_assigned": 598,
+      "previous_assigned": 593,
+      "selected_assigned": 592,
+      "baseline_assigned": 583,
       "selected_complete": 16,
       "statuses": {
-        "FEASIBLE": 19,
-        "OPTIMAL": 12
+        "FEASIBLE": 17,
+        "OPTIMAL": 14
       },
       "selected_methods": {
         "cp_sat": 31
       },
-      "baseline_common_heat": 151756,
-      "selected_common_heat": 142974
+      "baseline_common_heat": 160106,
+      "selected_common_heat": 149004
     }
   },
-  "incomplete_days": 46,
+  "incomplete_days": 47,
   "zero_assignment_dates": [
+    "2026-07-11",
+    "2026-07-12",
+    "2026-07-13",
+    "2026-07-31",
+    "2026-08-01",
+    "2026-08-03",
     "2026-08-04",
     "2026-08-05",
-    "2026-08-06"
+    "2026-08-06",
+    "2026-08-07"
   ],
   "live": {
     "verified_at": "2026-10-05T23:38:09.661271+09:00",

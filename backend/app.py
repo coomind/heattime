@@ -11,6 +11,7 @@ from backend.service import Service
 from backend.exports import records_pdf,records_csv
 from backend.engine.settings import EngineSettings
 from backend.engine.policy import policies
+from backend.demo_config import demo_date
 from backend.schedule.models import ScheduleSettings,Match
 from backend.schedule.optimizer import participants
 from backend.weather.models import ManualMeasurement,Venue,KST
@@ -130,9 +131,9 @@ def create_app(db_path=None):
             import json
             saved=json.loads(results.read_text(encoding='utf-8'))
             if saved['original_sample_sha256']==data.original_sha256:
-                recommended=saved['candidates'][0]['date']
-        return {'available':True,'station':data.station,'dates':[d.isoformat() for d in data.dates],'recommended_date':recommended,
-                'label':'기상청 관측 자료(수원 119)','solar_interval':'이전1시간 에너지 → 시간평균 W/m²'}
+                recommended=demo_date() or saved['candidates'][0]['date']
+        return {'available':True,'station':data.station,'dates':[d.isoformat() for d in data.dates],'recommended_date':recommended,'rule_candidates':[c['date'] for c in saved['candidates']] if results.exists() else [],
+                'label':'기상청 관측 자료(수원 119)','solar_interval':'정시 h 위험 구간 [h, h+1) = h+1시 icsr(직전 1시간 에너지) → 시간평균 W/m²'}
     @app.post('/api/replays')
     def replay(body:ReplayRequest):return service.replay(body.date,body.tournament_id,body.engine_settings,body.schedule_settings,body.mode)
     @app.get('/api/sessions/{id}')

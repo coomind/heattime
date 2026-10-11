@@ -2,6 +2,8 @@
 from dataclasses import dataclass
 from datetime import datetime,timedelta
 from functools import lru_cache
+import hashlib
+import os
 from time import perf_counter
 import pandas as pd
 from pvlib.solarposition import sun_rise_set_transit_spa
@@ -105,6 +107,20 @@ def validate(assignments,matches,tournament,venues,risks,settings):
     return sorted(set(errors))
 
 
+TIE_BREAK_RANGE=1000
+
+
+def tie_break(candidate):
+    """Fixed pseudo-random 0..999 per candidate, from its identity only.
+
+    Scaled below one unit of the existing cost, so it never changes the
+    postponement count or secondary cost; it only selects one schedule among
+    equal-cost optima, making OPTIMAL results identical across runs/threads.
+    """
+    key=f"{candidate.match_id}|{candidate.venue_id}|{candidate.start.isoformat()}".encode()
+    return int.from_bytes(hashlib.sha256(key).digest()[:4],'big')%TIE_BREAK_RANGE
+
+
 class InfeasibleSchedule(ValueError):
     pass
 
@@ -126,7 +142,7 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
         (method,greedy(matches,tournament,venues,risks,settings,rows,method)) for method in METHODS]
     if not force_greedy:
         model=cp_model.CpModel();vi={v.id:[] for v in venues};ti={t:[] for ts in parts.values() for t in ts}
-        picks={};present={};starts={};ends={};objective=[];horizon=(tournament.date_end-tournament.date_start).days*1440+1440
+        picks={};present={};starts={};ends={};objective=[];tie_terms=[];horizon=(tournament.date_end-tournament.date_start).days*1440+1440
         cost=lambda m,c:c.heat_score*settings.heat_weight+abs(minute(c.start)-minute(m.scheduled_start))*settings.time_weight+(c.venue_id!=m.venue_id)*settings.venue_penalty
         penalty=1+sum(max([cost(m,c) for c in rows[m.id]] or [0]) for m in matches)
         for m in matches:
@@ -137,7 +153,7 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
                 vi[c.venue_id].append(model.new_optional_interval_var(s,e-s+settings.cleanup_min,e+settings.cleanup_min,pick,'venue'))
                 rest=settings.rest_by_age[tournament.age_group]
                 for team in parts[m.id]:ti[team].append(model.new_optional_interval_var(s,e-s+rest,e+rest,pick,'team'))
-                objective.append(cost(m,c)*pick)
+                objective.append(cost(m,c)*pick);tie_terms.append(tie_break(c)*pick)
             model.add(sum(picks[m.id])==present[m.id]);objective.append(penalty*(1-present[m.id]))
         for required in required_match_ids:model.add(present[required]==1)
         for m in matches:
@@ -153,7 +169,8 @@ def optimize(matches,tournament,venues,risks,settings=None,engine=None,force_gre
                 model.add_hint(starts[m.id],minute(candidate.start) if candidate else 0)
                 model.add_hint(ends[m.id],minute(candidate.end) if candidate else 0)
                 for c,pick in zip(rows[m.id],picks[m.id]):model.add_hint(pick,int(c==candidate))
-        model.minimize(sum(objective));solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=settings.time_limit_sec
+        scale=TIE_BREAK_RANGE*len(matches)+1
+        model.minimize(scale*sum(objective)+sum(tie_terms));solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=settings.time_limit_sec
         solver.parameters.num_search_workers=8;solver.parameters.random_seed=42
         preparation_sec=perf_counter()-started;solve_started=perf_counter();status=solver.solve(model)
         solver_wall_sec=perf_counter()-solve_started

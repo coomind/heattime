@@ -109,7 +109,7 @@ def records_pdf(session):
         para(f"선택 방법 {p.get('selected_method','과거 고정 제안')} / CP-SAT 상태 {p.get('cp_sat_status',p['solver'])} / 최소 연기 증명 {'확인' if p['coverage_optimal'] else '미확정 · 불가능 증명 아님'}")
     if s.get('data_origin')=='kma_observed':
         para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 기상청 관측 시간자료를 사용하며 대회·팀·구장은 가상 예시입니다. 현장 WBGT 정확도 검증은 별도입니다.')
-        para('일사: 이전1시간 에너지(MJ/m²)를 시간평균 W/m²로 변환. 결측 일사는 기존 모델로 추정하며 관측0으로 대체하지 않습니다.')
+        para('일사: 정시 h의 위험 구간 [h, h+1)에는 같은 구간을 덮는 h+1시 관측(icsr, 직전 1시간 에너지 MJ/m²)을 시간평균 W/m²로 변환해 사용. 결측 일사는 같은 구간의 기존 모델 추정을 쓰며 관측0으로 대체하지 않습니다.')
         para(f"관측 일사 결측 {s['observation_summary']['solar_missing_hours']}시간(동일 관측소 기준, 구장 수만큼 중복 집계하지 않음)")
         para('관측 원본 SHA256: '+s['observation_summary']['original_sample_sha256'])
     else:

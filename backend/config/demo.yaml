@@ -1,0 +1,3 @@
+# 작성자가 정한 관측 시연일. 재현 화면의 기본 날짜와 관측 시연 스냅샷이 이 날짜를 쓴다.
+# 선정 규칙의 후보 순위는 docs/real-data/replay-results.json candidates에 따로 기록된다.
+demo_date: 2026-07-10

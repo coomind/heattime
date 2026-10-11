@@ -5,12 +5,12 @@ import {scheduleChanges} from '../src/schedule-changes.js';
 
 const observed=JSON.parse(readFileSync(new URL('../src/demo/observed-snapshot.json',import.meta.url),'utf8')).approved;
 const synthetic=JSON.parse(readFileSync(new URL('../src/demo/snapshot.json',import.meta.url),'utf8')).approved;
-test('observed change rows preserve all original matches and show ten original stop assignments',()=>{
+test('observed change rows preserve all original matches and show nine original stop assignments',()=>{
   const before=structuredClone(observed),rows=scheduleChanges(observed);
-  assert.equal(rows.length,15);assert.equal(rows.filter(r=>r.movedFromStop).length,10);
+  assert.equal(rows.length,15);assert.equal(rows.filter(r=>r.movedFromStop).length,9);
   assert.equal(rows.filter(r=>r.proposal).length,15);assert.deepEqual(observed,before);
   const group=rows.find(r=>r.match.id==='g1-1');
-  assert.equal(group.deltaMinutes,-60);assert.equal(group.proposal.start,'2026-07-10T09:00:00+09:00');
+  assert.equal(group.deltaMinutes,-135);assert.equal(group.proposal.start,'2026-07-10T07:45:00+09:00');
 });
 test('synthetic postponed matches retain reasons and do not invent new start times',()=>{
   const rows=scheduleChanges(synthetic),postponed=rows.filter(r=>!r.proposal);

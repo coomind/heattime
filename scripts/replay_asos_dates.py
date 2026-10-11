@@ -35,7 +35,7 @@ def analyze(output):
              'common_count':len(p['common_match_ids']),'original_heat':p['original_heat_score'],'proposed_heat':p['proposed_heat_score'],
              'heat_reduction':p['original_heat_score']-p['proposed_heat_score'],'salvaged':salvaged,
              'original_stop_count':sum(rec['level']==4 for rec in session['recommendations']),
-             'max_wbgt_c':max(risk.wbgt_c for risk in r),'max_decision_wbgt_c':max(risk.decision_wbgt_c for risk in r),
+             'max_ta_c':max(w['ta_c'] for w in session['weather']),'max_wbgt_c':max(risk.wbgt_c for risk in r),'max_decision_wbgt_c':max(risk.decision_wbgt_c for risk in r),
              'solver':p['solver'],'coverage_optimal':p['coverage_optimal'],'elapsed_sec':p['elapsed_sec'],
              'constraints_ok':not errors,'postponement_reasons':p['postponed'],
              'missing_solar_hours':session['observation_summary']['solar_missing_hours']}

@@ -70,10 +70,13 @@ def test_available_detailed_analysis_proposals_obey_all_constraints_and_common_h
 
 def test_baseline_statement_uses_incomplete_not_impossible_days():
     b=next(x for x in RESULT['scenarios'] if x['name']=='baseline')
-    assert b['summary']['incomplete_days']==46
-    assert b['summary']['zero_assignment_days']==3
-    assert b['summary']['complete_days']==16
+    # 2026-10-11 recalculation (solar interval alignment, 0.1C rounding, fixed tie-break): 47/10/15.
+    assert b['summary']['incomplete_days']==47
+    assert b['summary']['zero_assignment_days']==10
+    assert b['summary']['complete_days']==15
     assert b['summary']['unproven_incomplete_days']==[]
     assert {x['date'] for x in b['days'] if x['assigned']==0}=={
-        '2026-08-04','2026-08-05','2026-08-06'}
-    assert Counter(x['solver'] for x in b['days'])=={'CP-SAT OPTIMAL':61,'CP-SAT FEASIBLE':1}
+        '2026-07-11','2026-07-12','2026-07-13','2026-07-31','2026-08-01',
+        '2026-08-03','2026-08-04','2026-08-05','2026-08-06','2026-08-07'}
+    # Regenerated baseline: all 62 days proved OPTIMAL (previously 61 OPTIMAL + 1 FEASIBLE).
+    assert Counter(x['solver'] for x in b['days'])=={'CP-SAT OPTIMAL':62}

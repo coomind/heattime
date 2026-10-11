@@ -12,7 +12,8 @@ for(const prefix of ['snapshot','observed-snapshot'])test(prefix+' input evidenc
   const params=new URLSearchParams({venue_id:r.venue_id,valid_time:r.valid_time});
   const e=await api('/sessions/'+id+'/input-evidence?'+params);
   assert.deepEqual(e.risk,r);assert.equal(e.solar_observed,r.inputs.weather.solar_wm2!==null);
-  assert.equal(e.audit.history_known,false);
+  // Regenerated 2026-10-11 bundles carry the captured (empty) manual history.
+  assert.equal(e.audit.history_known,true);assert.deepEqual(e.audit.rows,[]);
  }
  assert.equal(JSON.stringify(input),before);
 });

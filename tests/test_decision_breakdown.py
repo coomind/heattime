@@ -6,6 +6,7 @@ from pypdf import PdfReader
 import pytest
 from backend.decision_breakdown import breakdown,explanation
 from backend.exports import records_pdf
+from backend.engine.policy import round_decision
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -16,7 +17,9 @@ def test_every_observed_risk_decomposes_exactly_and_does_not_mutate(session):
     original=deepcopy(session)
     for r in session['risks']:
         b=breakdown(r)
-        assert b['model_c']+b['field_offset_c']+b['surface_offset_c']+b['calibration_c']+b['upper_width_c']==pytest.approx(b['decision_c'],abs=.001)
+        assert b['model_c']+b['field_offset_c']+b['surface_offset_c']+b['calibration_c']+b['upper_width_c']==pytest.approx(b['decision_unrounded_c'],abs=.001)
+        # B-6: the classified decision is the unrounded sum rounded to 0.1℃ (half-up).
+        assert b['decision_c']==round_decision(b['decision_unrounded_c'])
         assert b['field_offset_c']==2.5 and b['upper_width_c']==1.5
         assert b['counterfactual_c']==pytest.approx(b['model_c'],abs=.001)
         assert b['counterfactual_level']<=b['level']
@@ -24,7 +27,8 @@ def test_every_observed_risk_decomposes_exactly_and_does_not_mutate(session):
 
 def test_surface_calibration_and_adult_zero_upper_are_separate_terms(session):
     r=deepcopy(session['risks'][0]);r['inputs']['settings']['surface_offsets']['natural_grass']=.7
-    r['inputs']['calibration']=[-.4,2];r['decision_wbgt_c']=r['wbgt_c']
+    # Adult: decision is the central estimate rounded to 0.1℃ (B-6 rule).
+    r['inputs']['calibration']=[-.4,2];r['inputs']['age_group']='adult';r['decision_wbgt_c']=round_decision(r['wbgt_c'])
     b=breakdown(r)
     assert b['surface_offset_c']==.7 and b['calibration_c']==-.4 and b['upper_width_c']==0
     assert b['counterfactual_c']==pytest.approx(r['wbgt_c']-3.2,abs=.001)

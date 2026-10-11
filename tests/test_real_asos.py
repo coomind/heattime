@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import socket
 import pytest
-from backend.weather.asos_samples import DATASET, OBS_FIELDS, SampleDataset, load_dataset
+from backend.weather.asos_samples import DATASET, OBS_FIELDS, SampleDataset, load_dataset, numeric
 from backend.weather.adapters import AsosObservationAdapter, LiveIntegrationPending
 from backend.weather.cli import demo_venues
 from backend.weather.storage import WeatherStore
@@ -33,7 +33,11 @@ def test_verified_sample_contract_and_all_days():
     assert sum(p.solar_wm2 is None for p in points) == 561
     assert sum(p.solar_wm2 is not None for p in points) == 927
     assert any(p.solar_wm2 == 0 for p in points)
-    assert sum(p.cloud_fraction is None for p in points) == 2
+    # Raw sample: 2 empty cloud rows. Risk hour h uses the h+1 row, so the final
+    # hour (08-31 23:00) has no interval row and is also None.
+    assert sum(numeric(r, 'dc10Tca') is None for r in dataset.rows.values()) == 2
+    assert sum(p.cloud_fraction is None for p in points) == 3
+    assert points[-1].provenance['solar_observation_tm'] is None and points[-1].solar_wm2 is None
     assert all(not p.is_mock and p.source == 'asos_obs' for p in points)
     assert all(p.valid_time.utcoffset() == timedelta(hours=9) for p in points)
     assert all(set(row) <= set(OBS_FIELDS) for row in dataset.rows.values())
@@ -43,9 +47,13 @@ def test_hour_energy_conversion_provenance_and_storage(tmp_path):
     venue = demo_venues()[0]
     points = AsosObservationAdapter().fetch(venue, '119', date(2026, 7, 1))
     noon = points[12]
-    assert noon.solar_wm2 == pytest.approx(2.84 * 1_000_000 / 3600)
-    assert noon.provenance['solar_interval_start'] == '2026-07-01T11:00:00+09:00'
-    assert noon.provenance['solar_interval_end'] == '2026-07-01T12:00:00+09:00'
+    # Risk hour 12:00 covers [12:00, 13:00): icsr reported at 13:00 (its preceding hour).
+    following = load_dataset().rows[noon.valid_time + timedelta(hours=1)]
+    assert noon.solar_wm2 == pytest.approx(float(following['icsr']) * 1_000_000 / 3600)
+    assert noon.cloud_fraction == pytest.approx(float(following['dc10Tca']) / 10)
+    assert noon.provenance['solar_interval_start'] == '2026-07-01T12:00:00+09:00'
+    assert noon.provenance['solar_interval_end'] == '2026-07-01T13:00:00+09:00'
+    assert noon.provenance['solar_observation_tm'] == '2026-07-01T13:00:00+09:00'
     assert noon.provenance['units']['icsr'] == 'MJ/m2'
     assert noon.provenance['solar_wm2_is_hour_mean']
     assert noon.data_label == '기상청 관측 자료(수원 119·2026-07-01)'

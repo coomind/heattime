@@ -9,10 +9,10 @@ const recommendations = [{match_id:'a',level:4}, {match_id:'b',level:4}, {match_
 const proposal = {assignments:[{match_id:'a'},{match_id:'c'}], postponed:[{match_id:'b'}],
   common_match_ids:['a','c'], original_heat_score:100, proposed_heat_score:70};
 
-test('observed July 10 proposal shows 15 assigned, zero postponed and ten originally stopped matches', () => {
+test('observed July 10 proposal shows 15 assigned, zero postponed and nine originally stopped matches', () => {
   const outcome = scheduleOutcome(observed.matches, observed.recommendations, observed.proposal);
   assert.deepEqual({...outcome, reductionPercent:Number(outcome.reductionPercent.toFixed(2))},
-    {total:15,assigned:15,postponed:0,originalStop:10,reassignedStop:10,common:15,scoreReduction:1795,reductionPercent:29.36});
+    {total:15,assigned:15,postponed:0,originalStop:9,reassignedStop:9,common:15,scoreReduction:1582,reductionPercent:26.14});
 });
 test('partial proposal counts postponed separately and uses only the supplied common-game score', () => {
   assert.deepEqual(scheduleOutcome(matches, recommendations, proposal),

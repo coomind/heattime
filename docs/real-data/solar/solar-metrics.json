@@ -10,10 +10,10 @@
   "max_absolute_error_wm2": 460.07137710583856,
   "positive_observation_count": 881,
   "positive_observation_mae_wm2": 65.91291299996075,
-  "interval": "preceding one hour ending at tm (KST)",
+  "interval": "icsr preceding one hour ending at tm (KST); used for risk hour tm-1h, same interval estimate",
   "observation_unit": "MJ/m2 -> hour-mean W/m2",
   "integration_step_seconds": 60,
-  "cloud_missing_hours": 2,
+  "cloud_missing_hours": 3,
   "venue_geometry": {
     "lat": 37.2636,
     "lon": 127.0286,
@@ -21,7 +21,7 @@
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
   "limitations": [
-    "Hourly cloud/rain held constant within the preceding hour",
+    "Interval-end hourly cloud/rain held constant within the hour",
     "Existing virtual venue coordinates; station coordinates not inferred",
     "Solar comparison only; field WBGT accuracy is not validated"
   ]

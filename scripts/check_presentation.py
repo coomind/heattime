@@ -12,7 +12,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PRESENTATION = ROOT / "docs/presentation"
-APPROVED = "수원 관측 자료로 재현한 가상 12팀 대회에서는 62일 중 46일에, 일정을 재배치해도 15경기 전부를 같은 날 배정할 수 없었습니다."
+APPROVED = "수원 관측 자료로 재현한 가상 12팀 대회에서는 62일 중 47일에, 일정을 재배치해도 15경기 전부를 같은 날 배정할 수 없었습니다."
+# 2026-10-11 recalculation (solar interval alignment, 0.1C decision rounding, deterministic tie-break).
+SNAPSHOT_DATE = "2026-07-10"
+ZERO_DATES = ["2026-07-11", "2026-07-12", "2026-07-13", "2026-07-31", "2026-08-01",
+              "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07"]
+ZERO_TEXT = "0경기배정일은10일(7월11·12·13·31일,8월1·3·4·5·6·7일)"
 ASSUMPTIONS = "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약"
 LIMITATION = "보정 +2.5℃는 해외 연구 기반 설계 가정으로, 국내 구장 검증과 전문가 검토가 필요"
 CHARS_PER_SECOND = 6
@@ -60,17 +65,24 @@ def run(write_timing: bool) -> dict:
         checks.append({"name": name, "passed": bool(passed)})
 
     # Preserve the checks recorded in p6-report.md and real-data/a6-presentation.md.
-    stale = ("6080", "2856", "2026-08-01", "14배정/1연기", "실제 응답 확보 후")
+    stale = ("6080", "2856", "14배정/1연기", "실제 응답 확보 후",
+             "6114", "4319", "32.043", "38.062", "29.36%", "62일중46일", "중지10경기")
     check("기존 합성 수치·시연 날짜 혼입 없음", all(not any(token in compact(body) for token in stale)
                                                for body in docs.values()))
-    candidate = evidence["candidates"][0]
-    check("기존 관측 시연 수치 대조", candidate["date"] == "2026-07-10"
+    candidate = next(row for row in evidence["candidates"] if row["date"] == SNAPSHOT_DATE)
+    day = next(row for row in evidence["days"] if row["date"] == SNAPSHOT_DATE)
+    check("기존 관측 시연 수치 대조", [row["date"] for row in evidence["candidates"][:3]]
+          == ["2026-07-03", "2026-08-20", "2026-07-10"]
+          and all(candidate[key] == day[key] for key in ("assigned", "postponed", "common_count", "original_heat",
+                                                          "proposed_heat", "salvaged", "max_wbgt_c", "solver"))
           and (candidate["assigned"], candidate["postponed"], candidate["common_count"],
                candidate["original_heat"], candidate["proposed_heat"], candidate["salvaged"])
-          == (15, 0, 15, 6114, 4319, 10)
-          and candidate["max_wbgt_c"] == 32.043
+          == (15, 0, 15, 6051, 4469, 9)
+          and candidate["max_wbgt_c"] == 30.848 and candidate["solver"] == "CP-SAT OPTIMAL"
           and all(token in compact(slides + demo) for token in
-                  ("6114", "4319", "32.043", "30.543~33.543", "15경기", "0경기")))
+                  ("6051", "4469", "30.848", "29.348~32.348", "15경기", "0경기", "중지9경기",
+                   "7월3일", "8월20일", "7월10일"))
+          and all(token not in compact(slides.split("## 부록 ·")[0]) for token in ("26.14%", "29.36%", "38.229")))
     check("기존 관측 일사 수치 대조", solar["count"] == 927 and solar["missing_count"] == 561
           and round(solar["mae_wm2"], 2) == 62.67 and round(solar["bias_wm2"], 2) == 6.74
           and round(solar["max_absolute_error_wm2"], 2) == 460.07
@@ -102,31 +114,33 @@ def run(write_timing: bool) -> dict:
 
     baseline = scenarios["baseline"]
     zero_dates = [d["date"] for d in baseline["days"] if d["assigned"] == 0]
-    check("46일 조건부 문장·전체 가정·0배정3일 근거", len(baseline["days"]) == 62
-          and baseline["summary"]["incomplete_days"] == 46
-          and baseline["summary"]["zero_assignment_days"] == 3
-          and zero_dates == ["2026-08-04", "2026-08-05", "2026-08-06"]
+    replay_zero = [d["date"] for d in evidence["days"] if d["assigned"] == 0]
+    check("47일 조건부 문장·전체 가정·0배정10일 근거", len(baseline["days"]) == 62
+          and baseline["summary"]["incomplete_days"] == 47 == sum(d["assigned"] < 15 for d in evidence["days"])
+          and baseline["summary"]["zero_assignment_days"] == 10
+          and zero_dates == replay_zero == ZERO_DATES
           and all(APPROVED in body and ASSUMPTIONS in body
-                  and "8월4·5·6일" in compact(body) and "43일" in body
+                  and ZERO_TEXT in compact(body) and "37일" in body
                   for body in (slides, qa, demo, capture)))
-    check("민감도46→30/46→15와분석용판정", scenarios["offset_0"]["summary"]["incomplete_days"] == 30
-          and scenarios["offset_0_central"]["summary"]["incomplete_days"] == 15
-          and all(token in qa for token in ("46→30일", "46→15일", "보정값", "일반 재현", "중앙값 판정은 분석용")))
+    check("민감도47→26/47→14와분석용판정", scenarios["offset_0"]["summary"]["incomplete_days"] == 26
+          and scenarios["offset_0_central"]["summary"]["incomplete_days"] == 14
+          and all(token in qa for token in ("47→26일", "47→14일", "보정값", "일반 재현", "중앙값 판정은 분석용")))
     peak = peaks["rows"][0]
-    peak_contexts = [paragraph for body in docs.values() for paragraph in body.split("\n\n") if "38.062" in paragraph]
-    check("최고값 모델추정·보정·범위와근거", peak["date"] == "2026-08-06"
-          and round(peak["result"]["wbgt_c"], 2) == 35.56 and peak["field_offset_c"] == 2.5
-          and (peak["central_c"], peak["low_c"], peak["upper_c"]) == (38.062, 36.562, 39.562)
+    peak_contexts = [paragraph for body in docs.values() for paragraph in body.split("\n\n") if "38.229" in paragraph]
+    check("최고값 모델추정·보정·범위와근거", peak["date"] == "2026-08-19" and peak["venue_id"] == "mock-suwon-c"
+          and max((d["max_wbgt_c"], d["date"]) for d in evidence["days"]) == (38.229, "2026-08-19")
+          and round(peak["result"]["wbgt_c"], 2) == 35.73 and peak["field_offset_c"] == 2.5
+          and (peak["central_c"], peak["low_c"], peak["upper_c"]) == (38.229, 36.729, 39.729)
           and len(peak_contexts) >= 2
           and all(all(token in compact(paragraph) for token in
-                      ("관측WBGT가아니라", "관측입력기반추정35.56", "+2.5", "중앙값", "36.562~39.562"))
+                      ("관측WBGT가아니라", "관측입력기반추정35.73", "+2.5", "중앙값", "36.729~39.729"))
                   for paragraph in peak_contexts))
     sections = {match.group(1): match.group(2) for match in re.finditer(
         r"(?ms)^## (\d+[AB]?) ·[^\n]*\n(.*?)(?=^## |\Z)", slides)}
     check("시연·62일·민감도 화면 수치 분리", all(token not in sections["7B"] for token in
-          ("6114", "4319", "32.043", "38.062", "46→30", "46→15"))
+          ("6051", "4469", "30.848", "38.229", "47→26", "47→14"))
           and all(token not in "".join(sections[str(i)] for i in range(3, 7))
-                  for token in ("38.062", "46→30", "46→15"))
+                  for token in ("38.229", "47→26", "47→14"))
           and "별도 질의응답 부록 화면" in qa and "서로 다른 화면" in capture)
     check("해외 보정 가정·미수행 검증·공간 차이 설명", LIMITATION in slides
           and "현장 WBGT 대조·인터뷰·전문가 자문은 아직 하지 않았습니다" in slides
@@ -165,7 +179,7 @@ def run(write_timing: bool) -> dict:
               "slide_characters": speech, "new_qa_characters": answers}
     if write_timing and result["passed"]:
         lines = ["# 발표 시간 글자 수 점검", "",
-                 "2026-10-05 · scripts/check_presentation.py로 원고를 검산했다.", "",
+                 "2026-10-11 · scripts/check_presentation.py로 원고를 재검산했다(최초 작성 2026-10-05; 2026-10-11 재계산 수치 반영).", "",
                  "발표자 대본만 세고 화면 문구·메모·표·출처 설명은 제외한다. 공백/문장부호를 포함하며 연속 공백·줄바꿈은 공백 한 칸으로 정규화한다.",
                  "초당6자(분당360자)는 계산용 리허설 가정이다. 실제 발화 속도나 7분 완주를 측정한 값이 아니다. 숫자·영문 읽기와 클릭 시간은 실제 리허설로 확인한다.", "",
                  "| 구간 | 예정 시간 | 대본 글자 수 | 가정상 읽기 시간 | 예정 시간 내 여부 |", "|---|---:|---:|---:|---|"]

@@ -27,8 +27,20 @@ def run():
         and r['comparison']['common_match_ids']==sorted({a['match_id'] for a in r['engine']['assignments']}&{a['match_id'] for a in r['baselines'][r['selected_baseline']]['assignments']})
         and r['comparison']['assignment_gain']==r['engine']['assigned']-r['baselines'][r['selected_baseline']]['assigned']
         for r in rows))
+    # 2026-10-11 recalculation: engine 593 vs favourable simple 583, no case below the simple baseline, 18 FEASIBLE / 13 OPTIMAL.
+    s=data['summary']
+    check('regenerated summary values are the ones quoted in manuscripts',
+          (s['engine_assigned'],s['baseline_assigned'],s['engine_complete_cases'],s['baseline_complete_cases'],s['engine_more_cases'],s['equal_cases'],s['engine_fewer_cases'])==(593,583,17,13,7,24,0)
+          and s['statuses']=={'CP-SAT FEASIBLE':18,'CP-SAT OPTIMAL':13} and (s['engine_common_heat'],s['baseline_common_heat'])==(149324,160106))
+    rerun=json.loads((ROOT/'docs/competition-evidence/review-fix-results.json').read_text(encoding='utf-8'))['summary']['16']
+    check('same-input rerun difference is recorded, not hidden',rerun['previous_assigned']==593 and rerun['selected_assigned']==592 and rerun['baseline_assigned']==583)
     body=(ROOT/'docs/tournament-scale-report.md').read_text(encoding='utf-8')
-    check('adverse results and non-optimal cases disclosed',all(t in body for t in ('596','598','16 / 27','26 / 27','FEASIBLE','최소 연기','일반화')))
+    current=(ROOT/'docs/competition-evidence/judge-brief.md').read_text(encoding='utf-8')+(ROOT/'docs/submission/proposal.md').read_text(encoding='utf-8')
+    # The 2026-10-06 report keeps its historical 596/598 figures and must point to the recalculation; current-facing
+    # manuscripts must quote the regenerated JSON values and the rerun difference.
+    check('adverse results and non-optimal cases disclosed',all(t in body for t in ('FEASIBLE','최소 연기','일반화','596','598','recalc-2026-10-11.md'))
+          and all(t in current for t in (str(s['engine_assigned']),str(s['baseline_assigned']),str(rerun['selected_assigned']),
+                                         f"{s['statuses']['CP-SAT FEASIBLE']}개 FEASIBLE",'FEASIBLE 27→26','우위로 확대하지 않')))
     return {'passed':all(r['passed'] for r in checks),'checks':checks}
 
 if __name__=='__main__':

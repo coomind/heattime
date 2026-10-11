@@ -31,5 +31,8 @@ def test_proof_pack_presents_stronger_comparison_and_hypothetical_limits():
     data=json.loads((ROOT/'docs/competition-evidence/verified-claims.json').read_text(encoding='utf-8'))
     # Existing final manifest is regenerated after full validation; use actual new source for this rendering check.
     data['no_field_analysis']=json.loads((ROOT/'docs/competition-evidence/no-field-analysis.json').read_text(encoding='utf-8'))['summary']
+    # Same rule for the regenerated 62-day method comparison (2026-10-11 recalculation) until the manifest is rebuilt.
+    data['method_comparison']=json.loads((ROOT/'docs/competition-evidence/method-comparison.json').read_text(encoding='utf-8'))['summary']
     body=markdown(data)
-    assert all(t in body for t in ('558','562','5.15%','14→16','1.39%','재최적화'))
+    # 2026-10-11 artifacts: best_of_four 552→CP-SAT 555, 15→15 complete days, 148856→142674 (4.15% lower), greedy cost +2.90%.
+    assert all(t in body for t in ('552','555','4.15%','15→15','2.90%','재최적화'))

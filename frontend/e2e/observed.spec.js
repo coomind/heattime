@@ -19,7 +19,7 @@ async function flow(page,testInfo,snapshot){
  await expect(page.getByRole('heading',{name:'공통 경기의 열 노출 비교'})).toBeVisible();
  await expect(page.locator('.comparison-metrics')).toContainText('공통 15경기');
  await expect(page.locator('.comparison-metrics')).toContainText('0경기 연기');
- if(snapshot){await expect(page.locator('.comparison-metrics')).toContainText('6,114');await expect(page.locator('.comparison-metrics')).toContainText('4,319');}
+ if(snapshot){await expect(page.locator('.comparison-metrics')).toContainText('6,051');await expect(page.locator('.comparison-metrics')).toContainText('4,469');}
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();
  await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();

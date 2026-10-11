@@ -20,7 +20,7 @@ from uuid import uuid4
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from lwbgt import Input, calculate
-from backend.engine.policy import classify
+from backend.engine.policy import classify, round_decision
 from backend.engine.settings import EngineSettings
 from backend.engine.wbgt import wind_at_2m
 from backend.repository import Repository
@@ -304,10 +304,10 @@ def variant_context(session, offset, upper, shifts):
         central = native + offset + shifts.get(r.venue_id,shifts.get('*',0.))
         central += engine.surface_offsets[r.inputs['venue']['surface']]
         low, high = central-engine.uncertainty_c, central+engine.uncertainty_c
-        decision = high if upper else central
-        # Match production: classify full precision, then round displayed numbers.
+        decision = round_decision(high if upper else central)
+        # Match production: classify the displayed 0.1℃ (half-up) decision value.
         changed.append(replace(r,wbgt_c=round(central,3),wbgt_low_c=round(low,3),wbgt_high_c=round(high,3),
-                               level=classify(decision,t.policy_id),decision_wbgt_c=round(decision,3)))
+                               level=classify(decision,t.policy_id),decision_wbgt_c=decision))
     # Venue offset is descriptive; rescheduling uses the changed risks. No engine re-estimation.
     return t,m,[replace(x,field_offset_c=offset) for x in v],changed,settings,engine
 

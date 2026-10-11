@@ -100,9 +100,13 @@ class SampleDataset:
             raise ValueError('A complete 24-hour ASOS day is required; no mock substitution')
         points = []
         for stamp, row in rows:
-            energy = numeric(row, 'icsr')
-            cloud = numeric(row, 'dc10Tca')
-            rain = numeric(row, 'rn')
+            # Risk at hour h covers [h, h+1). icsr at tm is the preceding hour's energy,
+            # so the interval-aligned solar/cloud/rain come from the row at h+1.
+            end = stamp+timedelta(hours=1)
+            solar_row = self.rows.get(end)
+            energy = numeric(solar_row, 'icsr') if solar_row else None
+            cloud = numeric(solar_row, 'dc10Tca') if solar_row else None
+            rain = numeric(solar_row, 'rn') if solar_row else None
             if cloud is not None and not 0 <= cloud <= 10:
                 raise ValueError('Observed ASOS cloud amount is outside 0..10')
             if rain is not None and rain < 0:
@@ -110,8 +114,10 @@ class SampleDataset:
             provenance = {'station_name': self.station['name'], 'sample_sha256': self.sha256,
                 'original_sample_sha256': self.original_sha256, 'time_basis': 'KST',
                 'units': UNITS, 'solar_energy_mj_m2': energy,
-                'solar_interval_start': (stamp-timedelta(hours=1)).isoformat() if energy is not None else None,
-                'solar_interval_end': stamp.isoformat() if energy is not None else None,
+                'solar_interval_start': stamp.isoformat(),
+                'solar_interval_end': end.isoformat(),
+                'solar_observation_tm': end.isoformat() if solar_row else None,
+                'solar_interval_basis': 'risk hour [h, h+1) = icsr/cloud/rain reported at h+1',
                 'solar_wm2_is_hour_mean': energy is not None,
                 'quality_flags': {k: row.get(k) for k in ('taQcflg', 'hmQcflg', 'wsQcflg')}}
             points.append(WeatherPoint(venue.id, stamp, 'asos_obs', numeric(row, 'ta', True),

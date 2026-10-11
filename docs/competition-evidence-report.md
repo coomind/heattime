@@ -1,5 +1,7 @@
 # 경쟁력 강화 작업1: 동일 조건 알고리즘 비교
 
+> 2026-10-11 재계산 안내: 이 문서의 수치는 작성 당시 기준입니다. 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정 이후의 현재 수치는 [재계산 보고](recalc-2026-10-11.md)를 따릅니다.
+
 2026-10-05 · 기준50162a3. 변경: scripts/compare_schedule_methods.py, tests/test_competition_comparison.py, docs/competition-evidence/의 고정 원장·전체 비교 JSON·결과 해석·재현 절차.
 
 ## 실제 실행 결과

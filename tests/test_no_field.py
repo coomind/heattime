@@ -59,7 +59,8 @@ def test_margin_uses_actual_policy_and_age_rules(age,escalate,policy):
     tournament=Tournament(id='test',name='가상 예시',date_start=date(2026,7,10),date_end=date(2026,7,10),age_group=age,policy_id=policy)
     engine=EngineSettings(age_escalation=escalate)
     threshold=stop_threshold(tournament,engine)
-    eps=0.001
+    # Stage uses the displayed 0.1℃ value; go beyond the rounding half-step.
+    eps=0.051
     assert risk_level(threshold-eps,threshold-eps,age,policy,escalate)[0]<4
     assert risk_level(threshold+eps,threshold+eps,age,policy,escalate)[0]==4
 
@@ -120,7 +121,9 @@ def test_summary_includes_all_62_dates_zero_days_and_adverse_results(evidence):
     assert evidence['summary']==summarize(evidence['days'])
     assert len(evidence['days'])==62
     zero=[d for d in evidence['days'] if not d['cp']['assigned']]
-    assert len(zero)==3
+    # 2026-10-11 recalculation (solar interval alignment etc.): 10 zero-assignment days.
+    assert [d['date'] for d in zero]==['2026-07-11','2026-07-12','2026-07-13','2026-07-31','2026-08-01',
+        '2026-08-03','2026-08-04','2026-08-05','2026-08-06','2026-08-07']
     assert all(not scenario['applicable'] and not scenario['same_choices_valid'] for d in zero for scenario in d['plan_review']['scenarios'])
     ledger=json.loads((ROOT/'docs/competition-evidence/frozen-solutions.json').read_text(encoding='utf-8'))
     assert evidence['ledger_sha256']==digest(ledger)

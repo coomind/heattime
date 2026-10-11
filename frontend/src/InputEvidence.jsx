@@ -13,7 +13,7 @@ export default function InputEvidence({data:e,onClose}){
    <tr><th>풍속 높이 보정</th><td>10m 입력 가정 → 2m · 지수 {e.wind_exponent} · {n(e.wind_2m_ms)}m/s · {r.inputs.fallback_reason?'간이 폴백 일사 항 최소 처리 후 '+n(e.fallback_wind_ms):'Liljegren 입력 최소 처리 후 '+n(e.engine_wind_ms)}m/s</td></tr>
    <tr><th>기압 입력</th><td>{n(e.pressure_hpa)}hPa · 기존 해수면 스크리닝 가정</td></tr>
    <tr><th>사용 일사</th><td>{e.solar_observed?'관측 일사 사용':'일사 결측/미제공 · 모델 추정 사용'} · {n(e.solar.used_wm2)}W/m² · {e.solar.source}</td></tr>
-   {e.solar_energy_mj_m2!==null&&<tr><th>관측 일사 원값과 변환</th><td>{n(e.solar_energy_mj_m2)}MJ/m² × 1,000,000 / 3,600 → {n(w.solar_wm2)}W/m²<br/>이전 1시간 {t(e.solar_interval_start)}~{t(e.solar_interval_end)}</td></tr>}
+   {e.solar_energy_mj_m2!==null&&<tr><th>관측 일사 원값과 변환</th><td>{n(e.solar_energy_mj_m2)}MJ/m² × 1,000,000 / 3,600 → {n(w.solar_wm2)}W/m²<br/>위험 구간과 같은 1시간 {t(e.solar_interval_start)}~{t(e.solar_interval_end)} (구간 끝 정시 관측)</td></tr>}
    <tr><th>일사 모델 추정</th><td>{n(e.solar.estimated_wm2)}W/m² · 범위 {n(e.solar.low_wm2)}~{n(e.solar.high_wm2)}W/m² · 엔진 복사 입력 {n(e.engine_solar_wm2)}W/m²</td></tr>
    <tr><th>구장 / 표면 보정</th><td>{n(e.field_offset_c)}℃ / {n(e.surface_offset_c)}℃</td></tr>
    <tr><th>계산 방법</th><td>{r.method_version}<br/>{r.inputs.fallback_reason?'폴백 사유: '+r.inputs.fallback_reason:'폴백 사유 없음'}</td></tr>

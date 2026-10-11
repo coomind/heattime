@@ -16,9 +16,9 @@ test('offline observed proposal makes its outcome visible and distinguishes appr
   await expect(outcome).toBeVisible();
   await expect(outcome).toContainText('전체 15경기 중 배정15경기');
   await expect(outcome).toContainText('별도 연기0경기');
-  await expect(outcome).toContainText('원래 중지 단계 10경기 중 제안 배정10경기');
-  await expect(outcome).toContainText('공통 15경기 열 노출 점수29.36% 감소');
-  await expect(outcome).toContainText('1,795점 감소');
+  await expect(outcome).toContainText('원래 중지 단계 9경기 중 제안 배정9경기');
+  await expect(outcome).toContainText('공통 15경기 열 노출 점수26.14% 감소');
+  await expect(outcome).toContainText('1,582점 감소');
   await expect(outcome).toContainText('승인 전 제안');
   await expect(outcome).toContainText('건강 효과나 사고 감소율이 아닙니다');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

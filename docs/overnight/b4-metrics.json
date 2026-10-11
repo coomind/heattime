@@ -1,5 +1,6 @@
 {
   "label": "SYNTHETIC BENCHMARK - NOT REAL OBSERVATIONS",
+  "forced_greedy": false,
   "engine_settings": {
     "uncertainty_c": 1.5,
     "rain_attenuation": 0.5,
@@ -45,11 +46,11 @@
       "assigned": 2,
       "postponed": 25,
       "constraints_ok": true,
-      "elapsed_sec": 0.1772,
-      "preparation_sec": 0.1353,
-      "solver_wall_sec": 0.0415,
-      "engine_sec": 0.8084,
-      "original_common_heat": 1344,
+      "elapsed_sec": 0.1894,
+      "preparation_sec": 0.1577,
+      "solver_wall_sec": 0.0311,
+      "engine_sec": 0.8964,
+      "original_common_heat": 1332,
       "proposed_common_heat": 686,
       "maximum_wbgt_c": 35.924
     },
@@ -64,11 +65,11 @@
       "assigned": 2,
       "postponed": 25,
       "constraints_ok": true,
-      "elapsed_sec": 0.1579,
-      "preparation_sec": 0.1178,
-      "solver_wall_sec": 0.0397,
-      "engine_sec": 0.8084,
-      "original_common_heat": 1344,
+      "elapsed_sec": 0.1695,
+      "preparation_sec": 0.1408,
+      "solver_wall_sec": 0.0281,
+      "engine_sec": 0.8964,
+      "original_common_heat": 1332,
       "proposed_common_heat": 686,
       "maximum_wbgt_c": 35.924
     },
@@ -83,11 +84,11 @@
       "assigned": 2,
       "postponed": 25,
       "constraints_ok": true,
-      "elapsed_sec": 0.1561,
-      "preparation_sec": 0.1196,
-      "solver_wall_sec": 0.0361,
-      "engine_sec": 0.8084,
-      "original_common_heat": 1344,
+      "elapsed_sec": 0.1993,
+      "preparation_sec": 0.1499,
+      "solver_wall_sec": 0.0485,
+      "engine_sec": 0.8964,
+      "original_common_heat": 1332,
       "proposed_common_heat": 686,
       "maximum_wbgt_c": 35.924
     },
@@ -102,12 +103,12 @@
       "assigned": 27,
       "postponed": 0,
       "constraints_ok": true,
-      "elapsed_sec": 10.8718,
-      "preparation_sec": 0.4857,
-      "solver_wall_sec": 10.3795,
-      "engine_sec": 0.016,
-      "original_common_heat": 5164,
-      "proposed_common_heat": 2411,
+      "elapsed_sec": 13.9319,
+      "preparation_sec": 3.5752,
+      "solver_wall_sec": 10.3472,
+      "engine_sec": 0.0152,
+      "original_common_heat": 5181,
+      "proposed_common_heat": 2089,
       "maximum_wbgt_c": 23.968
     },
     {
@@ -121,12 +122,12 @@
       "assigned": 27,
       "postponed": 0,
       "constraints_ok": true,
-      "elapsed_sec": 10.9032,
-      "preparation_sec": 0.509,
-      "solver_wall_sec": 10.3864,
-      "engine_sec": 0.016,
-      "original_common_heat": 5164,
-      "proposed_common_heat": 2407,
+      "elapsed_sec": 13.9869,
+      "preparation_sec": 3.6073,
+      "solver_wall_sec": 10.3661,
+      "engine_sec": 0.0152,
+      "original_common_heat": 5181,
+      "proposed_common_heat": 2093,
       "maximum_wbgt_c": 23.968
     },
     {
@@ -140,28 +141,28 @@
       "assigned": 27,
       "postponed": 0,
       "constraints_ok": true,
-      "elapsed_sec": 10.8161,
-      "preparation_sec": 0.4529,
-      "solver_wall_sec": 10.356,
-      "engine_sec": 0.016,
-      "original_common_heat": 5164,
-      "proposed_common_heat": 2360,
+      "elapsed_sec": 13.8588,
+      "preparation_sec": 3.4785,
+      "solver_wall_sec": 10.3667,
+      "engine_sec": 0.0152,
+      "original_common_heat": 5181,
+      "proposed_common_heat": 2107,
       "maximum_wbgt_c": 23.968
     }
   ],
   "summary": [
     {
       "scenario": "controlled_mild_mock",
-      "median_elapsed_sec": 10.8718,
-      "max_elapsed_sec": 10.9032,
+      "median_elapsed_sec": 13.9319,
+      "max_elapsed_sec": 13.9869,
       "statuses": [
         "CP-SAT FEASIBLE"
       ]
     },
     {
       "scenario": "default_mock_hot",
-      "median_elapsed_sec": 0.1579,
-      "max_elapsed_sec": 0.1772,
+      "median_elapsed_sec": 0.1894,
+      "max_elapsed_sec": 0.1993,
       "statuses": [
         "CP-SAT OPTIMAL"
       ]

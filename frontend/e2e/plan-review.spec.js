@@ -7,8 +7,8 @@ for(const mode of ['snapshot','snapshot-observed'])test(mode+' stronger proof an
  await context.setOffline(true);await page.reload();
  await page.getByText('실측 없이 확인한 기술 근거 · 더 강한 비교와 조건 변화',{exact:true}).click();
  const proof=page.locator('.no-field-evidence');
- await expect(proof).toContainText('558 → 562건');await expect(proof).toContainText('14 → 16일');
- await expect(proof).toContainText('5.15% 감소');
+ await expect(proof).toContainText('552 → 555건');await expect(proof).toContainText('15 → 15일');
+ await expect(proof).toContainText('4.15% 감소');
  await expect(proof.getByRole('table',{name:'단순 방식4종 전체 비교'}).locator('tbody tr')).toHaveCount(5);
  await expect(proof.getByRole('table',{name:'59일 고정 일정 조건 변화'}).locator('tbody tr')).toHaveCount(5);
  await proof.getByText('62일 강한 기준 비교 원자료',{exact:true}).click();

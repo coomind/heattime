@@ -8,11 +8,14 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from backend.repository import Repository
 from backend.service import Service
 from backend.exports import records_pdf,records_csv
+from backend.demo_config import demo_date
 
 
-def build():
+def build(day=None):
+    """Snapshot the author-chosen demo date (--date, else backend/config/demo.yaml, else rule #1)."""
+    day=day or demo_date()
     results=json.loads((ROOT/'data/output/real/results.json').read_text(encoding='utf-8'))
-    candidate=results['candidates'][0]
+    candidate=results['candidates'][0] if day is None else next(d for d in results['days'] if d['date']==day)
     service=Service(Repository(results['db']))
     session=service.repo.get('sessions',candidate['session_id'])
     if session['decision'] is None:
@@ -39,4 +42,7 @@ def build():
     return bundle
 
 
-if __name__=='__main__':build()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--date',help='YYYY-MM-DD demo date chosen by the user')
+    build(parser.parse_args().date)

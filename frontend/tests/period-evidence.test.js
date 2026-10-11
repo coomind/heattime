@@ -11,12 +11,12 @@ test('all 62 observed dates and original numeric results are present without fav
   assert.equal(data.days.length,62);
   assert.deepEqual(data.days.map(r=>r.date),original.days.map(r=>r.date));
   for(let i=0;i<62;i++)for(const [key,value] of Object.entries(data.days[i]))assert.deepEqual(value,original.days[i][key]);
-  assert.equal(data.days.filter(r=>r.postponed===0).length,16);
-  assert.deepEqual(data.days.filter(r=>r.assigned===0).map(r=>r.date),['2026-08-04','2026-08-05','2026-08-06']);
+  assert.equal(data.days.filter(r=>r.postponed===0).length,15);
+  assert.deepEqual(data.days.filter(r=>r.assigned===0).map(r=>r.date),['2026-07-11','2026-07-12','2026-07-13','2026-07-31','2026-08-01','2026-08-03','2026-08-04','2026-08-05','2026-08-06','2026-08-07']);
 });
 test('comparison includes the adverse common heat result and all daily method comparisons',()=>{
   assert.deepEqual(data.comparison.summary,comparison.summary);
-  assert.equal(data.comparison.summary.cp_common_heat-data.comparison.summary.greedy_common_heat,1813);
+  assert.equal(data.comparison.summary.cp_common_heat-data.comparison.summary.greedy_common_heat,3388);
   for(let i=0;i<62;i++)for(const [key,value] of Object.entries(data.comparison.days[i]))assert.deepEqual(value,key==='common_count'?comparison.days[i].common_match_ids.length:comparison.days[i][key]);
 });
 test('UI source digests and sample provenance match committed evidence files',()=>{

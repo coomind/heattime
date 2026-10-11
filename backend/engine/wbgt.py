@@ -75,7 +75,7 @@ def estimate(venue: Venue, point: WeatherPoint, age_group="U12", policy_id="gene
               "calibration":calibration,"assumptions":assumptions,"fallback_reason":fallback_reason}
     digest = hashlib.sha256(json.dumps(inputs,default=str,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
     return RiskEstimate(venue.id,t,round(value,3),round(low,3),round(high,3),level,
-                        round(decision,3),method,digest,point.is_mock,inputs)
+                        decision,method,digest,point.is_mock,inputs)
 
 
 def estimate_series(venue, points, age_group="U12", policy_id="general", settings=None, manual=()):

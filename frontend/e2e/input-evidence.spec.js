@@ -8,10 +8,10 @@ test('observed source panel exposes conversions and assumptions entirely offline
  await page.getByRole('button',{name:/.*수원.* 12시 입력 근거/}).first().click();
  const panel=page.locator('.input-evidence');
  await expect(panel).toContainText('관측 기상 입력 · 현장 WBGT 실측 아님');
- await expect(panel).toContainText('0.180MJ/m²');await expect(panel).toContainText('50.000W/m²');
+ await expect(panel).toContainText('0.700MJ/m²');await expect(panel).toContainText('194.444W/m²');
  await expect(panel).toContainText('9시간 · 동일 관측소 기준');
  await expect(panel).toContainText('현장 검증된 신뢰구간이 아닙니다');
- await expect(panel).toContainText('수동 입력 이력이 보존되지 않았습니다');
+ await expect(panel).toContainText('이 재현 시점에 보존된 해당 구장 입력 이력 없음');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await panel.getByRole('button',{name:'근거 닫기'}).click();await expect(panel).toHaveCount(0);
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();

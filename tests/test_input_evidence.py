@@ -28,7 +28,8 @@ def test_all_offline_input_rows_preserve_values_units_and_original_source(prefix
     if prefix == "observed-snapshot":
         assert e["solar_missing_hours"] == 9
         assert e["weather"]["is_mock"] is False
-    assert e["audit"]["history_known"] is False
+    # Regenerated 2026-10-11 bundles were replayed with history capture, so the (empty) history is known.
+    assert e["audit"]["history_known"] is True and e["audit"]["rows"] == [] and e["audit"]["applied_id"] is None
 
 
 def test_zero_irradiance_and_missing_observation_are_distinguished():

@@ -42,5 +42,5 @@ def test_all_dates_and_candidate_selection_are_complete():
     assert [r['date'] for r in RESULTS['days']]==[d.isoformat() for d in data.dates]
     assert RESULTS['original_sample_sha256']==data.original_sha256
     assert RESULTS['candidates']==sorted(RESULTS['days'],key=candidate_order)[:3]
-    assert [r['date'] for r in RESULTS['candidates']]==['2026-07-10','2026-07-18','2026-07-06']
+    assert [r['date'] for r in RESULTS['candidates']]==['2026-07-03','2026-08-20','2026-07-10']
     assert all(r['assigned']==15 and r['postponed']==0 and r['salvaged']>=9 for r in RESULTS['candidates'])

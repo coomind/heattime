@@ -15,7 +15,7 @@ for(const mode of ['snapshot','snapshot-observed'])test(mode+' proposed and appr
  if(mode==='snapshot-observed')await expect(evidence.getByRole('table',{name:'경기별 제약 근거'})).toContainText('팀 휴식');
  else {await expect(evidence.getByRole('table',{name:'경기별 제약 근거'})).toBeVisible();}
  await expect(evidence).toContainText('이 일정의 기존 하드 제약 검사 통과');
- if(mode==='snapshot-observed')await expect(evidence).toContainText('7. 10. 09:00');
+ if(mode==='snapshot-observed')await expect(evidence).toContainText('7. 10. 07:45');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();

@@ -9,7 +9,9 @@ def test_main_presentation_moves_statistics_to_appendix_and_discloses_selection_
     s=(ROOT/'docs/presentation/slides.md').read_text(encoding='utf-8')
     main=s.split('## 부록 ·')[0]
     assert '29.36%' not in main and '62일 중 46일' not in main and '38.062' not in main
-    assert '원래 중지10경기' in main and '28.4℃' in main and '운영시간 습도75~90%' in main
+    # 2026-10-11 recalculation: the current figures (26.14%, 38.229, 47 incomplete days) also stay in the appendix.
+    assert '26.14%' not in main and '62일 중 47일' not in main and '38.229' not in main
+    assert '원래 중지9경기' in main and '28.4℃' in main and '운영시간 습도75~90%' in main
     assert '연기 수 최소' in main and '원래 중지 경기의 배정 수 최대' in main
     assert '최적화가 언제나 단순 방식보다 낫다고 주장하지 않습니다' in main
     assert '구장 정리 간격을 어겨' in main and '8월4일' in main

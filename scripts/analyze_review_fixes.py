@@ -1,4 +1,4 @@
-"""Run every predeclared 31 larger / 62 original case once after selection fix."""
+"""Re-solve every predeclared 31 larger / 62 original case once to check reproducibility."""
 from datetime import date
 from pathlib import Path
 from uuid import uuid4
@@ -60,7 +60,7 @@ def run():
             'statuses':dict(Counter(c['cp_sat_status'] for c in rows)),
             'selected_methods':dict(Counter(c['selected_method'] for c in rows)),
             'baseline_common_heat':sum(c['baseline_common_heat'] for c in rows),'selected_common_heat':sum(c['selected_common_heat'] for c in rows)}
-    packet={'version':1,'scope':'2026-10-06 selection fix; all previous input fingerprints and dates; one run per case; no policy/operating/time-limit change',
+    packet={'version':1,'scope':'2026-10-11 recalculation (solar interval alignment, 0.1C decision rounding, deterministic tie-break); every predeclared case re-solved once with the same inputs; no policy/operating/time-limit change',
         'historical_files':'Prior frozen evidence remains historical; never overwrite adverse results.',
         'original_sample_sha256':previous12['original_sample_sha256'],'summary':summary,'cases':cases}
     (ROOT/'docs/competition-evidence/review-fix-results.json').write_text(json.dumps(packet,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

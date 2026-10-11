@@ -69,6 +69,12 @@ def collect():
         raise ValueError('기존 검사 수보다 적은 영수증입니다. 전체 검사를 실행하세요.')
     def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
     replay = read('docs/real-data/replay-results.json')
+    # 2026-10-11 recalculation: the snapshot date (7/10) is the rule's third candidate, so look it up by date.
+    snapshot_date = read('frontend/src/demo/observed-snapshot.json')['approved']['tournament']['date_start']
+    demo_row = next(row for row in replay['candidates'] if row['date'] == snapshot_date)
+    demo_day = next(row for row in replay['days'] if row['date'] == snapshot_date)
+    if any(demo_row[k] != demo_day[k] for k in ('assigned', 'postponed', 'salvaged', 'original_heat', 'proposed_heat', 'max_wbgt_c')):
+        raise ValueError('관측 스냅샷 날짜의 후보 행과 62일 행이 다릅니다.')
     comparison = read('docs/competition-evidence/method-comparison.json')['summary']
     no_field = read('docs/competition-evidence/no-field-analysis.json')['summary']
     scale = read('docs/competition-evidence/tournament-scale-analysis.json')['summary']
@@ -93,7 +99,7 @@ def collect():
             'tested_source_fingerprint': stamp['source_fingerprint'], 'test_run_started_at': stamp['started_at'],
             'assumptions': ASSUMPTIONS, 'observation_hours': len(sample.rows),
             'checks': {k: {'passed': v['passed'], 'count': len(v['checks'])} for k, v in checked.items()},
-            'test_receipts': receipts, 'demo': replay['candidates'][0], 'method_comparison': comparison,'no_field_analysis':no_field,'tournament_scale':scale,'selection_fix':read('docs/competition-evidence/review-fix-results.json')['summary'],
+            'test_receipts': receipts, 'demo': demo_row, **recalculation_meta(), 'method_comparison': comparison,'no_field_analysis':no_field,'tournament_scale':scale,'selection_fix':read('docs/competition-evidence/review-fix-results.json')['summary'],
             'incomplete_days': sum(r['assigned'] < 15 for r in replay['days']),
             'zero_assignment_dates': [r['date'] for r in replay['days'] if r['assigned'] == 0],
             'live': {k: live[k] for k in ('verified_at', 'status', 'upstream_http_status', 'diagnostic_timeout_seconds')},
@@ -102,16 +108,28 @@ def collect():
             'user_confirmation': '2026-10-06 사용자 확인: 실제 측정 자료 확보 불가. 실제 운영자·현장 측정 기록 없음. 오프라인 기술 검증과 조건 변화 검토를 제출 근거로 삼고 현장 정확도·효용은 미검증으로 둔다.'}
 
 
+RECALCULATION = '2026-10-11 재계산: 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정 후 전 수치 재생성'
+
+
+def recalculation_meta():
+    """Recalculation note and rule candidates, read from the committed replay results."""
+    replay = json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'))
+    return {'candidate_dates': [row['date'] for row in replay['candidates'][:3]], 'recalculation': RECALCULATION}
+
+
 def markdown(data):
+    # Manifests written before the 2026-10-11 recalculation lack these fields.
+    data = {**recalculation_meta(), **data}
     comp = data['method_comparison']; demo = data['demo']; tests = data['test_receipts']
     cost = (comp['cp_common_heat']/comp['greedy_common_heat']-1)*100
-    stronger=data['no_field_analysis']['baselines']['best_of_four']
+    stronger=data['no_field_analysis']['baselines']['best_of_four']; scen=data['no_field_analysis']['scenarios']
     reduction=(1-stronger['cp_common_heat']/stronger['baseline_common_heat'])*100
     scale=data.get('tournament_scale')
-    scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건으로 배정 합계가 더 적었다. 두 구간의 열세와18개 FEASIBLE·1개 폴백을 공개한다.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
+    rerun=data['selection_fix']['16']
+    scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건이며 엔진이 적게 배정한 구간은{scale['engine_fewer_cases']}개다. 그러나{scale['statuses'].get('CP-SAT FEASIBLE', 0)}개 FEASIBLE의 최적성은 미확정이고 같은 입력 재실행은{rerun['selected_assigned']}건으로 달랐다.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
     return f'''# 심사자가 확인할 기술 증거 묶음
 
-생성: {data['generated_at']}. 아래 기존 비교 표는 수정 전 고정 해의 역사적 분석이다. 현재 선택 수정 검증은 [수정 보고](../review-fix-report.md)와 [93조건 새 결과](review-fix-results.json)를 읽는다. 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
+생성: {data['generated_at']}. {data['recalculation']}. 아래 표는 재계산 후 현재 엔진의 고정 결과다. 재계산 전 선택 수정 기록은 [수정 보고](../review-fix-report.md)와 [93조건 재실행 결과](review-fix-results.json)를 읽는다. 시연일 후보는 선정 규칙 순으로 {', '.join(data['candidate_dates'])}이며 현재 스냅샷은 {demo['date']}이다(시연일은 작성자가 확정). 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
 
 | 확인 가능한 주장 | 수치와 조건 | 근거 |
 |---|---|---|
@@ -125,13 +143,13 @@ def markdown(data):
 | 실제 기상청 연결의 범위 | 실제 자료 수신 성공은 진단30초 모드, 기본10초는4회 시간 초과 | [실제 검증](../live-connection-report.md), 연결 안정성 확보 주장 불가 |
 | 앞으로 실제 근거를 쌓는 기능 | 준비 포함 시간·부정 의견·측정 오차·제외 사유 기록 및 내보내기 | [기능 검사](../validation-feature-report.md), [오기입 처리](../validation-exclusion-report.md) |
 
-가정: {data['assumptions']}. 날짜별 같은15경기의 반복 배정 건수이며 실제 살린 경기 수가 아니다. 각 비교의 공통 경기 집합이 다르므로 다른 행의 점수를 합쳐 주장하지 않는다. 관측 시연의 추정 중앙 최고32.043℃와 범위30.543~33.543℃는 현장 WBGT 실측이 아니다.
+가정: {data['assumptions']}. 날짜별 같은15경기의 반복 배정 건수이며 실제 살린 경기 수가 아니다. 각 비교의 공통 경기 집합이 다르므로 다른 행의 점수를 합쳐 주장하지 않는다. 관측 시연의 추정 중앙 최고{demo['max_wbgt_c']}℃와 범위{round(demo['max_wbgt_c'] - 1.5, 3)}~{round(demo['max_wbgt_c'] + 1.5, 3)}℃는 현장 WBGT 실측이 아니다.
 
 {data['user_confirmation']}
 
 {scale_note}
 
-고정 일정의 조건 변화 검토도 공개한다. 원래 추정59일은 모두 제약 통과, +1℃41일·+2℃57일은 권고·제약 재검토 대상, 배정 구장·시간1개 누락은59일 전부 재검토 대상이었다. 배정0인3일은 제외한다. 재최적화 후 개최 불가 일수가 아니고 실제 오차·확률도 아니다. −1℃에도 단축 해제 등으로 종료 시각이 늘어날 수 있다. 제안/승인 입력을 바꾸지 않는 [검토 기능](../plan-review-report.md)으로 같은 조건을 재확인한다.
+고정 일정의 조건 변화 검토도 공개한다. 원래 추정{scen['wbgt_+0']['applicable_days']}일은 모두 제약 통과, +1℃{scen['wbgt_+1']['needs_review_days']}일·+2℃{scen['wbgt_+2']['needs_review_days']}일은 권고·제약 재검토 대상, 배정 구장·시간1개 누락은{scen['missing_critical_hour']['needs_review_days']}일 전부 재검토 대상이었다. 배정0인{len(data['zero_assignment_dates'])}일은 제외한다. 재최적화 후 개최 불가 일수가 아니고 실제 오차·확률도 아니다. −1℃에도 단축 해제 등으로 종료 시각이 늘어날 수 있다. 제안/승인 입력을 바꾸지 않는 [검토 기능](../plan-review-report.md)으로 같은 조건을 재확인한다.
 
 ## 3분 시연으로 확인하는 순서
 
