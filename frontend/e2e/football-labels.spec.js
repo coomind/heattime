@@ -15,3 +15,13 @@ test('football policy replay uses FIFPRO stage labels',async({page})=>{
  await expect(summary).toContainText('연기 권고');await expect(summary).toContainText('냉각 조치');
  await expect(summary).not.toContainText('운동 중지');
 });
+
+// W-1: the general policy's stage 0 is shown as '통상 운영'; the guideline label appears only as the sourced reference.
+test('general policy stage 0 is labelled 통상 운영 and the source label stays in match detail',async({page})=>{
+ await page.route('**/api/**',r=>r.abort());await page.goto('/#snapshot-observed');
+ await page.getByRole('button',{name:'스냅샷 재현 실행 →',exact:true}).click();
+ const summary=page.locator('.summary');
+ await expect(summary).toContainText('통상 운영');await expect(summary).not.toContainText('거의 안전');
+ await page.locator('.match-row').first().click();
+ await expect(page.locator('.source-labels')).toContainText('원 지침 단계명(출처 표기): 0 거의 안전');
+});

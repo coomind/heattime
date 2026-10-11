@@ -20,6 +20,10 @@ SHADES = {'none': '없음', 'partial': '부분', 'full': '전체'}
 SOURCES = {'asos_obs': '기상청 ASOS 관측', 'kma_fcst': '단기예보 형식', 'aws_obs': '기상청 AWS 관측'}
 
 
+def display_label(label):
+    return '통상 운영' if label == '거의 안전' else label
+
+
 def kst(value):
     """'2026-08-10T09:00:00+09:00' -> '2026-08-10 09:00 KST'."""
     if not value:
@@ -122,6 +126,11 @@ def records_pdf(session):
     para(s['tournament']['name']); para(s['label']); para('세션: ' + s['id'])
     para(f"대회 일자 {s['tournament']['date_start']}~{s['tournament']['date_end']} / 연령 {s['tournament']['age_group']}")
     para('정책: ' + s['policy']['name']); para('출처: ' + s['policy']['source_ref']); para(s['policy']['verification'])
+    source_labels = s['policy'].get('labels')
+    if source_labels:
+        # W-1: stage 0 is shown as '통상 운영'; the guideline's own label stays visible with its source.
+        para('단계 표시: ' + ' · '.join(f"{i} {display_label(l)}" for i, l in enumerate(source_labels))
+             + ' / 원 지침 단계명(출처 표기): ' + ' · '.join(f"{i} {l}" for i, l in enumerate(source_labels)))
     para('연령 보정은 설계 가정 · 전문가 자문 필요. 최종 판단은 운영자.')
     para('WBGT 설정: ' + json.dumps(s['engine_settings'], ensure_ascii=False))
     para('경기 운영 설정: ' + json.dumps(s['schedule_settings'], ensure_ascii=False))

@@ -5,6 +5,8 @@ general:
   source_ref: https://www.wbgt.env.go.jp/en/sp/wbgt.php
   verification: 원문 대조 필요 · 2026-10-01 경계값 대조 완료
   boundaries: [21, 25, 28, 31]
+  # 원 지침 단계명(위 source_ref 출처 표기, 원문 대조 필요). 계산·지문에 쓰이므로 그대로 둔다.
+  # 화면·PDF 표시명: 0단계 "거의 안전" → "통상 운영" (2026-10-11 명세 2.5(D) 변경, 명세 작성자 승인).
   labels: [거의 안전, 주의, 경계, 엄중경계, 운동 중지]
 football:
   name: 축구 · FIFPRO 권고

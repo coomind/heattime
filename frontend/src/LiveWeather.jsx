@@ -1,7 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 const fmt=(value,digits=1)=>value===null||value===undefined?'결측':Number(value).toFixed(digits);
 const time=value=>value?new Date(value).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',hour12:false}):'자료 없음';
-const stages=['거의 안전','주의','경계','엄중경계','운동 중지'];
+const stages=['통상 운영','주의','경계','엄중경계','운동 중지'];
 export default function LiveWeather({api,tournamentId,engine,snapshotMode,onValidation}){
  const [mode,setMode]=useState('mock'),[station,setStation]=useState('119'),[data,setData]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState(''),[seconds,setSeconds]=useState(0);
  const pending=useRef(0);

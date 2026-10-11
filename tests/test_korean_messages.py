@@ -103,3 +103,22 @@ def test_pdf_has_no_raw_boolean_mock_flag():
     s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
     text = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages)
     assert '가상 예시 False' not in text and '가상 예시 True' not in text and '실제 관측 기상(가상 예시 아님)' in text
+
+
+def test_stage_zero_is_shown_as_routine_operation_with_source_label():
+    """W-1: stage 0 displays '통상 운영'; the guideline label '거의 안전' stays only as a sourced reference."""
+    import json
+    from io import BytesIO
+    from pathlib import Path
+    from pypdf import PdfReader
+    from backend.engine.policy import policies
+    from backend.exports import records_pdf
+    root = Path(__file__).resolve().parents[1]
+    assert policies()['general']['labels'][0] == '거의 안전'  # source label kept in the policy config
+    s = json.loads((root/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
+    first = PdfReader(BytesIO(records_pdf(s))).pages[0].extract_text().replace('\n', '')
+    assert '단계 표시: 0 통상 운영' in first and '원 지침 단계명(출처 표기): 0 거의 안전' in first
+    app = (root/'frontend/src/App.jsx').read_text(encoding='utf-8')
+    assert "const labels=['통상 운영'" in app and "'통상 운영':name" in app
+    assert "['통상 운영'" in (root/'frontend/src/LiveWeather.jsx').read_text(encoding='utf-8')
+    assert '0 통상 운영 (원 지침 표기: 거의 안전)' in (root/'docs/spec.md').read_text(encoding='utf-8')
