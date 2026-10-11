@@ -68,6 +68,9 @@ def test_csv_applied_schedule_and_traceability(approved):
         assert any(r['postponement_reason'] == p['reason'] for r in rows if r['match_id'] == p['match_id'])
     assert csv_safe('=1+1').startswith("'")
     assert csv_safe(' @attack').startswith("'")
+    # B-8: real negative numbers stay numeric; text that merely starts with '-' is still neutralized.
+    assert csv_safe(-1.5)=='-1.5' and csv_safe(-2)=='-2' and csv_safe(0.0)=='0.0'
+    assert csv_safe('-1+cmd').startswith("'") and csv_safe('-3').startswith("'")
 
 
 def test_decision_snapshot_survives_later_session_edit(approved):

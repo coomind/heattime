@@ -39,6 +39,9 @@ def match_context(s, m):
 
 
 def csv_safe(value):
+    """Neutralize spreadsheet formulas; plain numbers (including negatives) stay numeric."""
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return str(value)
     text = str(value) if value is not None else ''
     return "'" + text if text.lstrip().startswith(('=', '+', '-', '@')) else text
 
