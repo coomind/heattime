@@ -20,3 +20,6 @@ artifacts/
 
 frontend/test-results/
 frontend/playwright-report/
+
+# Local Claude Code preview launch config (machine-specific)
+.claude/launch.json
