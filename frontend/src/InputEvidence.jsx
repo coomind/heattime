@@ -15,7 +15,7 @@ export default function InputEvidence({data:e,onClose}){
    <tr><th>사용 일사</th><td>{e.solar_observed?'관측 일사 사용':'일사 결측/미제공 · 모델 추정 사용'} · {n(e.solar.used_wm2)}W/m² · {e.solar.source}</td></tr>
    {e.solar_energy_mj_m2!==null&&<tr><th>관측 일사 원값과 변환</th><td>{n(e.solar_energy_mj_m2)}MJ/m² × 1,000,000 / 3,600 → {n(w.solar_wm2)}W/m²<br/>위험 구간과 같은 1시간 {t(e.solar_interval_start)}~{t(e.solar_interval_end)} (구간 끝 정시 관측)</td></tr>}
    <tr><th>일사 모델 추정</th><td>{n(e.solar.estimated_wm2)}W/m² · 범위 {n(e.solar.low_wm2)}~{n(e.solar.high_wm2)}W/m² · 엔진 복사 입력 {n(e.engine_solar_wm2)}W/m²</td></tr>
-   <tr><th>구장 / 표면 보정</th><td>{n(e.field_offset_c)}℃ / {n(e.surface_offset_c)}℃</td></tr>
+   <tr><th>구장 / 표면 보정</th><td>{n(e.field_offset_c)}℃ / {n(e.surface_offset_c)}℃<br/><small className="surface-note">표면 유형(인조잔디·천연잔디·흙·실내)은 현재 WBGT 판정에 반영되지 않습니다. 표면 보정값은 0℃이며, 전문가 검토 전에는 새 보정값을 만들지 않습니다.</small></td></tr>
    <tr><th>계산 방법</th><td>{r.method_version}<br/>{r.inputs.fallback_reason?'폴백 사유: '+r.inputs.fallback_reason:'폴백 사유 없음'}</td></tr>
    {e.solar_missing_hours!==null&&<tr><th>재현 기간 일사 결측</th><td>{e.solar_missing_hours}시간 · 동일 관측소 기준, 구장 수 중복 집계 없음</td></tr>}
   </tbody></table></div>

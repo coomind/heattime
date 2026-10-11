@@ -6,6 +6,8 @@ test('observed source panel exposes conversions and assumptions entirely offline
  await context.setOffline(true);await page.reload();
  await page.getByRole('button',{name:'스냅샷 재현 실행 →',exact:true}).click();
  await page.getByRole('button',{name:/.*수원.* 12시 입력 근거/}).first().click();
+ // M1: the evidence screen states that surface type is not part of the current judgment.
+ await expect(page.locator('.surface-note').first()).toContainText('현재 WBGT 판정에 반영되지 않습니다');
  const panel=page.locator('.input-evidence');
  await expect(panel).toContainText('관측 기상 입력 · 현장 WBGT 실측 아님');
  // 2026-08-10 12:00 (venue A): observed 2.71 MJ/m² over [12:00,13:00) = 752.778 W/m².
