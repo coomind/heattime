@@ -2,7 +2,8 @@ import {test,expect} from '@playwright/test';
 import {randomUUID} from 'node:crypto';
 test('mock work evidence cannot manufacture actual outcomes and retains unfavourable feedback',async({page})=>{
  await page.goto('/');await page.getByRole('button',{name:/검증 기록$/}).click();
- await expect(page.getByRole('heading',{name:'수상 근거를 위한 검증 기록'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'운영자 업무 비교와 현장 대조 기록'})).toBeVisible();
+ await expect(page.locator('main')).not.toContainText('수상');
  const panel=page.getByRole('region',{name:'운영자 업무 비교 기록'});
  const code='sample_'+randomUUID().slice(0,8);
  await panel.getByLabel('원자료 코드').fill(code);

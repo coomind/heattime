@@ -197,7 +197,7 @@ def evidence_summary(repo):
             'exclusions': exclusions,
             'work_cases': {case: work_stats([r for r in work if r['case_code'] == case], excluded) for case in sorted({r['case_code'] for r in work})},
             'field_sites': {site: field_stats([r for r in field if r['venue_id'] == site], excluded) for site in sorted({r['venue_id'] for r in field})},
-            'limitations': ['입력자의 수행 기록입니다. 제3자 확인이나 수상 가능성의 입증은 아닙니다.',
+            'limitations': ['입력자의 수행 기록입니다. 제3자 확인이나 효과의 입증은 아닙니다.',
                             '준비·변경·기록을 모두 포함합니다. 음수 절감 시간도 그대로 표시합니다.',
                             '사례별·구장별 결과를 확인하세요. 반복 기록 수와 참여자 수는 다릅니다.',
                             '범위 포함 비율은 표본 내 관찰이며 검증된 신뢰구간·안전성 지표가 아닙니다.',
