@@ -64,6 +64,9 @@ test('observed snapshot completes with zero API requests after fully offline rel
  await expect(page.getByRole('button',{name:'스냅샷 재현 실행 →'})).toBeEnabled();
  await flow(page,testInfo,true);
  await page.goto('/#snapshot-observed-team');await expect(page.getByRole('heading',{name:'참가팀 읽기 전용 일정'})).toBeVisible();
+ // E-7: names instead of internal ids.
+ await expect(page.locator('main')).toContainText('수원 가상 구장 A · 가상 예시');await expect(page.locator('main')).toContainText('유소년 팀 1 · 가상 예시 vs');
+ await expect(page.locator('main')).not.toContainText('mock-suwon-a');
  await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-08-10)');
  await expect(page.getByRole('button',{name:'제안 승인',exact:true})).toHaveCount(0);
  expect(apiRequests).toBe(0);expect(errors).toEqual([]);await context.setOffline(false);
