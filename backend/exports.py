@@ -144,7 +144,7 @@ def records_pdf(session):
             para(f"분석용 보정0℃·중앙값 WBGT 추정: {comparison['counterfactual_c']:.3f}℃ (범위 {comparison['counterfactual_c']-width:.3f}~{comparison['counterfactual_c']+width:.3f}℃) / 단계 {comparison['counterfactual_level']}. 설정/승인 변경 없음.")
             para(f"입력 기온 {w['ta_c']}℃ / 습도 {w['rh_pct']}% / 풍속 {w['ws_ms']}m/s / 보정 풍속 {inputs['wind_2m_ms']:.3f}m/s")
             para(f"사용 일사 {solar['used_wm2']:.1f}W/m² ({solar['source']}) / 일사량 추정 {solar['estimated_wm2']:.1f}W/m² (범위 {solar['low_wm2']:.1f}~{solar['high_wm2']:.1f}W/m²)")
-            para(f"자료 {w['source']} / 가상 예시 {w['is_mock']} / 수집 시각 {w['fetched_at']}")
+            para(f"자료 {w['source']} / {'합성 기상(가상 예시)' if w['is_mock'] else '실제 관측 기상(가상 예시 아님)'} / 수집 시각 {w['fetched_at']}")
             if not w['is_mock'] and w.get('provenance'):
                 provenance=w['provenance']
                 para(f"기상청 관측 자료({provenance['station_name']} {w['station_id']}·{r['valid_time'][:10]})")

@@ -91,3 +91,15 @@ def test_synthetic_pdf_states_virtual_tournament(tmp_path):
     s = Service(Repository(tmp_path/'s.sqlite3')).replay(date(2026, 8, 1))
     first = PdfReader(BytesIO(records_pdf(s))).pages[0].extract_text().replace('\n', '')
     assert '대회·팀·구장도 가상 예시입니다' in first
+
+
+def test_pdf_has_no_raw_boolean_mock_flag():
+    """E-5: the weather origin is worded, never '가상 예시 True/False'."""
+    import json
+    from io import BytesIO
+    from pathlib import Path
+    from pypdf import PdfReader
+    from backend.exports import records_pdf
+    s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
+    text = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages)
+    assert '가상 예시 False' not in text and '가상 예시 True' not in text and '실제 관측 기상(가상 예시 아님)' in text
