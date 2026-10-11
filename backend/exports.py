@@ -49,9 +49,9 @@ def csv_safe(value):
 def records_csv(session):
     s = record_context(session)
     output = StringIO(newline=''); writer = csv.writer(output)
-    writer.writerow(['가상 예시', 'match_id', '근거 구간', 'venue_id', 'valid_time', 'WBGT 추정', 'low', 'high',
-                     'level', 'decision_wbgt_c', 'ta_c', 'rh_pct', 'ws_ms', 'solar_used_wm2', 'solar_source',
-                     'solar_estimated_wm2', 'solar_low', 'solar_high', 'source', 'is_mock', 'fetched_at',
+    writer.writerow(['가상 예시', 'match_id', '근거 구간', 'venue_id', 'valid_time', 'WBGT 추정', 'WBGT 추정 하한', 'WBGT 추정 상한',
+                     'level', '판정값(추정)', 'ta_c', 'rh_pct', 'ws_ms', 'solar_used_wm2', 'solar_source',
+                     '일사 추정_wm2', '일사 추정 하한', '일사 추정 상한', 'source', 'is_mock', 'fetched_at',
                      'method_version', 'inputs_hash', 'policy', 'policy_source', 'recommendation',
                      'operator_action', 'operator', 'decision_time', 'reason', 'applied_start', 'applied_venue',
                      'applied_action', 'cooling_times', 'postponement_reason', 'inputs_json', 'disclaimer'])

@@ -60,7 +60,8 @@ def test_csv_applied_schedule_and_traceability(approved):
     assignments = {a['match_id']: a for a in approved['decision']['assignments']}
     for r in rows:
         assert r['inputs_hash'] and r['fetched_at'] and r['policy_source']
-        assert float(r['low']) <= float(r['WBGT 추정']) <= float(r['high'])
+        # E-3: range columns say what they bound.
+        assert float(r['WBGT 추정 하한']) <= float(r['WBGT 추정']) <= float(r['WBGT 추정 상한'])
         assert r['reason'] == approved['decision']['reason']
         if r['match_id'] in assignments:
             assert r['applied_start'] == assignments[r['match_id']]['start']
