@@ -1,3 +1,6 @@
 # 작성자가 정한 관측 시연일. 재현 화면의 기본 날짜와 관측 시연 스냅샷이 이 날짜를 쓴다.
-# 선정 규칙의 후보 순위는 docs/real-data/replay-results.json candidates에 따로 기록된다.
-demo_date: 2026-07-10
+# 선정: 일 최고기온 31℃ 이상인 날 중 기존 규칙(연기 최소 → 원래 중지 경기 배정 최대 → 공통 열 노출 감소 최대 → 날짜순)
+# 1순위, 5회 반복 실행에서 매번 제한 시간 절반 안에 최적 증명·동일 일정 확인(docs/real-data/demo-day-check.json).
+# 보조 장면(극한일): 2026-08-08. 후보 순위는 docs/real-data/replay-results.json hot_candidates.
+demo_date: 2026-08-10
+extreme_date: 2026-08-08

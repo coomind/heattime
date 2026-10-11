@@ -7,7 +7,7 @@ const exportsBundle=JSON.parse(readFileSync(new URL('../src/demo/observed-snapsh
 async function flow(page,testInfo,snapshot){
  await page.getByRole('button',{name:snapshot?'스냅샷 재현 실행 →':'재현 시뮬레이션 실행 →',exact:true}).click();
  await expect(page.locator('.heat-row')).toHaveCount(3);await expect(page.locator('.heat-cell')).toHaveCount(42);
- await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-07-10)');
+ await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-08-10)');
  await expect(page.locator('.disclaimer')).not.toContainText('합성 기상으로 시연');
  await page.screenshot({path:path.resolve('../data/output/real/'+testInfo.project.name+'-'+(snapshot?'snapshot':'live')+'.png'),fullPage:true});
  await page.locator('.match-row').first().click();await expect(page.locator('.chart')).toBeVisible();
@@ -17,9 +17,11 @@ async function flow(page,testInfo,snapshot){
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
  await expect(page.getByRole('heading',{name:'공통 경기의 열 노출 비교'})).toBeVisible();
- await expect(page.locator('.comparison-metrics')).toContainText('공통 15경기');
- await expect(page.locator('.comparison-metrics')).toContainText('0경기 연기');
- if(snapshot){await expect(page.locator('.comparison-metrics')).toContainText('6,051');await expect(page.locator('.comparison-metrics')).toContainText('4,469');}
+ // Demo date 2026-08-10: 13 common matches, 2 postponed (semi2, final), 6442->3879.
+ await expect(page.locator('.comparison-metrics')).toContainText('공통 13경기');
+ await expect(page.locator('.comparison-metrics')).toContainText('2경기 연기');
+ if(snapshot){await expect(page.locator('.comparison-metrics')).toContainText('6,442');await expect(page.locator('.comparison-metrics')).toContainText('3,879');
+  await expect(page.locator('.postponed')).toHaveCount(2);await expect(page.locator('.postponed').filter({hasText:'semi2'})).toContainText('배정 불가');}
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();
  await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();
@@ -36,7 +38,7 @@ async function flow(page,testInfo,snapshot){
   await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();
   const href=await page.getByRole('link',{name:'참가팀 읽기 전용 일정 열기 ↗'}).getAttribute('href');
   await page.goto(href);await expect(page.getByRole('heading',{name:'참가팀 읽기 전용 일정'})).toBeVisible();
-  await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-07-10)');
+  await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-08-10)');
   await expect(page.locator('.disclaimer')).not.toContainText('합성 기상으로 시연');
   await expect(page.getByRole('button',{name:'제안 승인',exact:true})).toHaveCount(0);
  }
@@ -48,7 +50,7 @@ test('real observations complete replay, detail, approval, mock notification and
  await page.goto('/');
  await expect(page.locator('option[value="observed"]')).toBeEnabled();
  await page.getByRole('combobox',{name:'기상 자료',exact:true}).selectOption('observed');
- await expect(page.locator('input[type="date"]').first()).toHaveValue('2026-07-10');
+ await expect(page.locator('input[type="date"]').first()).toHaveValue('2026-08-10');
  await flow(page,testInfo,false);expect(errors).toEqual([]);
 });
 
@@ -62,7 +64,7 @@ test('observed snapshot completes with zero API requests after fully offline rel
  await expect(page.getByRole('button',{name:'스냅샷 재현 실행 →'})).toBeEnabled();
  await flow(page,testInfo,true);
  await page.goto('/#snapshot-observed-team');await expect(page.getByRole('heading',{name:'참가팀 읽기 전용 일정'})).toBeVisible();
- await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-07-10)');
+ await expect(page.locator('.disclaimer')).toContainText('기상청 관측 자료(수원 119·2026-08-10)');
  await expect(page.getByRole('button',{name:'제안 승인',exact:true})).toHaveCount(0);
  expect(apiRequests).toBe(0);expect(errors).toEqual([]);await context.setOffline(false);
 });

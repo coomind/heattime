@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-10-11T20:30:39.711562+09:00",
+  "generated_at": "2026-10-11T21:41:58.927267+09:00",
   "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
   "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
   "source_sha256": {
-    "docs/real-data/replay-results.json": "913c34560cdb00879c2fbea053ea6bfe7edb37917c061044e33a9e51728629bd",
+    "docs/real-data/replay-results.json": "f5988f81287fd4058f4f08c4f5f59c5517c908bdcda5c0e4bf2317f21a352cc6",
     "docs/competition-evidence/method-comparison.json": "1ccc064b3cac5573020f21abfb41c3f1cea92a4753f013c09ece37dd2836999a",
     "docs/competition-evidence/frozen-solutions.json": "7f1261fbcd3917f50078d579ea19356e6d6362468d24a269f0986c4afddade52",
     "docs/kma/live-connection-verification.json": "4503a9a6e8b2445b3eac013125f29b81a1fca2b9a91f55e9f1cde666aea0f873",
-    "frontend/src/demo/observed-snapshot.json": "aa825b31afac3877ee42289c458b28648ea3977b87f18b8f3ce761bc4ea412c7",
+    "frontend/src/demo/observed-snapshot.json": "2d21138b2cf16bc5c363f5bdca0dcd7a68b5d9bbce922000e0e5f4ec8018e29f",
     "frontend/src/demo/snapshot.json": "f8ac28e23ae66ad11dd34eaa6b83301747b7fb2c6cea5594bcaae70c576b651f",
     "docs/competition-evidence/no-field-analysis.json": "dfc8ca67cce255e987d12233c4fab750749429e4c254b5e33ef18241cbef70de",
     "frontend/src/demo/no-field-analysis.json": "f747146eef4f7b4817f33712299ca4e556aa3f04b4e09fb53dd70aa733d8bc3a",
     "frontend/src/demo/snapshot-plan-review.json": "a7c05a366f9f24082926e759227c07900c88d755e3b5968aeb848cf8bb23dfd2",
-    "frontend/src/demo/observed-snapshot-plan-review.json": "de242b6f89da597bcb8b8e545dcd81876be4962cae1307ea8c403db16dbfbe51",
+    "frontend/src/demo/observed-snapshot-plan-review.json": "291b46c5be753be85330726c1bcd5978896ecfe9b853b2cf52456370ec5974fd",
     "docs/competition-evidence/review-fix-results.json": "913e934d3338410648ae5fccb5fe75aef6cddffff721616f6fa46fa158cdb65d",
     "frontend/src/demo/review-fix-summary.json": "f1f3c65cd0e9a954ae4bbd2ae74c3927c2f3bb10578de05dc9db877cdeef55d3",
     "docs/competition-evidence/tournament-scale-analysis.json": "cade5f22e988cffa828a7a3c00af0962f42a802c91f9b6dd99cdb2227d73f47d",
     "backend/validation.py": "952c432fc020bc673e2ffaae48755d6c7d7be974c1e20b0cae5569ebc66bbb54",
     "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
-    "data/output/award-validation-pytest.xml": "794ef1172e4c57d6f20963fedb6148506c390d030ee917ea94ea0a76bad73b11",
-    "data/output/award-validation-node.xml": "49e7624e57f53d88c1a8b014e1c5a2feb52618a2e1f0507a1875a177b467335b",
-    "data/output/award-validation-playwright.json": "2d2d73659f90244d9c74a26be818164fe0602b1619bbfd7c736fcf45912c7f07"
+    "data/output/award-validation-pytest.xml": "f154e1dfcb061c72462d1117fa70246a96281e962beb864eb927e380f0b3358e",
+    "data/output/award-validation-node.xml": "28dae6b03e93875f97049b3c1439112f7f28944a1be899f634a389c417781a19",
+    "data/output/award-validation-playwright.json": "591e67bdecaedbe0afd4ff4bb12decd2cbc0181908c9a32d0e674defd57ccc27"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "tested_source_fingerprint": "a759ca44bd61c0196654c5c509064207c23a1b708192a4be1b6637a46c1c3e9c",
-  "test_run_started_at": "2026-10-11T20:21:35.298111+09:00",
+  "tested_source_fingerprint": "f85e4dea9bfcf248f2820d23431f92b93162b224779860a67d69877961de0b2b",
+  "test_run_started_at": "2026-10-11T21:29:38.472474+09:00",
   "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
   "observation_hours": 1488,
   "checks": {
@@ -54,47 +54,60 @@
       "passed": 932,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 353.619
+      "duration_seconds": 513.248
     },
     "node": {
       "passed": 29,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 0.196
+      "duration_seconds": 0.288
     },
     "browser": {
       "passed": 144,
       "failed": 0,
       "skipped": 0,
       "flaky": 0,
-      "duration_seconds": 179.349
+      "duration_seconds": 207.485
     }
   },
   "demo": {
-    "date": "2026-07-10",
-    "session_id": "b2a20044c459480a83e3cf6b09dbce0f",
-    "assigned": 15,
-    "postponed": 0,
-    "common_count": 15,
-    "original_heat": 6051,
-    "proposed_heat": 4469,
-    "heat_reduction": 1582,
-    "salvaged": 9,
-    "original_stop_count": 9,
-    "max_ta_c": 28.4,
-    "max_wbgt_c": 30.848,
-    "max_decision_wbgt_c": 32.3,
+    "date": "2026-08-10",
+    "session_id": "caf4bffe14404d2c9e6166c2ef888d91",
+    "assigned": 13,
+    "postponed": 2,
+    "common_count": 13,
+    "original_heat": 6442,
+    "proposed_heat": 3879,
+    "heat_reduction": 2563,
+    "salvaged": 13,
+    "original_stop_count": 14,
+    "max_ta_c": 31.6,
+    "max_wbgt_c": 31.274,
+    "max_decision_wbgt_c": 32.8,
     "solver": "CP-SAT OPTIMAL",
     "coverage_optimal": true,
-    "elapsed_sec": 2.1027803999604657,
+    "elapsed_sec": 1.1791661999886855,
     "constraints_ok": true,
-    "postponement_reasons": [],
+    "postponement_reasons": [
+      {
+        "match_id": "final",
+        "reason": "선행 경기 연기",
+        "coverage_proven": true
+      },
+      {
+        "match_id": "semi2",
+        "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가",
+        "coverage_proven": true
+      }
+    ],
     "missing_solar_hours": 9
   },
   "candidate_dates": [
-    "2026-07-03",
-    "2026-08-20",
-    "2026-07-10"
+    "2026-08-10",
+    "2026-08-14",
+    "2026-07-14",
+    "2026-08-09",
+    "2026-08-11"
   ],
   "recalculation": "2026-10-11 재계산: 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정 후 전 수치 재생성",
   "method_comparison": {

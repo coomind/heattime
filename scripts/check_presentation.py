@@ -14,7 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 PRESENTATION = ROOT / "docs/presentation"
 APPROVED = "수원 관측 자료로 재현한 가상 12팀 대회에서는 62일 중 47일에, 일정을 재배치해도 15경기 전부를 같은 날 배정할 수 없었습니다."
 # 2026-10-11 recalculation (solar interval alignment, 0.1C decision rounding, deterministic tie-break).
-SNAPSHOT_DATE = "2026-07-10"
+# Author decision 2026-10-11: demo date = first hot candidate (daily max air temp >= 31C, then the existing
+# rule), repeated 5 times (docs/real-data/demo-day-check.json); extreme supporting scene = 2026-08-08.
+SNAPSHOT_DATE = "2026-08-10"
+EXTREME_DATE = "2026-08-08"
+HOT_CANDIDATE_DATES = ["2026-08-10", "2026-08-14", "2026-07-14", "2026-08-09", "2026-08-11"]
+# Exact 8/10 values from replay-results.json hot_candidates[0] / observed-snapshot.json:
+# assigned, postponed, common, original heat, proposed heat, originally-stopped-now-assigned, original stop count.
+SNAPSHOT_VALUES = (13, 2, 13, 6442, 3879, 13, 14)
+SNAPSHOT_MAX_WBGT = 31.274
+EXTREME_VALUES = (7, 8, 7, 4663, 2087, 35.4, 34.828)
 ZERO_DATES = ["2026-07-11", "2026-07-12", "2026-07-13", "2026-07-31", "2026-08-01",
               "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07"]
 ZERO_TEXT = "0경기배정일은10일(7월11·12·13·31일,8월1·3·4·5·6·7일)"
@@ -25,6 +34,16 @@ CHARS_PER_SECOND = 6
 
 def load_json(path: str):
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
+
+
+def demo_config() -> dict:
+    """Read backend/config/demo.yaml without the YAML dependency (two scalar keys)."""
+    values = {}
+    for line in (ROOT / "backend/config/demo.yaml").read_text(encoding="utf-8").splitlines():
+        if ":" in line and not line.lstrip().startswith("#"):
+            key, value = line.split(":", 1)
+            values[key.strip()] = value.strip()
+    return values
 
 
 def compact(text: str) -> str:
@@ -65,24 +84,39 @@ def run(write_timing: bool) -> dict:
         checks.append({"name": name, "passed": bool(passed)})
 
     # Preserve the checks recorded in p6-report.md and real-data/a6-presentation.md.
+    # The 7/10 snapshot values (6051→4469, 30.848, 28.4C, 75~90%) are retired with the 8/10 demo date.
     stale = ("6080", "2856", "14배정/1연기", "실제 응답 확보 후",
-             "6114", "4319", "32.043", "38.062", "29.36%", "62일중46일", "중지10경기")
+             "6114", "4319", "32.043", "38.062", "29.36%", "62일중46일", "중지10경기",
+             "6051", "4469", "30.848", "29.348~32.348", "26.14%", "중지9경기", "28.4℃", "75~90%", "2026-07-10", "7월10일")
     check("기존 합성 수치·시연 날짜 혼입 없음", all(not any(token in compact(body) for token in stale)
                                                for body in docs.values()))
-    candidate = next(row for row in evidence["candidates"] if row["date"] == SNAPSHOT_DATE)
+    config = demo_config()
+    hot = evidence["hot_candidates"]
+    candidate = next(row for row in hot if row["date"] == SNAPSHOT_DATE)
     day = next(row for row in evidence["days"] if row["date"] == SNAPSHOT_DATE)
-    check("기존 관측 시연 수치 대조", [row["date"] for row in evidence["candidates"][:3]]
-          == ["2026-07-03", "2026-08-20", "2026-07-10"]
+    extreme = next(row for row in evidence["days"] if row["date"] == EXTREME_DATE)
+    repeat = {row["date"]: row for row in load_json("docs/real-data/demo-day-check.json")["checks"]}
+    check("기존 관측 시연 수치 대조", [row["date"] for row in hot] == HOT_CANDIDATE_DATES
+          and hot[0]["date"] == SNAPSHOT_DATE == config.get("demo_date") and config.get("extreme_date") == EXTREME_DATE
+          and evidence["hot_selection_rule"].startswith("daily max air temperature >= 31C")
           and all(candidate[key] == day[key] for key in ("assigned", "postponed", "common_count", "original_heat",
                                                           "proposed_heat", "salvaged", "max_wbgt_c", "solver"))
-          and (candidate["assigned"], candidate["postponed"], candidate["common_count"],
-               candidate["original_heat"], candidate["proposed_heat"], candidate["salvaged"])
-          == (15, 0, 15, 6051, 4469, 9)
-          and candidate["max_wbgt_c"] == 30.848 and candidate["solver"] == "CP-SAT OPTIMAL"
+          and (candidate["assigned"], candidate["postponed"], candidate["common_count"], candidate["original_heat"],
+               candidate["proposed_heat"], candidate["salvaged"], candidate["original_stop_count"]) == SNAPSHOT_VALUES
+          and candidate["max_wbgt_c"] == SNAPSHOT_MAX_WBGT and candidate["max_ta_c"] == 31.6
+          and candidate["solver"] == "CP-SAT OPTIMAL"
+          and [row["match_id"] for row in candidate["postponement_reasons"]] == ["final", "semi2"]
+          and (extreme["assigned"], extreme["postponed"], extreme["common_count"], extreme["original_heat"],
+               extreme["proposed_heat"], extreme["max_ta_c"], extreme["max_wbgt_c"]) == EXTREME_VALUES
+          and all(repeat[d]["passed"] and len(repeat[d]["runs"]) == 5
+                  and all(r["cp_sat_status"] == "OPTIMAL" and r["solver_wall_sec"] <= repeat[d]["time_limit_sec"] / 2
+                          for r in repeat[d]["runs"])
+                  and len({r["schedule_sha256"] for r in repeat[d]["runs"]}) == 1 for d in (SNAPSHOT_DATE, EXTREME_DATE))
           and all(token in compact(slides + demo) for token in
-                  ("6051", "4469", "30.848", "29.348~32.348", "15경기", "0경기", "중지9경기",
-                   "7월3일", "8월20일", "7월10일"))
-          and all(token not in compact(slides.split("## 부록 ·")[0]) for token in ("26.14%", "29.36%", "38.229")))
+                  ("6442", "3879", "31.274", "29.774~32.774", "13경기", "2경기", "중지단계14경기중13경기",
+                   "31.6℃", "44~67%", "8월10일", "8월14일", "7월14일", "8월9일", "8월11일",
+                   "8월8일", "35.4℃", "7경기배정", "8경기연기", "최고기온33℃이상인날은모두8경기이상연기"))
+          and all(token not in compact(slides.split("## 부록 ·")[0]) for token in ("39.79%", "26.14%", "29.36%", "38.229")))
     check("기존 관측 일사 수치 대조", solar["count"] == 927 and solar["missing_count"] == 561
           and round(solar["mae_wm2"], 2) == 62.67 and round(solar["bias_wm2"], 2) == 6.74
           and round(solar["max_absolute_error_wm2"], 2) == 460.07
@@ -138,7 +172,7 @@ def run(write_timing: bool) -> dict:
     sections = {match.group(1): match.group(2) for match in re.finditer(
         r"(?ms)^## (\d+[AB]?) ·[^\n]*\n(.*?)(?=^## |\Z)", slides)}
     check("시연·62일·민감도 화면 수치 분리", all(token not in sections["7B"] for token in
-          ("6051", "4469", "30.848", "38.229", "47→26", "47→14"))
+          ("6442", "3879", "31.274", "38.229", "47→26", "47→14"))
           and all(token not in "".join(sections[str(i)] for i in range(3, 7))
                   for token in ("38.229", "47→26", "47→14"))
           and "별도 질의응답 부록 화면" in qa and "서로 다른 화면" in capture)
@@ -179,7 +213,7 @@ def run(write_timing: bool) -> dict:
               "slide_characters": speech, "new_qa_characters": answers}
     if write_timing and result["passed"]:
         lines = ["# 발표 시간 글자 수 점검", "",
-                 "2026-10-11 · scripts/check_presentation.py로 원고를 재검산했다(최초 작성 2026-10-05; 2026-10-11 재계산 수치 반영).", "",
+                 "2026-10-11 · scripts/check_presentation.py로 원고를 재검산했다(최초 작성 2026-10-05; 2026-10-11 재계산 수치와 시연일 8월10일 확정 반영).", "",
                  "발표자 대본만 세고 화면 문구·메모·표·출처 설명은 제외한다. 공백/문장부호를 포함하며 연속 공백·줄바꿈은 공백 한 칸으로 정규화한다.",
                  "초당6자(분당360자)는 계산용 리허설 가정이다. 실제 발화 속도나 7분 완주를 측정한 값이 아니다. 숫자·영문 읽기와 클릭 시간은 실제 리허설로 확인한다.", "",
                  "| 구간 | 예정 시간 | 대본 글자 수 | 가정상 읽기 시간 | 예정 시간 내 여부 |", "|---|---:|---:|---:|---|"]

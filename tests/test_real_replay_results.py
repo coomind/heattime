@@ -7,7 +7,8 @@ from backend.schedule.models import ScheduleSettings
 from backend.service import Service
 from backend.schedule.optimizer import Candidate,heat_score,validate
 from backend.schedule.recommend import recommend
-from scripts.replay_asos_dates import candidate_order
+from scripts.replay_asos_dates import candidate_order,hot_candidates,HOT_MIN_TA_C
+from backend.demo_config import demo_date
 
 RESULTS=json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'))
 
@@ -44,3 +45,12 @@ def test_all_dates_and_candidate_selection_are_complete():
     assert RESULTS['candidates']==sorted(RESULTS['days'],key=candidate_order)[:3]
     assert [r['date'] for r in RESULTS['candidates']]==['2026-07-03','2026-08-20','2026-07-10']
     assert all(r['assigned']==15 and r['postponed']==0 and r['salvaged']>=9 for r in RESULTS['candidates'])
+    # Author decision 2026-10-11: demo date = hot_candidates[0] (daily max air temp >= 31C, same rule order).
+    assert HOT_MIN_TA_C==31.0 and RESULTS['hot_candidates']==hot_candidates(RESULTS['days'])
+    assert [r['date'] for r in RESULTS['hot_candidates']]==['2026-08-10','2026-08-14','2026-07-14','2026-08-09','2026-08-11']
+    assert all(r['max_ta_c']>=31.0 for r in RESULTS['hot_candidates'])
+    assert RESULTS['hot_candidates'][0]['date']==demo_date()
+    assert [(r['assigned'],r['postponed']) for r in RESULTS['hot_candidates']]==[(13,2),(13,2),(12,3),(12,3),(12,3)]
+    # No day with max air temp >= 33C postpones fewer than 8 matches, so no such day met the demo criterion.
+    assert all(r['postponed']>=8 for r in RESULTS['days'] if r['max_ta_c']>=33.0)
+    assert min((r['postponed'],r['date']) for r in RESULTS['days'] if r['max_ta_c']>=33.0)==(8,'2026-08-08')

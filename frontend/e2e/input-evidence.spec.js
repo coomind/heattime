@@ -8,7 +8,8 @@ test('observed source panel exposes conversions and assumptions entirely offline
  await page.getByRole('button',{name:/.*수원.* 12시 입력 근거/}).first().click();
  const panel=page.locator('.input-evidence');
  await expect(panel).toContainText('관측 기상 입력 · 현장 WBGT 실측 아님');
- await expect(panel).toContainText('0.700MJ/m²');await expect(panel).toContainText('194.444W/m²');
+ // 2026-08-10 12:00 (venue A): observed 2.71 MJ/m² over [12:00,13:00) = 752.778 W/m².
+ await expect(panel).toContainText('2.710MJ/m²');await expect(panel).toContainText('752.778W/m²');
  await expect(panel).toContainText('9시간 · 동일 관측소 기준');
  await expect(panel).toContainText('현장 검증된 신뢰구간이 아닙니다');
  await expect(panel).toContainText('이 재현 시점에 보존된 해당 구장 입력 이력 없음');

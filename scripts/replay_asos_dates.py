@@ -16,6 +16,22 @@ def candidate_order(row):
     return (row['postponed'], -row['salvaged'], -row['heat_reduction'], row['date'])
 
 
+HOT_MIN_TA_C=31.0  # Author decision 2026-10-11: same rule, only days with daily max air temp >= 31C.
+
+
+def hot_candidates(rows):
+    return sorted((r for r in rows if r['max_ta_c']>=HOT_MIN_TA_C),key=candidate_order)[:5]
+
+
+def rank_only():
+    """Recompute candidate lists from the saved replay rows; no re-solve."""
+    path=ROOT/'docs/real-data/replay-results.json';result=json.loads(path.read_text(encoding='utf-8'))
+    result['hot_candidates']=hot_candidates(result['days'])
+    result['hot_selection_rule']=f"daily max air temperature >= {HOT_MIN_TA_C:g}C, then {result['selection_rule']}"
+    path.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+    return result
+
+
 def analyze(output):
     output=Path(output);output.mkdir(parents=True,exist_ok=True)
     data=load_dataset();db=output/f'analysis-{uuid4().hex}.sqlite3'
@@ -44,7 +60,9 @@ def analyze(output):
         print(json.dumps({k:row[k] for k in ('date','assigned','postponed','salvaged','solver','elapsed_sec')}),flush=True)
     candidates=sorted(rows,key=candidate_order)[:3]
     result={'station':data.station,'original_sample_sha256':data.original_sha256,'days':rows,'candidates':candidates,
+            'hot_candidates':hot_candidates(rows),
             'selection_rule':'postponed ascending, salvaged descending, common heat reduction descending, date ascending',
+            'hot_selection_rule':f"daily max air temperature >= {HOT_MIN_TA_C:g}C, then the same order",
             'note':'Salvaged = originally level4 but assigned after rescheduling; maximum WBGT across 24h and all virtual venues',
             'db':str(db)}
     public_result={k:v for k,v in result.items() if k!='db'}
@@ -55,5 +73,9 @@ def analyze(output):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',default=str(ROOT/'data/output/real'))
-    args=parser.parse_args();result=analyze(args.output)
+    parser.add_argument('--rank-only',action='store_true',help='recompute candidate lists from saved rows')
+    args=parser.parse_args()
+    if args.rank_only:
+        result=rank_only();print(json.dumps({'hot_candidates':[c['date'] for c in result['hot_candidates']]}));raise SystemExit(0)
+    result=analyze(args.output)
     print(json.dumps({'candidates':result['candidates']},ensure_ascii=False),flush=True)

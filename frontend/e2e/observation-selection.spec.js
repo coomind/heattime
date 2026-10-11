@@ -7,7 +7,7 @@ test('initial observed selection waits for metadata and preserves a later manual
   await page.goto('/');await expect(page.locator('option[value="observed"]')).toBeEnabled();
   await page.getByRole('combobox',{name:'기상 자료',exact:true}).selectOption('observed');
   const date=page.locator('input[type="date"]').first();
-  await expect(date).toHaveValue('2026-07-10');
+  await expect(date).toHaveValue('2026-08-10');
   await date.fill('2026-07-12');await expect(date).toHaveValue('2026-07-12');
   await page.locator('nav').getByRole('button',{name:'설정'}).click();
   await page.locator('nav').getByRole('button',{name:'재현 모드'}).click();

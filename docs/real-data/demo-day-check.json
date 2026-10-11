@@ -1,0 +1,162 @@
+{
+  "checks": [
+    {
+      "date": "2026-08-10",
+      "role": "main",
+      "runs": [
+        {
+          "run": 1,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.527,
+          "elapsed_sec": 0.875,
+          "assigned": 13,
+          "postponed": 2,
+          "original_heat": 6442,
+          "proposed_heat": 3879,
+          "schedule_sha256": "028e5d54ecec231d43c3890b78ac0b9cdccfe48d8164bdb0f2f0a0a7d34a9937"
+        },
+        {
+          "run": 2,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.7,
+          "elapsed_sec": 1.145,
+          "assigned": 13,
+          "postponed": 2,
+          "original_heat": 6442,
+          "proposed_heat": 3879,
+          "schedule_sha256": "028e5d54ecec231d43c3890b78ac0b9cdccfe48d8164bdb0f2f0a0a7d34a9937"
+        },
+        {
+          "run": 3,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.601,
+          "elapsed_sec": 1.061,
+          "assigned": 13,
+          "postponed": 2,
+          "original_heat": 6442,
+          "proposed_heat": 3879,
+          "schedule_sha256": "028e5d54ecec231d43c3890b78ac0b9cdccfe48d8164bdb0f2f0a0a7d34a9937"
+        },
+        {
+          "run": 4,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.632,
+          "elapsed_sec": 1.102,
+          "assigned": 13,
+          "postponed": 2,
+          "original_heat": 6442,
+          "proposed_heat": 3879,
+          "schedule_sha256": "028e5d54ecec231d43c3890b78ac0b9cdccfe48d8164bdb0f2f0a0a7d34a9937"
+        },
+        {
+          "run": 5,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.656,
+          "elapsed_sec": 1.147,
+          "assigned": 13,
+          "postponed": 2,
+          "original_heat": 6442,
+          "proposed_heat": 3879,
+          "schedule_sha256": "028e5d54ecec231d43c3890b78ac0b9cdccfe48d8164bdb0f2f0a0a7d34a9937"
+        }
+      ],
+      "passed": true,
+      "time_limit_sec": 10.0,
+      "criterion": "every run CP-SAT OPTIMAL with solver wall time <= half the limit, identical schedules",
+      "max_ta_c": 31.6,
+      "original_levels": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 14
+      },
+      "max_solver_wall_sec": 0.7,
+      "environment_note": "Wall times are from this machine; other CPUs or loads can change OPTIMAL/FEASIBLE."
+    },
+    {
+      "date": "2026-08-08",
+      "role": "extreme",
+      "runs": [
+        {
+          "run": 1,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.329,
+          "elapsed_sec": 0.491,
+          "assigned": 7,
+          "postponed": 8,
+          "original_heat": 4663,
+          "proposed_heat": 2087,
+          "schedule_sha256": "d320c388c15e630b592e0cf6ce9836ed120435795ef7b463c0dc8397d1ae0105"
+        },
+        {
+          "run": 2,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.319,
+          "elapsed_sec": 0.542,
+          "assigned": 7,
+          "postponed": 8,
+          "original_heat": 4663,
+          "proposed_heat": 2087,
+          "schedule_sha256": "d320c388c15e630b592e0cf6ce9836ed120435795ef7b463c0dc8397d1ae0105"
+        },
+        {
+          "run": 3,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.346,
+          "elapsed_sec": 0.566,
+          "assigned": 7,
+          "postponed": 8,
+          "original_heat": 4663,
+          "proposed_heat": 2087,
+          "schedule_sha256": "d320c388c15e630b592e0cf6ce9836ed120435795ef7b463c0dc8397d1ae0105"
+        },
+        {
+          "run": 4,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.506,
+          "elapsed_sec": 0.734,
+          "assigned": 7,
+          "postponed": 8,
+          "original_heat": 4663,
+          "proposed_heat": 2087,
+          "schedule_sha256": "d320c388c15e630b592e0cf6ce9836ed120435795ef7b463c0dc8397d1ae0105"
+        },
+        {
+          "run": 5,
+          "cp_sat_status": "OPTIMAL",
+          "selected_method": "cp_sat",
+          "solver_wall_sec": 0.408,
+          "elapsed_sec": 0.611,
+          "assigned": 7,
+          "postponed": 8,
+          "original_heat": 4663,
+          "proposed_heat": 2087,
+          "schedule_sha256": "d320c388c15e630b592e0cf6ce9836ed120435795ef7b463c0dc8397d1ae0105"
+        }
+      ],
+      "passed": true,
+      "time_limit_sec": 10.0,
+      "criterion": "every run CP-SAT OPTIMAL with solver wall time <= half the limit, identical schedules",
+      "max_ta_c": 35.4,
+      "original_levels": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 14
+      },
+      "max_solver_wall_sec": 0.506,
+      "environment_note": "Wall times are from this machine; other CPUs or loads can change OPTIMAL/FEASIBLE."
+    }
+  ]
+}

@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT/'scripts'))
 from check_competition_evidence import run as check_competition
 from check_submission import run as check_submission
 from check_presentation import run as check_presentation, ASSUMPTIONS
+import check_presentation as check_presentation_module
 from backend.weather.asos_samples import load_dataset
 from backend.weather.models import KST
 from check_no_field_evidence import run as check_no_field
@@ -69,9 +70,12 @@ def collect():
         raise ValueError('기존 검사 수보다 적은 영수증입니다. 전체 검사를 실행하세요.')
     def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
     replay = read('docs/real-data/replay-results.json')
-    # 2026-10-11 recalculation: the snapshot date (7/10) is the rule's third candidate, so look it up by date.
+    # Author decision 2026-10-11: the snapshot date is hot_candidates[0] (daily max air temp >= 31C, then the
+    # existing rule) and must equal backend/config/demo.yaml demo_date.
     snapshot_date = read('frontend/src/demo/observed-snapshot.json')['approved']['tournament']['date_start']
-    demo_row = next(row for row in replay['candidates'] if row['date'] == snapshot_date)
+    if snapshot_date != replay['hot_candidates'][0]['date'] or snapshot_date != check_presentation_module.demo_config().get('demo_date'):
+        raise ValueError('관측 스냅샷 날짜가 31℃ 이상 후보 1순위 또는 demo.yaml의 demo_date와 다릅니다.')
+    demo_row = next(row for row in replay['hot_candidates'] if row['date'] == snapshot_date)
     demo_day = next(row for row in replay['days'] if row['date'] == snapshot_date)
     if any(demo_row[k] != demo_day[k] for k in ('assigned', 'postponed', 'salvaged', 'original_heat', 'proposed_heat', 'max_wbgt_c')):
         raise ValueError('관측 스냅샷 날짜의 후보 행과 62일 행이 다릅니다.')
@@ -112,9 +116,9 @@ RECALCULATION = '2026-10-11 재계산: 일사 구간 정렬·판정값 0.1℃ �
 
 
 def recalculation_meta():
-    """Recalculation note and rule candidates, read from the committed replay results."""
+    """Recalculation note and hot-day rule candidates (>= 31C), read from the committed replay results."""
     replay = json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'))
-    return {'candidate_dates': [row['date'] for row in replay['candidates'][:3]], 'recalculation': RECALCULATION}
+    return {'candidate_dates': [row['date'] for row in replay['hot_candidates']], 'recalculation': RECALCULATION}
 
 
 def markdown(data):
@@ -129,11 +133,11 @@ def markdown(data):
     scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건이며 엔진이 적게 배정한 구간은{scale['engine_fewer_cases']}개다. 그러나{scale['statuses'].get('CP-SAT FEASIBLE', 0)}개 FEASIBLE의 최적성은 미확정이고 같은 입력 재실행은{rerun['selected_assigned']}건으로 달랐다.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
     return f'''# 심사자가 확인할 기술 증거 묶음
 
-생성: {data['generated_at']}. {data['recalculation']}. 아래 표는 재계산 후 현재 엔진의 고정 결과다. 재계산 전 선택 수정 기록은 [수정 보고](../review-fix-report.md)와 [93조건 재실행 결과](review-fix-results.json)를 읽는다. 시연일 후보는 선정 규칙 순으로 {', '.join(data['candidate_dates'])}이며 현재 스냅샷은 {demo['date']}이다(시연일은 작성자가 확정). 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
+생성: {data['generated_at']}. {data['recalculation']}. 아래 표는 재계산 후 현재 엔진의 고정 결과다. 재계산 전 선택 수정 기록은 [수정 보고](../review-fix-report.md)와 [93조건 재실행 결과](review-fix-results.json)를 읽는다. 시연일 후보는 일 최고기온 31℃ 이상인 날에 기존 선정 규칙을 적용한 순서로 {', '.join(data['candidate_dates'])}이며 작성자가 확정한 스냅샷은 {demo['date']}이다(5회 반복 실행에서 매번 CP-SAT OPTIMAL·동일 일정, [반복 확인](../real-data/demo-day-check.json)). 최고기온 33℃ 이상인 날은 모두 8경기 이상 연기되어 그 조건에서는 시연일 기준을 만족하는 날이 없었다. 극한일 보조 장면은 2026-08-08(35.4℃, 7배정/8연기)이다. 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
 
 | 확인 가능한 주장 | 수치와 조건 | 근거 |
 |---|---|---|
-| 관측 입력의 가상 대회 시연 | {demo['date']} {demo['assigned']}배정/{demo['postponed']}연기, 공통{demo['common_count']}경기 {demo['original_heat']}→{demo['proposed_heat']} | [62일 원본](../real-data/replay-results.json), 관측 스냅샷 |
+| 관측 입력의 가상 대회 시연 | {demo['date']} {demo['assigned']}배정/{demo['postponed']}연기(연기: {', '.join(row['match_id'] for row in demo['postponement_reasons']) or '없음'}), 공통{demo['common_count']}경기 {demo['original_heat']}→{demo['proposed_heat']} | [62일 원본](../real-data/replay-results.json), 관측 스냅샷, [시연일 선정](../real-data/demo-days.md) |
 | 더 엄격한 조합 탐색 비교 | 날짜별 유리한4종 단순 기준 {stronger['assigned']}→CP-SAT {comp['cp_assigned']}, 전부 배정 {stronger['complete_days']}→{comp['cp_complete_days']}일 | [전체62일·조건·검사](../no-field-analysis-report.md), [원자료](no-field-analysis.json) |
 | 강한 기준과 공통 경기만의 비용 비교 | {stronger['baseline_common_heat']}→{stronger['cp_common_heat']}, {reduction:.2f}% 감소 | 현장 효과·사람·경쟁 제품 비교 아님 |
 | 기존 약한 기준과의 비교도 보존 | 탐욕 {comp['greedy_assigned']}→CP-SAT {comp['cp_assigned']}, 배정 +{comp['assignment_gain']}건, 완전 배정 {comp['greedy_complete_days']}→{comp['cp_complete_days']}일 | [기존 동일 제약 비교](method-comparison.md) |

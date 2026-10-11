@@ -15,13 +15,22 @@ for(const mode of ['snapshot','snapshot-observed'])test(mode+' proposed and appr
  if(mode==='snapshot-observed')await expect(evidence.getByRole('table',{name:'경기별 제약 근거'})).toContainText('팀 휴식');
  else {await expect(evidence.getByRole('table',{name:'경기별 제약 근거'})).toBeVisible();}
  await expect(evidence).toContainText('이 일정의 기존 하드 제약 검사 통과');
- if(mode==='snapshot-observed')await expect(evidence).toContainText('7. 10. 07:45');
+ if(mode==='snapshot-observed')await expect(evidence).toContainText('8. 10. 09:00');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();
- await page.getByRole('button',{name:(mode==='snapshot'?'g4-3':'final')+' 승인 일정 근거',exact:true}).click();
+ await page.getByRole('button',{name:(mode==='snapshot'?'g4-3':'semi1')+' 승인 일정 근거',exact:true}).click();
  await expect(evidence).toContainText('승인 시점의 적용 일정');
- if(mode==='snapshot-observed')await expect(evidence).toContainText('진출 가능 팀 휴식');
+ if(mode==='snapshot-observed'){
+  await expect(evidence).toContainText('진출 가능 팀 휴식');
+  // 2026-08-10 snapshot: final is postponed because semi2 was postponed, so its approved view shows the reason, not an assignment.
+  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
+  await page.getByRole('button',{name:'final 승인 일정 근거',exact:true}).click();
+  await expect(evidence).toContainText('승인 시점의 적용 일정');await expect(evidence).toContainText('연기 — 선행 경기 연기');
+  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
+  await page.getByRole('button',{name:'semi2 승인 일정 근거',exact:true}).click();
+  await expect(evidence).toContainText('연기 — ');await expect(evidence).toContainText('배정 불가');
+ }
  if(mode==='snapshot'){
   await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
   await page.getByRole('button',{name:'g1-1 자동 제안 근거',exact:true}).click();

@@ -35,7 +35,7 @@ def test_all_offline_input_rows_preserve_values_units_and_original_source(prefix
 def test_zero_irradiance_and_missing_observation_are_distinguished():
     for expected in (0, None):
         s = frozen("observed-snapshot"); r = s["risks"][0]
-        # Explicit boundary inputs: the July 10 bundle has no observed zero.
+        # Explicit boundary inputs: the 2026-08-10 bundle's 00:00 row (risks[0]) has no observed solar value.
         r["inputs"]["weather"]["solar_wm2"] = expected
         e = input_evidence(s, r["venue_id"], r["valid_time"])
         assert e["solar_observed"] is (expected == 0)

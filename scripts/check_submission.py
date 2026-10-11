@@ -9,7 +9,8 @@ import json
 import re
 from pathlib import Path
 
-from check_presentation import (APPROVED, ASSUMPTIONS, SNAPSHOT_DATE, ZERO_DATES, ZERO_TEXT, compact,
+from check_presentation import (APPROVED, ASSUMPTIONS, EXTREME_DATE, HOT_CANDIDATE_DATES, SNAPSHOT_DATE,
+                                SNAPSHOT_MAX_WBGT, SNAPSHOT_VALUES, ZERO_DATES, ZERO_TEXT, compact, demo_config,
                                 run as check_presentation)
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,37 +41,44 @@ def run() -> dict:
     check("official competition and product comparison citations included",
           all(url in docs["competition-fit.md"] for url in urls))
 
-    # 2026-10-11 recalculation: the snapshot date is no longer candidates[0] (rule order 7/3, 8/20, 7/10).
+    # Author decision 2026-10-11: the snapshot date is hot_candidates[0] (daily max air temp >= 31C, then the
+    # existing rule) and equals backend/config/demo.yaml demo_date; 2026-08-08 is the extreme supporting scene.
     replay = read_json("docs/real-data/replay-results.json")
     session = read_json("frontend/src/demo/observed-snapshot.json")["approved"]
     snapshot_date = session["tournament"]["date_start"]
-    candidate = next((row for row in replay["candidates"] if row["date"] == snapshot_date), None)
+    hot = replay["hot_candidates"]
+    candidate = next((row for row in hot if row["date"] == snapshot_date), None)
     day = next((row for row in replay["days"] if row["date"] == snapshot_date), None)
     proposal = session["proposal"]
     assigned = {row["match_id"] for row in proposal["assignments"]}
     stopped = {row["match_id"] for row in session["recommendations"] if row["level"] == 4}
-    check("candidate list, replay day row and fixed snapshot agree on July 10 coverage and originally stopped assignments",
-          snapshot_date == SNAPSHOT_DATE and candidate is not None and day is not None
-          and [row["date"] for row in replay["candidates"][:3]] == ["2026-07-03", "2026-08-20", SNAPSHOT_DATE]
+    config = demo_config()
+    check("hot candidate list, replay day row, demo.yaml and fixed snapshot agree on August 10 coverage and originally stopped assignments",
+          snapshot_date == SNAPSHOT_DATE == config.get("demo_date") == hot[0]["date"]
+          and config.get("extreme_date") == EXTREME_DATE and candidate is not None and day is not None
+          and [row["date"] for row in hot] == HOT_CANDIDATE_DATES
           and all(candidate[key] == day[key] for key in ("assigned", "postponed", "salvaged", "common_count",
                                                           "original_heat", "proposed_heat", "max_wbgt_c", "solver"))
-          and day["assigned"] == len(assigned) == 15
-          and day["postponed"] == proposal["postponed_count"] == len(proposal["postponed"]) == 0
-          and day["salvaged"] == day["original_stop_count"] == len(stopped) == len(stopped & assigned) == 9
-          and day["solver"] == "CP-SAT OPTIMAL")
+          and day["assigned"] == len(assigned) == SNAPSHOT_VALUES[0]
+          and day["postponed"] == proposal["postponed_count"] == len(proposal["postponed"]) == SNAPSHOT_VALUES[1]
+          and sorted(row["match_id"] for row in proposal["postponed"]) == ["final", "semi2"]
+          and day["salvaged"] == len(stopped & assigned) == SNAPSHOT_VALUES[5]
+          and day["original_stop_count"] == len(stopped) == SNAPSHOT_VALUES[6]
+          and day["solver"] == "CP-SAT OPTIMAL" and proposal["cp_sat_status"] == "OPTIMAL")
     original, proposed = proposal["original_heat_score"], proposal["proposed_heat_score"]
     percent = round((original - proposed) / original * 100, 2)
     check("common-game score reduction and percentage match evidence",
-          day["original_heat"] == original == 6051
-          and day["proposed_heat"] == proposed == 4469
-          and len(proposal["common_match_ids"]) == day["common_count"] == 15
-          and (original - proposed, percent) == (1582, 26.14)
-          and all(token in compact(docs["proposal.md"]) for token in ("6051→4469", "1582점", "26.14%")))
+          day["original_heat"] == original == SNAPSHOT_VALUES[3]
+          and day["proposed_heat"] == proposed == SNAPSHOT_VALUES[4]
+          and len(proposal["common_match_ids"]) == day["common_count"] == SNAPSHOT_VALUES[2]
+          and (original - proposed, percent) == (2563, 39.79)
+          and all(token in compact(docs["proposal.md"]) for token in ("6442→3879", "2563점", "39.79%", "13/2경기", "semi2", "final")))
     peak = max(session["risks"], key=lambda row: row["wbgt_c"])
-    check("July 10 model estimate includes correct low and high values",
-          (peak["wbgt_c"], peak["wbgt_low_c"], peak["wbgt_high_c"]) == (30.848, 29.348, 32.348)
-          and peak["wbgt_c"] == day["max_wbgt_c"] and peak["valid_time"] == "2026-07-10T15:00:00+09:00"
-          and all(token in docs["proposal.md"] for token in ("30.848", "29.348~32.348", "현장 WBGT 실측 아님")))
+    check("August 10 model estimate includes correct low and high values",
+          (peak["wbgt_c"], peak["wbgt_low_c"], peak["wbgt_high_c"]) == (SNAPSHOT_MAX_WBGT, 29.774, 32.774)
+          and peak["decision_wbgt_c"] == 32.8 and peak["venue_id"] == "mock-suwon-a"
+          and peak["wbgt_c"] == day["max_wbgt_c"] and peak["valid_time"] == "2026-08-10T13:00:00+09:00"
+          and all(token in docs["proposal.md"] for token in ("31.274", "29.774~32.774", "현장 WBGT 실측 아님")))
     baseline = next(row for row in read_json("docs/wbgt-sanity/sensitivity-results.json")["scenarios"]
                     if row["name"] == "baseline")
     zero_days = [row["date"] for row in baseline["days"] if row["assigned"] == 0]
