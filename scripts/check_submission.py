@@ -72,7 +72,7 @@ def run() -> dict:
           and day["proposed_heat"] == proposed == SNAPSHOT_VALUES[4]
           and len(proposal["common_match_ids"]) == day["common_count"] == SNAPSHOT_VALUES[2]
           and (original - proposed, percent) == (2563, 39.79)
-          and all(token in compact(docs["proposal.md"]) for token in ("6442→3879", "2563점", "39.79%", "13/2경기", "semi2", "final")))
+          and all(token in compact(docs["proposal.md"]) for token in ("6442→3879", "2563점", "39.79%", "13/2경기", "semi2", "final", "준결승2(semi2)", "결승(final)")))
     peak = max(session["risks"], key=lambda row: row["wbgt_c"])
     check("August 10 model estimate includes correct low and high values",
           (peak["wbgt_c"], peak["wbgt_low_c"], peak["wbgt_high_c"]) == (SNAPSHOT_MAX_WBGT, 29.774, 32.774)

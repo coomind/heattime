@@ -16,7 +16,7 @@
 |16팀·2일31구간에 확대하여 한계를 확인 | [규모 검증 보고](../tournament-scale-report.md), [재계산 원자료](../competition-evidence/tournament-scale-analysis.json): 단순583건 대비 엔진593건, 재실행592건 | 대진 일반의 배정 우위; 18개 FEASIBLE 연기의 불가피성·재실행 동일성 |
 | 폭염 판정·대진 제약·승인·기록이 한 흐름으로 동작 | [P3](../p3-report.md), [P4](../p4-report.md), frontend/e2e의 기존 전체 흐름 검사 | 실제 운영자가 사용했다는 주장 |
 | 관측 입력의 가상 대회 재현 | [관측 필드·단위·지문](../kma/asos-observation-evidence.md), [62일 원본](../real-data/replay-results.json) | 구장3곳을 각각 관측했다는 주장 |
-| 8월10일 13배정/2연기(semi2·final)·원래 중지14경기 중13경기 재배정 | 같은 원본의 hot_candidates 중 2026-08-10 행(31℃ 이상 규칙 1순위; 이후8월14일·7월14일·8월9일·8월11일), [시연일 선정](../real-data/demo-days.md), [5회 반복 확인](../real-data/demo-day-check.json) | 실제13경기를 살렸다거나 안전을 보장했다는 주장; 다른 환경에서도 매번 OPTIMAL이라는 주장 |
+| 8월10일 13경기 배정/2경기 연기(준결승 2 semi2·결승 final)·원래 중지14경기 중13경기 재배정 | 같은 원본의 hot_candidates 중 2026-08-10 행(31℃ 이상 규칙 1순위; 이후8월14일·7월14일·8월9일·8월11일), [시연일 선정](../real-data/demo-days.md), [5회 반복 확인](../real-data/demo-day-check.json) | 실제13경기를 살렸다거나 안전을 보장했다는 주장; 다른 환경에서도 매번 OPTIMAL이라는 주장 |
 | 공통13경기6442→3879·2563점·39.79% 감소 | 2026-08-10 행의 original_heat / proposed_heat / common_count; frontend/tests/schedule-outcome.test.js | 연기 경기를 빼고 전체 비용을 줄였다는 주장, 사고 감소율 |
 | 추정 중앙 최고31.274℃·범위29.774~32.774℃(13시 구장 A) | 같은 후보의 max_wbgt_c와 관측 스냅샷 approved.risks의 최고 중앙값 행 wbgt_low_c / wbgt_high_c | 현장 WBGT 실측 |
 | 극한일8월8일 7배정/8연기(35.4℃) | days의 2026-08-08 행, data/output/real/2026-08-08.json, 같은 5회 반복 확인 | 더운 날 경기 개최 보장, 실제 대회의 연기 필요 일수 |

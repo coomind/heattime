@@ -13,7 +13,8 @@ def test_main_presentation_moves_statistics_to_appendix_and_discloses_selection_
     assert '26.14%' not in main and '62일 중 47일' not in main and '38.229' not in main
     # Demo date 2026-08-10 (author decision 2026-10-11): 14 originally stopped, 13 of them assigned, 2 postponed.
     assert '원래 중지 단계14경기 중13경기' in main and '31.6℃' in main and '운영시간 습도44~67%' in main
-    assert '2연기' in main and 'semi2' in main and 'final' in main
+    # The two postponed matches are named, not just counted.
+    assert '2경기 연기(준결승 2·결승)' in main and '준결승 2 semi2' in main and '결승 final' in main
     assert '39.79%' not in main and '2563' not in main.split('## 5 ·')[0]
     assert '연기 수 최소' in main and '원래 중지 경기의 배정 수 최대' in main
     assert '최적화가 언제나 단순 방식보다 낫다고 주장하지 않습니다' in main
