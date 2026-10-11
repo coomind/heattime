@@ -175,7 +175,9 @@ def create_app(db_path=None):
         s=repo.get('sessions',id)
         if format=='pdf':data=records_pdf(s);media='application/pdf'
         elif format=='csv':data=records_csv(s);media='text/csv; charset=utf-8'
-        elif format=='json':return s
+        elif format=='json':
+            from backend.exports import stage_display
+            return {**s,'stage_display':stage_display(s.get('policy'))}
         else:raise HTTPException(404,korean('Unknown export format'))
         return Response(data,media_type=media,headers={'Content-Disposition':f'attachment; filename="heattime-{id}.{format}"'})
     @app.get('/api/team-view/{id}')

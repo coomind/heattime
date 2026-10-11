@@ -137,3 +137,21 @@ def test_policy_verification_is_not_self_contradictory_in_pdf():
     first = PdfReader(BytesIO(records_pdf(s))).pages[0].extract_text().replace('\n', '')
     assert '원문 대조: 2026-10-01 경계값 대조 완료 · 원문 개정 시 다시 대조 필요 · 국내 대회 적용 전 전문가 검토 필요' in first
     assert '원문 대조 필요 · 2026-10-01' not in first
+
+
+def test_stage_zero_label_in_csv_and_json_exports(tmp_path):
+    """Item 3: CSV shows stage names with 통상 운영; JSON explains the guideline labels next to display names."""
+    import csv, io
+    from datetime import date
+    from fastapi.testclient import TestClient
+    from backend.app import create_app
+    from backend.exports import records_csv, stage_display
+    c = TestClient(create_app(tmp_path/'j.sqlite3'))
+    s = c.post('/api/replays', json={'date': '2026-08-01', 'tournament_id': 'demo'}).json()
+    s['recommendations'][0]['level'] = 0  # force a stage-0 row for the label check
+    rows = list(csv.DictReader(io.StringIO(records_csv(s).decode('utf-8-sig'))))
+    assert all(r['단계명'] for r in rows) and '거의 안전' not in ''.join(r['단계명'] for r in rows)
+    body = c.get(f"/api/sessions/{s['id']}/export/json").json()
+    assert body['stage_display']['labels_display'][0] == '통상 운영'
+    assert '원 지침 단계명' in body['stage_display']['note'] and body['policy']['labels'][0] == '거의 안전'
+    assert stage_display(body['policy'])['labels_display'][0] == '통상 운영'

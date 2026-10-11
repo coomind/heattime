@@ -32,6 +32,19 @@ def display_label(label):
     return '통상 운영' if label == '거의 안전' else label
 
 
+def stage_name(s, level):
+    labels = (s.get('policy') or {}).get('labels') or []
+    return display_label(labels[level]) if level is not None and 0 <= level < len(labels) else ''
+
+
+def stage_display(policy):
+    """JSON export note: display names next to the guideline's own labels (W-1)."""
+    labels = (policy or {}).get('labels') or []
+    return {'labels_display': [display_label(l) for l in labels],
+            'note': 'policy.labels는 원 지침 단계명(출처: policy.source_ref)입니다. 화면·PDF·CSV는 labels_display를 쓰며, '
+                    '0단계 "거의 안전"은 안전을 판정·보장하지 않도록 "통상 운영"으로 표시합니다(명세 2.5(D) 2026-10-11 변경).'}
+
+
 def kst(value):
     """'2026-08-10T09:00:00+09:00' -> '2026-08-10 09:00 KST'."""
     if not value:
@@ -87,7 +100,7 @@ def records_csv(session):
     s = record_context(session)
     output = StringIO(newline=''); writer = csv.writer(output)
     writer.writerow(['가상 예시', 'match_id', '근거 구간', 'venue_id', 'valid_time', 'WBGT 추정', 'WBGT 추정 하한', 'WBGT 추정 상한',
-                     'level', '판정값(추정)', 'ta_c', 'rh_pct', 'ws_ms', 'solar_used_wm2', 'solar_source',
+                     'level', '단계명', '판정값(추정)', 'ta_c', 'rh_pct', 'ws_ms', 'solar_used_wm2', 'solar_source',
                      '일사 추정_wm2', '일사 추정 하한', '일사 추정 상한', 'source', 'is_mock', 'fetched_at',
                      'method_version', 'inputs_hash', 'policy', 'policy_source', 'recommendation',
                      'operator_action', 'operator', 'decision_time', 'reason', 'applied_start', 'applied_venue',
@@ -98,7 +111,7 @@ def records_csv(session):
         for name, r in evidence or [('자료 누락', {})]:
             inputs = r.get('inputs', {}); w = inputs.get('weather', {}); solar = inputs.get('solar', {})
             row = [s['label'], m['id'], name, r.get('venue_id'), r.get('valid_time'), r.get('wbgt_c'),
-                   r.get('wbgt_low_c'), r.get('wbgt_high_c'), r.get('level'), r.get('decision_wbgt_c'),
+                   r.get('wbgt_low_c'), r.get('wbgt_high_c'), r.get('level'), stage_name(s, r.get('level')), r.get('decision_wbgt_c'),
                    w.get('ta_c'), w.get('rh_pct'), w.get('ws_ms'), solar.get('used_wm2'), solar.get('source'),
                    solar.get('estimated_wm2'), solar.get('low_wm2'), solar.get('high_wm2'), w.get('source'),
                    w.get('is_mock'), w.get('fetched_at'), r.get('method_version'), r.get('inputs_hash'),
@@ -165,9 +178,9 @@ def records_pdf(session):
         para('가상 예시 · ' + team_name(s, m['team_a']) + ' vs ' + team_name(s, m['team_b']))
         para('원래 일정: ' + kst(m['scheduled_start']) + ' / 구장: ' + venue_name(s, m['venue_id']))
         if rec['wbgt_c'] is None:
-            para(f"WBGT 추정: 기상 자료 누락 · 산정하지 않음 / 단계 {rec['level']} (자료 누락 시 배정 보류) · 운영자 확인 필요")
+            para(f"WBGT 추정: 기상 자료 누락 · 산정하지 않음 / 단계 {rec['level']} {stage_name(s, rec['level'])} (자료 누락 시 배정 보류) · 운영자 확인 필요")
         else:
-            para(f"WBGT 추정 {rec['wbgt_c']}℃ / 범위 {rec['wbgt_low_c']}~{rec['wbgt_high_c']}℃ / 단계 {rec['level']}")
+            para(f"WBGT 추정 {rec['wbgt_c']}℃ / 범위 {rec['wbgt_low_c']}~{rec['wbgt_high_c']}℃ / 단계 {rec['level']} {stage_name(s, rec['level'])}")
         para('원래 일정 권고: ' + rec['detail'])
         if a:
             para(f"운영 조치: {kst(a['start'])}~{kst(a['end'])[11:]} / {venue_name(s, a['venue_id'])} / {MATCH_ACTIONS.get(a['action'], a['action'])}")
@@ -179,7 +192,7 @@ def records_pdf(session):
         for name, r in evidence:
             block_start=len(story)
             inputs = r['inputs']; w = inputs['weather']; solar = inputs['solar']; venue = inputs['venue']
-            para(f"{name} 근거 {kst(r['valid_time'])} / {venue_name(s, r['venue_id'])} / WBGT 추정 {r['wbgt_c']}℃ (범위 {r['wbgt_low_c']}~{r['wbgt_high_c']}℃), 단계 {r['level']}, 판정값(추정) {r['decision_wbgt_c']}℃(위 추정·범위에서 정한 값, 소수 첫째 자리)")
+            para(f"{name} 근거 {kst(r['valid_time'])} / {venue_name(s, r['venue_id'])} / WBGT 추정 {r['wbgt_c']}℃ (범위 {r['wbgt_low_c']}~{r['wbgt_high_c']}℃), 단계 {r['level']} {stage_name(s, r['level'])}, 판정값(추정) {r['decision_wbgt_c']}℃(위 추정·범위에서 정한 값, 소수 첫째 자리)")
             para(explanation(r))
             comparison=breakdown(r)
             width=inputs['settings']['uncertainty_c']

@@ -1,4 +1,6 @@
 const clone=value=>structuredClone(value);
+// Same note as backend/exports.stage_display (W-1).
+export function stageDisplay(policy){const labels=policy?.labels||[];return {labels_display:labels.map(l=>l==='거의 안전'?'통상 운영':l),note:'policy.labels는 원 지침 단계명(출처: policy.source_ref)입니다. 화면·PDF·CSV는 labels_display를 쓰며, 0단계 "거의 안전"은 안전을 판정·보장하지 않도록 "통상 운영"으로 표시합니다(명세 2.5(D) 2026-10-11 변경).'};}
 export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBundle=null,reviewBundle=null){
  if(bundle.input_fingerprint!==exportsBundle.input_fingerprint)throw new Error('스냅샷과 기록 파일 버전이 다릅니다.');
  if(evidenceBundle&&(bundle.input_fingerprint!==evidenceBundle.input_fingerprint||bundle.approved.id!==evidenceBundle.session_id))throw new Error('스냅샷과 상세 근거 버전이 다릅니다.');
@@ -17,7 +19,7 @@ export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBu
    let blob;
    if(format==='pdf')blob=new Blob([Uint8Array.from(atob(exportsBundle.pdf_base64),c=>c.charCodeAt(0))],{type:'application/pdf'});
    else if(format==='csv')blob=new Blob(['\ufeff'+exportsBundle.csv_utf8],{type:'text/csv;charset=utf-8'});
-   else blob=new Blob([JSON.stringify(session,null,2)],{type:'application/json'});
+   else blob=new Blob([JSON.stringify({...session,stage_display:stageDisplay(session.policy)},null,2)],{type:'application/json'});
    urls[format]=URL.createObjectURL(blob);
   }
   return urls[format];
