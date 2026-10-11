@@ -116,7 +116,7 @@ def records_pdf(session):
         para(f"관측 일사 결측 {s['observation_summary']['solar_missing_hours']}시간(동일 관측소 기준, 구장 수만큼 중복 집계하지 않음)")
         para('관측 원본 SHA256: '+s['observation_summary']['original_sample_sha256'])
     else:
-        para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 비교 일사량은 합성 예시이며 실제 관측 정확도 검증은 보류입니다.')
+        para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 기상은 합성(가상 예시) 입력이고 대회·팀·구장도 가상 예시입니다. 비교 일사량은 합성 예시이며 실제 관측 정확도 검증은 보류입니다.')
     for m in s['matches']:
         story.append(PageBreak()); rec, a, p, evidence = match_context(s, m)
         para(m['round'] + ' · ' + m['id'], True)

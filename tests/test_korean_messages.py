@@ -78,3 +78,16 @@ def test_pdf_decision_and_counterfactual_values_are_labelled_estimates():
     text = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages).replace('\n', '')
     assert text.count('판정값(추정)') >= 1 and '판정값 ' not in text.replace('판정값(추정', '')
     assert re.search(r'보정0℃·중앙값 WBGT 추정: [0-9.]+℃ \(범위 [0-9.]+~[0-9.]+℃\)', text)
+
+
+def test_synthetic_pdf_states_virtual_tournament(tmp_path):
+    """E-4: synthetic-mode PDF says the tournament/teams/venues are virtual examples."""
+    from io import BytesIO
+    from datetime import date
+    from pypdf import PdfReader
+    from backend.exports import records_pdf
+    from backend.repository import Repository
+    from backend.service import Service
+    s = Service(Repository(tmp_path/'s.sqlite3')).replay(date(2026, 8, 1))
+    first = PdfReader(BytesIO(records_pdf(s))).pages[0].extract_text().replace('\n', '')
+    assert '대회·팀·구장도 가상 예시입니다' in first
