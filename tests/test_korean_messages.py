@@ -65,3 +65,16 @@ def test_pdf_never_prints_none_celsius_for_missing_weather(tmp_path):
     assert any(r['wbgt_c'] is None for r in s['recommendations'])
     text = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages)
     assert 'None℃' not in text and 'None' not in text.split('현장 보정')[0] and '기상 자료 누락' in text
+
+
+def test_pdf_decision_and_counterfactual_values_are_labelled_estimates():
+    """E-2: every decision/counterfactual WBGT in the PDF carries '추정' and the counterfactual a range."""
+    import json, re
+    from io import BytesIO
+    from pathlib import Path
+    from pypdf import PdfReader
+    from backend.exports import records_pdf
+    s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
+    text = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages).replace('\n', '')
+    assert text.count('판정값(추정)') >= 1 and '판정값 ' not in text.replace('판정값(추정', '')
+    assert re.search(r'보정0℃·중앙값 WBGT 추정: [0-9.]+℃ \(범위 [0-9.]+~[0-9.]+℃\)', text)

@@ -29,6 +29,6 @@ def explanation(risk):
     if b['surface_offset_c']:text+=f" + 표면 보정 {b['surface_offset_c']:+.3f}℃"
     if b['calibration_c']:text+=f" + 현장 보정 {b['calibration_c']:+.3f}℃"
     text+=(f" + 판정 상단 폭 {b['upper_width_c']:.3f}℃ = {b['decision_unrounded_c']:.3f}℃"
-           f" → 판정값(소수 첫째 자리 반올림) {b['decision_c']:.1f}℃ / 단계 {b['level']}")
+           f" → 판정값(추정·소수 첫째 자리 반올림) {b['decision_c']:.1f}℃ / 단계 {b['level']}")
     if b['age_escalation']:text+=' 연령 단계 상향은 숫자에 더하지 않고 별도로 적용됨.'
     return text

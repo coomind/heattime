@@ -137,10 +137,11 @@ def records_pdf(session):
         for name, r in evidence:
             block_start=len(story)
             inputs = r['inputs']; w = inputs['weather']; solar = inputs['solar']; venue = inputs['venue']
-            para(f"{name} 근거 {r['valid_time']} / {r['venue_id']} / WBGT 추정 {r['wbgt_c']}℃ (범위 {r['wbgt_low_c']}~{r['wbgt_high_c']}℃), 단계 {r['level']}, 판정값 {r['decision_wbgt_c']}℃")
+            para(f"{name} 근거 {r['valid_time']} / {r['venue_id']} / WBGT 추정 {r['wbgt_c']}℃ (범위 {r['wbgt_low_c']}~{r['wbgt_high_c']}℃), 단계 {r['level']}, 판정값(추정) {r['decision_wbgt_c']}℃(위 추정·범위에서 정한 값, 소수 첫째 자리)")
             para(explanation(r))
             comparison=breakdown(r)
-            para(f"분석용 보정0℃·중앙값: {comparison['counterfactual_c']:.3f}℃ / 단계 {comparison['counterfactual_level']}. 설정/승인 변경 없음.")
+            width=inputs['settings']['uncertainty_c']
+            para(f"분석용 보정0℃·중앙값 WBGT 추정: {comparison['counterfactual_c']:.3f}℃ (범위 {comparison['counterfactual_c']-width:.3f}~{comparison['counterfactual_c']+width:.3f}℃) / 단계 {comparison['counterfactual_level']}. 설정/승인 변경 없음.")
             para(f"입력 기온 {w['ta_c']}℃ / 습도 {w['rh_pct']}% / 풍속 {w['ws_ms']}m/s / 보정 풍속 {inputs['wind_2m_ms']:.3f}m/s")
             para(f"사용 일사 {solar['used_wm2']:.1f}W/m² ({solar['source']}) / 일사량 추정 {solar['estimated_wm2']:.1f}W/m² (범위 {solar['low_wm2']:.1f}~{solar['high_wm2']:.1f}W/m²)")
             para(f"자료 {w['source']} / 가상 예시 {w['is_mock']} / 수집 시각 {w['fetched_at']}")
