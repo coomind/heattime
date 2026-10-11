@@ -45,3 +45,23 @@ def test_csv_preview_row_errors_are_korean(client):
     body = client.post('/api/tournaments/demo/matches/csv-preview', json={'csv_text': bad}).json()
     messages = [e['message'] for e in body['errors']]
     assert messages and all('행' in m and 'pydantic' not in m and not ascii_only(m) for m in messages)
+
+
+def test_pdf_never_prints_none_celsius_for_missing_weather(tmp_path):
+    """B-7: a recommendation without weather coverage is described, not printed as None℃."""
+    from io import BytesIO
+    from pypdf import PdfReader
+    from backend.exports import records_pdf
+    from backend.repository import Repository
+    from backend.service import Service
+    from datetime import date
+    svc = Service(Repository(tmp_path/'p.sqlite3'))
+    s = svc.replay(date(2026, 8, 1))
+    s['risks'] = [r for r in s['risks'] if not r['valid_time'].startswith('2026-08-01T10')]
+    from backend.schedule.recommend import recommend
+    t, m, v, risks, settings, engine = Service.context(s)
+    from fastapi.encoders import jsonable_encoder
+    s['recommendations'] = jsonable_encoder([recommend(x, risks, engine) for x in m])
+    assert any(r['wbgt_c'] is None for r in s['recommendations'])
+    text = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages)
+    assert 'None℃' not in text and 'None' not in text.split('현장 보정')[0] and '기상 자료 누락' in text

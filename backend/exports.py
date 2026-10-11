@@ -119,7 +119,10 @@ def records_pdf(session):
         para(m['round'] + ' · ' + m['id'], True)
         para('가상 예시 · ' + m['team_a'] + ' vs ' + m['team_b'])
         para('원래 일정: ' + m['scheduled_start'] + ' / 구장: ' + m['venue_id'])
-        para(f"WBGT 추정 {rec['wbgt_c']}℃ / 범위 {rec['wbgt_low_c']}~{rec['wbgt_high_c']}℃ / 단계 {rec['level']}")
+        if rec['wbgt_c'] is None:
+            para(f"WBGT 추정: 기상 자료 누락 · 산정하지 않음 / 단계 {rec['level']} (자료 누락 시 배정 보류) · 운영자 확인 필요")
+        else:
+            para(f"WBGT 추정 {rec['wbgt_c']}℃ / 범위 {rec['wbgt_low_c']}~{rec['wbgt_high_c']}℃ / 단계 {rec['level']}")
         para('원래 일정 권고: ' + rec['detail'])
         if a:
             para(f"운영 조치: {a['start']}~{a['end']} / {a['venue_id']} / {a['action']}")
