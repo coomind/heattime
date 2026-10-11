@@ -22,7 +22,7 @@ def window_risks(risks,venue_id,start,end):
     hourly={r.valid_time:r for r in risks if r.venue_id==venue_id}
     hour=start.replace(minute=0,second=0,microsecond=0);selected=[]
     while hour<=end:
-        if hour not in hourly: raise MissingRisk("기상資料 누락: 배정 보류")
+        if hour not in hourly: raise MissingRisk("기상 자료 누락: 배정 보류")
         selected.append(hourly[hour]);hour+=timedelta(hours=1)
     return selected
 
