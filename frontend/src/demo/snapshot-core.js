@@ -9,7 +9,10 @@ export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBu
  const resources={venues:accepted.venues,tournaments:[accepted.tournament],teams:accepted.teams,matches:accepted.matches};
  function dispose(){Object.values(urls).forEach(u=>URL.revokeObjectURL(u));urls={};}
  function exportHref(format){
-  if(!session?.decision) return '#';
+  // B-4: pre-built PDF/CSV exist only for the approved snapshot; JSON is the current state.
+  if(!session)return null;
+  if(!session.decision&&format!=='json')return null;
+  if(format==='json'){if(urls.json)URL.revokeObjectURL(urls.json);delete urls.json;}
   if(!urls[format]){
    let blob;
    if(format==='pdf')blob=new Blob([Uint8Array.from(atob(exportsBundle.pdf_base64),c=>c.charCodeAt(0))],{type:'application/pdf'});
