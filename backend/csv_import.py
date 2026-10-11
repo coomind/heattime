@@ -9,6 +9,7 @@ from backend.schedule.models import Match
 from backend.schedule.optimizer import participants
 from backend.weather.models import KST
 from backend.exports import csv_safe
+from backend.messages import korean, user_message
 
 
 def resources(conn, kind):
@@ -36,29 +37,29 @@ def prepare_csv(repo, tournament_id, text, conn):
                 try:
                     parsed.append((line, Match.model_validate(row)))
                 except ValueError as exc:
-                    error(line, f"CSV {line}행: {exc}")
+                    error(line, f"CSV {line}행: {user_message(exc)}")
     except csv.Error:
         error(reader.line_num, f"CSV {reader.line_num}행의 형식이 올바르지 않습니다. 따옴표를 확인하세요.")
-    if not parsed and not errors: error(None, "Empty CSV or duplicate ids")
+    if not parsed and not errors: error(None, korean("Empty CSV or duplicate ids"))
     matches = resources(conn, "matches"); teams = resources(conn, "teams"); venues = resources(conn, "venues")
     old = {m["id"]: m for m in matches}; team_map = {t["id"]: t for t in teams}; venue_map = {v["id"]: v for v in venues}
     seen = set()
     for line, m in parsed:
-        if m.id in seen: error(line, "Empty CSV or duplicate ids")
+        if m.id in seen: error(line, f"CSV {line}행: 경기 ID {m.id}가 중복됩니다.")
         seen.add(m.id)
         if m.id in old and old[m.id]["tournament_id"] != tournament_id:
             error(line, f"경기 ID {m.id}는 다른 대회에서 사용 중입니다.", 409)
         if m.venue_id not in venue_map: error(line, f"CSV {line}행: 구장 {m.venue_id}를 찾지 못했습니다.", 404)
         if not date.fromisoformat(tournament["date_start"]) <= m.scheduled_start.astimezone(KST).date() <= date.fromisoformat(tournament["date_end"]):
-            error(line, f"CSV {line}행: CSV match outside dates")
+            error(line, f"CSV {line}행: {korean('CSV match outside dates')}")
         for tid in (m.team_a, m.team_b):
             if tid.startswith("winner:"): continue
             if tid not in team_map: error(line, f"CSV {line}행: 참가팀 {tid}를 찾지 못했습니다.", 404)
-            elif team_map[tid]["tournament_id"] != tournament_id: error(line, f"CSV {line}행: Invalid CSV team")
+            elif team_map[tid]["tournament_id"] != tournament_id: error(line, f"CSV {line}행: {korean('Invalid CSV team')}")
     if parsed and len(seen) == len(parsed):
         existing = [Match(**m) for m in matches if m["tournament_id"] == tournament_id and m["id"] not in seen]
         try: participants(existing + [m for _, m in parsed])
-        except ValueError as exc: error(None, "선행 경기 구조: " + str(exc))
+        except ValueError as exc: error(None, "선행 경기 구조: " + korean(exc))
     revision = hashlib.sha256(json.dumps({"tournament": tournament, "matches": matches, "teams": teams, "venues": venues},
                               sort_keys=True, ensure_ascii=False).encode()).hexdigest()
     rows = []

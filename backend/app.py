@@ -12,6 +12,8 @@ from backend.exports import records_pdf,records_csv
 from backend.engine.settings import EngineSettings
 from backend.engine.policy import policies
 from backend.demo_config import demo_date
+from backend.messages import korean,user_message
+from fastapi.exceptions import RequestValidationError
 from backend.schedule.models import ScheduleSettings,Match
 from backend.schedule.optimizer import participants
 from backend.weather.models import ManualMeasurement,Venue,KST
@@ -79,7 +81,7 @@ def create_app(db_path=None):
     def validation_export(format:str):
         summary=evidence_summary(repo)
         if format=='json':return summary
-        if format!='csv':raise HTTPException(404,'Unknown export format')
+        if format!='csv':raise HTTPException(404,korean('Unknown export format'))
         return Response(evidence_csv(summary),media_type='text/csv; charset=utf-8',headers={'Content-Disposition':'attachment; filename="heattime-validation.csv"'})
     @app.post('/api/live-observations')
     def live_observations(body:LiveRequest):
@@ -111,9 +113,13 @@ def create_app(db_path=None):
         # This endpoint does not update replay/approved records or optimize future games.
         return result
     @app.exception_handler(KeyError)
-    async def missing(request,exc):return Response('Resource not found',status_code=404)
+    async def missing(request,exc):return Response(korean('Resource not found'),status_code=404,media_type='text/plain; charset=utf-8')
     @app.exception_handler(ValueError)
-    async def invalid(request,exc):return Response(str(exc),status_code=422)
+    async def invalid(request,exc):return Response(user_message(exc),status_code=422,media_type='text/plain; charset=utf-8')
+    @app.exception_handler(RequestValidationError)
+    async def invalid_request(request,exc):
+        parts=[f"{'·'.join(str(x) for x in e.get('loc',())[1:]) or '요청'}: {e.get('msg','')}" for e in exc.errors()]
+        return Response('요청 형식이 올바르지 않습니다. '+' / '.join(parts),status_code=422,media_type='text/plain; charset=utf-8')
     @app.get('/api/health')
     def health():return {'status':'ok','mode':'mock','label':'가상 예시'}
     @app.get('/api/policies')
@@ -170,7 +176,7 @@ def create_app(db_path=None):
         if format=='pdf':data=records_pdf(s);media='application/pdf'
         elif format=='csv':data=records_csv(s);media='text/csv; charset=utf-8'
         elif format=='json':return s
-        else:raise HTTPException(404,'Unknown export format')
+        else:raise HTTPException(404,korean('Unknown export format'))
         return Response(data,media_type=media,headers={'Content-Disposition':f'attachment; filename="heattime-{id}.{format}"'})
     @app.get('/api/team-view/{id}')
     def team_view(id:str):
@@ -223,7 +229,7 @@ def create_app(db_path=None):
     @app.post('/api/{kind}',status_code=201)
     def create_resource(kind:str,body:dict=Body(...)):
         item=service.validate_resource(kind,body)
-        if any(r['id']==item['id'] for r in repo.list(kind)):raise HTTPException(409,'Duplicate id')
+        if any(r['id']==item['id'] for r in repo.list(kind)):raise HTTPException(409,korean('Duplicate id'))
         return repo.put(kind,item['id'],item)
     @app.put('/api/{kind}/{id}')
     def update_resource(kind:str,id:str,body:dict=Body(...)):
@@ -239,7 +245,7 @@ def create_app(db_path=None):
         if kind not in kinds:raise KeyError(kind)
         repo.get(kind,id);matches=repo.list('matches')
         used=(kind=='venues' and any(m['venue_id']==id for m in matches)) or (kind=='teams' and any(id in [m['team_a'],m['team_b']] for m in matches)) or (kind=='matches' and any(id in m['depends_on'] for m in matches)) or (kind=='tournaments' and (any(m['tournament_id']==id for m in matches) or any(t['tournament_id']==id for t in repo.list('teams'))))
-        if used:raise HTTPException(409,'Referenced resource cannot be deleted')
+        if used:raise HTTPException(409,korean('Referenced resource cannot be deleted'))
         repo.delete(kind,id)
     dist=ROOT/'frontend/dist'
     if dist.exists():app.mount('/',StaticFiles(directory=dist,html=True),name='frontend')
