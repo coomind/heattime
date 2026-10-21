@@ -23,3 +23,15 @@ frontend/playwright-report/
 
 # Local Claude Code preview launch config (machine-specific)
 .claude/launch.json
+
+# Static judge demo build
+dist-demo/
+
+# Submission media and author-supplied files (copied by scripts/package_submission.py, never committed)
+incoming/
+recordings/
+submission/media/
+submission/site/
+submission/deck/
+submission/HeatTime_source.zip
+submission/screenshots/
