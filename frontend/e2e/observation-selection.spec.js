@@ -4,7 +4,8 @@ test('initial observed selection waits for metadata and preserves a later manual
   await page.route('**/api/observations',async route=>{
    const response=await route.fetch();await new Promise(resolve=>setTimeout(resolve,150));await route.fulfill({response});
   });
-  await page.goto('/');await expect(page.locator('option[value="observed"]')).toBeEnabled();
+  // Each attempt must be a full load: a goto to the already-open '/#live' is a same-document hash navigation.
+  await page.goto('about:blank');await page.goto('/#live');await expect(page.locator('option[value="observed"]')).toBeEnabled();
   await page.getByRole('combobox',{name:'기상 자료',exact:true}).selectOption('observed');
   const date=page.locator('input[type="date"]').first();
   await expect(date).toHaveValue('2026-08-10');

@@ -1,0 +1,18 @@
+{
+ "400": {
+  "file": "ibm-plex-sans-kr-subset-400.woff",
+  "bytes": 373448,
+  "codepoints": 2460,
+  "app_chars": 538,
+  "missing_in_subset": [],
+  "not_in_original_font_uses_system_fallback": []
+ },
+ "700": {
+  "file": "ibm-plex-sans-kr-subset-700.woff",
+  "bytes": 350004,
+  "codepoints": 2460,
+  "app_chars": 538,
+  "missing_in_subset": [],
+  "not_in_original_font_uses_system_fallback": []
+ }
+}

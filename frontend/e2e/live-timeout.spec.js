@@ -3,7 +3,7 @@ test('timeout keeps cooldown visible and leads to observed offline demonstration
  const fixture=await (await page.request.post('/api/live-observations',{data:{mode:'mock'}})).json();
  await page.route('**/api/live-observations',route=>route.fulfill({json:{...fixture,status:'error',observation:null,risks:[],retry_after_seconds:50,
   error:{stage:'네트워크 연결',message:'요청 시간이 초과되었습니다. 호출 간격 후 다시 갱신하거나 시연 스냅샷을 사용하세요.',http_status:null,exception_class:'TimeoutError'}}}));
- await page.goto('/');const panel=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
+ await page.goto('/#live');const panel=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
  await panel.getByLabel('최신 관측 연결').selectOption('api');
  await panel.getByRole('button',{name:'최신 관측 갱신',exact:true}).click();
  await expect(panel.getByRole('alert')).toContainText('요청 시간이 초과');

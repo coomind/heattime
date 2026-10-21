@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 // B-3: a FIFPRO-policy tournament shows the football stage names, not the general policy's.
 test('football policy replay uses FIFPRO stage labels',async({page})=>{
- await page.goto('/');
+ await page.goto('/#live');
  const t=await (await page.request.get('/api/tournaments/demo')).json();
  const id='fifpro-'+Date.now();
  expect((await page.request.post('/api/tournaments',{data:{...t,id,name:'축구 정책 검사 · 가상 예시',policy_id:'football'}})).status()).toBe(201);

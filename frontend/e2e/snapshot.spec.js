@@ -12,12 +12,14 @@ test('snapshot completes without API and survives fully offline reload',async({p
  await expect(page.getByRole('button',{name:'스냅샷 재현 실행 →'})).toBeEnabled();
  await page.getByRole('button',{name:'스냅샷 재현 실행 →'}).click();
  await expect(page.locator('.heat-row')).toHaveCount(3);await expect(page.locator('.heat-cell')).toHaveCount(42);
- await page.locator('.match-row').first().click();await expect(page.locator('.chart')).toBeVisible();
- await expect(page.locator('.range').first()).toContainText('추정');
+ await page.locator('.match-row').first().click();await expect(page.locator('.decision-card')).toBeVisible();
+ // Range and hourly chart live in collapsed sections of the restructured match detail.
+ await page.getByText('자세히',{exact:true}).click();await expect(page.locator('.range').first()).toContainText('추정');
+ await page.locator('summary',{hasText:'시간별 추정 그래프와 표'}).click();await expect(page.locator('.chart')).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
  await expect(page.getByRole('heading',{name:'공통 경기의 열 노출 비교'})).toBeVisible();
- await page.getByRole('button',{name:'제안 승인',exact:true}).click();
+ {const box=page.getByLabel('판단 사유',{exact:true});const ph=await box.getAttribute('placeholder');if(ph)await box.fill(ph);}await page.getByRole('button',{name:'제안 승인',exact:true}).click();
  await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();
  await expect(page.locator('.notification').first()).toContainText('모의 발송');

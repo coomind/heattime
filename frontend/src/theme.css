@@ -7,7 +7,7 @@
   --st0-bg:#e2efe5; --st0-ink:#1c4f30; --st1-bg:#f3edc4; --st1-ink:#544a0b; --st2-bg:#ffd59f; --st2-ink:#653304;
   --st3-bg:#ec9b7b; --st3-ink:#4e1206; --st4-bg:#6b1f2e; --st4-ink:#ffffff;
   --f-ui:"IBM Plex Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
-  --f-num:"IBM Plex Mono",ui-monospace,"Consolas",monospace;
+  --f-num:"IBM Plex Mono","IBM Plex Sans KR",ui-monospace,"Consolas",monospace;
   --r-panel:6px; --r-cell:3px;
 }
 body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);word-break:keep-all;overflow-wrap:break-word}
@@ -165,3 +165,46 @@ td,th{border-bottom-color:var(--line)}
 input,select,textarea{border-radius:var(--r-cell);background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
 
 .postponed-row td{background:var(--warn-bg);color:var(--ink)}
+
+/* ---------- scenes, sidebar links, decision formula (2026-10-21) ---------- */
+.sidebar{display:flex;flex-direction:column;overflow-y:auto}
+.side-note{position:static;margin-top:auto;padding-top:16px}
+.side-links{display:grid;gap:2px}
+.side-links .nav-label{margin:28px 12px 8px}
+.side-links a{color:#d6e6e2;font-size:13px;padding:8px 13px;text-underline-offset:3px}
+.scene-pick{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.scene-pick p{flex-basis:100%;margin:0 0 4px}
+a.chip{display:inline-block;border:1px solid var(--line-strong);border-radius:var(--r-panel);background:var(--surface);color:var(--accent);text-decoration:none;line-height:1.5}
+a.chip.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.two-day-link{margin:2px 0 0;font-size:.85rem;line-height:1.6;color:var(--ink)}
+.two-day-link a{font-weight:700;color:var(--accent)}
+.decision-breakdown td{font-variant-numeric:tabular-nums}
+.compare-box{border:1px solid var(--line);border-radius:var(--r-panel);padding:12px 14px;margin-top:14px;background:var(--bg)}
+.compare-box h4{margin:0 0 4px;font-size:.95rem;color:var(--ink)}
+@media (max-width:760px){.side-links{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:10px}.side-links .nav-label{display:none}.side-links a{padding:4px 0}}
+
+/* ---------- match decision card, tables, disclosure buttons (2026-10-21) ---------- */
+.decision-card{display:grid;gap:8px;padding:22px 26px;max-width:900px}
+.decision-card .dc-label{margin:0;font-size:.95rem;font-weight:600;color:var(--ink)}
+.dc-main{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.dc-value{font-family:var(--f-num);font-size:3.5rem;line-height:1;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ink);letter-spacing:-.02em}
+.dc-unit{font-size:.45em;margin-left:4px}
+.dc-chip{font-size:1rem;padding:6px 12px}
+.dc-formula{margin:2px 0 0;font-size:1rem;color:var(--ink);overflow-wrap:anywhere}
+.dc-formula .mono{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.dc-range{margin:0;font-size:.85rem;color:var(--muted)}
+.decision-breakdown table,.match-detail table{max-width:1080px}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+.num-inline{display:inline-block;min-width:4.2em;text-align:right;font-variant-numeric:tabular-nums;margin-right:6px}
+details.more{margin:12px 0}
+details>summary{list-style:none;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-strong);border-radius:var(--r-panel);padding:8px 14px;min-height:44px;background:var(--surface);color:var(--ink);font-weight:600;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details>summary::marker{content:''}
+details>summary::before{content:'';flex:none;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);margin-right:2px}
+details[open]>summary::before{transform:rotate(45deg)}
+details[open]>summary{margin-bottom:10px}
+@media (prefers-reduced-motion:no-preference){details>summary::before{transition:transform .2s ease}}
+@media (max-width:760px){.dc-value{font-size:2.8rem}.decision-card{padding:18px}}
+/* Short screens (projector 1440x702, small laptops): keep the whole sidebar in view without scrolling. */
+@media (min-width:761px) and (max-height:780px){.sidebar{padding:22px 18px}.brand{font-size:24px}.brand small{margin-top:6px}.nav-label{margin:18px 12px 8px}nav{gap:2px}nav button{padding:9px 13px;min-height:40px}.side-links .nav-label{margin:14px 12px 4px}.side-links a{padding:5px 13px}.side-note{padding-top:8px;line-height:1.6}}
+.table-scroll>table{max-width:1180px}

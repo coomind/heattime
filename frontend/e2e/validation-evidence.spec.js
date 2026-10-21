@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {randomUUID} from 'node:crypto';
 test('mock work evidence cannot manufacture actual outcomes and retains unfavourable feedback',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:/검증 기록$/}).click();
+ await page.goto('/#live');await page.getByRole('button',{name:/검증 기록$/}).click();
  await expect(page.getByRole('heading',{name:'운영자 업무 비교와 현장 대조 기록'})).toBeVisible();
  await expect(page.locator('main')).not.toContainText('수상');
  const panel=page.getByRole('region',{name:'운영자 업무 비교 기록'});
@@ -48,7 +48,11 @@ test('snapshot validation remains readonly and makes no API request',async({page
 });
 
 test('mock measurement keeps frozen range and explicit field exclusions',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'재현 시뮬레이션 실행 →',exact:true}).click();
+ await page.goto('/#live');
+ // Live mode now defaults to observed 2026-08-10; this test compares against the synthetic 2026-08-01 replay.
+ await page.getByRole('combobox',{name:'기상 자료',exact:true}).selectOption('mock');
+ await page.locator('input[type="date"]').first().fill('2026-08-01');
+ await page.getByRole('button',{name:'재현 시뮬레이션 실행 →',exact:true}).click();
  await expect(page.locator('h1')).toHaveText('대시보드');
  await page.getByRole('button',{name:/검증 기록$/}).click();
  const panel=page.getByRole('region',{name:'현장 WBGT 대조 기록'});
@@ -68,7 +72,7 @@ test('mock measurement keeps frozen range and explicit field exclusions',async({
 });
 
 test('latest estimate can be frozen for later field comparison with no API credentials',async({page})=>{
- await page.goto('/');const live=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
+ await page.goto('/#live');const live=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
  await live.getByRole('button',{name:'최신 관측 갱신',exact:true}).click();
  await expect(live).toContainText('합성 입력 · 가상 예시');
  const observedRequests=[];page.on('request',r=>{if(new URL(r.url()).pathname==='/api/live-observations')observedRequests.push(r);});

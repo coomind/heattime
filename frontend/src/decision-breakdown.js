@@ -1,6 +1,6 @@
 import {round1} from './format.js';
 // Mirror of backend/config/policies.yaml age.upper_bound_groups (checked by tests/test_frontend_policy_mirror.py).
-export const UPPER_BOUND_GROUPS=['U10','U12','U15','senior'];
+export const UPPER_BOUND_GROUPS=[];
 // Frozen rounded values only. This explanation cannot change settings or decisions.
 export function breakdown(r) {
  const i=r.inputs,v=i.venue,s=i.settings;

@@ -2,14 +2,16 @@ import {test,expect} from '@playwright/test';
 import path from 'node:path';
 test('replay to approval, notifications, PDF and readonly team view',async({page},testInfo)=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');await expect(page.getByRole('button',{name:'재현 시뮬레이션 실행 →'})).toBeEnabled();
+ await page.goto('/#live');await expect(page.getByRole('button',{name:'재현 시뮬레이션 실행 →'})).toBeEnabled();
  const responsePromise=page.waitForResponse(r=>r.url().endsWith('/api/replays')&&r.request().method()==='POST');
  await page.getByRole('button',{name:'재현 시뮬레이션 실행 →'}).click();const session=await (await responsePromise).json();
  await expect(page.getByRole('heading',{name:'구장 × 시간 위험도'})).toBeVisible();
  await expect(page.locator('.heat-row')).toHaveCount(3);await expect(page.locator('.heat-cell')).toHaveCount(42);
  await page.screenshot({path:path.resolve('../data/output/overnight/e2e/'+testInfo.project.name+'-'+testInfo.repeatEachIndex+'-dashboard.png'),fullPage:true});
  await page.locator('.match-row').first().click();await expect(page.getByText('권고 반영 종료:',{exact:false})).toBeVisible();
- await expect(page.locator('.chart')).toBeVisible();await expect(page.locator('.range').first()).toContainText('추정');
+ // The range and the hourly chart sit in collapsed sections of the restructured match detail.
+ await page.getByText('자세히',{exact:true}).click();await expect(page.locator('.range').first()).toContainText('추정');
+ await page.locator('summary',{hasText:'시간별 추정 그래프와 표'}).click();await expect(page.locator('.chart')).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();const optimization=page.waitForResponse(r=>r.url().endsWith('/optimize')&&r.request().method()==='POST');
  await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
  const proposal=await (await optimization).json();
@@ -17,7 +19,7 @@ test('replay to approval, notifications, PDF and readonly team view',async({page
  expect(proposal.common_match_ids.sort()).toEqual(proposal.assignments.map(a=>a.match_id).sort());
  expect(proposal.assignments.every(a=>a.level<4)).toBe(true);
  await expect(page.getByRole('heading',{name:'공통 경기의 열 노출 비교'})).toBeVisible();
- await page.getByRole('button',{name:'제안 승인',exact:true}).click();await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
+ {const box=page.getByRole('textbox',{name:'판단 사유',exact:true});const ph=await box.getAttribute('placeholder');if(ph)await box.fill(ph);}await page.getByRole('button',{name:'제안 승인',exact:true}).click();await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();await expect(page.locator('.notification').first()).toBeVisible();
  await expect(page.locator('.notification').first()).toContainText('유소년 팀');
  await expect(page.locator('.notification').first()).toContainText('모의 수신함');

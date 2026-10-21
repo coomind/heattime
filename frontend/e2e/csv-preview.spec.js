@@ -9,7 +9,7 @@ test('CSV preview, cancel, invalid input and confirmed save remain separate',asy
  const match=await (await page.request.get('/api/matches/g1-1')).json();
  expect((await page.request.post('/api/matches',{data:{...match,id:mid,tournament_id:id,team_a:a,team_b:b,scheduled_start:'2026-08-01T10:00:00+09:00',depends_on:[]}})).status()).toBe(201);
  const valid=header+mid+',group,'+a+','+b+',mock-suwon-a,2026-08-01T09:00:00+09:00,40,\n';
- await page.goto('/');await page.getByLabel('대회',{exact:true}).selectOption(id);
+ await page.goto('/#live');await page.getByLabel('대회',{exact:true}).selectOption(id);
  await page.locator('nav').getByRole('button',{name:/설정$/}).click();
  const box=page.getByRole('region',{name:'CSV 저장 전 미리보기'}),file=box.locator('input[type=file]');
  const before=await (await page.request.get('/api/matches/'+mid)).json();

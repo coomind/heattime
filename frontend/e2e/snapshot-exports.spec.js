@@ -11,7 +11,7 @@ test('snapshot exports before approval are explained and after approval download
  await expect(page.getByRole('link',{name:'전체 근거 JSON'})).toHaveAttribute('href',/^blob:/);
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
- await page.getByRole('button',{name:'제안 승인',exact:true}).click();
+ {const box=page.getByLabel('판단 사유',{exact:true});const ph=await box.getAttribute('placeholder');if(ph)await box.fill(ph);}await page.getByRole('button',{name:'제안 승인',exact:true}).click();
  await page.locator('nav').getByRole('button',{name:'운영 기록'}).click();
  await expect(page.getByRole('link',{name:'운영 기록 PDF'})).toHaveAttribute('href',/^blob:/);
  await expect(page.getByRole('link',{name:'CSV 내보내기'})).toHaveAttribute('href',/^blob:/);

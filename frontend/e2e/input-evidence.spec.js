@@ -19,16 +19,19 @@ test('observed source panel exposes conversions and assumptions entirely offline
  await panel.getByRole('button',{name:'근거 닫기'}).click();await expect(panel).toHaveCount(0);
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
- await page.getByRole('button',{name:'제안 승인',exact:true}).click();
+ {const box=page.getByLabel('판단 사유',{exact:true});const ph=await box.getAttribute('placeholder');if(ph)await box.fill(ph);}await page.getByRole('button',{name:'제안 승인',exact:true}).click();
  await page.getByRole('button',{name:'1조 1경기 승인 일정 근거',exact:true}).click();
  await page.getByText('제안 구장의 시간별 WBGT 추정과 범위',{exact:true}).click();
  await page.locator('.match-evidence').getByRole('button',{name:'입력 근거',exact:true}).first().click();
  await expect(panel).toContainText('승인 시점 고정 근거');expect(calls).toBe(0);await context.setOffline(false);
 });
 test('manual measurement history is captured by new replay and visibly applied at matching times',async({page})=>{
- await page.goto('/');
+ await page.goto('/#live');
  const post=await page.request.post('/api/manual',{data:{venue_id:'mock-suwon-a',valid_time:'2026-08-01T12:00:00+09:00',wbgt_c:30,is_mock:true}});
  expect(post.status()).toBe(200);
+ // Live mode now defaults to observed 2026-08-10; the mock measurement is for the synthetic 2026-08-01 replay.
+ await page.getByRole('combobox',{name:'기상 자료',exact:true}).selectOption('mock');
+ await page.locator('input[type="date"]').first().fill('2026-08-01');
  await page.getByRole('button',{name:'재현 시뮬레이션 실행 →',exact:true}).click();
  await page.getByRole('button',{name:/.*수원.* 12시 입력 근거/}).first().click();
  const panel=page.locator('.input-evidence');

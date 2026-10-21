@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 test('latest weather mock and injected API observation show source, estimates, quota and stale failure',async({page})=>{
  const fixture=await (await page.request.post('/api/live-observations',{data:{mode:'mock'}})).json();
  let liveCalls=0;page.on('request',r=>{if(new URL(r.url()).pathname==='/api/live-observations')liveCalls++;});
- await page.goto('/');const panel=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
+ await page.goto('/#live');const panel=page.getByRole('region',{name:'최신 관측과 WBGT 추정'});
  await expect(panel.getByLabel('최신 관측 연결')).toHaveValue('mock');expect(liveCalls).toBe(0);
  await panel.getByRole('button',{name:'최신 관측 갱신',exact:true}).click();
  await expect(panel).toContainText('합성 입력 · 가상 예시');await expect(panel).toContainText('이 앱 사용량: 0회');

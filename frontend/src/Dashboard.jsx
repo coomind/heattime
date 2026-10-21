@@ -9,7 +9,8 @@ const HOURS=Array.from({length:14},(_,i)=>i+7);
 const DAY_START=7*60,SPAN=14*60;
 const hm=t=>String(t).slice(11,16);
 // Keep a marker inside the 07:00-21:00 lane even when it starts late (no overflow past the panel).
-const laneBox=(start,len)=>{const left=Math.max(0,(start-DAY_START)/SPAN*100);const width=Math.min(Math.max(len/SPAN*100,3.2),100-left);return {left:Math.min(left,96.8)+'%',width:Math.max(width,3.2)+'%'};};
+// Minimum 4.6% (about 39 min) so a shortened 35-minute block still shows its short name; matches at one venue are at least 40 min apart.
+const laneBox=(start,len)=>{const left=Math.max(0,(start-DAY_START)/SPAN*100);const width=Math.min(Math.max(len/SPAN*100,4.6),100-left);return {left:Math.min(left,95.4)+'%',width:Math.max(width,4.6)+'%'};};
 const minutes=t=>Number(String(t).slice(11,13))*60+Number(String(t).slice(14,16));
 const venueShort=name=>{const m=/구장\s*([A-Z0-9]+)/.exec(name||'');return m?`구장 ${m[1]}`:(name||'').replace(/ · 가상 예시$/,'');};
 
@@ -37,12 +38,12 @@ function Cell({r,venue,hour,stageLabel,upper,onOpen}){
     onClick={()=>onOpen(venue.id,r.valid_time)}>
     <span className="stg">{r.level} {stageLabel(r.level)}</span>
     <span className="dv">{round1(r.decision_wbgt_c)}</span>
-    <span className="cr">{upper?<>중앙 {round1(r.wbgt_c)}<br/>{round1(r.wbgt_low_c)}~{round1(r.wbgt_high_c)}</>:<>범위 {round1(r.wbgt_low_c)}~{round1(r.wbgt_high_c)}</>}</span>
+    <span className="cr">{upper?<>중앙 {round1(r.wbgt_c)}<br/>{round1(r.wbgt_low_c)}~{round1(r.wbgt_high_c)}</>:<>범위<br/>{round1(r.wbgt_low_c)}~{round1(r.wbgt_high_c)}</>}</span>
     <span className="sr-only"> {venue.name} {hour}시 입력 근거</span>
   </button>;
 }
 
-export default function Dashboard({session,day,daySelect,stageLabel,openMatch,openInput,onOptimize,onCompare,busy}){
+export default function Dashboard({session,day,daySelect,stageLabel,openMatch,openInput,onOptimize,onCompare,busy,twoDayHref}){
   const narrow=useNarrow();
   const recs=Object.fromEntries((session.recommendations||[]).map(r=>[r.match_id,r]));
   const proposal=session.proposal;
@@ -56,6 +57,8 @@ export default function Dashboard({session,day,daySelect,stageLabel,openMatch,op
   const stopIds=(session.recommendations||[]).filter(r=>r.level===4).map(r=>r.match_id);
   const rescued=stopIds.filter(id=>assigned[id]).length;
   const sameAcrossVenues=session.venues.length>1&&HOURS.every(h=>{const v=session.venues.map(x=>riskAt(x.id,h)?.decision_wbgt_c);return v.every(x=>x!==undefined&&x===v[0]);});
+  const offsets=[...new Set(session.venues.map(v=>v.field_offset_c))];
+  const offsetText=offsets.length===1?`${offsets[0]}℃`:'(구장마다 다른 값)';
   const station=session.observation_summary?.station;
   const weather=session.weather||[];
   const open=session.schedule_settings?.open_hour??7,close=session.schedule_settings?.close_hour??20;
@@ -105,7 +108,7 @@ export default function Dashboard({session,day,daySelect,stageLabel,openMatch,op
           <p className="lead">원래 일정에서 운동 중지 단계였던 {stopIds.length}경기 중 {rescued}경기를 다른 시간이나 구장으로 옮겨 배정했습니다.</p>
           <p className="fine">같은 {proposal.common_match_ids.length}경기의 열 노출 점수는 {proposal.original_heat_score.toLocaleString('ko-KR')}점에서 {proposal.proposed_heat_score.toLocaleString('ko-KR')}점으로 내려갑니다. 일정 비교용 내부 점수이며 건강 효과를 뜻하지 않습니다.</p>
         </div>
-        {postponed.length>0&&<div className="postponed-box" role="note"><h3>연기 제안 {postponed.length}경기</h3><ul>{postponed.map(p=>{const m=session.matches.find(x=>x.id===p.match_id);return <li key={p.match_id}><b>{matchName(p.match_id)}{m?` (${teamLabel(session,m.team_a)} 대 ${teamLabel(session,m.team_b)})`:''}</b><span>{postponeReason(p,session,postponedIds)}</span></li>;})}</ul></div>}
+        {postponed.length>0&&<div className="postponed-box" role="note"><h3>연기 제안 {postponed.length}경기</h3><ul>{postponed.map(p=>{const m=session.matches.find(x=>x.id===p.match_id);return <li key={p.match_id}><b>{matchName(p.match_id)}{m?` (${teamLabel(session,m.team_a)} 대 ${teamLabel(session,m.team_b)})`:''}</b><span>{postponeReason(p,session,postponedIds)}</span></li>;})}</ul>{twoDayHref&&<p className="two-day-link"><a href={twoDayHref}>이틀 일정으로 다시 짜면</a> 같은 대회를 다음 날까지 이어 열 때의 미리 계산한 제안을 엽니다.</p>}</div>}
       </>:<>
         <div className="decide-head">
           <h2 id="decide-title">오늘 판단할 일</h2>
@@ -119,7 +122,7 @@ export default function Dashboard({session,day,daySelect,stageLabel,openMatch,op
       <h2 id="heat-title">구장 × 시간 위험도</h2>
       <div className="summary stage-counts" aria-label="원래 일정의 경기별 단계">{[0,1,2,3,4].map(i=><div className={'stat risk-'+i} key={i}><span>{i} {stageLabel(i)}</span><strong>{counts[i]}<small>경기</small></strong></div>)}</div>
       {daySelect}
-      <p className="heat-legend">칸의 큰 숫자는 단계를 정하는 데 쓴 판정값(℃)입니다. {upper?`이 대회(${session.tournament.age_group})는 유소년 기준이라 WBGT 추정 범위의 상단값으로 판정하고, 작은 글씨로 추정 중앙값과 범위를 적었습니다.`:'WBGT 추정 중앙값으로 판정하고, 작은 글씨로 추정 범위를 적었습니다.'} 모든 값은 관측 기상으로 계산한 추정이며 현장 실측이 아닙니다.</p>
+      <p className="heat-legend">칸의 큰 숫자는 단계를 정하는 데 쓴 판정값(℃)입니다. {upper?`이 대회(${session.tournament.age_group})는 WBGT 추정 범위의 상단값으로 판정하고, 작은 글씨로 추정 중앙값과 범위를 적었습니다.`:`판정값은 관측 기반 추정에 구장 보정 ${offsetText}를 더한 WBGT 중앙 추정값입니다. 작은 글씨의 추정 범위는 참고용이며 판정에 쓰지 않습니다.`} 모든 값은 관측 기상으로 계산한 추정이며 현장 실측이 아닙니다.</p>
       <div className="timeline-scroll">{heatmap}</div>
       <p className="heat-legend"><b>원래</b>는 작성자가 정한 가상 일정의 킥오프, {proposal?<><b>제안</b>은 자동 재편성 제안의 킥오프입니다.</>:'제안 킥오프는 재편성을 실행하면 함께 표시됩니다.'}</p>
       {sameAcrossVenues&&<p className="same-note">세 구장의 값이 같은 이유: 모든 구장이 같은 관측소{station?`(${station.name} ${station.id})`:''} 자료를 쓰고, 표면 유형은 현재 판정에 반영하지 않기 때문입니다.</p>}
