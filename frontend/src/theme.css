@@ -163,3 +163,5 @@ table th{background:var(--bg);color:var(--muted)}
 td,th{border-bottom-color:var(--line)}
 .button,button{border-radius:var(--r-panel)}
 input,select,textarea{border-radius:var(--r-cell);background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
+
+.postponed-row td{background:var(--warn-bg);color:var(--ink)}
