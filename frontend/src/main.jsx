@@ -1,1 +1,1 @@
-import React from 'react';import {createRoot} from 'react-dom/client';import App from './App.jsx';import './styles.css';createRoot(document.getElementById('root')).render(<App/>);
+import React from 'react';import {createRoot} from 'react-dom/client';import App from './App.jsx';import '@fontsource/ibm-plex-sans-kr/400.css';import '@fontsource/ibm-plex-sans-kr/700.css';import '@fontsource/ibm-plex-mono/500.css';import './styles.css';import './theme.css';createRoot(document.getElementById('root')).render(<App/>);
