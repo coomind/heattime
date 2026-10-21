@@ -127,3 +127,8 @@ footer{color:var(--muted)}
 .stage-window p,.stage-window li{font-size:.88rem;line-height:1.75;color:var(--muted)}
 .stage-window ul{margin:0;padding-left:1.1rem;display:grid;gap:4px}
 .stage-window b{color:var(--ink)}
+
+.original-issues{border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:var(--r-panel);padding:12px 14px;margin:10px 0;display:grid;gap:6px}
+.original-issues h3{font-size:.95rem;margin:0;color:var(--warn-ink)}
+.original-issues ul{margin:0;padding-left:1.1rem;display:grid;gap:3px}
+.original-issues li,.original-issues .fine{font-size:.85rem;line-height:1.7;color:var(--ink)}

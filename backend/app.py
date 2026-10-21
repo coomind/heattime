@@ -160,6 +160,10 @@ def create_app(db_path=None):
     def evidence(id:str,match_id:str,view:Literal['proposed','approved']='proposed'):
         from backend.evidence import schedule_evidence
         return schedule_evidence(repo.get('sessions',id),match_id,view)
+    @app.get('/api/sessions/{id}/original-issues')
+    def original_issues_route(id:str):
+        from backend.original_issues import original_issues
+        return original_issues(repo.get('sessions',id))
     @app.get('/api/sessions/{id}/plan-review')
     def plan_review(id:str,view:Literal['proposed','approved']='proposed'):
         from backend.plan_review import review

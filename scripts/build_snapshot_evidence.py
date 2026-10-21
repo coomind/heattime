@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from backend.evidence import schedule_evidence
 from backend.input_evidence import input_evidence
+from backend.original_issues import original_issues
 
 
 def build():
@@ -16,7 +17,8 @@ def build():
         s = bundle["approved"]
         data = {"input_fingerprint": bundle["input_fingerprint"], "session_id": s["id"],
                 "session_sha256": hashlib.sha256(json.dumps(s, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
-                "matches": {m["id"]: schedule_evidence(s, m["id"]) for m in s["matches"]}}
+                "matches": {m["id"]: schedule_evidence(s, m["id"]) for m in s["matches"]},
+                "original_issues": original_issues(s)}
         path = output / f"{prefix}-evidence.json"
         path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
         print(f"{prefix}: {len(data['matches'])} 경기 상세 / {path.stat().st_size} bytes")

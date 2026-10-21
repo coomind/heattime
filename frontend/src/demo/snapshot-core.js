@@ -63,6 +63,7 @@ export function createBundleAPI(bundle,exportsBundle,evidenceBundle=null,inputBu
    if(body.action!=='accepted'||body.reason!==accepted.decision.reason)throw new Error('스냅샷은 사전 계산된 승인만 시연합니다.');
    session.decision=clone(accepted.decision);session.notifications=clone(accepted.notifications);return clone(session);
   }
+  if(path===prefix+'/original-issues'){if(!evidenceBundle?.original_issues)throw new Error('원래 일정 검사 결과가 스냅샷에 없습니다.');return clone(evidenceBundle.original_issues);}
   if(path.startsWith(prefix+'/matches/')&&path.includes('/evidence')){
    const matchId=decodeURIComponent(path.slice((prefix+'/matches/').length).split('/')[0]);
    const view=new URLSearchParams(path.split('?')[1]||'').get('view')||'proposed';
