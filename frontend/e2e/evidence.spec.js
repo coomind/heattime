@@ -33,9 +33,9 @@ test('all-date evidence and match changes remain usable offline with explicit mo
   // 2026-08-10: semi2 and final rows carry postponement reasons instead of a new kickoff.
   await expect(table.locator('tbody tr').filter({hasText:'연기 사유 확인'})).toHaveCount(2);
   await expect(page.locator('.schedule-changes')).toContainText('아직 승인하지 않은 자동 제안');
-  await expect(table.getByRole('row').filter({has:page.getByRole('button',{name:'g1-1 원래 경기 상세',exact:true})})).toContainText('60분 앞당김');
-  await table.getByRole('button',{name:'g1-1 원래 경기 상세',exact:true}).click();
-  await expect(page.getByRole('heading',{name:'조별 1조 · g1-1',exact:true})).toBeVisible();
+  await expect(table.getByRole('row').filter({has:page.getByRole('button',{name:'1조 1경기 원래 경기 상세',exact:true})})).toContainText('60분 앞당김');
+  await table.getByRole('button',{name:'1조 1경기 원래 경기 상세',exact:true}).click();
+  await expect(page.getByRole('heading',{name:/^1조 1경기/})).toBeVisible();
   await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
   await page.getByRole('button',{name:'제안 승인',exact:true}).click();
   await expect(page.locator('.schedule-changes')).toContainText('승인된 자동 제안');

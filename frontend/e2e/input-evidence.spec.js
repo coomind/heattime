@@ -20,7 +20,7 @@ test('observed source panel exposes conversions and assumptions entirely offline
  await page.locator('nav').getByRole('button',{name:'재편성 비교'}).click();
  await page.getByRole('button',{name:'재편성 실행',exact:true}).click();
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();
- await page.getByRole('button',{name:'g1-1 승인 일정 근거',exact:true}).click();
+ await page.getByRole('button',{name:'1조 1경기 승인 일정 근거',exact:true}).click();
  await page.getByText('제안 구장의 시간별 WBGT 추정과 범위',{exact:true}).click();
  await page.locator('.match-evidence').getByRole('button',{name:'입력 근거',exact:true}).first().click();
  await expect(panel).toContainText('승인 시점 고정 근거');expect(calls).toBe(0);await context.setOffline(false);

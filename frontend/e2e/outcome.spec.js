@@ -21,7 +21,7 @@ test('offline observed proposal makes its outcome visible and distinguishes appr
   await expect(outcome).toContainText('공통 13경기 열 노출 점수39.79% 감소');
   await expect(outcome).toContainText('2,563점 감소');
   await expect(page.locator('.postponed')).toHaveCount(2);
-  await expect(page.locator('.postponed').filter({hasText:'final'})).toContainText('선행 경기 연기');
+  await expect(page.locator('.postponed').filter({hasText:/^결승 연기/})).toContainText('선행 경기 연기');
   await expect(outcome).toContainText('승인 전 제안');
   await expect(outcome).toContainText('건강 효과나 사고 감소율이 아닙니다');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

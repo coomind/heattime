@@ -21,7 +21,7 @@ async function flow(page,testInfo,snapshot){
  await expect(page.locator('.comparison-metrics')).toContainText('공통 13경기');
  await expect(page.locator('.comparison-metrics')).toContainText('2경기 연기');
  if(snapshot){await expect(page.locator('.comparison-metrics')).toContainText('6,442');await expect(page.locator('.comparison-metrics')).toContainText('3,879');
-  await expect(page.locator('.postponed')).toHaveCount(2);await expect(page.locator('.postponed').filter({hasText:'semi2'})).toContainText('배정 불가');}
+  await expect(page.locator('.postponed')).toHaveCount(2);await expect(page.locator('.postponed').filter({hasText:'준결승 2 연기'})).toContainText('배정 불가');}
  await page.getByRole('button',{name:'제안 승인',exact:true}).click();
  await expect(page.getByText('판단 기록 완료:',{exact:false})).toBeVisible();
  await page.locator('nav').getByRole('button',{name:'알림 로그'}).click();
