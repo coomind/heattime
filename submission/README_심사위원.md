@@ -4,7 +4,7 @@ HeatTime은 생활체육과 유소년 축구 대회 운영자를 위한 폭염 �
 
 ## 30초 안에 시연 열기
 
-1. 링크로 열기: 정적 시연판 링크는 아직 배포하지 않았습니다(작성자 승인 대기). 배포 후 이 줄에 주소를 적습니다.
+1. 링크로 열기: https://coomind.github.io/heattime/ (GitHub Pages 정적 시연판, 백엔드 없음). 첫 화면이 8월 10일 대시보드입니다.
 2. 인터넷 없이 열기(Node.js 필요): 소스 압축을 풀고 `frontend` 폴더에서 아래 한 줄을 실행한 뒤 브라우저로 http://127.0.0.1:8128/heattime/ 을 엽니다. `dist-demo`가 없으면 먼저 `npm ci` 와 `npm run build:demo` 를 실행합니다.
 
 ```
@@ -42,7 +42,7 @@ node scripts/serve-static.mjs dist-demo 8128 /heattime/
 | 국내 구장 보정값(+2.5℃) 검증 | 하지 않음 |
 | 대회 운영자 인터뷰 | 하지 않음 |
 | 실시간 예보 연동 | 하지 않음(관측 재현만) |
-| 외부 배포 | 하지 않음(설정과 명령만 준비, 작성자 승인 대기) |
+| 외부 배포 | 정적 시연판만 GitHub Pages에 배포함(https://coomind.github.io/heattime/). 서버 기능은 배포하지 않음 |
 
 ## 이 폴더
 

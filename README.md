@@ -55,7 +55,7 @@ node scripts/serve-static.mjs dist-demo 8128 /heattime/
 Pop-Location
 ```
 
-http://127.0.0.1:8128/heattime/ 을 엽니다. 해시 라우팅과 상대 경로만 쓰므로 GitHub Pages 같은 하위 경로에서도 열립니다. 다른 기준 경로가 필요하면 `VITE_BASE` 환경 변수로 바꿉니다. "시연 자료 저장됨"이 보이면 인터넷을 끊어도 새로고침과 전체 흐름이 됩니다. 배포 설정과 명령은 [docs/deploy-github-pages.md](docs/deploy-github-pages.md)에 있으며, 실제 배포는 작성자 승인 뒤에 합니다.
+http://127.0.0.1:8128/heattime/ 을 엽니다. 해시 라우팅과 상대 경로만 쓰므로 GitHub Pages 같은 하위 경로에서도 열립니다. 다른 기준 경로가 필요하면 `VITE_BASE` 환경 변수로 바꿉니다. "시연 자료 저장됨"이 보이면 인터넷을 끊어도 새로고침과 전체 흐름이 됩니다. 배포된 시연판: https://coomind.github.io/heattime/ (2026-10-21, 작성자 승인 후 GitHub Pages에 배포). 배포 절차는 [docs/deploy-github-pages.md](docs/deploy-github-pages.md)에 있습니다.
 
 ## 테스트
 
@@ -129,7 +129,7 @@ node scripts/demo-video/record.mjs
 | 국내 구장 보정값(+2.5℃) 검증 | 하지 않음 |
 | 대회 운영자 인터뷰 | 하지 않음 |
 | 실시간 예보 연동 | 하지 않음(관측 재현과 최신 관측 1회 확인만) |
-| 외부 배포 | 하지 않음(설정만 준비) |
+| 외부 배포 | 정적 시연판만 GitHub Pages에 배포함(https://coomind.github.io/heattime/). 서버 기능은 배포하지 않음 |
 
 ## 데이터 출처와 한계
 
