@@ -1,5 +1,5 @@
 # Static judge demo (frontend/dist-demo) to GitHub Pages. Manual only: nothing deploys on push.
-# Run it from the Actions tab after the author approves publishing the repository and the demo link.
+# Run it from the Actions tab (or `gh workflow run pages.yml`) after the author approves publishing.
 name: Deploy static demo to GitHub Pages
 on:
   workflow_dispatch:
