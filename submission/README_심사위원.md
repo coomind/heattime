@@ -76,7 +76,7 @@ node scripts/serve-static.mjs dist-demo 8128 /heattime/
 
 - deck/HeatTime_7분발표.pptx ← incoming/HeatTime_7분발표.pptx
 - deck/HeatTime_7분발표.pdf ← incoming/HeatTime_7분발표.pdf
-- site/HeatTime_소개사이트.html ← incoming/HeatTime_소개사이트 (2).html
+- site/HeatTime_소개사이트.html ← incoming/HeatTime_소개사이트.html
 - media/intro.mp4 ← incoming/video_kit (1)/intro.mp4
 - media/outro.mp4 ← incoming/video_kit (1)/outro.mp4
 - media/demo_bed.m4a ← incoming/video_kit (1)/demo_bed.m4a

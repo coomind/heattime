@@ -10,8 +10,9 @@ import subprocess
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-ASOS_GUIDE='docs/kma/기상청01_지상(종관,ASOS)시간자료_조회서비스_오픈API활용가이드.docx'
-ASOS_GUIDE_SHA256='c4484c0ae95e63eee5b2b8c3fd4e49fff4401321dbb792eae6055288b606c318'
+# Verbatim table extract of the public KMA ASOS guide (the DOCX itself is no longer in the repository).
+ASOS_GUIDE='docs/kma/asos-guide-extract.json'
+ASOS_GUIDE_SHA256='5b51a81b9f1f401952605865c3fbce4c80f3f36c614b1b2f557cf2c9e6a72623'
 
 def allowed(name):
     path=Path(name)
@@ -47,11 +48,11 @@ def build():
         for name in names:
             payload=(ROOT/name).read_bytes()
             if name==ASOS_GUIDE and hashlib.sha256(payload).hexdigest()!=ASOS_GUIDE_SHA256:
-                raise ValueError('Provided public ASOS guide fingerprint changed')
+                raise ValueError('ASOS guide extract fingerprint changed')
             entries.append({'path':name,'bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest()})
             archive.writestr(name,payload)
         manifest={'repository_commit':revision,'purpose':'Local independent AI review; not uploaded or independently certified.',
-                  'excluded':'All .env files, raw API samples, local databases/runtime records, untracked files, other DOCX and generated PDF/PPTX. Only the fingerprint-verified provided public ASOS guide is included for offline contract tests.',
+                  'excluded':'All .env files, raw API samples, local databases/runtime records, untracked files, other DOCX and generated PDF/PPTX. The fingerprint-verified table extract of the public ASOS guide is included for offline contract tests.',
                   'observation_scope':'Committed normalized public Suwon ASOS fields; observed inputs are not field WBGT.',
                   'files':entries}
         archive.writestr('REVIEW-MANIFEST.json',json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')

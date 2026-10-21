@@ -266,3 +266,11 @@ AGENTS.md에는 "유소년은 범위 상단으로 판정"이라는 문장이 없
 - 저장소: https://github.com/coomind/heattime (공개). `master`와 태그 `v1.0-submission`을 push했다.
 - 정적 시연판: https://coomind.github.io/heattime/ . 워크플로를 수동 실행해 배포했다(빌드와 배포 성공). 첫 새 저장소 push에서는 GitHub가 워크플로를 등록하지 않아, 워크플로 주석 한 줄을 다듬은 커밋을 한 번 더 올려 등록했다.
 - 배포 주소에서 확인: 빈 주소가 `#snapshot-observed`로 바뀌며 8/10 대시보드가 열리고, 서체 서브셋(IBM Plex Sans KR 400과 700, IBM Plex Mono 500)이 로드되고, "시연 자료 저장됨"이 표시된다.
+
+## 후속 정리 (2026-10-22)
+
+- 새 발표자료(`HeatTime_7분발표.pptx`, `.pdf`)와 소개 사이트(`HeatTime_소개사이트.html`)를 `incoming/`의 같은 이름으로 받아 패키지 스크립트를 다시 실행했다. `submission/site/`에 소개 사이트와 `HeatTime_활용영상_720p.mp4`가 함께 들어가 있고, 소개 사이트는 같은 폴더의 이 파일 이름을 참조한다.
+- 기상청 활용가이드 DOCX를 `git rm`으로 지웠다(커밋 기록은 다시 쓰지 않았으므로 이전 커밋에는 남아 있다). 문서의 참조는 공공데이터포털 안내 페이지 https://www.data.go.kr/data/15057210/openapi.do 로 바꿨다. 이 페이지는 같은 활용가이드를 참고문서로 제공하고, 이용허락범위를 공공누리 제1유형(출처표시)으로 적고 있다.
+- 활용가이드 표를 읽어 주소, 응답 필드, 지점표를 대조하던 계약 시험은 지우기 전에 표 13개를 원문 그대로 옮긴 `docs/kma/asos-guide-extract.json`(원본 SHA-256 `c4484c0a…` 기록)을 읽도록 바꿨다. 검사 내용은 같다. 검토용 묶음 스크립트도 이 추출본을 넣는다.
+- `AGENTS.md`의 "docs/kma/의 제공된 DOCX 활용가이드만 근거로 사용한다"는 작업 지시문이라 고치지 않았다.
+- `v1.0-submission` 태그를 이 정리를 담은 마지막 커밋으로 옮겼다.

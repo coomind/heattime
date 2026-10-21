@@ -48,12 +48,11 @@ def page(rows, number=1, total=None, code='00'):
 
 
 def guide_tables():
-    path = next((asos.ROOT/'docs/kma').glob('*.docx'))
-    ns = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
-    with ZipFile(path) as z: root = ET.fromstring(z.read('word/document.xml'))
-    return [[[ ''.join(t.text or '' for t in c.findall('.//w:t', ns)).strip()
-                for c in r.findall('w:tc', ns)] for r in table.findall('w:tr', ns)]
-            for table in root.find('w:body', ns).findall('w:tbl', ns)]
+    """Tables of the supplied KMA guide, extracted verbatim to docs/kma/asos-guide-extract.json before the
+    DOCX was removed from the repository (source SHA-256 recorded there). Indexes follow the original order."""
+    extract = json.loads((asos.ROOT/'docs/kma/asos-guide-extract.json').read_text(encoding='utf-8'))
+    assert extract['source_sha256'] == 'c4484c0ae95e63eee5b2b8c3fd4e49fff4401321dbb792eae6055288b606c318'
+    return extract['tables']
 
 
 def test_contract_matches_only_supplied_guide():
