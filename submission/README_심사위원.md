@@ -47,7 +47,7 @@ node scripts/serve-static.mjs dist-demo 8128 /heattime/
 ## 이 폴더
 
 - `screenshots/`: 화면 캡처(번호_화면_폭). `video-check/`는 활용 영상 검수 프레임입니다.
-- `HeatTime_source.zip`: 소스 372개 파일. 아래 제외 목록을 뺐습니다.
+- `HeatTime_source.zip`: 소스 373개 파일. 아래 제외 목록을 뺐습니다.
 - `licenses/`: 의존성 라이선스와 기상 자료 출처. `sources.md`: 근거 기사와 정책 출처.
 - `deck/`, `site/`, `media/`: 발표자료, 소개 사이트, 활용 영상(작성자가 incoming/에 넣은 최신 파일을 복사).
 
