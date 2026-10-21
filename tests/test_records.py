@@ -56,17 +56,17 @@ def test_pdf_full_evidence_font_and_each_page_notice(approved):
 
 def test_csv_applied_schedule_and_traceability(approved):
     rows = list(csv.DictReader(StringIO(records_csv(approved).decode('utf-8-sig'))))
-    assert {r['match_id'] for r in rows} == {m['id'] for m in approved['matches']}
+    assert {r['경기 ID'] for r in rows} == {m['id'] for m in approved['matches']}
     assignments = {a['match_id']: a for a in approved['decision']['assignments']}
     for r in rows:
-        assert r['inputs_hash'] and r['fetched_at'] and r['policy_source']
+        assert r['입력 해시'] and r['수집 시각'] and r['정책 출처']
         # E-3: range columns say what they bound.
         assert float(r['WBGT 추정 하한']) <= float(r['WBGT 추정']) <= float(r['WBGT 추정 상한'])
-        assert r['reason'] == approved['decision']['reason']
-        if r['match_id'] in assignments:
-            assert r['applied_start'] == assignments[r['match_id']]['start']
+        assert r['판단 사유'] == approved['decision']['reason']
+        if r['경기 ID'] in assignments:
+            assert r['적용 킥오프'] == assignments[r['경기 ID']]['start']
     for p in approved['decision']['postponed']:
-        assert any(r['postponement_reason'] == p['reason'] for r in rows if r['match_id'] == p['match_id'])
+        assert any(r['연기 사유'] == p['reason'] for r in rows if r['경기 ID'] == p['match_id'])
     assert csv_safe('=1+1').startswith("'")
     assert csv_safe(' @attack').startswith("'")
     # B-8: real negative numbers stay numeric; text that merely starts with '-' is still neutralized.

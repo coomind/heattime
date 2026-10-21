@@ -10,6 +10,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether
 from backend.decision_breakdown import explanation,breakdown
+from backend.display_names import match_name, placeholder_name
 
 DISCLAIMER = '본 자료는 의사결정 보조용 추정값'
 # E-7: operator-facing Korean wording; internal ids stay in parentheses for traceability.
@@ -60,7 +61,7 @@ def venue_name(s, venue_id):
 
 def team_name(s, team_id):
     if team_id.startswith('winner:'):
-        return team_id.split(':', 1)[1] + ' 승자'
+        return placeholder_name(team_id)
     return next((t['name'] for t in s.get('teams', []) if t['id'] == team_id), team_id)
 
 
@@ -96,21 +97,25 @@ def csv_safe(value):
     return "'" + text if text.lstrip().startswith(('=', '+', '-', '@')) else text
 
 
+# f: Korean column names people read; ids stay in their own columns for traceability.
+CSV_HEADER = ['자료 구분(가상 예시)', '경기 ID', '경기', '근거 구간', '구장 ID', '시각', 'WBGT 추정', 'WBGT 추정 하한', 'WBGT 추정 상한',
+              '단계', '단계명', '판정값(추정)', '기온(℃)', '습도(%)', '풍속(m/s)', '사용 일사(W/m²)', '일사 자료',
+              '일사 추정(W/m²)', '일사 추정 하한', '일사 추정 상한', '기상 자료', '합성 기상 여부', '수집 시각',
+              '산정 방법', '입력 해시', '정책', '정책 출처', '원래 일정 권고',
+              '운영자 조치', '운영자', '판단 시각', '판단 사유', '적용 킥오프', '적용 구장 ID',
+              '적용 조치', '쿨링브레이크 시각', '연기 사유', '입력 전체(JSON)', '고지']
+
+
 def records_csv(session):
     s = record_context(session)
     output = StringIO(newline=''); writer = csv.writer(output)
-    writer.writerow(['가상 예시', 'match_id', '근거 구간', 'venue_id', 'valid_time', 'WBGT 추정', 'WBGT 추정 하한', 'WBGT 추정 상한',
-                     'level', '단계명', '판정값(추정)', 'ta_c', 'rh_pct', 'ws_ms', 'solar_used_wm2', 'solar_source',
-                     '일사 추정_wm2', '일사 추정 하한', '일사 추정 상한', 'source', 'is_mock', 'fetched_at',
-                     'method_version', 'inputs_hash', 'policy', 'policy_source', 'recommendation',
-                     'operator_action', 'operator', 'decision_time', 'reason', 'applied_start', 'applied_venue',
-                     'applied_action', 'cooling_times', 'postponement_reason', 'inputs_json', 'disclaimer'])
+    writer.writerow(CSV_HEADER)
     d = s.get('decision') or {}
     for m in s['matches']:
         rec, a, p, evidence = match_context(s, m)
         for name, r in evidence or [('자료 누락', {})]:
             inputs = r.get('inputs', {}); w = inputs.get('weather', {}); solar = inputs.get('solar', {})
-            row = [s['label'], m['id'], name, r.get('venue_id'), r.get('valid_time'), r.get('wbgt_c'),
+            row = [s['label'], m['id'], match_name(m['id']), name, r.get('venue_id'), r.get('valid_time'), r.get('wbgt_c'),
                    r.get('wbgt_low_c'), r.get('wbgt_high_c'), r.get('level'), stage_name(s, r.get('level')), r.get('decision_wbgt_c'),
                    w.get('ta_c'), w.get('rh_pct'), w.get('ws_ms'), solar.get('used_wm2'), solar.get('source'),
                    solar.get('estimated_wm2'), solar.get('low_wm2'), solar.get('high_wm2'), w.get('source'),
@@ -174,7 +179,7 @@ def records_pdf(session):
         para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 기상은 합성(가상 예시) 입력이고 대회·팀·구장도 가상 예시입니다. 비교 일사량은 합성 예시이며 실제 관측 정확도 검증은 보류입니다.')
     for m in s['matches']:
         story.append(PageBreak()); rec, a, p, evidence = match_context(s, m)
-        para(m['round'] + ' · ' + m['id'], True)
+        para(m['round'] + ' · ' + match_name(m['id']) + f" ({m['id']})", True)
         para('가상 예시 · ' + team_name(s, m['team_a']) + ' vs ' + team_name(s, m['team_b']))
         para('원래 일정: ' + kst(m['scheduled_start']) + ' / 구장: ' + venue_name(s, m['venue_id']))
         if rec['wbgt_c'] is None:

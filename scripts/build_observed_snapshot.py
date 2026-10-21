@@ -24,6 +24,11 @@ def build(day=None):
         service.repo.put('sessions',session['id'],session)
         session=service.decide(session['id'],'accepted','가상 예시 스냅샷 운영자',
             '기상청 관측 입력으로 사전 계산된 가상 시연 · 실제 운영 판단 기록 아님')
+    # Mock notification wording follows the current templates (readable names); schedule and decision unchanged.
+    from backend.notifications import build_notifications
+    from fastapi.encoders import jsonable_encoder
+    session['notifications']=jsonable_encoder(build_notifications(session))
+    service.repo.put('sessions',session['id'],session)
     assert session['data_origin']=='kma_observed' and all(not p['is_mock'] for p in session['weather'])
     assert session['proposal']['original_heat_score']==candidate['original_heat']
     assert session['proposal']['proposed_heat_score']==candidate['proposed_heat']

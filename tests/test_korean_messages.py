@@ -155,3 +155,25 @@ def test_stage_zero_label_in_csv_and_json_exports(tmp_path):
     assert body['stage_display']['labels_display'][0] == '통상 운영'
     assert '원 지침 단계명' in body['stage_display']['note'] and body['policy']['labels'][0] == '거의 안전'
     assert stage_display(body['policy'])['labels_display'][0] == '통상 운영'
+
+
+def test_readable_names_in_notifications_pdf_and_csv():
+    """f: no internal ids (semi1, group1, winner:) where people read; ids kept only in id columns."""
+    import csv, io, json, re
+    from io import BytesIO
+    from pathlib import Path
+    from pypdf import PdfReader
+    from backend.display_names import match_name, placeholder_name
+    from backend.exports import records_csv, records_pdf, CSV_HEADER
+    from backend.notifications import build_notifications
+    assert (match_name('g2-3'), match_name('semi1'), match_name('final')) == ('2조 3경기', '준결승 1', '결승')
+    assert (placeholder_name('winner:group4'), placeholder_name('winner:semi2')) == ('4조 1위', '준결승 2 승자')
+    s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
+    raw = re.compile(r'winner:|\bgroup\d|\bsemi\d|\bfinal\b')
+    for n in build_notifications(s):
+        assert not raw.search(n['message']), n['message']
+    pdf = '\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(s))).pages)
+    assert '준결승 1 승자 vs 준결승 2 승자' in pdf and '1조 1위 vs 2조 1위' in pdf and 'winner:' not in pdf and 'semi1 승자' not in pdf
+    rows = list(csv.DictReader(io.StringIO(records_csv(s).decode('utf-8-sig'))))
+    assert list(rows[0].keys()) == CSV_HEADER and all(re.search('[가-힣]', h) for h in CSV_HEADER)
+    assert {r['경기'] for r in rows} >= {'준결승 2', '결승', '1조 1경기'}

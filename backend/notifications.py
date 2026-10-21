@@ -5,6 +5,7 @@ from uuid import uuid4
 from backend.weather.models import KST
 from backend.schedule.models import Match
 from backend.schedule.optimizer import participants
+from backend.display_names import match_name
 
 
 class NotificationSender(Protocol):
@@ -42,12 +43,12 @@ def build_notifications(session, sender=None):
         if match.id in assignments:
             a = assignments[match.id]
             cooling = ', '.join(a['cooling_times']) or '계획 없음'
-            message = (f"가상 예시 · {match.id} 변경 일정: 킥오프 {a['start']}, "
+            message = (f"가상 예시 · {match_name(match.id)} 변경 일정: 킥오프 {a['start']}, "
                        f"종료 {a['end']}, 구장 {venues[a['venue_id']]} / "
                        f"쿨링브레이크 시각 {cooling} / 수분 보충 안내: 개인 물을 준비하고 "
                        '운영자 안내에 따라 휴식·수분 보충. 최종 운영 판단은 주최자.')
         elif match.id in postponed:
-            message = (f"가상 예시 · {match.id} 연기 / 사유: {postponed[match.id]['reason']} / "
+            message = (f"가상 예시 · {match_name(match.id)} 연기 / 사유: {postponed[match.id]['reason']} / "
                        '새 일정 및 쿨링브레이크 시각 미정. 수분 보충 안내: 개인 물을 준비하고 '
                        '운영자 후속 안내를 확인하세요.')
         else:
