@@ -11,10 +11,12 @@ def test_main_presentation_moves_statistics_to_appendix_and_discloses_selection_
     assert '29.36%' not in main and '62일 중 46일' not in main and '38.062' not in main
     # 2026-10-11 recalculation: the current figures (26.14%, 38.229, 47 incomplete days) also stay in the appendix.
     assert '26.14%' not in main and '62일 중 47일' not in main and '38.229' not in main
-    # Demo date 2026-08-10 (author decision 2026-10-11): 14 originally stopped, 13 of them assigned, 2 postponed.
-    assert '원래 중지 단계14경기 중13경기' in main and '31.6℃' in main and '운영시간 습도44~67%' in main
-    # The two postponed matches are named, not just counted.
-    assert '2경기 연기(준결승 2·결승)' in main and '준결승 2 semi2' in main and '결승 final' in main
+    # Demo date 2026-08-10 (2026-10-21 rule): 4 originally stopped, all 4 assigned, none postponed.
+    assert '원래 중지 단계4경기 모두 제안 배정' in main and '31.6℃' in main and '운영시간 습도44~67%' in main
+    # Postponement is shown on the 8/8 extreme scene (10 assigned / 5 postponed) in both the screen text and the script.
+    assert '8월10일에는 연기 없음' in main and '8월8일(35.4℃)은10경기 배정/5경기 연기 제안' in main and '35.4℃였던8월8일에는10경기만 배정되고5경기가 연기 제안입니다' in main
+    # The postponed 8/8 matches are named, not just counted.
+    assert all(name in main for name in ('1조 2경기', '4조 1경기', '준결승 1', '준결승 2', '결승'))
     assert '39.79%' not in main and '2563' not in main.split('## 5 ·')[0]
     assert '연기 수 최소' in main and '원래 중지 경기의 배정 수 최대' in main
     assert '최적화가 언제나 단순 방식보다 낫다고 주장하지 않습니다' in main

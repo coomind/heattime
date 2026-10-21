@@ -22,8 +22,9 @@ def test_round_decision_half_up_matches_frontend_rule(value, shown):
 
 def test_stage_follows_displayed_one_decimal_value():
     # 27.993 is shown as 28.0, so the general policy (>=28) must say stage 3.
-    assert risk_level(26.493, 27.993, 'U12') == (3, 28.0)
-    assert risk_level(26.4, 27.949, 'U12') == (2, 27.9)
+    # 2026-10-21 rule: the central estimate (first argument) decides; the upper bound is carried but not used.
+    assert risk_level(27.993, 29.493, 'U12') == (3, 28.0)
+    assert risk_level(27.949, 29.449, 'U12') == (2, 27.9)
     # Football uses strict exceedance on the same displayed value.
     assert risk_level(28.04, 28.04, 'adult', 'football') == (2, 28.0)
     assert risk_level(28.05, 28.05, 'adult', 'football') == (4, 28.1)

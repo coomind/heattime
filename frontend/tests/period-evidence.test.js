@@ -11,12 +11,12 @@ test('all 62 observed dates and original numeric results are present without fav
   assert.equal(data.days.length,62);
   assert.deepEqual(data.days.map(r=>r.date),original.days.map(r=>r.date));
   for(let i=0;i<62;i++)for(const [key,value] of Object.entries(data.days[i]))assert.deepEqual(value,original.days[i][key]);
-  assert.equal(data.days.filter(r=>r.postponed===0).length,15);
-  assert.deepEqual(data.days.filter(r=>r.assigned===0).map(r=>r.date),['2026-07-11','2026-07-12','2026-07-13','2026-07-31','2026-08-01','2026-08-03','2026-08-04','2026-08-05','2026-08-06','2026-08-07']);
+  assert.equal(data.days.filter(r=>r.postponed===0).length,28);
+  assert.deepEqual(data.days.filter(r=>r.assigned===0).map(r=>r.date),['2026-08-04','2026-08-06']);
 });
 test('comparison includes the adverse common heat result and all daily method comparisons',()=>{
   assert.deepEqual(data.comparison.summary,comparison.summary);
-  assert.equal(data.comparison.summary.cp_common_heat-data.comparison.summary.greedy_common_heat,3388);
+  assert.equal(data.comparison.summary.cp_common_heat-data.comparison.summary.greedy_common_heat,8120);
   for(let i=0;i<62;i++)for(const [key,value] of Object.entries(data.comparison.days[i]))assert.deepEqual(value,key==='common_count'?comparison.days[i].common_match_ids.length:comparison.days[i][key]);
 });
 test('UI source digests and sample provenance match committed evidence files',()=>{
@@ -27,5 +27,5 @@ test('UI source digests and sample provenance match committed evidence files',()
   }
   assert.equal(data.original_sample_sha256,original.original_sample_sha256);
   assert.equal(data.station.id,'119');
-  assert.equal(data.assumptions,'경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약');
+  assert.equal(data.assumptions,'경기장 보정 +2.5℃를 더한 중앙 추정으로 판정(범위는 참고 표시), 동일 관측소 1곳 공유, 이 가상 대회의 대진과 휴식과 운영시간과 일몰 제약');
 });

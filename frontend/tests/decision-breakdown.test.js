@@ -9,7 +9,7 @@ test('every frozen observation decision sums and analysis leaves inputs unchange
  for(const r of session.risks){const b=breakdown(r);
   assert.ok(Math.abs(b.model+b.field+b.surface+b.calibration+b.upper-b.unrounded)<.001);
   assert.equal(b.decision,Number(round1(b.unrounded)));
-  assert.equal(b.field,2.5);assert.equal(b.upper,1.5);
+  assert.equal(b.field,2.5);assert.equal(b.upper,0); // (나) 2026-10-21: central estimate decides
   assert.ok(counterLevel(b.counter,session.policy,b.policyId)<=r.level);
  }
  assert.equal(JSON.stringify(session),before);

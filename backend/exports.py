@@ -40,6 +40,18 @@ def stage_name(s, level):
     return display_label(labels[level]) if level is not None and 0 <= level < len(labels) else ''
 
 
+def judgment_rule_text(s):
+    """Which value decides the stage, worded from the policy config (2026-10-21: central estimate)."""
+    from backend.engine.policy import policies
+    width = s['engine_settings']['uncertainty_c']
+    if s['tournament']['age_group'] in policies()['age']['upper_bound_groups']:
+        rule = f"판정 기준: 이 연령은 WBGT 추정 범위의 상단(중앙 추정 + {width}℃)을 판정값으로 씁니다."
+    else:
+        rule = (f"판정 기준: 관측 기반 WBGT 추정에 구장 보정값을 더한 중앙 추정을 판정값으로 씁니다. "
+                f"추정 범위(중앙 ±{width}℃)는 참고로 함께 적으며 판정에 쓰지 않습니다.")
+    return rule + ' 구장 보정값은 설계 가정이며 전문가 자문이 필요합니다. 최종 판단은 운영자가 합니다.'
+
+
 def stage_display(policy):
     """JSON export note: display names next to the guideline's own labels (W-1)."""
     labels = (policy or {}).get('labels') or []
@@ -217,7 +229,7 @@ def records_pdf(session):
         # W-1: stage 0 is shown as '통상 운영'; the guideline's own label stays visible with its source.
         para('단계 표시: ' + ' · '.join(f"{i} {display_label(l)}" for i, l in enumerate(source_labels))
              + ' / 원 지침 단계명(출처 표기): ' + ' · '.join(f"{i} {l}" for i, l in enumerate(source_labels)))
-    para('연령 보정은 설계 가정 · 전문가 자문 필요. 최종 판단은 운영자.')
+    para(judgment_rule_text(s))
     para('WBGT 설정: ' + json.dumps(s['engine_settings'], ensure_ascii=False))
     para('경기 운영 설정: ' + json.dumps(s['schedule_settings'], ensure_ascii=False))
     d = s.get('decision')

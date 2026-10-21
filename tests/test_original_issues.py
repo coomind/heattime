@@ -21,7 +21,8 @@ def test_observed_original_schedule_issues_are_found_by_validate():
     assert pairs[('g1-1', 'g4-1')]['times'] == ['10:00~10:45', '10:45~11:30']
     assert '구장 정리 5분' in pairs[('g1-1', 'g4-1')]['text'][0]
     assert '진출할 수 있는 팀 기준' in pairs[('g3-3', 'semi2')]['text'][0]
-    assert len([x for x in r['singles'] if 'prohibited heat slot' in x['errors']]) == 14
+    # 2026-10-21 rule (central estimate decides): 4 of the 15 original matches sit in a stage-4 slot.
+    assert len([x for x in r['singles'] if 'prohibited heat slot' in x['errors']]) == 4
 
 
 def test_snapshot_bundle_and_api_carry_the_same_issues(tmp_path):

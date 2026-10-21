@@ -22,12 +22,12 @@ def demo():return json.loads((ROOT/'frontend/src/demo/observed-snapshot.json').r
 def test_review_is_readonly_and_baseline_reproduces_frozen_plan(demo,view):
     original=deepcopy(demo);result=review(demo,view)
     assert demo==original
-    assert result['assigned']==13 and result['postponed']==2  # 2026-08-10 snapshot: semi2 and final postponed
+    assert result['assigned']==15 and result['postponed']==0  # 2026-08-10 snapshot (2026-10-21 rule): all 15 assigned, none postponed
     assert not result['base']['needs_review'] and result['base']['same_choices_valid']
     zero=next(r for r in result['scenarios'] if r['delta_c']==0)
     assert zero['changed_match_ids']==zero['blocked_match_ids']==zero['constraint_errors']==[]
     assert '오차 범위' in result['limitation'] and '재편성하지' not in result['base']['note']
-    assert len(result['matches'])==13  # one row per assigned match in the 2026-08-10 snapshot
+    assert len(result['matches'])==15  # one row per assigned match in the 2026-08-10 snapshot
     assert all(r['wbgt_low_c']<=r['wbgt_c']<=r['wbgt_high_c'] and r['inputs_hash'] for r in result['matches'])
 
 def test_missing_point_explicitly_holds_affected_games(demo):
@@ -41,7 +41,7 @@ def test_ascending_scenarios_cannot_reduce_stop_games(demo):
     result=review(demo)
     counts=[len(s['blocked_match_ids']) for s in result['scenarios']]
     assert counts==sorted(counts)
-    assert all(s['assigned_in_frozen_plan']==13 for s in result['scenarios'])  # 2026-08-10 snapshot assigns 13
+    assert all(s['assigned_in_frozen_plan']==15 for s in result['scenarios'])  # 2026-08-10 snapshot assigns 15
 
 @pytest.mark.parametrize('mutate', ['no_proposal','no_decision','rejected','duration','lost_coverage','duplicate_postponement'])
 def test_invalid_or_unapproved_reference_is_not_analysis_success(demo,mutate):
@@ -121,9 +121,8 @@ def test_summary_includes_all_62_dates_zero_days_and_adverse_results(evidence):
     assert evidence['summary']==summarize(evidence['days'])
     assert len(evidence['days'])==62
     zero=[d for d in evidence['days'] if not d['cp']['assigned']]
-    # 2026-10-11 recalculation (solar interval alignment etc.): 10 zero-assignment days.
-    assert [d['date'] for d in zero]==['2026-07-11','2026-07-12','2026-07-13','2026-07-31','2026-08-01',
-        '2026-08-03','2026-08-04','2026-08-05','2026-08-06','2026-08-07']
+    # 2026-10-21 recalculation (decision value = central estimate + 2.5C venue offset): 2 zero-assignment days.
+    assert [d['date'] for d in zero]==['2026-08-04','2026-08-06']
     assert all(not scenario['applicable'] and not scenario['same_choices_valid'] for d in zero for scenario in d['plan_review']['scenarios'])
     ledger=json.loads((ROOT/'docs/competition-evidence/frozen-solutions.json').read_text(encoding='utf-8'))
     assert evidence['ledger_sha256']==digest(ledger)

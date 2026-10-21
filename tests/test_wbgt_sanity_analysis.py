@@ -45,7 +45,7 @@ def test_sensitivity_keeps_policies_operating_values_and_raw_session(session,off
 
 def test_baseline_variant_preserves_every_record(session):
     old=Service.context(session)[3]
-    new=variant_context(session,2.5,True,{})[3]
+    new=variant_context(session,2.5,False,{})[3]  # baseline = 2.5C offset, central estimate decides (2026-10-21)
     assert old==new
 
 

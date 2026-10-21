@@ -19,16 +19,21 @@ def breakdown(risk):
         'level':r['level'],'counterfactual_c':counter,
         'counterfactual_decision_c':round_decision(counter),
         'counterfactual_level':classify(round_decision(counter),inputs['policy_id']),
+        # (가) comparison: the same frozen range classified at its upper bound (analysis only).
+        'upper_decision_c':round_decision(r['wbgt_high_c']),
+        'upper_level':classify(round_decision(r['wbgt_high_c']),inputs['policy_id']),
         'age_escalation':settings['age_escalation'],
         'note':'분석용 비교 · 보정0℃·중앙값 판정 · 설정/승인 변경 없음 · 표시 반올림값 기준 · 현장 실측 아님'}
 
 
 def explanation(risk):
     b=breakdown(risk)
-    text=f"모델 추정 {b['model_c']:.3f}℃ + 구장 보정 {b['field_offset_c']:+.3f}℃"
+    text=f"관측 기반 추정 {b['model_c']:.3f}℃ + 구장 보정 {b['field_offset_c']:+.3f}℃"
     if b['surface_offset_c']:text+=f" + 표면 보정 {b['surface_offset_c']:+.3f}℃"
     if b['calibration_c']:text+=f" + 현장 보정 {b['calibration_c']:+.3f}℃"
-    text+=(f" + 판정 상단 폭 {b['upper_width_c']:.3f}℃ = {b['decision_unrounded_c']:.3f}℃"
-           f" → 판정값(추정·소수 첫째 자리 반올림) {b['decision_c']:.1f}℃ / 단계 {b['level']}")
+    text+=f" = 중앙 추정 {risk['wbgt_c']:.3f}℃"
+    if b['upper_width_c']:text+=f" + 판정 상단 폭 {b['upper_width_c']:.3f}℃ = {b['decision_unrounded_c']:.3f}℃"
+    text+=(f" → 판정값(추정, 소수 첫째 자리 반올림) {b['decision_c']:.1f}℃ / 단계 {b['level']}."
+           f" 분석용 비교: 범위 상단으로 판정하면 {b['upper_decision_c']:.1f}℃ / 단계 {b['upper_level']}.")
     if b['age_escalation']:text+=' 연령 단계 상향은 숫자에 더하지 않고 별도로 적용됨.'
     return text

@@ -5,17 +5,14 @@ import {scheduleChanges} from '../src/schedule-changes.js';
 
 const observed=JSON.parse(readFileSync(new URL('../src/demo/observed-snapshot.json',import.meta.url),'utf8')).approved;
 const synthetic=JSON.parse(readFileSync(new URL('../src/demo/snapshot.json',import.meta.url),'utf8')).approved;
-// Demo date 2026-08-10: 13 proposal rows, 2 postponed rows (semi2 by constraints, final by its postponed predecessor).
-test('observed change rows preserve all original matches and show thirteen original stop assignments plus two postponements',()=>{
+// Demo date 2026-08-10, rule (나): all 15 matches assigned, the 4 originally stopped matches included, no postponement.
+test('observed change rows preserve all original matches and show the four original stop assignments with no postponement',()=>{
   const before=structuredClone(observed),rows=scheduleChanges(observed);
-  assert.equal(rows.length,15);assert.equal(rows.filter(r=>r.movedFromStop).length,13);
-  assert.equal(rows.filter(r=>r.proposal).length,13);assert.deepEqual(observed,before);
-  const postponed=rows.filter(r=>!r.proposal);
-  assert.deepEqual(postponed.map(r=>r.match.id).sort(),['final','semi2']);
-  assert.ok(postponed.every(r=>r.postponedReason&&r.deltaMinutes===null&&!r.movedFromStop));
-  assert.equal(postponed.find(r=>r.match.id==='final').postponedReason,'선행 경기 연기');
+  assert.equal(rows.length,15);assert.equal(rows.filter(r=>r.movedFromStop).length,4);
+  assert.equal(rows.filter(r=>r.proposal).length,15);assert.deepEqual(observed,before);
+  assert.deepEqual(rows.filter(r=>!r.proposal),[]);
   const group=rows.find(r=>r.match.id==='g1-1');
-  assert.equal(group.deltaMinutes,-60);assert.equal(group.proposal.start,'2026-08-10T09:00:00+09:00');
+  assert.equal(group.deltaMinutes,-120);assert.equal(group.proposal.start,'2026-08-10T08:00:00+09:00');
 });
 test('synthetic postponed matches retain reasons and do not invent new start times',()=>{
   const rows=scheduleChanges(synthetic),postponed=rows.filter(r=>!r.proposal);

@@ -253,7 +253,7 @@ def peak_tables(result):
         ('5 경기장 보정(℃)',lambda r:r['field_offset_c']),
         ('5 최종 중앙값(℃; 추정)',lambda r:r['central_c']),
         ('5 하단값(℃; 추정)',lambda r:r['low_c']),
-        ('5 상단값(℃; 추정·유소년 판정값)',lambda r:r['upper_c']),
+        ('5 상단값(℃; 추정 범위 상단·참고 표시, 2026-10-21부터 판정에 쓰지 않음)',lambda r:r['upper_c']),
         ('비교 Stull 통풍습구 근사(℃)',lambda r:r['stull_wet_c']),
         ('비교 그늘 근사 0.7Tw+0.3Ta(℃)',lambda r:r['shade_proxy_c']),
     ]
@@ -277,17 +277,19 @@ def peak_tables(result):
 
 
 # These inputs are hypothetical sensitivity cases, not new policy/operating defaults.
+# 2026-10-21: the production rule is (나) central estimate + 2.5C venue offset, so 'baseline' is
+# (2.5, False). 'upper_bound' is the previous rule (가) and 'offset_0' is (다) no offset, central.
 SCENARIOS = {
-    'baseline': (2.5, True, {}),
-    'offset_0': (0., True, {}),
-    'offset_1.25': (1.25, True, {}),
-    'offset_3.75': (3.75, True, {}),
-    'central_only': (2.5, False, {}),
-    'offset_0_central': (0., False, {}),
-    'site_lower_1': (2.5, True, {'*':-1.}),
-    'site_upper_1': (2.5, True, {'*':1.}),
-    'site_heterogeneous_1': (2.5, True, {'mock-suwon-a':-1., 'mock-suwon-b':0., 'mock-suwon-c':1.}),
-    'site_heterogeneous_reverse_1': (2.5, True, {'mock-suwon-a':1., 'mock-suwon-b':0., 'mock-suwon-c':-1.}),
+    'baseline': (2.5, False, {}),
+    'offset_0': (0., False, {}),
+    'offset_1.25': (1.25, False, {}),
+    'offset_3.75': (3.75, False, {}),
+    'upper_bound': (2.5, True, {}),
+    'offset_0_upper': (0., True, {}),
+    'site_lower_1': (2.5, False, {'*':-1.}),
+    'site_upper_1': (2.5, False, {'*':1.}),
+    'site_heterogeneous_1': (2.5, False, {'mock-suwon-a':-1., 'mock-suwon-b':0., 'mock-suwon-c':1.}),
+    'site_heterogeneous_reverse_1': (2.5, False, {'mock-suwon-a':1., 'mock-suwon-b':0., 'mock-suwon-c':-1.}),
 }
 
 

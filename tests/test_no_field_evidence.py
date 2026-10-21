@@ -34,5 +34,5 @@ def test_proof_pack_presents_stronger_comparison_and_hypothetical_limits():
     # Same rule for the regenerated 62-day method comparison (2026-10-11 recalculation) until the manifest is rebuilt.
     data['method_comparison']=json.loads((ROOT/'docs/competition-evidence/method-comparison.json').read_text(encoding='utf-8'))['summary']
     body=markdown(data)
-    # 2026-10-11 artifacts: best_of_four 552→CP-SAT 555, 15→15 complete days, 148856→142674 (4.15% lower), greedy cost +2.90%.
-    assert all(t in body for t in ('552','555','4.15%','15→15','2.90%','재최적화'))
+    # 2026-10-21 artifacts: best_of_four 697→CP-SAT 699, 28→28 complete days, 181711→167216 (7.98% lower), greedy cost +6.07%.
+    assert all(t in body for t in ('697','699','7.98%','28→28','6.07%','재최적화'))

@@ -20,8 +20,15 @@ def test_general_boundaries(wbgt,level): assert classify(wbgt)==level
 @pytest.mark.parametrize("wbgt,level",[(26,0),(26.001,2),(28,2),(28.001,4)])
 def test_football_strict_exceedance(wbgt,level): assert classify(wbgt,'football')==level
 
-def test_age_upper_bound_and_optional_escalation():
-    assert risk_level(27,28.5,'U12')[0]==3
+def test_age_upper_bound_and_optional_escalation(monkeypatch):
+    # (나) 2026-10-21: no age group is judged on the upper bound, so U12 and senior decide on the central value.
+    assert risk_level(27,28.5,'U12')==(2,27.0)
+    assert risk_level(27,28.5,'adult')[0]==2
+    assert risk_level(27,28.5,'senior',escalate=True)[0]==2
+    # The upper-bound and escalation mechanism itself is unchanged when a group is configured.
+    from backend.engine.policy import policies
+    monkeypatch.setitem(policies()['age'],'upper_bound_groups',['U12','senior'])
+    assert risk_level(27,28.5,'U12')==(3,28.5)
     assert risk_level(27,28.5,'adult')[0]==2
     assert risk_level(27,28.5,'senior',escalate=True)[0]==4
 

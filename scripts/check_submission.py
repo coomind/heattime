@@ -41,8 +41,10 @@ def run() -> dict:
     check("official competition and product comparison citations included",
           all(url in docs["competition-fit.md"] for url in urls))
 
-    # Author decision 2026-10-11: the snapshot date is hot_candidates[0] (daily max air temp >= 31C, then the
-    # existing rule) and equals backend/config/demo.yaml demo_date; 2026-08-08 is the extreme supporting scene.
+    # Author decision 2026-10-11, kept on 2026-10-21: the snapshot date is 2026-08-10 and equals
+    # backend/config/demo.yaml demo_date; it must be one of the hot candidates (daily max air temp >= 31C, then
+    # the existing rule). Under the 2026-10-21 central-estimate rule 2026-08-11 ranks first and the author keeps
+    # 8/10 explicitly. 2026-08-08 is the extreme supporting scene (also a saved observed scene).
     replay = read_json("docs/real-data/replay-results.json")
     session = read_json("frontend/src/demo/observed-snapshot.json")["approved"]
     snapshot_date = session["tournament"]["date_start"]
@@ -54,14 +56,14 @@ def run() -> dict:
     stopped = {row["match_id"] for row in session["recommendations"] if row["level"] == 4}
     config = demo_config()
     check("hot candidate list, replay day row, demo.yaml and fixed snapshot agree on August 10 coverage and originally stopped assignments",
-          snapshot_date == SNAPSHOT_DATE == config.get("demo_date") == hot[0]["date"]
+          snapshot_date == SNAPSHOT_DATE == config.get("demo_date") and snapshot_date in [row["date"] for row in hot]
           and config.get("extreme_date") == EXTREME_DATE and candidate is not None and day is not None
           and [row["date"] for row in hot] == HOT_CANDIDATE_DATES
           and all(candidate[key] == day[key] for key in ("assigned", "postponed", "salvaged", "common_count",
                                                           "original_heat", "proposed_heat", "max_wbgt_c", "solver"))
           and day["assigned"] == len(assigned) == SNAPSHOT_VALUES[0]
           and day["postponed"] == proposal["postponed_count"] == len(proposal["postponed"]) == SNAPSHOT_VALUES[1]
-          and sorted(row["match_id"] for row in proposal["postponed"]) == ["final", "semi2"]
+          and sorted(row["match_id"] for row in proposal["postponed"]) == []
           and day["salvaged"] == len(stopped & assigned) == SNAPSHOT_VALUES[5]
           and day["original_stop_count"] == len(stopped) == SNAPSHOT_VALUES[6]
           and day["solver"] == "CP-SAT OPTIMAL" and proposal["cp_sat_status"] == "OPTIMAL")
@@ -71,23 +73,24 @@ def run() -> dict:
           day["original_heat"] == original == SNAPSHOT_VALUES[3]
           and day["proposed_heat"] == proposed == SNAPSHOT_VALUES[4]
           and len(proposal["common_match_ids"]) == day["common_count"] == SNAPSHOT_VALUES[2]
-          and (original - proposed, percent) == (2563, 39.79)
-          and all(token in compact(docs["proposal.md"]) for token in ("6442→3879", "2563점", "39.79%", "13/2경기", "semi2", "final", "준결승2(semi2)", "결승(final)")))
+          and (original - proposed, percent) == (1120, 21.24)
+          and all(token in compact(docs["proposal.md"]) for token in ("5273→4153", "1120점", "21.24%", "15/0경기", "연기없음", "4/4경기")))
     peak = max(session["risks"], key=lambda row: row["wbgt_c"])
     check("August 10 model estimate includes correct low and high values",
           (peak["wbgt_c"], peak["wbgt_low_c"], peak["wbgt_high_c"]) == (SNAPSHOT_MAX_WBGT, 29.774, 32.774)
-          and peak["decision_wbgt_c"] == 32.8 and peak["venue_id"] == "mock-suwon-a"
+          and peak["decision_wbgt_c"] == 31.3 and peak["venue_id"] == "mock-suwon-a"
           and peak["wbgt_c"] == day["max_wbgt_c"] and peak["valid_time"] == "2026-08-10T13:00:00+09:00"
-          and all(token in docs["proposal.md"] for token in ("31.274", "29.774~32.774", "현장 WBGT 실측 아님")))
+          and all(token in docs["proposal.md"] for token in ("31.274", "29.774~32.774", "판정값31.3℃", "현장 WBGT 실측 아님")))
     baseline = next(row for row in read_json("docs/wbgt-sanity/sensitivity-results.json")["scenarios"]
                     if row["name"] == "baseline")
     zero_days = [row["date"] for row in baseline["days"] if row["assigned"] == 0]
     check("conditional 62-day conclusion and complete assumptions retained",
-          len(baseline["days"]) == 62 and baseline["summary"]["incomplete_days"] == 47
+          len(baseline["days"]) == 62 and baseline["summary"]["incomplete_days"] == 34
+          and baseline["decision_uses_upper"] is False and baseline["field_offset_c"] == 2.5
           and APPROVED in docs["proposal.md"] and ASSUMPTIONS in docs["proposal.md"])
     check("zero-assignment days remain separate from partly postponed days",
           zero_days == ZERO_DATES
-          and ZERO_TEXT in compact(docs["proposal.md"]) and "37일" in docs["proposal.md"])
+          and ZERO_TEXT in compact(docs["proposal.md"]) and "32일" in docs["proposal.md"])
     qa = (ROOT / "docs/presentation/qa.md").read_text(encoding="utf-8")
     answers = {}
     for number in (11, 12):

@@ -70,11 +70,13 @@ def collect():
         raise ValueError('기존 검사 수보다 적은 영수증입니다. 전체 검사를 실행하세요.')
     def read(path): return json.loads((ROOT/path).read_text(encoding='utf-8'))
     replay = read('docs/real-data/replay-results.json')
-    # Author decision 2026-10-11: the snapshot date is hot_candidates[0] (daily max air temp >= 31C, then the
-    # existing rule) and must equal backend/config/demo.yaml demo_date.
+    # Author decision 2026-10-11, kept on 2026-10-21: the snapshot date is 2026-08-10. It must be one of the hot
+    # candidates (daily max air temp >= 31C, then the existing rule) and equal backend/config/demo.yaml demo_date.
+    # Under the 2026-10-21 central-estimate rule 2026-08-11 ranks first; the author keeps 8/10 explicitly.
     snapshot_date = read('frontend/src/demo/observed-snapshot.json')['approved']['tournament']['date_start']
-    if snapshot_date != replay['hot_candidates'][0]['date'] or snapshot_date != check_presentation_module.demo_config().get('demo_date'):
-        raise ValueError('관측 스냅샷 날짜가 31℃ 이상 후보 1순위 또는 demo.yaml의 demo_date와 다릅니다.')
+    if snapshot_date not in [row['date'] for row in replay['hot_candidates']] or snapshot_date != check_presentation_module.demo_config().get('demo_date') \
+            or snapshot_date != check_presentation_module.SNAPSHOT_DATE:
+        raise ValueError('관측 스냅샷 날짜가 31℃ 이상 후보 목록에 없거나 demo.yaml의 demo_date와 다릅니다.')
     demo_row = next(row for row in replay['hot_candidates'] if row['date'] == snapshot_date)
     demo_day = next(row for row in replay['days'] if row['date'] == snapshot_date)
     if any(demo_row[k] != demo_day[k] for k in ('assigned', 'postponed', 'salvaged', 'original_heat', 'proposed_heat', 'max_wbgt_c')):
@@ -112,13 +114,19 @@ def collect():
             'user_confirmation': '2026-10-06 사용자 확인: 실제 측정 자료 확보 불가. 실제 운영자·현장 측정 기록 없음. 오프라인 기술 검증과 조건 변화 검토를 제출 근거로 삼고 현장 정확도·효용은 미검증으로 둔다.'}
 
 
-RECALCULATION = '2026-10-11 재계산: 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정 후 전 수치 재생성'
+RECALCULATION = '2026-10-21 재계산: 판정값을 범위 상단값에서 중앙 추정(관측 기반 추정 + 구장 보정 2.5℃)으로 바꾼 작성자 결정((나) 조건) 후 전 수치 재생성. 2026-10-11의 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정은 그대로다'
 
 
 def recalculation_meta():
-    """Recalculation note and hot-day rule candidates (>= 31C), read from the committed replay results."""
+    """Recalculation note, hot-day rule candidates (>= 31C), the extreme scene row and the >= 33C postponement
+    floor, all read from the committed replay results and demo.yaml instead of literals."""
     replay = json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'))
-    return {'candidate_dates': [row['date'] for row in replay['hot_candidates']], 'recalculation': RECALCULATION}
+    extreme_date = check_presentation_module.demo_config().get('extreme_date')
+    extreme = next(row for row in replay['days'] if row['date'] == extreme_date)
+    hot_days = [row for row in replay['days'] if row['max_ta_c'] >= 33]
+    return {'candidate_dates': [row['date'] for row in replay['hot_candidates']], 'recalculation': RECALCULATION,
+            'extreme': {k: extreme[k] for k in ('date', 'assigned', 'postponed', 'max_ta_c', 'common_count', 'original_heat', 'proposed_heat', 'max_wbgt_c')},
+            'hot_33_min_postponed': min(row['postponed'] for row in hot_days) if hot_days else None}
 
 
 def markdown(data):
@@ -130,10 +138,15 @@ def markdown(data):
     reduction=(1-stronger['cp_common_heat']/stronger['baseline_common_heat'])*100
     scale=data.get('tournament_scale')
     rerun=data['selection_fix']['16']
-    scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건이며 엔진이 적게 배정한 구간은{scale['engine_fewer_cases']}개다. 그러나{scale['statuses'].get('CP-SAT FEASIBLE', 0)}개 FEASIBLE의 최적성은 미확정이고 같은 입력 재실행은{rerun['selected_assigned']}건으로 달랐다.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
+    fallback=scale['statuses'].get('validated-greedy · CP-SAT UNKNOWN', 0) if scale else 0
+    rerun_note=(f"같은 입력 재실행은{rerun['selected_assigned']}건으로 같았으나{fallback}개 구간은 CP-SAT UNKNOWN으로 끝나 검증된 단순 대안을 채택했다" if rerun['selected_assigned']==scale['engine_assigned'] else f"같은 입력 재실행은{rerun['selected_assigned']}건으로 달랐다") if scale else ''
+    scale_note=(f"추가16팀·27경기·2일의31개 전 구간에서는 단순 기준{scale['baseline_assigned']}건 대비 엔진{scale['engine_assigned']}건이며 엔진이 적게 배정한 구간은{scale['engine_fewer_cases']}개다. 그러나{scale['statuses'].get('CP-SAT FEASIBLE', 0)}개 FEASIBLE의 최적성은 미확정이고 {rerun_note}.12팀 결과를 대진 일반의 우위로 확대하지 않는다. [전체 결과와 한계](../tournament-scale-report.md)." if scale else '')
+    extreme=data['extreme']
+    extreme_note=(f"극한일 보조 장면은 {extreme['date']}({extreme['max_ta_c']}℃, {extreme['assigned']}배정/{extreme['postponed']}연기, 공통{extreme['common_count']}경기 {extreme['original_heat']}→{extreme['proposed_heat']})이다.")
+    hot_note=(f"최고기온 33℃ 이상인 날은 모두 {data['hot_33_min_postponed']}경기 이상 연기되어 그 조건에서는 시연일 기준(연기 3경기 이하)을 만족하는 날이 없었다." if data.get('hot_33_min_postponed') is not None else '')
     return f'''# 심사자가 확인할 기술 증거 묶음
 
-생성: {data['generated_at']}. {data['recalculation']}. 아래 표는 재계산 후 현재 엔진의 고정 결과다. 재계산 전 선택 수정 기록은 [수정 보고](../review-fix-report.md)와 [93조건 재실행 결과](review-fix-results.json)를 읽는다. 시연일 후보는 일 최고기온 31℃ 이상인 날에 기존 선정 규칙을 적용한 순서로 {', '.join(data['candidate_dates'])}이며 작성자가 확정한 스냅샷은 {demo['date']}이다(5회 반복 실행에서 매번 CP-SAT OPTIMAL·동일 일정, [반복 확인](../real-data/demo-day-check.json)). 최고기온 33℃ 이상인 날은 모두 8경기 이상 연기되어 그 조건에서는 시연일 기준을 만족하는 날이 없었다. 극한일 보조 장면은 2026-08-08(35.4℃, 7배정/8연기)이다. 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
+생성: {data['generated_at']}. {data['recalculation']}. 아래 표는 재계산 후 현재 엔진의 고정 결과다. 재계산 전 선택 수정 기록은 [수정 보고](../review-fix-report.md)와 [93조건 재실행 결과](review-fix-results.json)를 읽는다. 시연일 후보는 일 최고기온 31℃ 이상인 날에 기존 선정 규칙을 적용한 순서로 {', '.join(data['candidate_dates'])}이며 작성자가 확정한 스냅샷은 {demo['date']}이다(순위와 무관하게 작성자가 유지한 날짜이며, 5회 반복 실행에서 매번 CP-SAT OPTIMAL·동일 일정, [반복 확인](../real-data/demo-day-check.json)). {hot_note} {extreme_note} 배점·수상 확률을 만들지 않는다. 공식 요강은 시제품과 서비스 링크·사진·활용 영상 등의 기술 자료를 허용한다. [공식 요강](https://ggsports.spectory.net/innovation/contest?bno=60730). 이 자료는 제출 주장을 원자료·전체 테스트에 연결하는 자체 검증이며 공식 심사 결과가 아니다.
 
 | 확인 가능한 주장 | 수치와 조건 | 근거 |
 |---|---|---|

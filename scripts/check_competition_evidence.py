@@ -34,20 +34,23 @@ def run():
           and ui['comparison']['summary']==summary and len(ui['days'])==len(ui['comparison']['days'])==62)
     texts={p:p.read_text(encoding='utf-8') for folder in ('docs/competition-evidence','docs/submission','docs/presentation') for p in (ROOT/folder).glob('*.md')}
     table=(ROOT/'docs/competition-evidence/method-comparison.md').read_text(encoding='utf-8')
+    # 2026-10-21 recalculation (central-estimate decision rule): greedy 609 vs CP-SAT 699 (+90), complete days 0 vs 28,
+    # common heat 133826 -> 141946 (+8120, 6.07% higher for CP-SAT).
+    cost_pct=round((summary['cp_common_heat']/summary['greedy_common_heat']-1)*100,2)
     check('comparison manuscript includes both coverage benefit and heat cost',
-          (summary['greedy_assigned'],summary['cp_assigned'],summary['assignment_gain'],summary['greedy_complete_days'],summary['cp_complete_days'])==(489,555,66,0,15)
-          and (summary['greedy_common_heat'],summary['cp_common_heat'])==(116836,120224)
-          and (summary['common_heat_lower_days'],summary['common_heat_equal_days'],summary['common_heat_higher_days'],summary['no_common_days'])==(9,7,29,17)
-          and (summary['more_assigned_days'],summary['same_assigned_days'],summary['fewer_assigned_days'])==(28,34,0)
-          and round((summary['cp_common_heat']/summary['greedy_common_heat']-1)*100,2)==2.90
-          and all(token in table for token in ('489','555','+66','0일','15일','116836','120224','3388','2.90%','9 / 7 / 29','28 / 34 / 0','17일')))
+          (summary['greedy_assigned'],summary['cp_assigned'],summary['assignment_gain'],summary['greedy_complete_days'],summary['cp_complete_days'])==(609,699,90,0,28)
+          and (summary['greedy_common_heat'],summary['cp_common_heat'])==(133826,141946)
+          and (summary['common_heat_lower_days'],summary['common_heat_equal_days'],summary['common_heat_higher_days'],summary['no_common_days'])==(4,5,46,7)
+          and (summary['more_assigned_days'],summary['same_assigned_days'],summary['fewer_assigned_days'])==(37,25,0)
+          and cost_pct==6.07
+          and all(token in table for token in ('609','699','+90','0일','28일','133826','141946','8120','6.07%','4 / 5 / 46','37 / 25 / 0','7일')))
     qa=(ROOT/'docs/presentation/qa.md').read_text(encoding='utf-8')
     answer=re.search(r'(?ms)^## 13\. .*?\*\*30초 목표 답변\*\*\s*(.*?)(?=\n\*\*|\Z)',qa)
     length=len(re.sub(r'\s+',' ',answer.group(1).strip())) if answer else 0
     check('new answer fits unchanged rehearsal budget and discloses adverse result',0<length<=180
-          and all(token in answer.group(1) for token in ('66건','2.90%','높았습니다','사람의 수작업','경쟁 제품')))
+          and all(token in answer.group(1) for token in ('90건','6.07%','높았습니다','사람의 수작업','경쟁 제품')))
     slides=(ROOT/'docs/presentation/slides.md').read_text(encoding='utf-8')
-    check('algorithm comparison remains outside unchanged main presentation',all(token not in slides for token in ('489','555','2.90%','506','562','1.39%'))
+    check('algorithm comparison remains outside unchanged main presentation',all(token not in slides for token in ('609','699','6.07%','489','555','2.90%','506','562','1.39%'))
           and '본 발표420초에 추가하지 않는다' in qa)
     missing=[]
     for path,body in texts.items():

@@ -20,7 +20,9 @@ def test_every_observed_risk_decomposes_exactly_and_does_not_mutate(session):
         assert b['model_c']+b['field_offset_c']+b['surface_offset_c']+b['calibration_c']+b['upper_width_c']==pytest.approx(b['decision_unrounded_c'],abs=.001)
         # B-6: the classified decision is the unrounded sum rounded to 0.1℃ (half-up).
         assert b['decision_c']==round_decision(b['decision_unrounded_c'])
-        assert b['field_offset_c']==2.5 and b['upper_width_c']==1.5
+        # (나) 2026-10-21: the decision is the central estimate, so no upper-bound width is added.
+        assert b['field_offset_c']==2.5 and b['upper_width_c']==0 and b['decision_unrounded_c']==pytest.approx(r['wbgt_c'],abs=.001)
+        assert b['upper_decision_c']==round_decision(r['wbgt_high_c']) and b['upper_level']>=b['level']
         assert b['counterfactual_c']==pytest.approx(b['model_c'],abs=.001)
         assert b['counterfactual_level']<=b['level']
     assert session==original
@@ -36,6 +38,6 @@ def test_surface_calibration_and_adult_zero_upper_are_separate_terms(session):
 
 def test_pdf_contains_decision_components_counterfactual_and_original_notice(session):
     text='\n'.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(session))).pages)
-    for term in ['모델 추정','구장 보정','판정 상단 폭','판정값','보정0℃·중앙값','설정/승인 변경 없음','본 자료는 의사결정 보조용 추정값','선택 방법','CP-SAT 상태']:
+    for term in ['관측 기반 추정','구장 보정','중앙 추정','범위 상단으로 판정하면','판정값','보정0℃·중앙값','설정/승인 변경 없음','본 자료는 의사결정 보조용 추정값','선택 방법','CP-SAT 상태']:
         assert term in text
 

@@ -12,7 +12,7 @@ from backend.original_issues import original_issues
 
 def build():
     output = ROOT / "frontend/src/demo"
-    for prefix in ("snapshot", "observed-snapshot"):
+    for prefix in ('snapshot','observed-snapshot','observed-snapshot-0808','observed-snapshot-0808-2day'):
         bundle = json.loads((output / f"{prefix}.json").read_text(encoding="utf-8"))
         s = bundle["approved"]
         data = {"input_fingerprint": bundle["input_fingerprint"], "session_id": s["id"],

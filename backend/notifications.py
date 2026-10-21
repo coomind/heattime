@@ -42,9 +42,10 @@ def build_notifications(session, sender=None):
     for match in matches:
         if match.id in assignments:
             a = assignments[match.id]
-            cooling = ', '.join(a['cooling_times']) or '계획 없음'
-            message = (f"가상 예시 · {match_name(match.id)} 변경 일정: 킥오프 {a['start']}, "
-                       f"종료 {a['end']}, 구장 {venues[a['venue_id']]} / "
+            # Readable local times (the values are the same KST timestamps; seconds and offset are dropped).
+            cooling = ', '.join(str(t)[11:16] for t in a['cooling_times']) or '계획 없음'
+            message = (f"가상 예시 · {match_name(match.id)} 변경 일정: 킥오프 {str(a['start'])[:10]} {str(a['start'])[11:16]}, "
+                       f"종료 {str(a['end'])[11:16]}, 구장 {venues[a['venue_id']]} / "
                        f"쿨링브레이크 시각 {cooling} / 수분 보충 안내: 개인 물을 준비하고 "
                        '운영자 안내에 따라 휴식·수분 보충. 최종 운영 판단은 주최자.')
         elif match.id in postponed:

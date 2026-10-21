@@ -9,605 +9,605 @@
   "files": [
     {
       "path": "docs/competition-evidence/frozen-solutions.json",
-      "unchanged_result_payload_sha256": "17566cbc027f6e9c8d212d4f739f33fee042bdf8440b5900acbb827d30d38dc3",
-      "before_json_sha256": "f9d8fb1eb92434683d211943ed2db54fafd629707023a615437cdb1192c322c0",
-      "after_json_sha256": "f9d8fb1eb92434683d211943ed2db54fafd629707023a615437cdb1192c322c0"
+      "unchanged_result_payload_sha256": "7caa0b58d698d7b9d5137e484b09cb55c7ac60339a843d50b2ec6cb6677cf5f5",
+      "before_json_sha256": "f530eee8e7e1d475f06d1ea5c4def847cdebd9593ab6beae67403c7c83cfb80c",
+      "after_json_sha256": "847d22b66c4ead826727405864e664f2b179c7fe873ea6e3efcb11181caf2cbe"
     },
     {
       "path": "docs/competition-evidence/method-comparison.json",
-      "unchanged_result_payload_sha256": "d4a20bff26419cf699c19c727ad3e4bc76dfba3820257c9c7c404a2fed082687",
-      "before_json_sha256": "e4ae01d72ad2e7050bd6c1af5d52cd5e950b19c4b4c98aeaed3660b6c7748c4f",
-      "after_json_sha256": "e4ae01d72ad2e7050bd6c1af5d52cd5e950b19c4b4c98aeaed3660b6c7748c4f"
+      "unchanged_result_payload_sha256": "9e91978b938e764dd142f8bf47786605b0a48fc7e6e84cd7378f09469f331591",
+      "before_json_sha256": "94e47c72dfa947af1576c457ab3cd7b9da08c9d23bfb71e138e4f76417286a8e",
+      "after_json_sha256": "9bc00fa73f9e3ded259fe7706e5964634756338f8e93c416f8931f41bd45fdbf"
     },
     {
       "path": "docs/competition-evidence/no-field-analysis.json",
-      "unchanged_result_payload_sha256": "7ea9efac5bb8c44787e94f7028c7dba651b5fcaec7d874b91b76fd50cb58019b",
-      "before_json_sha256": "05d3c44bad4201a161096e3987b89a678fbf0727c9dfc43a0f69e7705f27ba6d",
-      "after_json_sha256": "05d3c44bad4201a161096e3987b89a678fbf0727c9dfc43a0f69e7705f27ba6d"
+      "unchanged_result_payload_sha256": "9c4e64485caa8c5ce950e8580c2feed0e1c3d3bb058202a2e99edb12184ef6fb",
+      "before_json_sha256": "3db88dfb9b6f37f60b15b37e759426eecc63747004dd8535d6d1d8bc1ca9deee",
+      "after_json_sha256": "167fc5c8ac58f0a63606157b66bc782ce1cee0c9649be38288daa44f6c5b2231"
     },
     {
       "path": "docs/competition-evidence/tournament-scale-analysis.json",
-      "unchanged_result_payload_sha256": "84973d299af8574a4933170b2910ed44440eaa1ec0f623050edb0411c5daa95c",
-      "before_json_sha256": "07cd32a58adb6f3bf53cfbb441cdb4e897a921e5718db6cea4da8ca7b9be310d",
-      "after_json_sha256": "07cd32a58adb6f3bf53cfbb441cdb4e897a921e5718db6cea4da8ca7b9be310d"
+      "unchanged_result_payload_sha256": "40c73b63a8b45c22a72fb7f0d00bfacd41ef653dbcd6818afbc68b3c6d197b8d",
+      "before_json_sha256": "4bc6734dd2a0a2214eae6760e45c8f0f01844a7bcb37a9c0c17fea2cc75fdb64",
+      "after_json_sha256": "b250224565d2c1bbfd3c4657eee459d17247ae556cd7503d10e6daa07173e82f"
     },
     {
       "path": "docs/competition-evidence/review-fix-results.json",
-      "unchanged_result_payload_sha256": "90ca9b9e40f55c9a99fcab58ffd4afe67a7348175d57a472e36c144163317771",
-      "before_json_sha256": "61b8bea448c691ce7ecfe60a529c5c47a609e6edcc9dad51d6cdc733cd85fbe6",
-      "after_json_sha256": "61b8bea448c691ce7ecfe60a529c5c47a609e6edcc9dad51d6cdc733cd85fbe6"
+      "unchanged_result_payload_sha256": "75ace2923fe3d893cf41671fbd43cf15ee21cb4ec2e017ca153e3bf258e7aa76",
+      "before_json_sha256": "422532d5677f3fa033a54b249bb62c2bb9980e849a7811b7edef024dff0d7f0b",
+      "after_json_sha256": "9e6a1a55747065d10f1db5bebfec37870046a49eeb01b965458338960337275c"
     },
     {
       "path": "frontend/src/demo/no-field-analysis.json",
-      "unchanged_result_payload_sha256": "89fa91a3a7a36183d5ec7037e6c8cc9735d6d4f3da2f63ba0727dd6986bcb445",
-      "before_json_sha256": "0237f24e1ce8575cbd204959c4cefb633dd82b80a513eb4fef2655fabaa7f6bb",
-      "after_json_sha256": "0237f24e1ce8575cbd204959c4cefb633dd82b80a513eb4fef2655fabaa7f6bb"
+      "unchanged_result_payload_sha256": "f607e210301870f6d037c2d02dd02133cc970badcc92d711a42c9ac7d6b42cf9",
+      "before_json_sha256": "b70a615d51508d06603b5dfedd980d093ad3493da06f261a2e72cf5bb110f208",
+      "after_json_sha256": "55676875e9a9aca7402515ecc137b33e19e921954f8224c8c9eb018fbcb50ba0"
     },
     {
       "path": "frontend/src/demo/period-evidence.json",
-      "unchanged_result_payload_sha256": "2dfac21969c7bf1abf362d224ab9ccf337507822f741b016ce36d2a7faf25438",
-      "before_json_sha256": "5f790fa6139eb92210e537b28fcdf4b2551e62f4747116294cb52fd02f6776e9",
-      "after_json_sha256": "5f790fa6139eb92210e537b28fcdf4b2551e62f4747116294cb52fd02f6776e9"
+      "unchanged_result_payload_sha256": "4a64b6e0fe326ab07d11f14e394dfb70485826320c49cf694db93e2ebe12087d",
+      "before_json_sha256": "d6dc7904749309cc688dea86da5248ea480f51d176687d7ace386c32982b2555",
+      "after_json_sha256": "456a0b72ad2f851f4e90aec6e2baafda23ccea6251b774dfb45513162edbf94f"
     }
   ],
   "mapping": [
     {
       "teams": 12,
       "date": "2026-07-01",
-      "legacy_input_sha256": "70cc8024da275dee45cd16d62f7bab9de8ad57e43a7e324b7b86ad21026090c2",
-      "input_sha256": "66033e90b313d1dff9883b1484e1ec2b33994874d337d766eeb819ad7950511d"
+      "legacy_input_sha256": "3da1e0d29a38560ccda338fece1d3510dee3f41b23d90a5897bb6582a63eac12",
+      "input_sha256": "838cab5458c26a38d6eaf0d19e8275db5961ae04dbb9261a6e95b878451ae165"
     },
     {
       "teams": 12,
       "date": "2026-07-02",
-      "legacy_input_sha256": "ef7d69cb98f5e08035a9d79a2c0ffca2d5c16ce7c05b3dc19b5752c12095fb7e",
-      "input_sha256": "01ad24b53c2fcb3783e92a70a32881862429ed616eb1a17e1f750d70dc5f6968"
+      "legacy_input_sha256": "f3e4223b383d2339255a9c8c027f75e8871d42b5a1640e419b92b6bee256f59d",
+      "input_sha256": "1416c92b79f87aab473a401eec24a1c5604b0630e4624ed8032d1b7aadbb6aec"
     },
     {
       "teams": 12,
       "date": "2026-07-03",
-      "legacy_input_sha256": "3f398afc69093070206872f514cad0a609922bdffb66f38c0471b7be00b155bf",
-      "input_sha256": "590697198c858d2d40bbc271317e916396d387be2098ab2caa4c0824df0d5937"
+      "legacy_input_sha256": "306defd50c9da9e4833334bf8a75927f5e429d54ecf2f0d5144c2202079415be",
+      "input_sha256": "64850f87e7698349c017f3afc819211c0dc5e53d814bb775d03f01fab3a51453"
     },
     {
       "teams": 12,
       "date": "2026-07-04",
-      "legacy_input_sha256": "01be76e65e086b94a25ad0784cae7217dac9f1b46b35296c7f9ae1d95fb79f49",
-      "input_sha256": "73ab5ca0c345ad6855810ad0fc60a3434773432d30e388df6be036fa6b3387ea"
+      "legacy_input_sha256": "3e0b2466233e54e80ef8868498ed0e2bcb0d211e94e114c05fa219f2c269ba83",
+      "input_sha256": "2b9f7bc7d93cdb75c8270f2251fc6702fc407f7687d438b36041a38ac38dab82"
     },
     {
       "teams": 12,
       "date": "2026-07-05",
-      "legacy_input_sha256": "e59350239d3c8405df99347ece719414c0fd0a124473886d4dd79d56a77a90b2",
-      "input_sha256": "24445f83bbaa28beaf93b3a07708a43354869b47f12c3d3e1d128b37b34f380d"
+      "legacy_input_sha256": "b31fd88acd7c5574a0a6290339b5fd46d5ba5a84d1f701c27b4cb69f5439b6a5",
+      "input_sha256": "ce7fbf68cc13c5424ccc72335e65ee3aa18d228246d52e32a20286dcabb6fe69"
     },
     {
       "teams": 12,
       "date": "2026-07-06",
-      "legacy_input_sha256": "13ed8395600c499a02126849e113d0d81a0776b82b3414e3a6f3983d6767fc92",
-      "input_sha256": "fa5972286d1be390be7670dbb2aa039857b8885fb19e4aacc0eea22e9620b49b"
+      "legacy_input_sha256": "a8b9b21a6a62db887b598a8adb473a3267eac5ad59456895c64e4898b0504ea8",
+      "input_sha256": "bbb0d70f122b1f0d7b43fc8d77f744131f86be312959e92155f92da68b003681"
     },
     {
       "teams": 12,
       "date": "2026-07-07",
-      "legacy_input_sha256": "44bc8f3c6ef0d67ed9ccfb3c750a981cb1d6c3c5e7610927b7c338660c9986f0",
-      "input_sha256": "0749ae6abfc6c53eb17a4c5d9c41f299b29591a4849561f3e76e08ceb5d42a1e"
+      "legacy_input_sha256": "f30c4df89065ddc0bdcebd31d80b6c184498b738515de19dde7769339a843885",
+      "input_sha256": "a2683ea4ad4edfafe8aec26a7aa196018ba8f2d51746a5b2d7121502f9df747d"
     },
     {
       "teams": 12,
       "date": "2026-07-08",
-      "legacy_input_sha256": "9d548707b303b6f17a0899a32c403805a24c0015d024491dc0374525e705694c",
-      "input_sha256": "3622864794d19ef50ba9df601fc66ad266015da3a8d4d17bbb6c8c05135fda0a"
+      "legacy_input_sha256": "bc57e7d1445d9e50e01afe731890a702cae28eae13da1f2615d89aea9e2fd487",
+      "input_sha256": "31240839fc1f25878ea8b593ed565883d693a36701b6468db18daa69edfad777"
     },
     {
       "teams": 12,
       "date": "2026-07-09",
-      "legacy_input_sha256": "531821d3310aa8df14ba964881457a663397f671a0402299b7bd977f8fc87009",
-      "input_sha256": "c07e61109d159f0cda8cc182e99f1f84921979e9ae19a797a17a7d20bdc277ab"
+      "legacy_input_sha256": "3932cb2f0f27e8b1c4f73e4b04b530b5c1cdd09b822ac48f52dd8bafa1cc3779",
+      "input_sha256": "64d6c12fcdfe204586494cddf62bdb99f8e3c3f10ab8be02ceda43465e70cc53"
     },
     {
       "teams": 12,
       "date": "2026-07-10",
-      "legacy_input_sha256": "26b2cdb91af338ed2afa04f9e07f489a84cc10810444989f510063f4a7945b87",
-      "input_sha256": "007d4cf37035b08a93787998bd33283cd1c6ed3b2f2365fa815626bcd5ed30e8"
+      "legacy_input_sha256": "a4500052cefb71b16665779e1dbaa1353d503cd5826be0beb8c07e5d3c692302",
+      "input_sha256": "a3d550da03bd8dce4a621297ec5d8421eeab0b5ad2de48bdcac92e9151e83750"
     },
     {
       "teams": 12,
       "date": "2026-07-11",
-      "legacy_input_sha256": "b888049518caf4cad69266f400247c9c0941e017e123a70b2cccf80ad791a9c8",
-      "input_sha256": "651bc89bcb2413f9a93167917d74d386fdc2c784ad4d76c85f59192d23a09ac7"
+      "legacy_input_sha256": "7f8db7e9bf1612710206ee7d3d022a738ace416e2d81433fc1cc04c23368d4f4",
+      "input_sha256": "5a62a7f3249de3ee2c7edb4de905d4b11576cb6fe683f97253182d0912234bdb"
     },
     {
       "teams": 12,
       "date": "2026-07-12",
-      "legacy_input_sha256": "41cd7c0484bf983af5342a8b24aaa250a3e338fd0f189d609a3a4681062ee254",
-      "input_sha256": "57350b6e5aa998f3034868494650cc776267a97e2bad621db08f90b3ee692803"
+      "legacy_input_sha256": "b16c1c934a5ea0b899f1093ea2598ccff00c1a0bea2e2a932e60c87e929daa2d",
+      "input_sha256": "9e32b6a1615535dcb807fcea4804a92186ed7fc753d371f9fb20942ff5279b8c"
     },
     {
       "teams": 12,
       "date": "2026-07-13",
-      "legacy_input_sha256": "b8959a49a4f336a07f07a79168c3bd10e05051d7cb79868ed3c4f39fb5a778d5",
-      "input_sha256": "fc413dc9a7005fbe532d647a6612c4dd5ae0d152da282a478178857dd733cfcc"
+      "legacy_input_sha256": "e8bd8195f86dcd89a4f1ec89c4574739d92465fe69c09f96ba0f79bc928ad356",
+      "input_sha256": "eae922be07ece08295d5dbe742435a483c871d210f03497544662af49216614c"
     },
     {
       "teams": 12,
       "date": "2026-07-14",
-      "legacy_input_sha256": "a43bdc3cf72f59e04062b5fbefe2fa003b3455d28109a97d4068c0520fe964c9",
-      "input_sha256": "0412d201605b58278c344cd9a7eee6e8d398ab07e5c4fc3d21d7bb6ecc146abd"
+      "legacy_input_sha256": "ca545bb0c088957252311d6edfba4a21d28c74cb1406c67f426b8f5a73fd0018",
+      "input_sha256": "e727cbf7b2bb22b556d8b46d84ad1d9ed6c517b1eae6d18c8b1e0b64391ba9fc"
     },
     {
       "teams": 12,
       "date": "2026-07-15",
-      "legacy_input_sha256": "198feb93814be8b21612606ae4c5d3327533eb9fc5c4b9b19b1d886bc43efd2e",
-      "input_sha256": "6943397ea7d1940793bd41f9e113c11ffa37d4b4ccbad3f446baa6c243299c48"
+      "legacy_input_sha256": "21a70ee38792426370a97b6c89d55111a5482cf617cddf98a6ea3c925bafbe44",
+      "input_sha256": "a47f3024b81f035b5cb302ed15cc4db19297d4d81197c415e4c4f75119d6e34e"
     },
     {
       "teams": 12,
       "date": "2026-07-16",
-      "legacy_input_sha256": "b0940fd41ad8b41f1ae54e8506c59aa88db7a99105040feaafabecb71235d11a",
-      "input_sha256": "0587c4cfdbf81c1b6465cb6648aa4016725218f94ff2463993b75979f501cd60"
+      "legacy_input_sha256": "158e4d3841100341d2665e60bdf6706848851f512106df6158f96e6680dcbe8d",
+      "input_sha256": "b4db13e8d9fefced7716008da5855184b3f09cde677fcd6cd50dec352b80c849"
     },
     {
       "teams": 12,
       "date": "2026-07-17",
-      "legacy_input_sha256": "e20eaaf6924648ae52d03d222859b1dbbcd62b97788ffbf5ec5e4897578cbb32",
-      "input_sha256": "264e0486204fbffb67dd3bda029a99f3dc28f4d8eafcfe99cf0f0c1433d2d782"
+      "legacy_input_sha256": "022f58b375a3dacfa18b155a6b0111ab637b7b5e446435b9e3dba734ef4e1a4b",
+      "input_sha256": "b54c8363db8b3ed17ca24ff79ec0f4792dba93f7cb46927f9258e6016052d123"
     },
     {
       "teams": 12,
       "date": "2026-07-18",
-      "legacy_input_sha256": "e73fa87a1b8b0545fa704c948e3c7fdf08ea484ab163da86b934f7b151329fe6",
-      "input_sha256": "b70816d75afbff5c357b597bd957bd2cfcc0f6f5c4b021a2b52ac7700d7560e8"
+      "legacy_input_sha256": "9529123afd9a042227354120a4d2ef654b97ca06571b3837f51aa250ba03a021",
+      "input_sha256": "51881ac51e18a2ed29b5b028731f583b1eef3af7fea4423656b2140e99779ca2"
     },
     {
       "teams": 12,
       "date": "2026-07-19",
-      "legacy_input_sha256": "8a2e74a4b9741f499f2d36508e1871cdbe82abd12d0afd159ad5075eed7d4e88",
-      "input_sha256": "ffed0f526a714e7b873ec5c883802ee732e9ffe0d7482d8add10ace508bd4b90"
+      "legacy_input_sha256": "8af32ac229295e2353a068249edd50ab754ba35ae9384b0a82b00e81e1d5e4e7",
+      "input_sha256": "f1b44dc76dc4177377867e639e9a33d458d17c0b74b915cf57897ce47810ac4e"
     },
     {
       "teams": 12,
       "date": "2026-07-20",
-      "legacy_input_sha256": "99e61adb9557e307081f3c61477ef611c50d82158b6bd86b2cac16c1a996394f",
-      "input_sha256": "299cb7bf214123774e3b43f8eac07bf9a3685d3f6465efae37ff6e5f37c998b1"
+      "legacy_input_sha256": "c76ce1d4b7362cae10a0e1fdc70ebb880dfd709e976061392d7e2ee90b12461f",
+      "input_sha256": "9e513e7fa4ba5494b5152006cb6882c9df8d3c9abaa22909737ab793cd820822"
     },
     {
       "teams": 12,
       "date": "2026-07-21",
-      "legacy_input_sha256": "0b3f782d28c4e53aeeb0219d299beb37dc7aea6acce58faf0290e75af7350af6",
-      "input_sha256": "71aef89563c0a1002f3634ca25e240d6245eb0f2a21c0330bb339ed2df93741a"
+      "legacy_input_sha256": "06a0bd07e7879df1ebcd61010466d07113176f521648c0d0626f04f71c19e493",
+      "input_sha256": "4f921a4fa5d12d3b067ed31c38ed2f67304d342b9d7d42af31e23d2b126b335b"
     },
     {
       "teams": 12,
       "date": "2026-07-22",
-      "legacy_input_sha256": "703ddf1463a9d9bd3829dde1ac4896afa85a4e4c00591939da1ddbd1621cf58e",
-      "input_sha256": "2daf17cda65a402d348547b3e8be7ec719c473d71b393353259128a3d11d93ff"
+      "legacy_input_sha256": "597885d5cdd0f232b656d28c5e71a3c83d5efab9b945396bf75d7f8eb043b6b8",
+      "input_sha256": "12a191c7af2a3fbb1addd37bdf72dde2643b3771783abdfe69d1074d23c570ba"
     },
     {
       "teams": 12,
       "date": "2026-07-23",
-      "legacy_input_sha256": "d701465d64d29f0471772f04c87502494cf6fe27d29f6e2529c7472cc70860f7",
-      "input_sha256": "f64e2f2a8231f030bc85f7dd76a028561440597167a936fc283255e28f810dac"
+      "legacy_input_sha256": "5c2e170c076c5d66bd23086c570fb180fd69a716aba137f538d0103c1fc064f3",
+      "input_sha256": "7037b0cc21cada7761e9901f703a278f068e7ffc7149b98aa9cd9fa8a84a43cf"
     },
     {
       "teams": 12,
       "date": "2026-07-24",
-      "legacy_input_sha256": "fc1433bfeea30e7cc9df6b8f71c2372618fc6578458f9e92e117f7300f576228",
-      "input_sha256": "c5198605f0b06f90b8a5db2454ac002cf01c0aedf47b9938e1fe08e2df135e1e"
+      "legacy_input_sha256": "039200352b55e0cda96abf838ebb8dae77a780823e2c413d6bba390b5059d540",
+      "input_sha256": "aff5b44f2577cc52e456f87ffb539bd4aaaa726a1070b5afc3a665ddb91273c5"
     },
     {
       "teams": 12,
       "date": "2026-07-25",
-      "legacy_input_sha256": "8d2f3744c6869df32533ce5cfb9fe775e0bb7946f8fee31afe14a465aa9d769e",
-      "input_sha256": "ba2d15372538fcd55c19f299a0d7814952cb07b8c233c42f7446b2bc9f568aba"
+      "legacy_input_sha256": "de1b54015f6dccc0ed7107dc69eac8ef4d863db736c8eb18dfe6fc4b405e4462",
+      "input_sha256": "46efec643ccb1aae98c81f99009b967d334f223bd8eedc5e0172fd1aaeab9481"
     },
     {
       "teams": 12,
       "date": "2026-07-26",
-      "legacy_input_sha256": "31f72e63b7f032b98a8ea2e3ff110ee98fed0d6e50bdeb3d651d92b82acc5f4c",
-      "input_sha256": "2408b5cc2b4c88811a965aff50f5049afef98478f210b01f25225a6b8aa1176d"
+      "legacy_input_sha256": "30cbd56af049366f6300e0c23a7ed00cf707e9a7b97f423361d91bc55d06bbdb",
+      "input_sha256": "b5a8101a92cd47d609082ceff210def68eddd7423c4ee4c9bdb96c98118793c6"
     },
     {
       "teams": 12,
       "date": "2026-07-27",
-      "legacy_input_sha256": "497a0c0130634a3047066923997f2cbaa932535a7b09eac89e8858f712372955",
-      "input_sha256": "d6ff4279ef639d1742e27a0622903101f53f0d2461375f087157b27d814c36d7"
+      "legacy_input_sha256": "d87c37b68d0b9986e980afbde4d60253886bb186ecc2a8241eb1d03845d6f53d",
+      "input_sha256": "50c4402d853db7f48f58971e4951e02b09be29672ec7b095a52adfabd8611100"
     },
     {
       "teams": 12,
       "date": "2026-07-28",
-      "legacy_input_sha256": "31ef48f5a03c7c722b5d9300164b1c8a4a4a3f8cc01a1f513c68f7a5f06cd111",
-      "input_sha256": "664caf42d8242de11142d227dc8cbb5abaaf023e5b9702ddd89ec62f0dcbea24"
+      "legacy_input_sha256": "9f23f5a37eb6d17328845f0eb1e1987dbb95a602aa9c7d2b3bde5ec6f449c32d",
+      "input_sha256": "0a29e4493b3b047bf1cb9910c1b0eb38279f6e3c8c8d98b4f64f088f1e675098"
     },
     {
       "teams": 12,
       "date": "2026-07-29",
-      "legacy_input_sha256": "f65fc411a64529f260c26f3dffce44413832ea83880fed3ed3ff3e50d14ae52c",
-      "input_sha256": "f3b1d0acd7327c533dd319155d7efd7452aa1a13e9a7a8d52e1ca8aa0b3a62cb"
+      "legacy_input_sha256": "e0d01cef6d66afc93d854f66e84a7da6a01aa20b5a8038706eee40b5a42d4bc2",
+      "input_sha256": "da9af161990e06e93844e1faf8b8463eb688ce17de92bc0aba1ced65bb909460"
     },
     {
       "teams": 12,
       "date": "2026-07-30",
-      "legacy_input_sha256": "7b96226db938f4fad92423c55fb923571642f9229d26b21e0169a2a3539844cd",
-      "input_sha256": "cd43633981a325cb6b6a9447bd50aa020645e7a52b45a699d850150e52b3c2ed"
+      "legacy_input_sha256": "b5394eaf4c1723a68df4172710f024301cdce3c2ffca2471996e9cace7b3fc47",
+      "input_sha256": "9d3b1e766f2a38f98b413d4f952163043f5b745e7872f31d071f3eaf24770a03"
     },
     {
       "teams": 12,
       "date": "2026-07-31",
-      "legacy_input_sha256": "33579766de959b313d4ed7a54d3d00767a86d8f9cbe3bbca4cb8f36bcbf174c2",
-      "input_sha256": "7305237e0df069a95f97b259208d20ffcfff9aa0465ddd9cf249453e46acbf4f"
+      "legacy_input_sha256": "f308347be94306387a1ac459e82646a1a606d1323fb5f4d74c40a7588bea178f",
+      "input_sha256": "7e96f96f089d5cc25039cbb897b48f428658c4ed32f41d353984fb55a81a6238"
     },
     {
       "teams": 12,
       "date": "2026-08-01",
-      "legacy_input_sha256": "99e240e4c45cc0e7efcc2a8b713f9e6e37cd2d656a6d6368d1eec62e0bed5e84",
-      "input_sha256": "74d29ecbf3a70c773584af08532cdd1334d7515d2f6ce6f20bccbebc830e682a"
+      "legacy_input_sha256": "fb56183f9021003fc8c9f590c0af63455a2bb4c3b4e1ba5737ed56ad212c0abb",
+      "input_sha256": "cfbb316c07843b296b91a6e0c45e083ab03e1931ba7840bcedda1a7f3f31eaeb"
     },
     {
       "teams": 12,
       "date": "2026-08-02",
-      "legacy_input_sha256": "b7b5e62f0ebb4c9c24a0e5d9389c32449ab76e3948d1788586cdead23a2cb292",
-      "input_sha256": "6a6c545e662e9126ad140328356858e45c12ce78e3f8dd2c00d1250f77526056"
+      "legacy_input_sha256": "f73e718c341330d5f7add69fe2f9d62fd896ef22e8123e0b5babe55f88dadff9",
+      "input_sha256": "645a923487dd19a1746376a6b83fa4e4b7032b1f42220287974756dff8262540"
     },
     {
       "teams": 12,
       "date": "2026-08-03",
-      "legacy_input_sha256": "743097e9de6f01fe1062da90b133e4d49108db135a21ab68e195582b1bf531f4",
-      "input_sha256": "a7d6d79ce053f800a67ccee8b2d9e1dda64f50ea3b3c79b5c8be04bf0bb0c9bb"
+      "legacy_input_sha256": "46584bb37f5d46fde60451b5c87f06e387a075691f16a1fd3dce8e9cf739d821",
+      "input_sha256": "83ef371b779c83a01c0debd51f924d192b0fdffebb4c72f7f7f7edfec7b8cce4"
     },
     {
       "teams": 12,
       "date": "2026-08-04",
-      "legacy_input_sha256": "376688a5a813f4c5d3f8661ea5ec91a3877dc67736536cf889b9f9a22abb34f5",
-      "input_sha256": "c7101bf2aa556c72e856bc5d12276644eb94734d6d1b4b9ebca00ade5adf4a74"
+      "legacy_input_sha256": "b4ba67f32538c3aca51a62b06daf2ba2a6c903c628de5a142fb806f1ddc0d13d",
+      "input_sha256": "afa339e9a376543867bbf839207a390e961e9fdd36fb3a482f36775f6837c0bc"
     },
     {
       "teams": 12,
       "date": "2026-08-05",
-      "legacy_input_sha256": "c59df6fa457249ee0592512bb933fd21dc370d06217d1b93837a892f069fcbe8",
-      "input_sha256": "1919b59b6ac3d82ecae448769f320a387efff259f685a8c7867ae95a9897578b"
+      "legacy_input_sha256": "fc68b191f9a5cd914a24dc200907fdd3a6e357d497add41fa90c1ae4d16bd25a",
+      "input_sha256": "4f069ea4d0bf762eb30b52922e764151bb9059bcf4288ad5d334d6e48e8c940f"
     },
     {
       "teams": 12,
       "date": "2026-08-06",
-      "legacy_input_sha256": "681fad38e15bd8ee76227692ad47a6f4f218e6514fe0a251481fd6759182ab08",
-      "input_sha256": "2f32558138d1437a54fb973ade7f84e09d8d72c70f8715fba10247dfdd598ba0"
+      "legacy_input_sha256": "7abbc98f491eaf668d0de8469f59b2114006f528e37f856b7cfcb93a0b8d5f38",
+      "input_sha256": "8b441879ef7f88398a12a6c8c3925aba1777ad650d0ef27ddd81b04880b71da6"
     },
     {
       "teams": 12,
       "date": "2026-08-07",
-      "legacy_input_sha256": "933eeaba3009a06c34d7c427ca729a962a341d1f9ca6e50ae756350a0c272f20",
-      "input_sha256": "cf28044cf6e7883c9711105e4c498a49d7a48cc0ccc274197dde8dd5c0214c0b"
+      "legacy_input_sha256": "c72e72aa4a0b370391e344343d29cde9bd707f4314982e37c1c07f3073d53298",
+      "input_sha256": "8f8b104a49c75cfe4ba0cb5cf2cbf35303c3cfb7f072510a6773f1f7bc03dce1"
     },
     {
       "teams": 12,
       "date": "2026-08-08",
-      "legacy_input_sha256": "7fece8443c962a37f08778fa7269c0f7e6f8aa3d58a443048b103643743e0364",
-      "input_sha256": "0b506b40d64a7e6a7c7b21abc935adb5c6861744ee582bc5e7973ac32bf89d7f"
+      "legacy_input_sha256": "80bdeed9cb3e067e78a61758fe8af75e39b537ba6634c2fff56b3fdd07d8ca35",
+      "input_sha256": "412535ae181680622aff78ab13713ac6aa35646877414d3807a397324bad2ea5"
     },
     {
       "teams": 12,
       "date": "2026-08-09",
-      "legacy_input_sha256": "c33aeb441d77b5423ff684dd0a6febb68d998a93d3fa8e586fab59eaa965a696",
-      "input_sha256": "046cb9fbf13a868535231f19fbaa032399e4486a99f08642bb35c1b0e5f70807"
+      "legacy_input_sha256": "6cdabd2e76c0a95741678e71fbd405caaa297a909306c6cd6b06ca8ad16854ca",
+      "input_sha256": "57120fd2b8dcf2f05dc7e59bb0f5b637f8e0904f5d97b758843ac9411d2d9c95"
     },
     {
       "teams": 12,
       "date": "2026-08-10",
-      "legacy_input_sha256": "bc19e2314704b2a4ac024a37f704f194afac9357e4eb0fa2c98816c70edc9bda",
-      "input_sha256": "f7ade071a06f0b923e348fd52f2e689cf07d1cf20faf0e12da27db392f4ce416"
+      "legacy_input_sha256": "f6f8304dd49bb6da13dd2ec3226266cd93abc6473638b74bf5a42014ccca96b9",
+      "input_sha256": "1ff1aea8c501534633a9c8369357e52148778e5eb10ed45cc1f6acbdae2b71c5"
     },
     {
       "teams": 12,
       "date": "2026-08-11",
-      "legacy_input_sha256": "80b824d2989fc73be1e6bc7e30aa35ba9696b02f8f5d12ea6025ebde4288a696",
-      "input_sha256": "24751925fb8d9e4d7b63d4c10e54b3c5f42cf039a9e086ad3c686a8c239a280a"
+      "legacy_input_sha256": "4ebda3f14b3dbe78148bd31911d0ea05cb491a4eea28ba124e216cc04caad959",
+      "input_sha256": "b9f7bc728f118cb82519a6bb5b52e5fa37836a72dc29e54b960a806677c45786"
     },
     {
       "teams": 12,
       "date": "2026-08-12",
-      "legacy_input_sha256": "0f49ba7ff6bdaed1fd82ec63d327b9561116cff230b1bd95ebf0c0ba0328fe46",
-      "input_sha256": "f3b55748ed7e3d125c8796b2de5b17f0f3f66cf4846e5de4e0e175d12d82ba94"
+      "legacy_input_sha256": "11d15e540a67d3fbe8f4e34c845b76ea849a4ea5c8104e36c9341a72c4504da2",
+      "input_sha256": "77e5a374bc18465486c8fe99eed058f50065f0b8a3469a184079e640fffcb5d9"
     },
     {
       "teams": 12,
       "date": "2026-08-13",
-      "legacy_input_sha256": "b94379afa35dca70d355a48c2cf659bc8a4c92ca551e0c5db0a788ccbabcd785",
-      "input_sha256": "961ceb029f05538bea9258552121810b9d32d4246177a0d658c29303489bc0e0"
+      "legacy_input_sha256": "bc18fb9e2a404118bcaa7f71fac13530e3e170e3610bdbcee390df684154c1d9",
+      "input_sha256": "b6cd8a56b6c5abb085b6decaf6438673086c9cb28f5a0b5ba75128f72b092eea"
     },
     {
       "teams": 12,
       "date": "2026-08-14",
-      "legacy_input_sha256": "b9bbb335aecb66dcabf96cf894ab35141f14c78c5860218386ea07250a9aecc2",
-      "input_sha256": "c79f464052fcfea70a3e55716eceac4643aff6157792b0c978a78276963d680f"
+      "legacy_input_sha256": "e506e30b3a023f6e17b3d284329ab5e54d7a72460b4c2488a3e793a7da983760",
+      "input_sha256": "febd3f3942243b5bd251579ff46163fcb98ba02de62efb54973fde37d38e77b9"
     },
     {
       "teams": 12,
       "date": "2026-08-15",
-      "legacy_input_sha256": "93e0a02cbbc6643869f8f6f3c9541d11f9512ca5bd0f1e47f562809a56b5b742",
-      "input_sha256": "58977cd80c0a0e1df7cae81aea07a2ca39ef2497d47d43fa0af452f61bf7f4c5"
+      "legacy_input_sha256": "0182b67bb937b72d9bdeadfdd213d86cf3e80bcb13ffcd8edf4e7d0f86514004",
+      "input_sha256": "6bb107cfdc2eacee0fb9d3f7f966c317ff17ae0894f6d8087fd3f9eee6cb8d49"
     },
     {
       "teams": 12,
       "date": "2026-08-16",
-      "legacy_input_sha256": "b98ebc846fe194213d88260998ffdb91cd7cf59ce938d64fddd48b7ea7e034be",
-      "input_sha256": "cadeed6fd043cb8a17a67d4a1eb5bee1fa2887e03a19afd14e61b0d75bbb8e61"
+      "legacy_input_sha256": "1003ed36a1266ea7ab4f215d4c0e53d017c11deb65736a7334b521a09dcd3e17",
+      "input_sha256": "91c11dca458ccbe84d4bb6c5a8cb4429ea4aecf712356b51a38c5d446f4bae3c"
     },
     {
       "teams": 12,
       "date": "2026-08-17",
-      "legacy_input_sha256": "6fc00fa8541805543e0c7018575336af7648727bbf4f369a7c50fa99b16aece3",
-      "input_sha256": "d3c55acc0f9384971411a95c5691dabf123ddcadb1518693ad9a8e7552347f06"
+      "legacy_input_sha256": "318ea224a34f46e11018abd0f7984847cf1bf7ffceaa7e804fb535ceeb9e6a42",
+      "input_sha256": "dfbe12eb7fc89c90b4bab6294323bca608cfb5fbead532322bae200e383b00bf"
     },
     {
       "teams": 12,
       "date": "2026-08-18",
-      "legacy_input_sha256": "2471d07d65b2d2ec9d4b3f761e1adde88d08c843c2cab0088258fb355a7a4ff2",
-      "input_sha256": "6797a1d44d7ffaa75aea4c41c2d80201430e36e334c872e33f66d897921ce2c0"
+      "legacy_input_sha256": "1e9b2bd2d8f20c0a28c7dab4bbcb57c6fe21b6d9674cedddf1156980be326249",
+      "input_sha256": "501c5f9881a39094aa58fb3a5c51a15b6246a683408b50c482f5aa17c528770e"
     },
     {
       "teams": 12,
       "date": "2026-08-19",
-      "legacy_input_sha256": "24fc0ccf2897ae0872b9ae372b95cee4282546473936eae937f9e2baf48edf05",
-      "input_sha256": "f8083e0c0dc0907c873c327176eaeff3d4f0cafb293b0085b043714f4d98aed5"
+      "legacy_input_sha256": "e283e160373de646872e1bc7a40d2f5bc61e2fbb6d8ba3c4de7b7b012e9e4408",
+      "input_sha256": "4d8ea951e69b712e0c321cf6456df8c21d2f2cf73eb985eb0bfa770513ad7958"
     },
     {
       "teams": 12,
       "date": "2026-08-20",
-      "legacy_input_sha256": "651e39ee0681dc999e27818727eaa30f369efd0a8e2163091fd5e7d382d2e455",
-      "input_sha256": "57386d986fa69814787104a8bfce5ad2a8c1ec104aee189282f07223cf5d5567"
+      "legacy_input_sha256": "3f863993bc6316b7495b61e61e983a90b61f64bf9bf924acdcba028e59867e2a",
+      "input_sha256": "7f1a72a256f834eb821cfdc122b3fcbc72257894f95957d8a5abf48ff0aa33f1"
     },
     {
       "teams": 12,
       "date": "2026-08-21",
-      "legacy_input_sha256": "815b060c087c09ab77951a43f2de966508c1f32d7baf02120fee8251bfc52f20",
-      "input_sha256": "33b2a7e39b50cc34b08a8d6acec0226ff9a61c1200604a170d1fe10711ee80db"
+      "legacy_input_sha256": "03fc0d140b85ce41ce1db233135a032eb1fcc559fc24ec11619760b0b06dde90",
+      "input_sha256": "a6abf3b552b7b8390e559bb0808a8a02e7258768dde65e12a8edc95ddcd3ec84"
     },
     {
       "teams": 12,
       "date": "2026-08-22",
-      "legacy_input_sha256": "6c453ca317011653236e13a5b7d0004f874d91736635ead81ae5d80c9fbc2db0",
-      "input_sha256": "8b81518b49ffe842b01c74eacb448689c9fcc49894f185bfcf9c12e0d93217de"
+      "legacy_input_sha256": "3bc5329a9d2529e87640a4870c2d2522e4d4d4f2bf3543d82851bc8c855104cd",
+      "input_sha256": "eb2201ba01bd5ed50794e21910babfb9da004c14190263b0c93740412b0da85b"
     },
     {
       "teams": 12,
       "date": "2026-08-23",
-      "legacy_input_sha256": "c5e1b1f95686415c358b1cc66c232da48a4628c927ffa15aa0122e8d84a60134",
-      "input_sha256": "ae392b7eb643e39fbc2cd741582b1a0efd6c9da2f6515f7ed1c751a07433e573"
+      "legacy_input_sha256": "4386b0b9f8f4a216a08d089da4177a52c5946d5186cd32e0f4baa68bcf9ba6d4",
+      "input_sha256": "3560525f1e4b9b8144a4ba08bdcef08496216e5d4c30deeeca47adcc3d4cea89"
     },
     {
       "teams": 12,
       "date": "2026-08-24",
-      "legacy_input_sha256": "2481bea8c53f61b62d868c5b16f341b13bea8e377c5f7307748b0369408ca6da",
-      "input_sha256": "a439caa5d324c365c0b99445dbb0116196cdd3ee439b9638a8927c688cc0b7a7"
+      "legacy_input_sha256": "fe3ad1249c3e7a20856a0b3427260ed53b35abfc9e2b5136a078afd089f34e10",
+      "input_sha256": "0e6838c460f13c2b8827b9becf27ea5128fd5ba45b7db35ac9a29bfe97b511b7"
     },
     {
       "teams": 12,
       "date": "2026-08-25",
-      "legacy_input_sha256": "149769e2cc8c8e4234b371f8eec43d7918ce97dbf27a47aa9cf3dcaae49a68c9",
-      "input_sha256": "5bf7c60ee2f577d780cc2285cca9717e88fcc62503813f5e587512b86a4a8356"
+      "legacy_input_sha256": "e5469a5c90abc976228b105469e007cce0fb0b0f28f40722b25c46b9ba7953ae",
+      "input_sha256": "030066758afe983dc40ed87fa271e1da16e97446dacf9399d72acbcfa943cd86"
     },
     {
       "teams": 12,
       "date": "2026-08-26",
-      "legacy_input_sha256": "562b391e063a6d30677d14bda85c06373253cbbffe2329810f79daa345b77780",
-      "input_sha256": "28308ba1926b7502ca7bd232889db452bb427a871e5433f89ba3f8347ff848aa"
+      "legacy_input_sha256": "54c73a8820200eaa0ecbd7f124cdd6c02aaccaee59ff8b20833ab3393ac83096",
+      "input_sha256": "2fc0d1e415147596372bed124213f861b18fc4f2ad8f098602a12beb6c7d2466"
     },
     {
       "teams": 12,
       "date": "2026-08-27",
-      "legacy_input_sha256": "a5ccc20be12862a35392e234cd3b0a3d6707f09dce8767c47560184d847667c4",
-      "input_sha256": "4333860cad237dfd4c42935e4e41a1f6619ae1daa36334c66ea9a003b3928d91"
+      "legacy_input_sha256": "29dd68fc1b5c052fd4d2ad6c82a52f9cb7b7ebb88cf647637225ebdbcf25a74c",
+      "input_sha256": "9bbed6c1bfb6dead819cc298ccc70eca5d3d127d4859f0d0632b76786327cb01"
     },
     {
       "teams": 12,
       "date": "2026-08-28",
-      "legacy_input_sha256": "ae53bff4d16cac3029a5ba859ab71d73eb92fa66d58c0ba212ce056df5172927",
-      "input_sha256": "66b1d0a4725cbc764938bae02c687c28574f4e9c8c00957f602c2c80a79b9aed"
+      "legacy_input_sha256": "630a5b7041963381e566884ba0a1e2697372f2bfe96941f9a2c1687b98077ff7",
+      "input_sha256": "85ec6c9088155da100d9a126f5b59888394646564cd15e27635b2558fdb758d7"
     },
     {
       "teams": 12,
       "date": "2026-08-29",
-      "legacy_input_sha256": "1802495b96d6eec6c486f330a6d70e78a26546b1ba1cfd681c53eb69851d24b7",
-      "input_sha256": "99fd9154fc0fda6b7cee810a0c17c8b2eec9edf5eb0835c0f4b9e4b693ec093b"
+      "legacy_input_sha256": "fe4d7537d36bcaba68a003c6c41b7a9b96e79856ae133dc729ba182481ffa67c",
+      "input_sha256": "9c95df250a040e9d5b90372ca6cf65aa75805b8ee5b1ccbc57ac88b479068b37"
     },
     {
       "teams": 12,
       "date": "2026-08-30",
-      "legacy_input_sha256": "466d27c090a83d82a010ceeab9c5f506a307c4f941beb884cfdd30e2dd445a59",
-      "input_sha256": "1202798d99c76577c968c8681da35205aade205d15bb650654b36ce7db4db671"
+      "legacy_input_sha256": "c3393b08c44e360f93e16c641995352c0fcf7cb6ae648a69650c28a0c38f2ac6",
+      "input_sha256": "caa546b1d18381874f53eb00ecb87c83d2252b087b19320ffc50c38dd241f5ec"
     },
     {
       "teams": 12,
       "date": "2026-08-31",
-      "legacy_input_sha256": "1c5a9104d36f02f374df19950438ec438979ec220c15d284b0f36ae034e6c0ed",
-      "input_sha256": "e2e8297dcde478e5b0434a377310c36f192ec4e8f1673f2f3891a6fe6a44542d"
+      "legacy_input_sha256": "083e460dc74e50cbfa9c235a6db3226380094f9f155f828d8aef7a72a12fc74d",
+      "input_sha256": "26c99f7d0699f0b71b9bb4eacd93fde58788c2d9da540d7652ab69c918ab1a2f"
     },
     {
       "teams": 16,
       "date": "2026-07-01",
-      "legacy_input_sha256": "e2f0b0d235d82a2d5333cb3293038fd51da149bb0b01c113a3e85f1990cad2b6",
-      "input_sha256": "e6ae84d71b28c6f2bf314d528b4174e59abb747ffc223412ebd476619345e91c"
+      "legacy_input_sha256": "d34e4afa817508cf30adf1d29fa91d69c00efe39b123c0ac61dfb6419cf6ec90",
+      "input_sha256": "07d3646ab143498c5cdd9070a1f0130e37707a5ee605145611c2629a2c5dc488"
     },
     {
       "teams": 16,
       "date": "2026-07-03",
-      "legacy_input_sha256": "fe788b85b661c4468b2ad76bcb259b2b20ff560ac2ee9f0c6a336e22fdaed2a6",
-      "input_sha256": "7e98e8563cea423bc638a3a3cedfabe9136cc5de7a6f863021aa6b859088eb35"
+      "legacy_input_sha256": "9d9550a973a6083f79fc439ca3e1ce9fb9cc6985d859b1267811ab4a8e92cb0b",
+      "input_sha256": "dac40577a3101e24554b61797a8d5c320942f509ddd610215661a5d822ace36a"
     },
     {
       "teams": 16,
       "date": "2026-07-05",
-      "legacy_input_sha256": "924cd667e23c5a10ee07b7fd0236e282444c7368122eb9dd712026da7c13758a",
-      "input_sha256": "99d54bc7c8e0d17ecf56db7ffab1d4de918e438c445fc649b1a6f546044bf3c8"
+      "legacy_input_sha256": "ae3f5a8c71e3dee7013d6ece16bbe7ca32d1e74057160fc8c22c68c261cfc975",
+      "input_sha256": "7782bd791f5a03d3312b4aba6abfcbc10bf8d923b42edb98a56dc8d6441c89e2"
     },
     {
       "teams": 16,
       "date": "2026-07-07",
-      "legacy_input_sha256": "4a143947d94270558757e634ccee87f1b2f1e594393e90d3a0487b3da3974746",
-      "input_sha256": "9f7cb911f387ab1fd06dde21799fbb4973de2ce89f8bdcecf69db2799a63759d"
+      "legacy_input_sha256": "116ec8f1876ef7a6b3ef03fcdd2fe35df7e8a1832d2d290a007abd915a1a79e0",
+      "input_sha256": "eba70222974d22a064312474656f37a29c270f051ea761d11a4f1b73fe1b8806"
     },
     {
       "teams": 16,
       "date": "2026-07-09",
-      "legacy_input_sha256": "87d479e66139f79a7479c5ffe95be6b83ae2761f692e08fa422413c7f89492cf",
-      "input_sha256": "9653441df4c6b9433df551bbbab1d06c85030dd0a9a25843040c75aba2736143"
+      "legacy_input_sha256": "07d5fb42192777f9930370b81d494bfef39b1d6c046b42fad0f13c8056bf7be5",
+      "input_sha256": "14359562631e11370b428e93235a4d58360c6741df89c473d02feff46cabc955"
     },
     {
       "teams": 16,
       "date": "2026-07-11",
-      "legacy_input_sha256": "ab6695196c2e8bf52202e36997a5c062ac9139affce0361b8536e1eca5da8979",
-      "input_sha256": "e4d9c580efeb91fa36caaa7f72891717bd672a744b80661aad194e5d1b8dda20"
+      "legacy_input_sha256": "54328c6899f9f92b814065ee5e55894f53358f88f283787cdbd51195c15a3fc1",
+      "input_sha256": "96c88920f31a1f62100eb0f8a55cbf57bd0e492807f8ee0da04f8b19faa99e3e"
     },
     {
       "teams": 16,
       "date": "2026-07-13",
-      "legacy_input_sha256": "7bd7cd37d368f4d5554395edb065f30c9731fbf977537f3262b1237c6b6dccf6",
-      "input_sha256": "f26242d97fe10198a6a1635fa509860b5a0a6f3dc7bfb4947eb190c7b6e07593"
+      "legacy_input_sha256": "cd59186b488e1eedc52913ca18ce60af15a895204d145c3297f160f7295c2138",
+      "input_sha256": "419abe4a3acde30201c9e8d705a401a822a52aab0cc6ea6fe41c6e4679541eb5"
     },
     {
       "teams": 16,
       "date": "2026-07-15",
-      "legacy_input_sha256": "3cf63e1ebe177043d42bab15a251c028a90026af675800b7c430a2fbbb08b95f",
-      "input_sha256": "407c1db288b5b27905d15e244a65aae855ad34ab3755bc6c2f1c4048dcb3f4ce"
+      "legacy_input_sha256": "f15edcfa7fa7cade21382afb1a08bb55828890252e010954e5f4cd776ba8f373",
+      "input_sha256": "2fbc124eb7b656534a027e6d8e90bbd26239627cbe298fac69aa391dc96d09ef"
     },
     {
       "teams": 16,
       "date": "2026-07-17",
-      "legacy_input_sha256": "8258b41a84c22ccaacd77ccf594d191a85977186977f27f685265fc6a49f7546",
-      "input_sha256": "218b1cc0711d88169d037b02d0ee0a8dfc2eb4a3f0bd1a70407a57a123ba82aa"
+      "legacy_input_sha256": "8e4b2b1753a4c920bb33627fbeb9491543c36488b60a27bfd8ba123753f416f5",
+      "input_sha256": "cde1cf7fafcd802e8813d4d26b2195ee512bdb2420962ce3740642fe1e1d10c8"
     },
     {
       "teams": 16,
       "date": "2026-07-19",
-      "legacy_input_sha256": "5b0cd51b9f55bd809840177ef6ca3af67a14033da01ac70e91e250d7983aaa5a",
-      "input_sha256": "448b1e95aea934fc6418782fb5142bfbb2be07894d2c0c173fff202e758c2b30"
+      "legacy_input_sha256": "13df9745c94ac18cb3d5486e7119274eb861c9be977d6120c7e9016518c7f002",
+      "input_sha256": "316dd21cae8e5af1e53fe42c7758fdaa2a4923db732342711586dc4cf414fa9f"
     },
     {
       "teams": 16,
       "date": "2026-07-21",
-      "legacy_input_sha256": "0a1a8916dfc498f8d5b59d0b3a4fea8eea6f82af4a12b118ddfec72c77fac7f2",
-      "input_sha256": "84058567d9ad613ca3234ab994bb2ad6598af37daf840af29f3ca4c3a6efd50f"
+      "legacy_input_sha256": "4aa8c2dbf911b089844222366e99fe06b99df309d0629f4ee3a57756df52bf66",
+      "input_sha256": "e014cad67b6c3568480a169d7cb45034eaa7b4136d3a15ae78c177cb6db4136f"
     },
     {
       "teams": 16,
       "date": "2026-07-23",
-      "legacy_input_sha256": "4d23de6a2171096e4da61b96323ba72a9665130a58fc7cb851b34368e05de58f",
-      "input_sha256": "37eb74391ad4126803c52087f115629732c71649b21e02fc707b243902a971ea"
+      "legacy_input_sha256": "330ee189c5d5f56c103da790ddffefd53d7cab21fc76944a12a2779e08dd8ba7",
+      "input_sha256": "17f54278bb1a1d2fa1000f34b02038a81c81de6c0cdddd6d6266a0374a124df5"
     },
     {
       "teams": 16,
       "date": "2026-07-25",
-      "legacy_input_sha256": "826370baeacedabdb4eed7710cfb5a03b5b4c248a48ef77b464427984207b084",
-      "input_sha256": "e4398cfcdc3eda38e66988e111663b5bc8ba80ec165f35aec5ae51b68d87f563"
+      "legacy_input_sha256": "68b32ea0c9e3179e3bfa8e61d9846c292b2dbf006372aa70ce28fbe898b9f811",
+      "input_sha256": "4e83a43e5edde5ba77e197a2c06323bbc89076aca004e2033cba0cd296b24c50"
     },
     {
       "teams": 16,
       "date": "2026-07-27",
-      "legacy_input_sha256": "8ba32fefdc17e933967a7dcd6dd4315b8c3752034d6b7bbda8af49d1c524f888",
-      "input_sha256": "ab8578dcac8f70cc729b5bbe2614e837c1ab150a632784a68bb9fba3afe6b1bc"
+      "legacy_input_sha256": "feb06285bfde9d77565844a9b2c0e35f4ced76a7b4d5ec57fb0a189b9f0c8bd4",
+      "input_sha256": "7661d35fabbfb5e9ec3fcd0667de0afd452557e1187d54751a8a6455ee10886d"
     },
     {
       "teams": 16,
       "date": "2026-07-29",
-      "legacy_input_sha256": "9430f0da8494036b24cc5672159ba23557411d57cbcc6fb4b92ccb6f67cc08e0",
-      "input_sha256": "0b67585ecf0bdfc4ee11f4f62eee3d9107fad46b7007d64f9abc8b60fc5c3a0b"
+      "legacy_input_sha256": "134657958fcb5f24f70c151fb57cdbaea952680db8d4b0d0cce1dcfea1e8453c",
+      "input_sha256": "50e3429d770dce1bd5825628d776d9567ef215785aab2b30c5effeefcfb69f7f"
     },
     {
       "teams": 16,
       "date": "2026-07-31",
-      "legacy_input_sha256": "f169ba9b2a88654afdb80b54c800c7cc44f711f0457a8a450800c73f9296698d",
-      "input_sha256": "7e8ca55542ff151c1e7e710c3e745d0e01c5fd2c0be901e183129f81a9523d09"
+      "legacy_input_sha256": "2ad639790860f315e5f3fe9c160e02ab2d42c07783ef7b78221dbb7df66b150a",
+      "input_sha256": "773708fff6754c3f49dc6438eda25db4aeaac277dcfe4d47528e07421fbd9fe3"
     },
     {
       "teams": 16,
       "date": "2026-08-02",
-      "legacy_input_sha256": "8a30d274c3ddc53e8527033bb2aed16839afa65d9ffd9a22a7b416d444bd33c3",
-      "input_sha256": "ce9902cd2da1a09b80eb61fd68a9497753589b2e89d1fd4b66cf2b474a800f75"
+      "legacy_input_sha256": "936bba6902db2f9aa0e2e4f81f6a2b375340c12e7bf88381ad4bd0a25b572e98",
+      "input_sha256": "c9007f04acbdd31629a2c397f771a94b8df644c138459c16a94d21f4e52b238d"
     },
     {
       "teams": 16,
       "date": "2026-08-04",
-      "legacy_input_sha256": "d0de6506f378a9fc05d36d65ea85b67eea331512f0f19a76b56540784043a54d",
-      "input_sha256": "f9afdeee426a11d9e8c498b7709680f9f1d11e73d3afacfd4ad6b73b9f6f0d54"
+      "legacy_input_sha256": "89ccfb98b6e9a9bb2d2aa8080f393d57af725e1d8373d2fd0ad125720205553b",
+      "input_sha256": "e54f139436ed5ad3c62712e8334b3e56ba2e44a2587d1c16678fac6f262cf2ed"
     },
     {
       "teams": 16,
       "date": "2026-08-06",
-      "legacy_input_sha256": "bca516160f5848e5d5cb546814eb0ed976e6041c501f1edf029354710089c5f0",
-      "input_sha256": "8d7ce96920f312f9521ee8f0b3923db5d76b8c2cfd274ffa6ba2bdd8a7342787"
+      "legacy_input_sha256": "a0379681d4208d05a62918a2d2e15df7957b6a4ced9aec03ed150cd8a405b427",
+      "input_sha256": "d827c20c6d5e2c571d976a259cbe88ab8f86ed9eecd83c2d7916f4cf39491ee3"
     },
     {
       "teams": 16,
       "date": "2026-08-08",
-      "legacy_input_sha256": "c8a1b37aa59f7d1780f96bff37d0c601ad5d5269a4ddc77551ec2b7d873716e2",
-      "input_sha256": "038a6859dd38a89f0e32ef09b65fe992260eedc26787c1c84aad46a92f8d9be8"
+      "legacy_input_sha256": "d24911ae3953225e80c2af1629a3d1964ef382ec157e1c7ab03694555080e29f",
+      "input_sha256": "36b2692c1c70ed8d414dff5677db60eb1a7bf430331c0fcf6ac74f27059fd9db"
     },
     {
       "teams": 16,
       "date": "2026-08-10",
-      "legacy_input_sha256": "6de45f2e09596d994659dc011ff2044887e19f7eb6e3688888038d085c601c59",
-      "input_sha256": "980375ea9e2e248cfb6d323829bbcfc179949f3ccd5b963dac7a701286e16f94"
+      "legacy_input_sha256": "db00cdd70d41bd23701e5977e7e417fc8fbc20c5c6cb1da3696e5af79942e2a9",
+      "input_sha256": "1a195e38b84be62e2b9eaa82f92ff35f5cfbece98464e294af5865faf654da12"
     },
     {
       "teams": 16,
       "date": "2026-08-12",
-      "legacy_input_sha256": "b67453f0022c2bb124712a7641b09549e39b28655c70a90efdaff0d93a979f30",
-      "input_sha256": "219a03037ed64c415ebf60443c532c385276224a52e32e120830b314e850af06"
+      "legacy_input_sha256": "423e46a13d8dae7a4837383bd08c199b9bf9c17ae836facacf650033f38ec137",
+      "input_sha256": "25a6b425381b536f37ea1cd34d689d3349fa009815dd980ccd82d807ffd701f5"
     },
     {
       "teams": 16,
       "date": "2026-08-14",
-      "legacy_input_sha256": "79052c9fa61eb9d288d9b8810bf761383173fecb4c0d775b997b2076f185210a",
-      "input_sha256": "c708e2638c1bd685330b404c238edd69ed58810f22e5f129c56a879c229c7d8f"
+      "legacy_input_sha256": "297fa3fbb956dbcbc26d998b2397d19190944a6beed54308b2dac3ce39c87035",
+      "input_sha256": "add14e6eff3c4336893c97428a502b4bab5f7d4e5f08f9cbbf3b82926518bd9a"
     },
     {
       "teams": 16,
       "date": "2026-08-16",
-      "legacy_input_sha256": "0713f030ecc5b156a81e3d5de4c540545cacf771864e0746923d320dbdbdb6e6",
-      "input_sha256": "d16c6ac2591f7e2ddd1f4877140e1817cfe0a068d2f8d781d79cb635645d6914"
+      "legacy_input_sha256": "18cb22c6f56e6be138b15322fdccfeed34824c6537b7d91f999040c49ea6e0ce",
+      "input_sha256": "aee902405aef2337a8fac2e74ccdf225d8e1adfe5e729fbae4796320b7130c2c"
     },
     {
       "teams": 16,
       "date": "2026-08-18",
-      "legacy_input_sha256": "1112fcfae428cb6e73750ab1c1157447bbf6ccf2feaa4d264eef5b02216b945f",
-      "input_sha256": "094fd7fea41c2f836901f2d8a95b8a52c45daf2937ed6257911cf3ff073d123d"
+      "legacy_input_sha256": "3b919672cf6457de501e4b8f92ab08bbe44aaae813f934c5caf7268bb68aba87",
+      "input_sha256": "86b041f3f35574457c5430b752d6ff3262e19d3f35aa1142af8f5ef3ea48e18a"
     },
     {
       "teams": 16,
       "date": "2026-08-20",
-      "legacy_input_sha256": "67c7a127bac3681469501ad2bb897c012b168c80e99b89e9ed4bc5874730fa27",
-      "input_sha256": "0ffadc3aff39d11e7254b1c1d352a85ec08bbced2218aef873d03e6261259b45"
+      "legacy_input_sha256": "7040ca1b3b86f48af540b9d6828943db7ead09a262dbb653e95f8684a5405aad",
+      "input_sha256": "8e2c8195b94297c98a182b7604be8da5f7a0d1447f741f5fa4f0db8f2c50efe2"
     },
     {
       "teams": 16,
       "date": "2026-08-22",
-      "legacy_input_sha256": "3dcdb2525a79d58e6822f2e438616681b510a9b4e6b6df1782ea5802da9101b0",
-      "input_sha256": "49fa3a7abd1a1a69575d88b923ab275ebabad17ae9b9dc670f83d8f6e403ded6"
+      "legacy_input_sha256": "79c636f6f03193e29510ef8d49704247e69179ccc4b183780b4f0f5db6b9a2d1",
+      "input_sha256": "662d24a9eebee5beeda207de992da95dc7e61eada513aafb6c1b5b9d40a2affb"
     },
     {
       "teams": 16,
       "date": "2026-08-24",
-      "legacy_input_sha256": "37c492fce3feaa116f6af2c9d568d57e8d5f4909e700a10988ad6fa39d897263",
-      "input_sha256": "ac06bcce2cf391391f2bf4261d78172b30364e1c39cae5797920a011948eda25"
+      "legacy_input_sha256": "4048289dbcad46f6d01aada5f8086afce5e6602efd11d8d3b05b443707e39525",
+      "input_sha256": "e40e5bf64d109eab192112665c085b75a188ce9305d15dcb59cf9360d23cfb33"
     },
     {
       "teams": 16,
       "date": "2026-08-26",
-      "legacy_input_sha256": "cc8e677295be0f35105e57891a6efb58e110135e5403371534801a222205c04a",
-      "input_sha256": "a99facca2eb68a5fef1664ef8cf1e5677c9e49bf10e2d736b4991af5480d784d"
+      "legacy_input_sha256": "e845c7dfe2361d9d07f0ae37d3b3dcb1cb6f2ed5947c54c6b06471a786d20307",
+      "input_sha256": "8bc15ff277667beb0f1433afcae22abc7a838c2b5c5f852dfeebe637689b3505"
     },
     {
       "teams": 16,
       "date": "2026-08-28",
-      "legacy_input_sha256": "a016680f3b7f4871ddca5b75c7a7b17223b79e1d23287ad8e39f268fb29c7825",
-      "input_sha256": "4634645530ef9730abb102253a3554ced8044e5e12d0c4ecea981f6560cd790c"
+      "legacy_input_sha256": "b7d9b8b435f74ca4935dbdb0fd878da0e7c1d7938ab314910fe4f4782994bcad",
+      "input_sha256": "b1809e50a81a8e2e40d71efeef9b4b54d64819a457b1b0666252558fc4313c55"
     },
     {
       "teams": 16,
       "date": "2026-08-30",
-      "legacy_input_sha256": "9599f406a0fa5ae7c2a9cf6cc482751eb0c872879c33ace42ebd43aa8fe543dc",
-      "input_sha256": "0a0f42ee729b06672cc3d1eb709c0257845bb84cc2fc8807e03eea390cfd6370"
+      "legacy_input_sha256": "ee355819ea42babb5925bc926fcb5c844fecf58c8407d4d03060147ae64d1404",
+      "input_sha256": "d8d9f30d2722e348c7e5c4657207fcc4f4c08f759b25cad14d526846def07159"
     }
   ]
 }

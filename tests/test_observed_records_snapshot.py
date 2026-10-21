@@ -55,11 +55,12 @@ def test_missing_hour_is_explicit_in_pdf_evidence(approved):
 def test_real_snapshot_matches_ranked_replay_and_preserves_defaults():
     bundle=json.loads((ROOT/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'));s=bundle['approved']
     results=json.loads((ROOT/'docs/real-data/replay-results.json').read_text(encoding='utf-8'))
-    # Author decision 2026-10-11: the demo date is the first hot candidate (daily max air temp >= 31C, then the
-    # unchanged rule): [2026-08-10, 2026-08-14, 2026-07-14, 2026-08-09, 2026-08-11]. The all-day rule order is kept.
-    assert [c['date'] for c in results['candidates']]==['2026-07-03','2026-08-20','2026-07-10']
-    assert [c['date'] for c in results['hot_candidates']]==['2026-08-10','2026-08-14','2026-07-14','2026-08-09','2026-08-11']
-    best=results['hot_candidates'][0]
+    # 2026-10-21 recalculation (decision value = central estimate + 2.5C venue offset): the hot-candidate rule
+    # (daily max air temp >= 31C, then the unchanged rule) now ranks [2026-08-11, 2026-08-10, 2026-07-14, 2026-08-13,
+    # 2026-08-09]; the author keeps 2026-08-10 (backend/config/demo.yaml), which must stay in the hot list.
+    assert [c['date'] for c in results['candidates']]==['2026-07-22','2026-08-11','2026-08-22']
+    assert [c['date'] for c in results['hot_candidates']]==['2026-08-11','2026-08-10','2026-07-14','2026-08-13','2026-08-09']
+    best=next(c for c in results['hot_candidates'] if c['date']==demo_date())
     assert best['date']==demo_date()=='2026-08-10' and best['max_ta_c']==31.6
     assert s['mode']=='snapshot-observed' and s['data_origin']=='kma_observed'
     assert s['tournament']['date_start']==best['date'] and s['id']==best['session_id']
@@ -68,11 +69,15 @@ def test_real_snapshot_matches_ranked_replay_and_preserves_defaults():
     assert s['engine_settings']==EngineSettings().model_dump() and s['schedule_settings']==ScheduleSettings().model_dump()
     assert s['proposal']['original_heat_score']==best['original_heat'] and s['proposal']['proposed_heat_score']==best['proposed_heat']
     assert s['decision']['assignments']==s['proposal']['assignments']
-    # 8/10: 13 assigned, semi2 postponed by constraints and final because its predecessor is postponed.
-    assert len(s['decision']['assignments'])==13 and [p['match_id'] for p in s['decision']['postponed']]==['final','semi2']
-    assert s['decision']['postponed']==s['proposal']['postponed'] and s['proposal']['postponed_count']==2
-    assert s['proposal']['postponed'][0]['reason']=='선행 경기 연기' and s['proposal']['cp_sat_status']=='OPTIMAL'
-    assert sum(r['level']==4 for r in s['recommendations'])==14 and sum(r['level']==3 for r in s['recommendations'])==1
+    # 8/10 (2026-10-21 rule): all 15 assigned, none postponed.
+    assert len(s['decision']['assignments'])==15 and [p['match_id'] for p in s['decision']['postponed']]==[]
+    assert s['decision']['postponed']==s['proposal']['postponed'] and s['proposal']['postponed_count']==0
+    # Postponement wording is exercised on the 8/8 extreme scene: g1-2/g4-1 blocked by constraints, final/semi1/semi2
+    # because a predecessor is postponed.
+    extreme=json.loads((ROOT/'frontend/src/demo/observed-snapshot-0808.json').read_text(encoding='utf-8'))['approved']
+    assert [p['match_id'] for p in extreme['proposal']['postponed']]==['final','g1-2','g4-1','semi1','semi2']
+    assert extreme['proposal']['postponed'][0]['reason']=='선행 경기 연기' and s['proposal']['cp_sat_status']=='OPTIMAL'
+    assert sum(r['level']==4 for r in s['recommendations'])==4 and sum(r['level']==3 for r in s['recommendations'])==11
     t,m,v,r,settings,engine=Service.context(s)
     assigned=[Candidate(**{**a,'start':datetime.fromisoformat(a['start']),'end':datetime.fromisoformat(a['end'])}) for a in s['decision']['assignments']]
     assert validate(assigned,m,t,v,r,settings)==[]

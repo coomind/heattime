@@ -43,15 +43,15 @@
       "matches": 27,
       "solver": "greedy-fallback",
       "coverage_optimal": false,
-      "assigned": 2,
-      "postponed": 25,
+      "assigned": 14,
+      "postponed": 13,
       "constraints_ok": true,
-      "elapsed_sec": 0.1327,
-      "preparation_sec": 0.1274,
+      "elapsed_sec": 0.4308,
+      "preparation_sec": 0.2149,
       "solver_wall_sec": 0.0,
-      "engine_sec": 0.7858,
-      "original_common_heat": 1209,
-      "proposed_common_heat": 686,
+      "engine_sec": 1.4075,
+      "original_common_heat": 8360,
+      "proposed_common_heat": 4461,
       "maximum_wbgt_c": 35.924
     },
     {
@@ -65,28 +65,28 @@
       "assigned": 24,
       "postponed": 3,
       "constraints_ok": true,
-      "elapsed_sec": 0.9569,
-      "preparation_sec": 0.2306,
+      "elapsed_sec": 1.6213,
+      "preparation_sec": 0.302,
       "solver_wall_sec": 0.0,
-      "engine_sec": 0.0143,
-      "original_common_heat": 4549,
-      "proposed_common_heat": 1152,
+      "engine_sec": 0.0209,
+      "original_common_heat": 2522,
+      "proposed_common_heat": 334,
       "maximum_wbgt_c": 23.968
     }
   ],
   "summary": [
     {
       "scenario": "controlled_mild_mock",
-      "median_elapsed_sec": 0.9569,
-      "max_elapsed_sec": 0.9569,
+      "median_elapsed_sec": 1.6213,
+      "max_elapsed_sec": 1.6213,
       "statuses": [
         "greedy-fallback"
       ]
     },
     {
       "scenario": "default_mock_hot",
-      "median_elapsed_sec": 0.1327,
-      "max_elapsed_sec": 0.1327,
+      "median_elapsed_sec": 0.4308,
+      "max_elapsed_sec": 0.4308,
       "statuses": [
         "greedy-fallback"
       ]

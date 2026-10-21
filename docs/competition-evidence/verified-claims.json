@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-10-21T18:19:43.272836+09:00",
+  "generated_at": "2026-10-21T23:06:32.351856+09:00",
   "scope": "고정 가상 대회 분석·소프트웨어 검증의 주장 대장",
   "hash_basis": "UTF-8 텍스트, BOM 제거·LF 정규화. 수행 사실을 독립 인증하는 서명은 아님.",
   "source_sha256": {
-    "docs/real-data/replay-results.json": "f5988f81287fd4058f4f08c4f5f59c5517c908bdcda5c0e4bf2317f21a352cc6",
-    "docs/competition-evidence/method-comparison.json": "1ccc064b3cac5573020f21abfb41c3f1cea92a4753f013c09ece37dd2836999a",
-    "docs/competition-evidence/frozen-solutions.json": "7f1261fbcd3917f50078d579ea19356e6d6362468d24a269f0986c4afddade52",
+    "docs/real-data/replay-results.json": "4be0d898535bcf35b3d5109417daa289459ae79b959a37e2949e78898e7d3b02",
+    "docs/competition-evidence/method-comparison.json": "9f93edbc72cb5f7bdb3027ae3dd5cc2847d6119b713d42d8bf212635ffe90d81",
+    "docs/competition-evidence/frozen-solutions.json": "6c8805f2465e8b12c5208c9e592785686e888d3ecbcaf0f080ed5cce33ab9cc7",
     "docs/kma/live-connection-verification.json": "4503a9a6e8b2445b3eac013125f29b81a1fca2b9a91f55e9f1cde666aea0f873",
-    "frontend/src/demo/observed-snapshot.json": "b8aa90f0ce7b7982df2d3a8f886a9809ae489a398e864dc7eec8d2211e3e90be",
-    "frontend/src/demo/snapshot.json": "b1d8835a124618e95ab60d2a55533ba8344e16ee7279a30996e264dcb3daee80",
-    "docs/competition-evidence/no-field-analysis.json": "dfc8ca67cce255e987d12233c4fab750749429e4c254b5e33ef18241cbef70de",
-    "frontend/src/demo/no-field-analysis.json": "f747146eef4f7b4817f33712299ca4e556aa3f04b4e09fb53dd70aa733d8bc3a",
-    "frontend/src/demo/snapshot-plan-review.json": "5368206b655367f67f3a8ad7680b042cbddcc36e63f7a229c2a3b47cc6e0d437",
-    "frontend/src/demo/observed-snapshot-plan-review.json": "291b46c5be753be85330726c1bcd5978896ecfe9b853b2cf52456370ec5974fd",
-    "docs/competition-evidence/review-fix-results.json": "913e934d3338410648ae5fccb5fe75aef6cddffff721616f6fa46fa158cdb65d",
-    "frontend/src/demo/review-fix-summary.json": "f1f3c65cd0e9a954ae4bbd2ae74c3927c2f3bb10578de05dc9db877cdeef55d3",
-    "docs/competition-evidence/tournament-scale-analysis.json": "cade5f22e988cffa828a7a3c00af0962f42a802c91f9b6dd99cdb2227d73f47d",
+    "frontend/src/demo/observed-snapshot.json": "dcb463b66770fb299e58dc71450befb19c8d6a2f5e9245d11a3b782df6dd3e4e",
+    "frontend/src/demo/snapshot.json": "dfc69e20ccfe2af722fc0e1ac779051c68e0eb85eff9c965658ea539f88e844c",
+    "docs/competition-evidence/no-field-analysis.json": "ffd47c0852d523bab04657b2915f9564740fc09d9a72905bd494957d871efa98",
+    "frontend/src/demo/no-field-analysis.json": "62c37f7d4f49df725dea986f4fa4b27531e617b89978c7263b91e166e20471dd",
+    "frontend/src/demo/snapshot-plan-review.json": "8e9cf54f0804048c79b761f5ed1eb30395a1e74a9aba279da1b60fbd6529b79a",
+    "frontend/src/demo/observed-snapshot-plan-review.json": "f45bb392ef42304f2e02e68422c4a768f32a17cd419bd83ac7ace28fd772943b",
+    "docs/competition-evidence/review-fix-results.json": "2dcf0b7e9c3dc8f6b17507600e4519f8e0dfc5291c3e9d65daef02c22e987e3f",
+    "frontend/src/demo/review-fix-summary.json": "0a9dafb6ac936566cb4b00c6fbb80d3c044043e885296fa8aa69d479512c668d",
+    "docs/competition-evidence/tournament-scale-analysis.json": "b77838ff70384bd029349417d77694f190f7ab98e778f926f3f28022e6bce184",
     "backend/validation.py": "7b8d6ba63f0016ec181b31bbb01ea70451d48b68322a462b68eb435d7d05bc38",
     "tests/test_validation.py": "72a7b602d59a509ce1c805b9612dfa219df17d2e703fb49c098eb924f213965e",
-    "data/output/award-validation-pytest.xml": "66bc10b9eb4addec96be6e1b1cb88287c3035379561c606d1a92d48b1e41a7c0",
-    "data/output/award-validation-node.xml": "99be40efd415ebd5a135c84daa5e06a4c8e1fd921aa1d0778545e4b5f1da3f87",
-    "data/output/award-validation-playwright.json": "d5a5142bbaa38b8495c54abf546b90cd6c10e389f7e56383d527ea212a015812"
+    "data/output/award-validation-pytest.xml": "422fa9bc5ab9095451c9ab34d1e46eba5ad07dedc33ee897a9fe63e01df585a2",
+    "data/output/award-validation-node.xml": "7666b7ca1162f6b1ff19bdf3c81499dba91a34104175ceb07505511d0f142a0a",
+    "data/output/award-validation-playwright.json": "41139a6067f1fcdae4645af130f17a2996d5893df0122be5d27a194e14367bc6"
   },
   "original_sample_sha256": "3ec05108b47e104a4811a19bea81921c2d6e64e0008f8d3aa84a990605136ddf",
-  "tested_source_fingerprint": "2246f52edb97eb62e7d1d7e0183d7320c74755efe5753f4b724d577da29f8167",
-  "test_run_started_at": "2026-10-21T18:06:57.639923+09:00",
-  "assumptions": "경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
+  "tested_source_fingerprint": "0f77c4a7c35969ca96eee2b778bb5867f997472a481c56e0a574c1fd24963936",
+  "test_run_started_at": "2026-10-21T22:53:18.889929+09:00",
+  "assumptions": "경기장 보정 +2.5℃, 중앙 추정 판정(범위는 참고 표시), 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약",
   "observation_hours": 1488,
   "checks": {
     "presentation": {
@@ -51,252 +51,247 @@
   },
   "test_receipts": {
     "python": {
-      "passed": 950,
+      "passed": 961,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 392.277
+      "duration_seconds": 411.5
     },
     "node": {
-      "passed": 53,
+      "passed": 55,
       "failed": 0,
       "skipped": 0,
-      "duration_seconds": 0.249
+      "duration_seconds": 0.291
     },
     "browser": {
-      "passed": 228,
+      "passed": 234,
       "failed": 0,
       "skipped": 0,
       "flaky": 0,
-      "duration_seconds": 357.721
+      "duration_seconds": 338.935
     }
   },
   "demo": {
     "date": "2026-08-10",
-    "session_id": "caf4bffe14404d2c9e6166c2ef888d91",
-    "assigned": 13,
-    "postponed": 2,
-    "common_count": 13,
-    "original_heat": 6442,
-    "proposed_heat": 3879,
-    "heat_reduction": 2563,
-    "salvaged": 13,
-    "original_stop_count": 14,
+    "session_id": "d08cef536cf04bc28484832b02f1e024",
+    "assigned": 15,
+    "postponed": 0,
+    "common_count": 15,
+    "original_heat": 5273,
+    "proposed_heat": 4153,
+    "heat_reduction": 1120,
+    "salvaged": 4,
+    "original_stop_count": 4,
     "max_ta_c": 31.6,
     "max_wbgt_c": 31.274,
-    "max_decision_wbgt_c": 32.8,
+    "max_decision_wbgt_c": 31.3,
     "solver": "CP-SAT OPTIMAL",
     "coverage_optimal": true,
-    "elapsed_sec": 1.1791661999886855,
+    "elapsed_sec": 2.636365600017598,
     "constraints_ok": true,
-    "postponement_reasons": [
-      {
-        "match_id": "final",
-        "reason": "선행 경기 연기",
-        "coverage_proven": true
-      },
-      {
-        "match_id": "semi2",
-        "reason": "자료 누락 또는 중지·운영시간·휴식·구장·일몰 제약으로 배정 불가",
-        "coverage_proven": true
-      }
-    ],
+    "postponement_reasons": [],
     "missing_solar_hours": 9
   },
   "candidate_dates": [
+    "2026-08-11",
     "2026-08-10",
-    "2026-08-14",
     "2026-07-14",
-    "2026-08-09",
-    "2026-08-11"
+    "2026-08-13",
+    "2026-08-09"
   ],
-  "recalculation": "2026-10-11 재계산: 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정 후 전 수치 재생성",
+  "recalculation": "2026-10-21 재계산: 판정값을 범위 상단값에서 중앙 추정(관측 기반 추정 + 구장 보정 2.5℃)으로 바꾼 작성자 결정((나) 조건) 후 전 수치 재생성. 2026-10-11의 일사 구간 정렬·판정값 0.1℃ 반올림·동점 처리 고정은 그대로다",
+  "extreme": {
+    "date": "2026-08-08",
+    "assigned": 10,
+    "postponed": 5,
+    "max_ta_c": 35.4,
+    "common_count": 10,
+    "original_heat": 5993,
+    "proposed_heat": 2648,
+    "max_wbgt_c": 34.828
+  },
+  "hot_33_min_postponed": 5,
   "method_comparison": {
     "days": 62,
-    "cp_assigned": 555,
-    "greedy_assigned": 489,
-    "assignment_gain": 66,
-    "more_assigned_days": 28,
-    "same_assigned_days": 34,
+    "cp_assigned": 699,
+    "greedy_assigned": 609,
+    "assignment_gain": 90,
+    "more_assigned_days": 37,
+    "same_assigned_days": 25,
     "fewer_assigned_days": 0,
-    "cp_complete_days": 15,
+    "cp_complete_days": 28,
     "greedy_complete_days": 0,
-    "common_heat_lower_days": 9,
-    "common_heat_equal_days": 7,
-    "common_heat_higher_days": 29,
-    "no_common_days": 17,
-    "cp_common_heat": 120224,
-    "greedy_common_heat": 116836
+    "common_heat_lower_days": 4,
+    "common_heat_equal_days": 5,
+    "common_heat_higher_days": 46,
+    "no_common_days": 7,
+    "cp_common_heat": 141946,
+    "greedy_common_heat": 133826
   },
   "no_field_analysis": {
     "days": 62,
-    "cp_assigned": 555,
+    "cp_assigned": 699,
     "baselines": {
       "existing_heat_first": {
-        "assigned": 489,
-        "postponed": 441,
+        "assigned": 609,
+        "postponed": 321,
         "complete_days": 0,
-        "cp_more_days": 28,
-        "cp_equal_days": 34,
+        "cp_more_days": 37,
+        "cp_equal_days": 25,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 116836,
-        "cp_common_heat": 120224,
-        "equal_coverage_secondary_win_days": 24,
+        "baseline_common_heat": 133826,
+        "cp_common_heat": 141946,
+        "equal_coverage_secondary_win_days": 22,
         "equal_coverage_secondary_loss_days": 0
       },
       "earliest_input": {
-        "assigned": 552,
-        "postponed": 378,
-        "complete_days": 15,
-        "cp_more_days": 3,
-        "cp_equal_days": 59,
+        "assigned": 697,
+        "postponed": 233,
+        "complete_days": 28,
+        "cp_more_days": 2,
+        "cp_equal_days": 60,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 145326,
-        "cp_common_heat": 137233,
-        "equal_coverage_secondary_win_days": 49,
+        "baseline_common_heat": 180895,
+        "cp_common_heat": 164600,
+        "equal_coverage_secondary_win_days": 57,
         "equal_coverage_secondary_loss_days": 0
       },
       "earliest_reverse": {
-        "assigned": 552,
-        "postponed": 378,
-        "complete_days": 15,
-        "cp_more_days": 3,
-        "cp_equal_days": 59,
+        "assigned": 697,
+        "postponed": 233,
+        "complete_days": 28,
+        "cp_more_days": 2,
+        "cp_equal_days": 60,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 149393,
-        "cp_common_heat": 141375,
-        "equal_coverage_secondary_win_days": 49,
+        "baseline_common_heat": 184585,
+        "cp_common_heat": 167561,
+        "equal_coverage_secondary_win_days": 58,
         "equal_coverage_secondary_loss_days": 0
       },
       "weighted_critical": {
-        "assigned": 488,
-        "postponed": 442,
+        "assigned": 608,
+        "postponed": 322,
         "complete_days": 0,
-        "cp_more_days": 28,
-        "cp_equal_days": 34,
+        "cp_more_days": 38,
+        "cp_equal_days": 24,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 116972,
-        "cp_common_heat": 119914,
-        "equal_coverage_secondary_win_days": 24,
+        "baseline_common_heat": 133714,
+        "cp_common_heat": 141682,
+        "equal_coverage_secondary_win_days": 21,
         "equal_coverage_secondary_loss_days": 0
       },
       "best_of_four": {
-        "assigned": 552,
-        "postponed": 378,
-        "complete_days": 15,
-        "cp_more_days": 3,
-        "cp_equal_days": 59,
+        "assigned": 697,
+        "postponed": 233,
+        "complete_days": 28,
+        "cp_more_days": 2,
+        "cp_equal_days": 60,
         "cp_fewer_days": 0,
-        "baseline_common_heat": 148856,
-        "cp_common_heat": 142674,
-        "equal_coverage_secondary_win_days": 49,
+        "baseline_common_heat": 181711,
+        "cp_common_heat": 167216,
+        "equal_coverage_secondary_win_days": 57,
         "equal_coverage_secondary_loss_days": 0
       }
     },
     "scenarios": {
       "wbgt_-1": {
-        "applicable_days": 52,
-        "same_choices_valid_days": 19,
-        "needs_review_days": 36,
+        "applicable_days": 60,
+        "same_choices_valid_days": 25,
+        "needs_review_days": 46,
         "heat_blocked_matches": 0,
         "missing_matches": 0
       },
       "wbgt_+0": {
-        "applicable_days": 52,
-        "same_choices_valid_days": 52,
+        "applicable_days": 60,
+        "same_choices_valid_days": 60,
         "needs_review_days": 0,
         "heat_blocked_matches": 0,
         "missing_matches": 0
       },
       "wbgt_+1": {
-        "applicable_days": 52,
-        "same_choices_valid_days": 14,
-        "needs_review_days": 38,
-        "heat_blocked_matches": 168,
+        "applicable_days": 60,
+        "same_choices_valid_days": 12,
+        "needs_review_days": 52,
+        "heat_blocked_matches": 162,
         "missing_matches": 0
       },
       "wbgt_+2": {
-        "applicable_days": 52,
-        "same_choices_valid_days": 1,
-        "needs_review_days": 52,
-        "heat_blocked_matches": 335,
+        "applicable_days": 60,
+        "same_choices_valid_days": 3,
+        "needs_review_days": 60,
+        "heat_blocked_matches": 329,
         "missing_matches": 0
       },
       "missing_critical_hour": {
-        "applicable_days": 52,
+        "applicable_days": 60,
         "same_choices_valid_days": 0,
-        "needs_review_days": 52,
+        "needs_review_days": 60,
         "heat_blocked_matches": 0,
-        "missing_matches": 53
+        "missing_matches": 69
       }
     }
   },
   "tournament_scale": {
     "cases": 31,
     "matches_per_case": 27,
-    "engine_assigned": 593,
-    "baseline_assigned": 583,
-    "engine_complete_cases": 17,
-    "baseline_complete_cases": 13,
+    "engine_assigned": 710,
+    "baseline_assigned": 701,
+    "engine_complete_cases": 21,
+    "baseline_complete_cases": 17,
     "engine_more_cases": 7,
     "equal_cases": 24,
     "engine_fewer_cases": 0,
-    "engine_common_heat": 149324,
-    "baseline_common_heat": 160106,
-    "common_heat_reduction_pct": 6.7343,
-    "no_common_cases": 4,
+    "engine_common_heat": 181204,
+    "baseline_common_heat": 190575,
+    "common_heat_reduction_pct": 4.9172,
+    "no_common_cases": 0,
     "statuses": {
-      "CP-SAT FEASIBLE": 18,
-      "CP-SAT OPTIMAL": 13
+      "CP-SAT FEASIBLE": 12,
+      "CP-SAT OPTIMAL": 10,
+      "validated-greedy · CP-SAT UNKNOWN": 9
     },
-    "median_optimize_sec": 12.479,
-    "max_optimize_sec": 13.6246
+    "median_optimize_sec": 13.3091,
+    "max_optimize_sec": 15.2456
   },
   "selection_fix": {
     "12": {
       "cases": 62,
-      "previous_assigned": 555,
-      "selected_assigned": 555,
-      "baseline_assigned": 552,
-      "selected_complete": 15,
+      "previous_assigned": 699,
+      "selected_assigned": 699,
+      "baseline_assigned": 697,
+      "selected_complete": 28,
       "statuses": {
-        "OPTIMAL": 61,
-        "FEASIBLE": 1
+        "OPTIMAL": 58,
+        "FEASIBLE": 4
       },
       "selected_methods": {
         "cp_sat": 62
       },
-      "baseline_common_heat": 148856,
-      "selected_common_heat": 142674
+      "baseline_common_heat": 181711,
+      "selected_common_heat": 167217
     },
     "16": {
       "cases": 31,
-      "previous_assigned": 593,
-      "selected_assigned": 592,
-      "baseline_assigned": 583,
-      "selected_complete": 16,
+      "previous_assigned": 710,
+      "selected_assigned": 710,
+      "baseline_assigned": 701,
+      "selected_complete": 21,
       "statuses": {
-        "FEASIBLE": 17,
-        "OPTIMAL": 14
+        "UNKNOWN": 9,
+        "FEASIBLE": 12,
+        "OPTIMAL": 10
       },
       "selected_methods": {
-        "cp_sat": 31
+        "earliest_input": 9,
+        "cp_sat": 22
       },
-      "baseline_common_heat": 160106,
-      "selected_common_heat": 149004
+      "baseline_common_heat": 190575,
+      "selected_common_heat": 181567
     }
   },
-  "incomplete_days": 47,
+  "incomplete_days": 34,
   "zero_assignment_dates": [
-    "2026-07-11",
-    "2026-07-12",
-    "2026-07-13",
-    "2026-07-31",
-    "2026-08-01",
-    "2026-08-03",
     "2026-08-04",
-    "2026-08-05",
-    "2026-08-06",
-    "2026-08-07"
+    "2026-08-06"
   ],
   "live": {
     "verified_at": "2026-10-05T23:38:09.661271+09:00",

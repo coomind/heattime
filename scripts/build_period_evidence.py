@@ -20,7 +20,7 @@ def build():
             raise ValueError('Frozen/replay result mismatch')
     data = {'version':1,'station':original['station'],'original_sample_sha256':original['original_sample_sha256'],
             'source_sha256':{path.name:hashlib.sha256(path.read_text(encoding='utf-8').encode()).hexdigest() for path in paths},
-            'assumptions':'경기장 보정 +2.5℃, 유소년 추정 상단값 판정, 동일 관측소 1곳 공유, 이 가상 대회의 대진·휴식·운영시간·일몰 제약',
+            'assumptions':'경기장 보정 +2.5℃를 더한 중앙 추정으로 판정(범위는 참고 표시), 동일 관측소 1곳 공유, 이 가상 대회의 대진과 휴식과 운영시간과 일몰 제약',
             'days':[{key:row[key] for key in fields} for row in original['days']],
             'comparison':{'summary':comparison['summary'],'days':[{**{key:row[key] for key in compare_fields},'common_count':len(row['common_match_ids'])} for row in comparison['days']]}}
     target = ROOT/'frontend/src/demo/period-evidence.json'
