@@ -30,7 +30,8 @@ def test_live_observed_pdf_source_and_frozen_labels(approved):
     assert '기상청 관측 자료(수원 119·2026-08-10)' in pages[0]
     assert all(DISCLAIMER in p for p in pages)
     assert '비교 일사량은 합성' not in text and '시간평균' in text
-    assert load_dataset().original_sha256 in text and '기상청 관측 자료' in pages[1]
+    # pages[1] is the hatched stage table; the first match page follows it.
+    assert load_dataset().original_sha256 in text and '구장 × 시간 단계표' in pages[1] and '기상청 관측 자료' in pages[2]
     assert '관측 일사 결측 9시간' in text
     mutated=deepcopy(approved);mutated['label']='wrong';mutated['data_origin']='synthetic';mutated['weather']=[]
     frozen=''.join(p.extract_text() for p in PdfReader(BytesIO(records_pdf(mutated))).pages)

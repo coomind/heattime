@@ -188,7 +188,7 @@ def test_pdf_stage_grid_uses_hatching_and_stage_numbers():
     from reportlab.graphics.shapes import Line
     from backend.exports import records_pdf, stage_grid, STAGE_HATCH
     s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
-    page = PdfReader(BytesIO(records_pdf(s))).pages[1].extract_text()
+    page = PdfReader(BytesIO(records_pdf(s))).pages[1].extract_text().replace(chr(10), '')
     assert '구장 × 시간 단계표' in page and '흑백으로 인쇄해도' in page and page.count('4단계') >= 21
     assert len({str(h) for h in STAGE_HATCH}) == 4  # 0 and 4 have no hatch (blank vs solid); 1-3 differ
     d = stage_grid(s, 500, 'Helvetica', 'Helvetica')
