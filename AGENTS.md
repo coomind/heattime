@@ -39,7 +39,7 @@
 - P3 통과 커밋 후 P4~P6 지속 진행.
 
 [후속 사용자 지시 2026-10-02: ASOS 샘플 수집 준비]
-- docs/kma/의 제공된 DOCX 활용가이드만 ASOS 주소·변수·응답·지점의 근거로 사용한다.
+- 기상청 활용가이드에서 옮긴 docs/kma/asos-guide-extract.json(원문 표 13개)만 근거로 사용한다. 원문은 https://www.data.go.kr/data/15057210/openapi.do 참고문서
 - docs/kma/asos-spec.md 요약 및 scripts/fetch_asos_samples.py를 작성·오프라인 테스트·보고·커밋한다.
 - 에이전트는 프로젝트 .env를 직접 열거나 출력하지 않으며 실제 수집 스크립트를 실행하지 않는다.
 - 사용자가 스크립트를 실행할 때만 .env의 KMA_API_KEY(Decoding 키)를 읽어 호출한다.
