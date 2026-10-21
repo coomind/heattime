@@ -121,3 +121,9 @@ nav button.active{background:var(--accent)}
 .topbar{color:var(--muted);background:var(--surface);border-color:var(--line)}
 .eyebrow{color:var(--muted)}
 footer{color:var(--muted)}
+
+.stage-window{border-top:1px solid var(--line);margin-top:14px;padding-top:12px;display:grid;gap:6px}
+.stage-window h3{font-size:1rem;margin:0}
+.stage-window p,.stage-window li{font-size:.88rem;line-height:1.75;color:var(--muted)}
+.stage-window ul{margin:0;padding-left:1.1rem;display:grid;gap:4px}
+.stage-window b{color:var(--ink)}
