@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
+    "build:demo": "vite build --mode demo",
+    "test:e2e:demo": "playwright test --config playwright.demo.config.js",
     "test:e2e": "playwright test",
     "test:e2e:repeat": "npm run build && playwright test --repeat-each=3",
     "test:unit": "node --test tests/*.test.js"

@@ -1,5 +1,5 @@
 export async function prepareDemoCache(){
- const registration=await navigator.serviceWorker.register('/sw.js');
+ const registration=await navigator.serviceWorker.register('./sw.js');
  try{await registration.update();}catch(error){if(!registration.active)throw error;}
  const pending=registration.installing||registration.waiting;
  if(pending&&pending.state!=='activated')await new Promise((resolve,reject)=>{

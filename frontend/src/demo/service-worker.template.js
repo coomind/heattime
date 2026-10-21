@@ -3,8 +3,8 @@ const PREFIX='heattime-demo-';
 const BUILD_VERSION='__HEATTIME_BUILD_ID__';
 const CACHE_NAME=PREFIX+BUILD_VERSION;
 self.addEventListener('install',event=>event.waitUntil((async()=>{
- const response=await fetch('/demo-assets.json',{cache:'no-store'});
- const urls=await response.json();
+ const response=await fetch(new URL('demo-assets.json',self.registration.scope),{cache:'no-store'});
+ const urls=(await response.json()).map(u=>new URL(u,self.registration.scope).href);
  const cache=await caches.open(CACHE_NAME);await cache.addAll(urls);await self.skipWaiting();
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{

@@ -3,11 +3,16 @@ import react from '@vitejs/plugin-react';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
-export default defineConfig({
+// `npm run build:demo` (mode 'demo'): static judge demo in dist-demo/, no backend, relative paths so it
+// also opens under a sub-path such as GitHub Pages. VITE_BASE overrides the base (default '/' or './').
+export default defineConfig(({mode})=>({
+ base:process.env.VITE_BASE||(mode==='demo'?'./':'/'),
+ define:{'import.meta.env.VITE_STATIC_DEMO':JSON.stringify(mode==='demo'?'1':'0')},
  plugins:[react(),{
   name:'snapshot-precache',
   generateBundle(options,bundle){
-   const paths=['/','/index.html','/demo-assets.json','/sw.js',...Object.keys(bundle).map(name=>'/'+name)];
+   // Relative to the service worker, so the same cache list works at / and under a sub-path.
+   const paths=['./','index.html','demo-assets.json','sw.js',...Object.keys(bundle)];
    this.emitFile({type:'asset',fileName:'demo-assets.json',source:JSON.stringify([...new Set(paths)])});
   },
   writeBundle(options,bundle){
@@ -17,7 +22,7 @@ export default defineConfig({
    writeFileSync(resolve(options.dir,'sw.js'),template.replace('__HEATTIME_BUILD_ID__',version));
   }
  }],
- build:{rollupOptions:{output:{manualChunks(id){
+ build:{outDir:mode==='demo'?'dist-demo':'dist',rollupOptions:{output:{manualChunks(id){
   const normalized=id.replaceAll('\\','/');
   if(normalized.endsWith('/observed-snapshot-exports.json'))return 'observed-snapshot-exports';
   if(normalized.endsWith('/snapshot-exports.json'))return 'snapshot-exports';
@@ -28,4 +33,4 @@ export default defineConfig({
   }
  }}}},
  envDir:false,server:{proxy:{'/api':'http://127.0.0.1:8000'}}
-});
+}));
