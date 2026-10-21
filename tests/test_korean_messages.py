@@ -177,3 +177,19 @@ def test_readable_names_in_notifications_pdf_and_csv():
     rows = list(csv.DictReader(io.StringIO(records_csv(s).decode('utf-8-sig'))))
     assert list(rows[0].keys()) == CSV_HEADER and all(re.search('[가-힣]', h) for h in CSV_HEADER)
     assert {r['경기'] for r in rows} >= {'준결승 2', '결승', '1조 1경기'}
+
+
+def test_pdf_stage_grid_uses_hatching_and_stage_numbers():
+    """i: a venue x hour stage table with hatch density per stage, readable in black-and-white print."""
+    import json
+    from io import BytesIO
+    from pathlib import Path
+    from pypdf import PdfReader
+    from reportlab.graphics.shapes import Line
+    from backend.exports import records_pdf, stage_grid, STAGE_HATCH
+    s = json.loads((Path(__file__).resolve().parents[1]/'frontend/src/demo/observed-snapshot.json').read_text(encoding='utf-8'))['approved']
+    page = PdfReader(BytesIO(records_pdf(s))).pages[1].extract_text()
+    assert '구장 × 시간 단계표' in page and '흑백으로 인쇄해도' in page and page.count('4단계') >= 21
+    assert len({str(h) for h in STAGE_HATCH}) == 4  # 0 and 4 have no hatch (blank vs solid); 1-3 differ
+    d = stage_grid(s, 500, 'Helvetica', 'Helvetica')
+    assert sum(isinstance(x, Line) for x in d.contents) > 100

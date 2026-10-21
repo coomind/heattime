@@ -9,6 +9,8 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether
+from reportlab.graphics.shapes import Drawing, Rect, Line, String
+from reportlab.lib.colors import HexColor, white, black
 from backend.decision_breakdown import explanation,breakdown
 from backend.display_names import match_name, placeholder_name
 
@@ -106,6 +108,64 @@ CSV_HEADER = ['자료 구분(가상 예시)', '경기 ID', '경기', '근거 구
               '적용 조치', '쿨링브레이크 시각', '연기 사유', '입력 전체(JSON)', '고지']
 
 
+# i: stage colours of design A plus hatch density, so stages stay distinct in black-and-white print.
+STAGE_FILL = ['#e2efe5', '#f3edc4', '#ffd59f', '#ec9b7b', '#6b1f2e']
+STAGE_HATCH = [None, (7, False), (4, False), (4, True), None]  # (spacing pt, cross-hatch)
+
+
+def _hatch(d, x, y, w, h, level):
+    spec = STAGE_HATCH[level]
+    if not spec:
+        return
+    gap, cross = spec
+    ink = HexColor('#3a2a22')
+    k = -h
+    while k < w:
+        x0, y0, x1, y1 = x + max(k, 0), y + max(-k, 0), x + min(k + h, w), y + min(h, w - k)
+        d.add(Line(x0, y0, x1, y1, strokeColor=ink, strokeWidth=0.45))
+        if cross:
+            d.add(Line(x + w - (x0 - x), y0, x + w - (x1 - x), y1, strokeColor=ink, strokeWidth=0.45))
+        k += gap
+
+
+def stage_grid(s, width, font, unit_font):
+    """Venue x hour table: stage number, decision value; fill + hatch by stage."""
+    day = s['tournament']['date_start']
+    hours = list(range(7, 21))
+    venues = s.get('venues', [])
+    label_w, row_h, head_h, legend_h = 92, 30, 14, 34
+    cell_w = (width - label_w) / len(hours)
+    height = head_h + row_h * len(venues) + legend_h
+    d = Drawing(width, height)
+    top = height - head_h
+    for i, h in enumerate(hours):
+        d.add(String(label_w + i * cell_w + 2, top + 3, f'{h}시', fontName=font, fontSize=7))
+    for r, v in enumerate(venues):
+        y = top - (r + 1) * row_h
+        d.add(String(0, y + row_h / 2 - 3, v['name'].replace(' · 가상 예시', ''), fontName=font, fontSize=7))
+        for i, h in enumerate(hours):
+            risk = next((x for x in s['risks'] if x['venue_id'] == v['id'] and x['valid_time'].startswith(f'{day}T{h:02d}')), None)
+            x = label_w + i * cell_w
+            if risk is None:
+                d.add(Rect(x, y, cell_w - 1, row_h - 1, fillColor=white, strokeColor=black, strokeWidth=0.3))
+                d.add(String(x + 2, y + 4, '자료 없음', fontName=font, fontSize=5.5))
+                continue
+            level = risk['level']
+            d.add(Rect(x, y, cell_w - 1, row_h - 1, fillColor=HexColor(STAGE_FILL[level]), strokeColor=black, strokeWidth=0.3))
+            _hatch(d, x, y, cell_w - 1, row_h - 1, level)
+            ink = white if level == 4 else black
+            d.add(Rect(x + 1.5, y + 1.5, cell_w - 4, 18, fillColor=HexColor('#6b1f2e') if level == 4 else white, strokeColor=None))
+            d.add(String(x + 3, y + 12, f"{level}단계", fontName=font, fontSize=6, fillColor=ink))
+            d.add(String(x + 3, y + 3.5, f"{risk['decision_wbgt_c']:.1f}", fontName=font, fontSize=6.5, fillColor=ink))
+    y = 2
+    for level in range(5):
+        x = level * (width / 5)
+        d.add(Rect(x, y, 14, 12, fillColor=HexColor(STAGE_FILL[level]), strokeColor=black, strokeWidth=0.3))
+        _hatch(d, x, y, 14, 12, level)
+        d.add(String(x + 18, y + 3, f"{level} {stage_name(s, level)}", fontName=font, fontSize=7))
+    return d
+
+
 def records_csv(session):
     s = record_context(session)
     output = StringIO(newline=''); writer = csv.writer(output)
@@ -177,6 +237,10 @@ def records_pdf(session):
         para('관측 원본 SHA256: '+s['observation_summary']['original_sample_sha256'])
     else:
         para('전체 입력과 알림은 함께 내려받는 JSON에 보존됩니다. 기상은 합성(가상 예시) 입력이고 대회·팀·구장도 가상 예시입니다. 비교 일사량은 합성 예시이며 실제 관측 정확도 검증은 보류입니다.')
+    story.append(PageBreak())
+    para('구장 × 시간 단계표', True)
+    para('칸마다 단계 번호와 판정값(℃, WBGT 추정에서 정한 값)을 적었습니다. 단계는 색과 함께 빗금 밀도로도 구분하므로 흑백으로 인쇄해도 읽을 수 있습니다. 0단계는 빗금 없음, 1단계는 성긴 빗금, 2단계는 촘촘한 빗금, 3단계는 교차 빗금, 4단계는 진한 단색입니다.')
+    story.append(stage_grid(s, A4[0] - 76, font, unit_font))
     for m in s['matches']:
         story.append(PageBreak()); rec, a, p, evidence = match_context(s, m)
         para(m['round'] + ' · ' + match_name(m['id']) + f" ({m['id']})", True)
